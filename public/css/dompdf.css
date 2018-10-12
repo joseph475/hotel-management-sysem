@@ -1,0 +1,39 @@
+.orderReceiptTable{
+    width:100%;
+    border-collapse: collapse;
+}
+.orderReceiptTable td {
+    padding: 5px;
+    border: 1px solid gray;
+}
+
+.orderReceiptTable tr.heading td{
+    padding: 8px;
+    font-weight: bold;
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
+
+.header{
+    width: 100%;
+}
+.header h2{
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+}
+.header h5{
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.header h5{
+    margin: 8px 0;
+}
+.billingReceiptheader{
+    width:100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+.billingReceiptheader td{  
+    padding: 3px 0px;
+}

@@ -1,0 +1,29 @@
+header{
+    z-index: 10000;
+    .header-nav{
+        background: $header-footer;
+        box-shadow: none !important;
+        .nav-wrapper{
+            display: flex;
+            justify-content: space-between;
+            padding-right: 32p x;
+
+            .header-logo{
+                margin-left: 25px;
+            }
+            .header-icons{
+                display: flex;
+                margin-right: 317px;
+                i{
+                    font-size: 26px;
+                    margin-right: 20px;
+                }
+            }
+            @media (max-width: 992px){
+                .header-icons{
+                    margin-right: 17px !important;
+                }
+            }
+        }
+    }
+}

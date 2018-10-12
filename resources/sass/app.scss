@@ -1,0 +1,19 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'libraries/variables';
+@import 'libraries/mixins';
+
+//partials
+@import 'partials/header';
+@import 'partials/footer';
+@import 'partials/sidenav';
+
+//pages
+@import 'pages/rooms';
+@import 'pages/dashboard';
+@import 'pages/checkin';
+
+@import 'main';

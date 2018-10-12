@@ -1,0 +1,45 @@
+.sidenav{
+    // top: 64px;
+    width: 300px;
+    background: $header-footer;
+    li{
+        & > a{
+            color: white !important;
+            font-weight: 400 !important;
+            i{
+                color: white !important;
+            }
+        }
+        ul{
+            background: $header-footer;
+        }
+        .user-view{
+            // background-image: url('/images/userbg3.jpg');
+            background: $header-footer;
+            @extend .px20;
+            @extend .py10;
+            margin: 0px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            color: white;
+            img{
+                @extend .mr10;
+            }
+            .user{
+                cursor: pointer;
+                i{
+                    position: relative;
+                    top:3px;
+                }
+            }
+        }
+
+        .user-divider{
+            @extend .no-pad-mar;
+        }
+    }
+    .collapsible-header{
+        padding: 0 32px;
+    }
+}
