@@ -4,26 +4,20 @@ namespace App\Http\Controllers\ApiController;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\GuestModel;
 use App\Models\RoomModel;
+use App\Models\CheckinModel;
 
-class RoomsController extends Controller
+class CheckinController extends Controller
 {
-    /**  
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $rooms = RoomModel::join('roomtypes', 'rooms.roomType', '=', 'roomtypes.id')
-        ->select('rooms.roomNo', 'roomtypes.type', 'rooms.floor', 'roomtypes.rate', 'roomtypes.rateperhour','rooms.status')
-        ->where('rooms.ispublished',1)
-        ->orderBy('rooms.createdDate', 'desc')
-        // ->limit(10)
-        // ->get();
-        ->paginate(10);
-        // $rooms->withPath('api/Rooms');
-        return $rooms;
+        //
     }
 
     /**
@@ -44,8 +38,25 @@ class RoomsController extends Controller
      */
     public function store(Request $request)
     {
-        $room = RoomModel::create($request->all());
-        return $room;
+        $guest = GuestModel::create($request->all());
+        $guest_id = GuestModel::select('id')->whereRaw('id = (select max(`id`) from guests)')->first();
+        
+        $checkout = $request->checkOutDate;
+        $checkout = date('Y-m-d H:i:s' , strtotime($checkout));
+
+        $checkin = array(
+            'room_id' => $request->room_id,
+            'guestId' => $guest_id->id,
+            'checkOutDate' => $checkout,
+            'adultsCount' => $request->adultsCount,
+            'childrenCount' => $request->childrenCount
+        );
+        // print_r($checkin);
+
+        $checkin = CheckinModel::create($checkin);
+
+        // print_r($request->room_id, );
+        return [];
     }
 
     /**

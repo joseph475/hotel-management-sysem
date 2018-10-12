@@ -1,9 +1,10 @@
 .checkin-page{
+    input[type=text]:not(.browser-default):disabled{ color: black }
     .radio-btn{ position: relative; left: 0px !important; }
     .content{
         margin: 20px;
         // padding: 5px;
-        background-color: white;
+        background-color: white; 
         .page-header-2{
             background-color:#286ac2;
             box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),

@@ -16,7 +16,11 @@ class Controller extends BaseController
         
     // }
     public function getSystemVariables(){
-        $data = SystemVariables::all();
-        return ['data'=>$data];
+        $floor = SystemVariables::findOrFail('floor');
+
+        $data = array(
+            'floor' => $floor->value,
+        );
+        return $data;
     }
 }

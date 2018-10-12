@@ -23,6 +23,7 @@ function loopRoomCards(data) {
     $('#room-cards').html("");
     for (var i = 0; i < data.length; i++) {
         var roomNo = data[i].roomNo,
+            room_id = data[i].room_id,
             type = data[i].type,
             floor = data[i].floor,
             rate = convert(data[i].rate),
@@ -31,17 +32,17 @@ function loopRoomCards(data) {
             maxChildren = data[i].maxChildren,
             checkin_id = data[i].checkin_id,
             status = data[i].status    
-        $('#room-cards').append(createRoomCards(roomNo, type, floor, rate, rateperhour,maxAdult,maxChildren, status));
+        $('#room-cards').append(createRoomCards(roomNo,room_id, type, floor, rate, rateperhour,maxAdult,maxChildren, status));
 
-        if(status == 'Vacant'){ $('#roomNo_' + roomNo).wrap('<a href="Checkin/'+ roomNo +'"></a>'); }
-        if(status == 'Occupied'){ $('#roomNo_' + roomNo).wrap('<a href="Checkin-status/'+ checkin_id +'"></a>'); }
+        if(status == 'Vacant'){ $('#room_' + room_id).wrap('<a href="Checkin/'+ room_id +'"></a>'); }
+        if(status == 'Occupied'){ $('#room_' + room_id).wrap('<a href="Checkin-status/'+ checkin_id +'"></a>'); }
 
     }
 }
 
-function createRoomCards(roomNo, type, floor, rate, rateperhour,maxAdult,maxChildren, status) {
+function createRoomCards(roomNo, room_id, type, floor, rate, rateperhour,maxAdult,maxChildren, status) {
     var myRoomCard = "<div class='col m3 s6'>" +
-                        "<div class='cards z-depth-1' id='roomNo_"+ roomNo +"'>" +
+                        "<div class='cards z-depth-1' id='room_"+ room_id +"'>" +
                             "<p class='p-room'>Room " + roomNo + "</p>" +   
                             "<div class='card-image "+ status +"'>" +
                                 "<img src='/images/bed1.png'>" +

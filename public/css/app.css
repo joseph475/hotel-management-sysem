@@ -3136,6 +3136,10 @@ footer .page-footer {
   width: 100%;
 }
 
+.checkin-page input[type=text]:not(.browser-default):disabled {
+  color: black;
+}
+
 .checkin-page .radio-btn {
   position: relative;
   left: 0px !important;
