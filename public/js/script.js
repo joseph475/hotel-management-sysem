@@ -156,7 +156,6 @@ function loadRoomTypesDropdown(){
     });
 };
 
-
 window.onscroll = function () { stickyPageHeader() };
 
 var pageheader = document.getElementById("page-header");
