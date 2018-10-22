@@ -39,7 +39,7 @@
     </ul>
     <li><a href="nextCheckout.php"><i class="material-icons left">event_available</i>Upcoming Checkouts</a></li>
     
-    <li><a href="roomManagement.php"><i class="material-icons">hotel</i>Room Management</a></li>
+    <li><a href="{{ url('/RoomManagement') }}"><i class="material-icons">hotel</i>Room Management</a></li>
 
    
         <ul class="collapsible collapsible-accordion">

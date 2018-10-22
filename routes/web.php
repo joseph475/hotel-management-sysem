@@ -20,6 +20,8 @@ Route::get('/RoomTypes', 'WebController\RoomTypesController@index');
 
 Route::get('/Checkin/{id}', 'WebController\CheckinController@index');
 
+Route::get('/RoomManagement', 'WebController\RoomManagementController@index');
+
 
 
 Route::get('/', function () {

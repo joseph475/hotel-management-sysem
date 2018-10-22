@@ -34,4 +34,6 @@ Route::delete('RoomType/{id}','ApiController\RoomTypesController@destroy');
 
 Route::post('Checkin','ApiController\CheckinController@store');
 
+Route::put('RoomManagement/update/{id}','ApiController\RoomManagementController@update');
+
 Route::get('dashboard','ApiController\DashboardController@index');

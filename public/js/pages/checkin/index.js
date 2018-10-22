@@ -35,18 +35,23 @@ function saveCheckin(){
                         },
                         dataType: 'json',
                         success: function (data) {
-                            $.confirm({
-                                title: 'Checked in Succesfully',
-                                content: '',
-                                buttons: {
-                                    OK: function () { 
-                                        // window.location = "/"; 
-                                    }
-                                },
-                                theme: 'dark',
-                                boxWidth: '35%',
-                                useBootstrap: false
-                            });
+                            if(data.status == 1){
+                                $.confirm({
+                                    title: 'Checked in Succesfully',
+                                    content: '',
+                                    buttons: {
+                                        OK: function () { 
+                                            window.location = "/"; 
+                                        }
+                                    },
+                                    theme: 'dark',
+                                    boxWidth: '35%',
+                                    useBootstrap: false
+                                });
+                            }
+                            else{
+                                displayMessage('','Oops!!! Something went wrong')
+                            }
                         },
                         error: function (aaa, bbb, ccc) {
                             console.log(aaa + "-" + bbb + "-" + ccc);

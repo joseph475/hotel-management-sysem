@@ -16,7 +16,7 @@ class RoomsController extends Controller
     public function index()
     {
         $rooms = RoomModel::join('roomtypes', 'rooms.roomType', '=', 'roomtypes.id')
-        ->select('rooms.roomNo', 'roomtypes.type', 'rooms.floor', 'roomtypes.rate', 'roomtypes.rateperhour','rooms.status')
+        ->select('rooms.id', 'rooms.roomNo', 'roomtypes.type', 'rooms.floor', 'roomtypes.rate', 'roomtypes.rateperhour','rooms.status')
         ->where('rooms.ispublished',1)
         ->orderBy('rooms.createdDate', 'desc')
         // ->limit(10)

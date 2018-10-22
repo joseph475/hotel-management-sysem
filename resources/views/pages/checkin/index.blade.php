@@ -19,9 +19,9 @@
     </div>
     
     <div class="row content z-depth-1">
-        <div class="col s12 m7 first-col">
+        <div class="col s12 m6 first-col">
             <div class="page-header-2">
-                <div class="page-title-2">Guest Information</div>
+                <div class="page-title-2">Checkin Details</div>
             </div>
             <div class="row">
                 <div class="input-field col s12 m12">
@@ -44,11 +44,6 @@
                     <input id="compAdress" type="text" class="validate">
                     <label for="compAdress">Company Adress</label>
                 </div>
-            </div>
-            <div class="page-header-2">
-                <div class="page-title-2">Checkin Details</div>
-            </div>
-            <div class="row">
                 <div class="input-field col s12 m12">
                     <i class="material-icons prefix">event</i>
                     <input id="checkoutdate" type="text" class="datepicker">
@@ -70,7 +65,7 @@
             </div>
         </div>
 
-        <div class="col s12 m5 second-col">
+        <div class="col s12 m6 second-col">
             <div class="page-header-2">
                 <div class="page-title-2">Room Information</div>
             </div>
