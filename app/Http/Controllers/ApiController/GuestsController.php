@@ -4,31 +4,25 @@ namespace App\Http\Controllers\ApiController;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\RoomModel;
+use App\Models\GuestModel;
 
-class RoomsController extends Controller
+class GuestsController extends Controller
 {
-    /**  
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $rooms = RoomModel::join('roomtypes', 'rooms.roomType', '=', 'roomtypes.id')
-        ->select('rooms.id', 'rooms.roomNo', 'roomtypes.type', 'rooms.floor', 'roomtypes.rate', 'roomtypes.rateperhour','rooms.status')
-        ->where('rooms.ispublished',1)
-        ->orderBy('rooms.createdDate', 'desc')
+        $guests = GuestModel::join('checkin', 'guests.id', '=', 'checkin.guestId')
+        ->join('rooms', 'rooms.id', '=', 'checkin.room_id')
+        ->select('guests.id', 'guests.name', 'guests.contact', 'guests.companyName', 'guests.companyAddress', 'rooms.roomNo','checkin.id AS checkin_id')
+        ->orderBy('checkin.checkOutDate')
         ->paginate(10);
-        return $rooms;
+        return $guests;
     }
 
-    public function getRoomsNotOccupied(){
-        $rooms = RoomModel::where('ispublished',1)
-        ->where('status','!=', 'Occupied')
-        ->paginate(10);
-        return $rooms;
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -47,8 +41,7 @@ class RoomsController extends Controller
      */
     public function store(Request $request)
     {
-        $room = RoomModel::create($request->all());
-        return $room;
+        //
     }
 
     /**

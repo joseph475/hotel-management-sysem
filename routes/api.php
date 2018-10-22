@@ -32,8 +32,11 @@ Route::get('RoomTypes','ApiController\RoomTypesController@index');
 Route::get('RoomTypes/{id}','ApiController\RoomTypesController@show');
 Route::delete('RoomType/{id}','ApiController\RoomTypesController@destroy');
 
+Route::get('Guests','ApiController\GuestsController@index');
+
 Route::post('Checkin','ApiController\CheckinController@store');
 
 Route::put('RoomManagement/update/{id}','ApiController\RoomManagementController@update');
+Route::get('Rooms/getRoomsNotOccupied','ApiController\RoomsController@getRoomsNotOccupied');
 
 Route::get('dashboard','ApiController\DashboardController@index');

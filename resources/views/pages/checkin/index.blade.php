@@ -103,5 +103,5 @@
 @endsection
 
 @section('pagejs')
-<script src="{{ asset('/js/pages/checkin/index.js') }}"></script>
+<script src="{{ asset('/js/pages/Checkin/index.js') }}"></script>
 @stop

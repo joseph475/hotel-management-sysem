@@ -6,6 +6,10 @@
             <div class="page-title">Manage Rooms</div>
             <div class="page-buttons">
                 <div class="button-content">
+                    <a class="btn btn-1" href="/">
+                        <i class="material-icons left">arrow_back</i>
+                        Back
+                    </a>
                     <a class="btn btn-1 modal-trigger addRoom" href="#AddRoomModal">
                         <i class="material-icons left">add</i>
                         Add Room

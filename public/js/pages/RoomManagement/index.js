@@ -7,7 +7,7 @@ $(document).on('click','.changestatus' , changeStatus );
 function loadRooms(curpage) {
     sessionStorage.setItem("curpage", curpage);
     $.ajax({
-        url: 'api/Rooms',
+        url: 'api/Rooms/getRoomsNotOccupied',
         data:{
             page: curpage  
         },
@@ -37,7 +37,7 @@ function loopRoomDetails(data) {
 }
 
 function createRoomTable(id, roomNo, status) {
-    var myRoom = '<tr data-id="'+ id +'">' +
+    var myRoom = '<tr class="room_row" data-id="'+ id +'">' +
         '<td>' + roomNo + '</td>' +
         '<td class="room_status">' + status + '</td>' +
         '<td>' +
@@ -61,8 +61,10 @@ function changeStatus(){
         type: 'put',
         dataType: 'json',
         success: function (data) {
-            // var tr = $(this).closest('tr');
-            // $(this).closest('.room_status').html(status);
+            if(data.status == 1){
+                $('.room_row[data-id = '+ id +']').find('.room_status').html(status);
+                displayMessage('Room Status Updated Succesfully','');
+            }
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(textStatus, errorThrown);

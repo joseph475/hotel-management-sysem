@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2018 at 05:58 PM
+-- Generation Time: Oct 22, 2018 at 04:56 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -122,11 +122,8 @@ CREATE TABLE `checkin` (
 --
 
 INSERT INTO `checkin` (`id`, `room_id`, `guestId`, `checkInDate`, `checkOutDate`, `adultsCount`, `childrenCount`) VALUES
-(1, '2', 1, '2018-10-12 04:07:18', '2018-10-24 00:00:00', 5, 5),
-(2, '3', 2, '2018-10-12 04:07:18', '2018-10-24 00:00:00', 5, 5),
-(3, '4', 3, '2018-10-12 04:07:18', '2018-10-24 00:00:00', 5, 5),
-(4, '5', 4, '2018-10-12 04:07:18', '2018-10-24 00:00:00', 5, 5),
-(6, '65', 27, '2018-10-12 15:52:52', '2018-10-25 00:00:00', 3, 4);
+(1, '2', 1, '2018-10-22 13:49:44', '2018-10-30 00:00:00', 3, 4),
+(2, '66', 2, '2018-10-22 14:18:38', '2018-10-31 00:00:00', 2, 2);
 
 -- --------------------------------------------------------
 
@@ -231,13 +228,8 @@ CREATE TABLE `guests` (
 --
 
 INSERT INTO `guests` (`id`, `name`, `contact`, `companyName`, `companyAddress`) VALUES
-(1, 'Mark Joseph Castelo', '0192301924', '', ''),
-(2, 'Abigail Mariano', '31231', '', ''),
-(3, 'Josh Matthew Castelo', '0987766644', '', ''),
-(4, 'Julia Margarette Castelo', '88764123', '', ''),
-(10, 'Doris Castelo', '098764213', 'Puregold', 'Cabanatuan City, Nueva Ecija'),
-(11, 'Joel Castelo', '0945412341', 'Self Employed', 'Bahay'),
-(27, 'Natsu Dragneel', '10231904', 'Fairy Tail', 'Magnolia');
+(1, 'Mark Joseph R. Castelo', '09452675595', 'MJRC', 'Metro Manila'),
+(2, 'Abigail Mariano', '09153960030', 'TAP SERVICES', 'Ortigas');
 
 -- --------------------------------------------------------
 
@@ -366,22 +358,23 @@ CREATE TABLE `rooms` (
 
 INSERT INTO `rooms` (`id`, `roomNo`, `roomType`, `floor`, `status`, `createdDate`, `ispublished`) VALUES
 (2, 2, 2, '2', 'Occupied', '2018-09-26 15:41:13', 1),
-(3, 3, 3, '1', 'Occupied', '2018-09-26 15:41:25', 1),
-(4, 4, 4, '4', 'Occupied', '2018-09-26 15:41:36', 1),
-(5, 5, 5, '1', 'Occupied', '2018-09-26 15:50:26', 1),
+(3, 3, 3, '1', 'Vacant', '2018-09-26 15:41:25', 1),
+(4, 4, 4, '4', 'Vacant', '2018-09-26 15:41:36', 1),
+(5, 5, 5, '1', 'Vacant', '2018-09-26 15:50:26', 1),
 (6, 6, 6, '3', 'Vacant', '2018-09-26 15:51:01', 1),
 (8, 8, 2, '1', 'Vacant', '2018-09-26 15:51:27', 1),
-(9, 9, 3, '1', 'Maintenance', '2018-09-26 15:55:37', 1),
+(9, 9, 3, '1', 'Vacant', '2018-09-26 15:55:37', 1),
 (10, 10, 5, '1', 'Vacant', '2018-09-26 15:56:04', 1),
-(11, 11, 6, '2', 'Cleaning', '2018-09-26 15:56:14', 1),
-(46, 12, 4, '2', 'Cleaning', '2018-10-07 08:58:24', 1),
+(11, 11, 6, '2', 'Vacant', '2018-09-26 15:56:14', 1),
+(46, 12, 4, '2', 'Vacant', '2018-10-07 08:58:24', 1),
 (47, 13, 4, '2', 'Vacant', '2018-10-07 08:59:57', 1),
 (60, 14, 3, '2', 'Vacant', '2018-10-07 09:17:28', 1),
-(61, 15, 3, '2', 'Penalty', '2018-10-07 09:18:26', 1),
+(61, 15, 3, '2', 'Vacant', '2018-10-07 09:18:26', 1),
 (62, 16, 5, '10', 'Vacant', '2018-10-09 16:22:57', 1),
 (63, 17, 3, '9', 'Vacant', '2018-10-09 16:23:12', 1),
 (64, 67, 9, '3', 'Vacant', '2018-10-12 03:08:03', 1),
-(65, 18, 18, '1', 'Vacant', '2018-10-12 09:19:20', 1);
+(65, 18, 18, '1', 'Vacant', '2018-10-12 09:19:20', 1),
+(66, 19, 11, '3', 'Occupied', '2018-10-22 05:05:37', 1);
 
 -- --------------------------------------------------------
 
@@ -512,19 +505,19 @@ ALTER TABLE `roomtypes`
 -- AUTO_INCREMENT for table `checkin`
 --
 ALTER TABLE `checkin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `guests`
 --
 ALTER TABLE `guests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT for table `roomtypes`

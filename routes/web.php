@@ -12,15 +12,14 @@
 */
 
 Route::get('/Rooms', 'WebController\RoomsController@index');
-// Route::get('/Rooms/Create', 'WebController\RoomsController@create');
 
-// // Room Type Routes
 Route::get('/RoomTypes', 'WebController\RoomTypesController@index');
-// Route::get('/RoomTypes/Create', 'WebController\RoomTypesController@create');
 
 Route::get('/Checkin/{id}', 'WebController\CheckinController@index');
 
 Route::get('/RoomManagement', 'WebController\RoomManagementController@index');
+
+Route::get('/Guests', 'WebController\GuestsController@index');
 
 
 

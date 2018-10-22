@@ -37,7 +37,6 @@ class RoomManagementController extends Controller
     {
         $result = RoomModel::findOrFail($id)->update(['status'=> $request->status]);
         return ($result)? ['status'=> 1, 'id'=> $id] : ['status'=> 0];
-        
     }
 
     public function destroy($id)

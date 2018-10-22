@@ -14,5 +14,5 @@ class RoomModel extends Model
         'roomType',
         'floor',
         'status',
-    ];
+    ];    
 }

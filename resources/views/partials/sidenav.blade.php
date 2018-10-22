@@ -29,7 +29,7 @@
             <a class="collapsible-header"><i class="material-icons">face</i>Guests<i class="material-icons right">arrow_drop_down</i></a>
             <div class="collapsible-body">
                 <ul>
-                    <li><a class="modal-trigger" href="guest.php"><i class="material-icons">group</i>Guest List</a></li>
+                    <li><a class="modal-trigger" href="{{ url('/Guests') }}"><i class="material-icons">group</i>Guest List</a></li>
                 </ul>
                 <ul>
                     <li><a class="modal-trigger" href="guestArchived.php"><i class="material-icons">storage</i>Archived Guest</a></li>
