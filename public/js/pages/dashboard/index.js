@@ -1,8 +1,4 @@
-$(document).ready(function () {
-    loadRoomCards();    
-    // $(loadRoomCards);
-});
-// $('body').on('load',loadRoomCards());
+$(document).ready(loadRoomCards);
 
 function loadRoomCards() {
     $.ajax({
@@ -11,7 +7,6 @@ function loadRoomCards() {
         dataType: 'json',
         success: function (data) {
             loopRoomCards(data);
-            // M.AutoInit();
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(textStatus, errorThrown);
@@ -36,7 +31,6 @@ function loopRoomCards(data) {
 
         if(status == 'Vacant'){ $('#room_' + room_id).wrap('<a href="Checkin/'+ room_id +'"></a>'); }
         if(status == 'Occupied'){ $('#room_' + room_id).wrap('<a href="Checkin-status/'+ checkin_id +'"></a>'); }
-
     }
 }
 

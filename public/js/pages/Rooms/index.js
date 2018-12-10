@@ -85,10 +85,7 @@ $('#submit').on('click', function () {
                                         loadRooms(1); 
                                         clearmodal();
                                     }
-                                },
-                                theme: 'dark',
-                                boxWidth: '35%',
-                                useBootstrap: false
+                                }
                             });
                         },
                         error: function (aaa, bbb, ccc) {
@@ -96,10 +93,7 @@ $('#submit').on('click', function () {
                         }
                     });
                 }
-            },
-            theme: 'dark',
-            boxWidth: '35%',
-            useBootstrap: false
+            }
         });
     }
     else {

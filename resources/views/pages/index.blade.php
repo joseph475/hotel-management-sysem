@@ -5,14 +5,8 @@
     <div id="page-header">
         <div class="page-title">Dashboard</div>
     </div>
-
     <div class="content">
-        <div class="col m9 s12">
-            <div id="room-cards">
-
-            </div>
-        </div>
-        <div class="col m3 s12">
+        <div class="col s12 m3 push-m9 mb15">
             <ul class="collapsible expandable">
                 <li>
                     <div class="collapsible-header"><i class="material-icons">search</i>Search</div>
@@ -44,6 +38,12 @@
                 </li>
             </ul>
         </div>
+        <div class="col s12 m9 pull-m3">
+            <div id="room-cards">
+                <!-- Displays Each Rooms using JS-->
+            </div>
+        </div>
+        
     </div>
 
 </div>
