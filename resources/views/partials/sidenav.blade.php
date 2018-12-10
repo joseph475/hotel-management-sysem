@@ -51,7 +51,7 @@
                         <li><a href="{{ url('/Rooms') }}"><i class="material-icons left">hotel</i>Rooms</a></li>
                         <li><a href="{{ url('/RoomTypes') }}"><i class="material-icons left">weekend</i>Room Types</a></li>
                         <li><a href="{{ url('/Kitchen') }}"><i class="material-icons left">restaurant_menu</i>Food Menus</a></li>
-                        <li><a href="extras.php"><i class="material-icons left">dns</i>Extras</a></li>
+                        <li><a href="{{ url('/Extras') }}"><i class="material-icons left">dns</i>Extras</a></li>
                         <li><a href="accounts.php"><i class="material-icons">supervisor_account</i>Accounts</a></li>
                     </ul>
                 </div>

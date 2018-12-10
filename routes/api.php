@@ -37,6 +37,9 @@ Route::get('Guests','ApiController\GuestsController@index');
 Route::get('Kitchen','ApiController\KitchenController@index');
 Route::post('Kitchen','ApiController\KitchenController@store');
 
+Route::get('Extras','ApiController\ExtrasController@index');
+Route::post('Extras','ApiController\ExtrasController@store');
+
 Route::post('Checkin','ApiController\CheckinController@store');
 
 Route::put('RoomManagement/update/{id}','ApiController\RoomManagementController@update');
