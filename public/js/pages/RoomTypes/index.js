@@ -49,7 +49,6 @@ function createRoomTypeTable(id, type, maxAdult, maxChildren, rate, rateperhour)
         '<td>' + maxAdult + '</td>' +
         '<td>' + maxChildren + '</td>' +
         '<td>' +
-        // '<a class="btn btn-flat btn-2" style="margin-right:5px;" onclick="deleteRoomType('+ id +')"><i class="material-icons">delete</i></a>' +
         '<a class="btn btn-flat btn-2"><i class="material-icons left">input</i>View</a>' +
         '</td>' +
         '</tr>'
@@ -93,10 +92,7 @@ $('#submit').on('click', function () {
                                         loadRoomTypes(1);
                                         clearmodal();
                                     }
-                                },
-                                theme: 'dark',
-                                boxWidth: '35%',
-                                useBootstrap: false
+                                }
                             });
                         },
                         error: function (aaa, bbb, ccc) {
@@ -104,10 +100,7 @@ $('#submit').on('click', function () {
                         }
                     });
                 }
-            },
-            theme: 'dark',
-            boxWidth: '35%',
-            useBootstrap: false
+            }
         });
     }
     else {

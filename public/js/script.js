@@ -5,8 +5,8 @@ var $loading = $('.loader').hide();
 var $dimScreem = $('#dimScreen').hide();
 
 $(document).ready(function ($) {
+    jconfirm.defaults = { theme: 'dark', boxWidth: '35%', useBootstrap: false };
     if ($(".roomTypeDropDown").length){ loadRoomTypesDropdown() }
-    
     $(window).on('load', function () {
         $('.loader').fadeOut('fast', function () { $(this).hide();  });
         $('#dimScreen').fadeOut('fast', function () { $(this).hide(); });

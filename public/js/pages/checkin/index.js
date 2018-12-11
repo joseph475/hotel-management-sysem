@@ -43,10 +43,7 @@ function saveCheckin(){
                                         OK: function () { 
                                             window.location = "/"; 
                                         }
-                                    },
-                                    theme: 'dark',
-                                    boxWidth: '35%',
-                                    useBootstrap: false
+                                    }
                                 });
                             }
                             else{
@@ -58,10 +55,7 @@ function saveCheckin(){
                         }
                     });
                 }
-            },
-            theme: 'dark',
-            boxWidth: '35%',
-            useBootstrap: false
+            }
         });
     }
     else {
