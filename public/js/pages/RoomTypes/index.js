@@ -67,7 +67,7 @@ $('#submit').on('click', function () {
 
     if (roomType != '' && rate != '' && rateperhour != '' && maxAdult != '' && maxChildren != '') {
         $.confirm({
-            title: 'Are you sure you want to Save?',
+            title: 'Save Room Type?',
             content: '',
             buttons: {
                 cancel: function () { },
@@ -104,7 +104,7 @@ $('#submit').on('click', function () {
         });
     }
     else {
-        displayMessage('Please fill up all fields', '');
+        displayMessage('Please Validate all fields', '');
     }
 })
 

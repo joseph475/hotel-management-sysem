@@ -21,6 +21,8 @@ Route::get('/RoomManagement', 'WebController\RoomManagementController@index');
 
 Route::get('/Guests', 'WebController\GuestsController@index');
 
+Route::get('/Kitchen', 'WebController\KitchenController@index');
+
 
 
 Route::get('/', function () {

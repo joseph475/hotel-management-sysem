@@ -62,7 +62,7 @@ $('#submit').on('click', function () {
     curpage = sessionStorage.getItem("curpage");
     if (roomNo != '' && roomType != 0 && floor != 0) {
         $.confirm({
-            title: 'Are you sure you want to Save?',
+            title: 'Save room?',
             content: '',
             buttons: {
                 cancel: function () { },
@@ -97,7 +97,7 @@ $('#submit').on('click', function () {
         });
     }
     else {
-        displayMessage('Please fill up all fields', '');
+        displayMessage('Please Validate all fields', '');
     }
 })
 
