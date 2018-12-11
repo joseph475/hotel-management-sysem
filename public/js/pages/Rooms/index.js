@@ -2,7 +2,7 @@ var modal = $('#AddRoomModal');
 var curpage = 1;
 
 $(document).ready(function () {
-    loadRooms(curpage);    
+    loadRooms(curpage);
 });
 
 function loadRooms(curpage) {
@@ -35,22 +35,34 @@ function loopRoomDetails(data) {
             type = data[i].type,
             floor = data[i].floor,
             rate = data[i].rate,
-            rateperhour = data[i].rateperhour
-        $('#roomTable').append(createRoomTable(id, roomNo, type, floor, rate, rateperhour));
+            rateperhour = data[i].rateperhour,
+            ispublished = data[i].ispublished
+        $('#roomTable').append(createRoomTable(id, roomNo, type, floor, rate, rateperhour, ispublished));
     }
 }
 
-function createRoomTable(id, roomNo, type, floor, rate, rateperhour) {
+function createRoomTable(id, roomNo, type, floor, rate, rateperhour, ispublished) {    
+    // '<td>' +
+    //     '<a href="/Room/'+ id +'" class="btn btn-flat btn-2" target="_blank"><i class="material-icons left">swap_vert</i>View</a>' +
+    // '</td>' +
+    // '</tr>'
     var myRoom = '<tr>' +
         '<td>' + roomNo + '</td>' +
         '<td>' + type + '</td>' +
         '<td>' + floor + '</td>' +
         '<td>' + rate + '</td>' +
-        '<td>' + rateperhour + '</td>' +
-        '<td>' +
-            '<a href="/Room/'+ id +'" class="btn btn-flat btn-2" target="_blank"><i class="material-icons left">input</i>View</a>' +
-        '</td>' +
-        '</tr>'
+        '<td>' + rateperhour + '</td>';
+        if(parseInt(ispublished) == 1){
+            myRoom +=   '<td>' +
+                            '<a class="btn btn-flat btn-3 white-text" target="_blank"><i class="material-icons left">file_download</i>Unpublish</a>' +
+                        '</td>';
+        }
+        else{
+            myRoom +=   '<td>' +
+                            '<a class="btn btn-flat btn-1 white-text" target="_blank"><i class="material-icons left">publish</i>Publish</a>' +
+                        '</td>';
+        }
+        myRoom += '</tr>';
     return myRoom;
 }
 

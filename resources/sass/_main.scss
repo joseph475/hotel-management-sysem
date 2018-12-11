@@ -150,6 +150,10 @@ input.with-borders{
         background-color: rgb(231, 216, 216);
     }
 }
+.btn-3{
+    background-color: $btn-3;
+    border-radius: 0px;
+}
 .activePage{
     background-color: $btn-1 !important;
 }

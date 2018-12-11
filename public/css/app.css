@@ -3390,6 +3390,11 @@ input.with-borders:focus {
   background-color: #e7d8d8;
 }
 
+.btn-3 {
+  background-color: #e93535;
+  border-radius: 0px;
+}
+
 .activePage {
   background-color: #21a4e0 !important;
 }
