@@ -21,6 +21,23 @@ $(document).ajaxStart(function () {
     $dimScreem.hide();
 });
 
+    
+// $.each(checkifvalid, function(i, v){
+//     alert(checkifvalid);
+//     if(!$(v).hasClass('valid')){
+//         return false;
+//     }
+// });
+
+function checkValid(checkifvalid){
+    for (i = 0 ; i < checkifvalid.length ; i++) {
+        if(!$(checkifvalid[i]).hasClass('valid')){
+            return false;
+        }
+    }
+    return true;
+}
+
 function getCurrentDate(){
     var d = new Date();
 

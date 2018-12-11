@@ -6,7 +6,6 @@ var checkifvalid = ['#menu', '#servings', '#cost', '#price'];
 $(document).ready(loadFoods(curpage));
 
 function loadFoods(curpage) {
-
     $.ajax({
         url: 'api/Kitchen',
         data:{
@@ -96,10 +95,7 @@ $('#submit').on('click', function () {
                                         loadFoods(1); 
                                         clearmodal();
                                     }
-                                },
-                                theme: 'dark',
-                                boxWidth: '35%',
-                                useBootstrap: false
+                                }
                             });
                         },
                         error: function (aaa, bbb, ccc) {
@@ -107,10 +103,7 @@ $('#submit').on('click', function () {
                         }
                     });
                 }
-            },
-            theme: 'dark',
-            boxWidth: '35%',
-            useBootstrap: false
+            }
         });
     }
     else{

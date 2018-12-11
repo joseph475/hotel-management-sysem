@@ -6,8 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class ExtrasModel extends Model
 {
-    public function index()
-    {   
-        return view('pages.Extras.index'); 
-    }
+    protected $table = 'extras';
+    protected $primaryKey = 'id';
+    public $timestamps = false;
+    protected $fillable = [
+        'description',
+        'cost',
+        'status'
+    ];
 }

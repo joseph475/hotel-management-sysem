@@ -18,9 +18,9 @@
                     <div class="collapsible-header"><i class="material-icons">hotel</i>Rooms</div>
                     <div class="collapsible-body">
                         <ul>
-                            <li>Single</li>
-                            <li>Double</li>
-                            <li>Triple</li>
+                            <li>Single<span class="new badge grey darken-2" data-badge-caption="">4</span></li>
+                            <li>Double<span class="new badge grey darken-2" data-badge-caption="">5</span></li>
+                            <li>Triple<span class="new badge grey darken-2" data-badge-caption="">6</span></li>
                         </ul>
                     </div>
                 </li>

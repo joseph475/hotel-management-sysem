@@ -33,7 +33,7 @@
                             <th style="width:20%;">Action</th>
                         </tr>
                     </thead>
-                    <tbody id="roomTable">
+                    <tbody id="extrasTable">
                         <!-- js generated -->
                     </tbody>    
             </table>
@@ -54,10 +54,10 @@
                 <form action="" id="addExtrasForm">
                     <div class="row mt20">
                         <div class="col s12 m12">
-                            <input  placeholder="Description" id="description" type="text">
+                            <input  placeholder="Description" id="description" type="text" class="validate">
                         </div>
                         <div class="col s12 m12">
-                            <input  placeholder="Price" id="price" type="number">
+                            <input  placeholder="Price" id="price" type="number" class="validate">
                         </div>
                     </div>
                 </form>

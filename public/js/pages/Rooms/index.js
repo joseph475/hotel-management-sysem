@@ -30,16 +30,17 @@ function loadRooms(curpage) {
 function loopRoomDetails(data) {
     $('#roomTable').html("");
     for (var i = 0; i < data.length; i++) {
-        var roomNo = data[i].roomNo,
+        var id = data[i].id,
+            roomNo = data[i].roomNo,
             type = data[i].type,
             floor = data[i].floor,
             rate = data[i].rate,
             rateperhour = data[i].rateperhour
-        $('#roomTable').append(createRoomTable(roomNo, type, floor, rate, rateperhour));
+        $('#roomTable').append(createRoomTable(id, roomNo, type, floor, rate, rateperhour));
     }
 }
 
-function createRoomTable(roomNo, type, floor, rate, rateperhour) {
+function createRoomTable(id, roomNo, type, floor, rate, rateperhour) {
     var myRoom = '<tr>' +
         '<td>' + roomNo + '</td>' +
         '<td>' + type + '</td>' +
@@ -47,7 +48,7 @@ function createRoomTable(roomNo, type, floor, rate, rateperhour) {
         '<td>' + rate + '</td>' +
         '<td>' + rateperhour + '</td>' +
         '<td>' +
-            '<a class="btn btn-flat btn-2"><i class="material-icons left">input</i>View</a>' +
+            '<a href="/Room/'+ id +'" class="btn btn-flat btn-2" target="_blank"><i class="material-icons left">input</i>View</a>' +
         '</td>' +
         '</tr>'
     return myRoom;

@@ -3028,6 +3028,12 @@ footer .page-footer {
   height: 55vh !important;
 }
 
+.room-page .image-container {
+  margin-top: 19px;
+  padding: 5px;
+  background-color: white;
+}
+
 .dashboard-page .content {
   margin: 20px 9px;
 }
@@ -3046,7 +3052,7 @@ footer .page-footer {
 
 .dashboard-page .content .col.m3 .collapsible li .collapsible-body ul li {
   cursor: pointer;
-  background-color: rgba(230, 219, 219, 0.795);
+  background-color: rgba(248, 246, 246, 0.795);
   padding: 10px 20px;
   border-bottom: 1px solid #e4d5d5;
 }
