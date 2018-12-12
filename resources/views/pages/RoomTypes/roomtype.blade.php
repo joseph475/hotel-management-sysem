@@ -4,8 +4,7 @@
     <div class="row room-page">
         <div id="page-header">
             <div class="page-title">{{ $data->type }}</div>
-
-            <div class="page-buttons">
+                <div class="page-buttons">
                 <div class="button-content">
                     <a class="btn btn-1" href="/">
                         <i class="material-icons left">save</i>Save
