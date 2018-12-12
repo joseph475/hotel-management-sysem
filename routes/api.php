@@ -26,6 +26,9 @@ Route::get('SystemVariables','ApiController\SystemVariablesController@index');
 
 Route::get('Rooms','ApiController\RoomsController@index');
 Route::post('Room','ApiController\RoomsController@store');
+Route::put('Room','ApiController\RoomsController@store');
+Route::delete('Room/{id}','ApiController\RoomsController@destroy');
+
 
 Route::post('RoomType','ApiController\RoomTypesController@store');
 Route::get('RoomTypes','ApiController\RoomTypesController@index');

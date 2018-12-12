@@ -1,9 +1,9 @@
 var modal = $('#AddRoomModal');
 var curpage = 1;
 
-$(document).ready(function () {
-    loadRooms(curpage);
-});
+$(document).ready(loadRooms(1));
+$(document).on('click', '.changeStatus', changeStatus);
+$(document).on('click', '.deleteRoom', deleteRoom);
 
 function loadRooms(curpage) {
     sessionStorage.setItem("curpage", curpage);
@@ -42,27 +42,23 @@ function loopRoomDetails(data) {
 }
 
 function createRoomTable(id, roomNo, type, floor, rate, rateperhour, ispublished) {    
-    // '<td>' +
-    //     '<a href="/Room/'+ id +'" class="btn btn-flat btn-2" target="_blank"><i class="material-icons left">swap_vert</i>View</a>' +
-    // '</td>' +
-    // '</tr>'
-    var myRoom = '<tr>' +
+    var myRoom = '<tr data-id='+ id +'>' +
         '<td>' + roomNo + '</td>' +
         '<td>' + type + '</td>' +
         '<td>' + floor + '</td>' +
         '<td>' + rate + '</td>' +
-        '<td>' + rateperhour + '</td>';
+        '<td>' + rateperhour + '</td>' +
+        '<td>' +
+            '<a class="btn btn-flat btn-2 mr3 changeStatus" target="_blank">';
+
         if(parseInt(ispublished) == 1){
-            myRoom +=   '<td>' +
-                            '<a class="btn btn-flat btn-3 white-text" target="_blank"><i class="material-icons left">file_download</i>Unpublish</a>' +
-                        '</td>';
+            myRoom += '<i class="far fa-eye"></i>';
         }
         else{
-            myRoom +=   '<td>' +
-                            '<a class="btn btn-flat btn-1 white-text" target="_blank"><i class="material-icons left">publish</i>Publish</a>' +
-                        '</td>';
+            myRoom += '<i class="far fa-eye-slash"></i>';
         }
-        myRoom += '</tr>';
+
+        myRoom += '</a><a class="btn btn-flat btn-2 deleteRoom" target="_blank"><i class="far fa-trash-alt"></i></a></td></tr>';
     return myRoom;
 }
 
@@ -76,7 +72,6 @@ $('#submit').on('click', function () {
     if (roomNo != '' && roomType != 0 && floor != 0) {
         $.confirm({
             title: 'Save room?',
-            content: '',
             buttons: {
                 cancel: function () { },
                 confirm: function () {
@@ -101,18 +96,53 @@ $('#submit').on('click', function () {
                                 }
                             });
                         },
-                        error: function (aaa, bbb, ccc) {
-                            console.log(aaa + "-" + bbb + "-" + ccc);
-                        }
+                        error: function (aaa, bbb, ccc) { console.log(aaa); }
                     });
                 }
             }
         });
     }
-    else {
-        displayMessage('Please Validate all fields', '');
-    }
+    else { displayMessage('Please Validate all fields', ''); }
 })
+
+function changeStatus(){
+    var id = $(this).closest('tr').attr('data-id');
+    var icon = $(this).find('i');
+    var ispublished = 0;
+
+    icon.hasClass('fa-eye')? ispublished = 0 : ispublished = 1;
+
+    $.ajax({
+        url: '../api/Room',
+        type: 'PUT',
+        data: {
+            id: id,
+            ispublished : ispublished
+        },
+        dataType: 'json',
+        success: function (data) {
+            icon.toggleClass('fa-eye fa-eye-slash');
+        },
+        error: function (aaa, bbb, ccc) { console.log(aaa); }
+    });
+}
+
+function deleteRoom(){
+    var tr = $(this).closest('tr')
+    var id = tr.attr('data-id');
+    $.ajax({
+        url: '../api/Room/' + id,
+        type: 'DELETE',
+        data: {
+            id: id
+        },
+        dataType: 'json',
+        success: function (data) {
+            tr.remove();
+        },
+        error: function (aaa, bbb, ccc) { console.log(aaa); }
+    });
+}
 
 function clearmodal(){
     modal.find('#roomNo').val('');
