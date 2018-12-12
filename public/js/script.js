@@ -1,6 +1,4 @@
-    // sessionStorage.curpage = 1;
-    // var curpage = sessionStorage.curpage;
-
+var curpage = 1;
 var $loading = $('.loader').hide();
 var $dimScreem = $('#dimScreen').hide();
 
@@ -20,14 +18,6 @@ $(document).ajaxStart(function () {
     $loading.hide();
     $dimScreem.hide();
 });
-
-    
-// $.each(checkifvalid, function(i, v){
-//     alert(checkifvalid);
-//     if(!$(v).hasClass('valid')){
-//         return false;
-//     }
-// });
 
 function checkValid(checkifvalid){
     for (i = 0 ; i < checkifvalid.length ; i++) {

@@ -1,4 +1,3 @@
-var curpage = 1;
 var mytable = $('#roomTable');
 
 $(document).ready(loadRooms(curpage));

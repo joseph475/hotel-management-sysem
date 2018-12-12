@@ -1,8 +1,4 @@
-var curpage = 1;
-
-$(document).ready(function () {
-    loadGuests(curpage);    
-});
+$(document).ready(loadGuests(curpage));
 
 function loadGuests(curpage) {
     sessionStorage.setItem("curpage", curpage);

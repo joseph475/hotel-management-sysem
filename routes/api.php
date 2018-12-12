@@ -39,9 +39,13 @@ Route::get('Guests','ApiController\GuestsController@index');
 
 Route::get('Kitchen','ApiController\KitchenController@index');
 Route::post('Kitchen','ApiController\KitchenController@store');
+Route::put('Kitchen','ApiController\KitchenController@store');
+Route::delete('Kitchen/{id}','ApiController\KitchenController@destroy');
 
 Route::get('Extras','ApiController\ExtrasController@index');
-Route::post('Extras','ApiController\ExtrasController@store');
+Route::post('Extra','ApiController\ExtrasController@store');
+Route::put('Extra','ApiController\ExtrasController@store');
+Route::delete('Extra/{id}','ApiController\ExtrasController@destroy');
 
 Route::post('Checkin','ApiController\CheckinController@store');
 

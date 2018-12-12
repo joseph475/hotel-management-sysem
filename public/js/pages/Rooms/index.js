@@ -1,5 +1,4 @@
 var modal = $('#AddRoomModal');
-var curpage = 1;
 
 $(document).ready(loadRooms(1));
 $(document).on('click', '.changeStatus', changeStatus);

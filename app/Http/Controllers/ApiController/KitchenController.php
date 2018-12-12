@@ -5,26 +5,27 @@ namespace App\Http\Controllers\ApiController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\KitchenModel;
+use App\Models\AddedFoodsModel;
 
 class KitchenController extends Controller
 {
     
     public function index()
     {
-        $foods = KitchenModel::where('status',1)
-        ->orderBy('createdDate', 'desc')
+        $foods = KitchenModel::orderBy('createdDate', 'desc')
         ->paginate(10);
         
         return $foods;
     }
 
-    public function create()
-    {
-        //
-    }
-
     public function store(Request $request)
-    {
+    {   
+        if ($request->isMethod('put')) {
+            $food = KitchenModel::findOrFail($request->id);
+            $food->ispublished = $request->ispublished;
+            $food->save();
+            return $food;
+        }
         $food = KitchenModel::create($request->all());
         return $food;
     }
@@ -34,18 +35,16 @@ class KitchenController extends Controller
         //
     }
 
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
     public function destroy($id)
     {
-        //
+        $checkdata1 = AddedFoodsModel::where('foodsId', $id)->first();
+
+        if(!$checkdata1){
+            KitchenModel::destroy($id);
+            return ['status' => 1];
+        }
+        else{
+            return ['status' => 0];
+        }
     }
 }

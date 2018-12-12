@@ -1,9 +1,10 @@
-var curpage = 1;
 var mytable = $('#extrasTable');
 var modal = $('#AddExtrasModal');
 var checkifvalid = ['#description', '#price'];
 
 $(document).ready(loadExtras(curpage));
+$(document).on('click', '.changeStatus', changeStatus);
+$(document).on('click', '.deleteExtra', deleteExtra);
 
 function loadExtras(curpage) {
     $.ajax({
@@ -32,20 +33,28 @@ function loopExtrasDetails(data) {
         var id = data[i].id
             description = data[i].description,
             cost = data[i].cost,
-            mytable.append(createExtrasTable(id, description, cost));
+            ispublished = data[i].ispublished
+            mytable.append(createExtrasTable(id, description, cost, ispublished));
     }
 }
 
-function createExtrasTable(id, description, cost) {
-    var myFood = '<tr class="extras_row" data-id="'+ id +'">' +
+function createExtrasTable(id, description, cost, ispublished) {
+    var myExtra = '<tr data-id="'+ id +'">' +
         '<td>' + description + '</td>' +
         '<td>' + cost + '</td>' +
         '<td>' +
-            '<a class="btn btn-2 btn-flat mr5"><i class="material-icons">edit</i></a>' +
-            '<a class="btn btn-2 btn-flat mr5"><i class="material-icons">delete</i></a>' +
+            '<a class="btn btn-2 btn-flat mr5 changeStatus">';
+                if(parseInt(ispublished) == 1){
+                    myExtra += '<i class="far fa-eye"></i>';
+                }
+                else{
+                    myExtra += '<i class="far fa-eye-slash"></i>';
+                }
+            myExtra += '</a>' +
+            '<a class="btn btn-2 btn-flat mr5 deleteExtra"><i class="far fa-trash-alt"></i></a>' +
         '</td>' +
         '</tr>'
-    return myFood;
+    return myExtra;
 }
 
 
@@ -61,7 +70,7 @@ $('#submit').on('click', function () {
                 cancel: function () { },
                 confirm: function () {
                     $.ajax({
-                        url: '../api/Extras',
+                        url: '../api/Extra',
                         type: 'POST',
                         data: {
                             description: description,
@@ -93,10 +102,58 @@ $('#submit').on('click', function () {
     }
 })
 
+function changeStatus(){
+    var id = $(this).closest('tr').attr('data-id');
+    var icon = $(this).find('i');
+    var ispublished = 0;
+
+    icon.hasClass('fa-eye')? ispublished = 0 : ispublished = 1;
+
+    $.ajax({
+        url: '../api/Extra',
+        type: 'PUT',
+        data: {
+            id: id,
+            ispublished : ispublished
+        },
+        dataType: 'json',
+        success: function (data) {
+            icon.toggleClass('fa-eye fa-eye-slash');
+        },
+        error: function (aaa, bbb, ccc) { console.log(aaa); }
+    });
+}
+
+function deleteExtra(){
+    var tr = $(this).closest('tr')
+    var id = tr.attr('data-id');
+    
+    $.confirm({
+        title: 'Delete Extra?',
+        buttons: {
+            cancel: function () { },
+            confirm: function () { 
+                $.ajax({
+                    url: '../api/Extra/' + id,
+                    type: 'DELETE',
+                    data: {
+                        id: id
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        if(data.status == 0){ displayMessage('Extra cannot be deleted'); }
+                        else{ tr.remove(); }
+                    },
+                    error: function (aaa, bbb, ccc) { console.log(aaa); }
+                });
+            }
+        }
+    });
+}
+
 function clearmodal(){
     $.each(checkifvalid, function(i, v){ $(v).removeClass('valid') });
-
     modal.find('#description').val(null);
-    modal.find('#cost').val(null);
+    modal.find('#price').val(null);
     M.AutoInit();
 }

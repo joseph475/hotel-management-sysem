@@ -1,5 +1,4 @@
 var modal = $('#AddRoomTypeModal');
-var curpage = 1;
 
 $(document).ready(function () {
     loadRoomTypes(curpage);

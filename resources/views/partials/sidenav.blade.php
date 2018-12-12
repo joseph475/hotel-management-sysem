@@ -45,7 +45,7 @@
         <ul class="collapsible collapsible-accordion">
         <!-- settings -->
             <li>
-                <a class="collapsible-header"><i class="material-icons">settings</i>Manage<i class="material-icons right">arrow_drop_down</i></a>
+                <a class="collapsible-header"><i class="fas fa-cogs"></i>Manage<i class="material-icons right">arrow_drop_down</i></a>
                 <div class="collapsible-body">
                     <ul>  
                         <li><a href="{{ url('/Rooms') }}"><i class="material-icons left">hotel</i>Rooms</a></li>
