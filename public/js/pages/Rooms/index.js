@@ -130,17 +130,27 @@ function changeStatus(){
 function deleteRoom(){
     var tr = $(this).closest('tr')
     var id = tr.attr('data-id');
-    $.ajax({
-        url: '../api/Room/' + id,
-        type: 'DELETE',
-        data: {
-            id: id
-        },
-        dataType: 'json',
-        success: function (data) {
-            tr.remove();
-        },
-        error: function (aaa, bbb, ccc) { console.log(aaa); }
+    
+    $.confirm({
+        title: 'Delete room?',
+        buttons: {
+            cancel: function () { },
+            confirm: function () { 
+                $.ajax({
+                    url: '../api/Room/' + id,
+                    type: 'DELETE',
+                    data: {
+                        id: id
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        if(data.status == 0){ displayMessage('Room cannot be deleted'); }
+                        else{ tr.remove(); }
+                    },
+                    error: function (aaa, bbb, ccc) { console.log(aaa); }
+                });
+            }
+        }
     });
 }
 

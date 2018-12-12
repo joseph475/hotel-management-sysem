@@ -5,6 +5,8 @@ namespace App\Http\Controllers\ApiController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\RoomModel;
+use App\Models\CheckinModel;
+use App\Models\CheckOutModel;
 
 class RoomsController extends Controller
 {
@@ -69,8 +71,16 @@ class RoomsController extends Controller
     }
 
     public function destroy($id)
-    {
-        RoomModel::destroy($id);
-        return $id;
+    {   
+        $checkdata1 = CheckinModel::where('room_id', $id)->first();
+        $checkdata2 = CheckOutModel::where('room_id', $id)->first();
+
+        if(!$checkdata1 and !$checkdata2){
+            RoomModel::destroy($id);
+            return ['status' => 1];
+        }
+        else{
+            return ['status' => 0];
+        }
     }
 }
