@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 22, 2018 at 04:56 PM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.10
+-- Generation Time: Dec 12, 2018 at 06:36 AM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -168,19 +168,23 @@ INSERT INTO `checkout` (`id`, `room_id`, `guestId`, `checkIn`, `checkOutDate`, `
 CREATE TABLE `extras` (
   `id` int(11) NOT NULL,
   `description` varchar(100) NOT NULL,
-  `cost` float NOT NULL
+  `cost` float NOT NULL,
+  `createdDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `status` tinyint(4) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `extras`
 --
 
-INSERT INTO `extras` (`id`, `description`, `cost`) VALUES
-(1, 'ToothBrush', 50),
-(2, 'Pillow', 200),
-(3, 'Bed', 500),
-(4, 'Blanket', 100),
-(5, 'Pillow Case', 20);
+INSERT INTO `extras` (`id`, `description`, `cost`, `createdDate`, `status`) VALUES
+(1, 'ToothBrush', 50, '2018-12-10 20:39:26', 1),
+(2, 'Pillow', 200, '2018-12-10 20:39:26', 1),
+(3, 'Bed', 500, '2018-12-10 20:39:26', 1),
+(4, 'Blanket', 100, '2018-12-10 20:39:26', 1),
+(5, 'Pillow Case', 20, '2018-12-10 20:39:26', 1),
+(6, 'Table', 500, '2018-12-10 20:39:26', 1),
+(7, 'Spoon', 50, '2018-12-10 20:40:08', 1);
 
 -- --------------------------------------------------------
 
@@ -195,19 +199,27 @@ CREATE TABLE `foods` (
   `remaining` int(11) NOT NULL,
   `cost` double NOT NULL,
   `sellingPrice` double NOT NULL,
-  `status` varchar(250) NOT NULL
+  `createdDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` tinyint(4) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `foods`
 --
 
-INSERT INTO `foods` (`id`, `menuName`, `servings`, `remaining`, `cost`, `sellingPrice`, `status`) VALUES
-(1, 'Adobo', 20, 14, 1000, 150, 'Available'),
-(7, 'Sinigang', 25, 19, 2500, 150, 'Available'),
-(8, 'Ice Tea', 500, 496, 25, 50, 'Available'),
-(9, 'Nilaga', 25, 23, 2200, 140, 'Available'),
-(12, 'Hotdog', 100, 98, 25, 30, 'Available');
+INSERT INTO `foods` (`id`, `menuName`, `servings`, `remaining`, `cost`, `sellingPrice`, `createdDate`, `status`) VALUES
+(1, 'Adobo', 20, 20, 1000, 150, '2018-10-23 00:25:15', 1),
+(2, 'Sinigang', 25, 25, 2500, 150, '2018-10-23 00:25:15', 1),
+(3, 'Ice Tea', 500, 500, 25, 50, '2018-10-23 00:25:15', 1),
+(4, 'Nilaga', 25, 25, 2200, 140, '2018-10-23 00:25:15', 1),
+(5, 'Hotdog', 100, 100, 25, 30, '2018-10-23 00:25:15', 1),
+(6, 'Delata', 15, 15, 50, 60, '2018-10-23 01:35:41', 1),
+(7, 'Sardines', 7, 7, 45, 50, '2018-10-23 01:40:01', 1),
+(8, 'Cornbeef', 25, 25, 70, 80, '2018-10-23 01:40:45', 1),
+(9, 'Puto', 100, 100, 30, 40, '2018-10-23 01:44:08', 1),
+(10, 'Banana', 50, 50, 25, 10, '2018-10-23 01:44:58', 1),
+(11, 'Mango', 60, 60, 25, 10, '2018-10-23 01:45:50', 1),
+(12, 'Sampalok', 20, 20, 50, 60, '2018-10-23 01:47:13', 1);
 
 -- --------------------------------------------------------
 
@@ -238,6 +250,7 @@ INSERT INTO `guests` (`id`, `name`, `contact`, `companyName`, `companyAddress`) 
 --
 
 CREATE TABLE `loginnames` (
+  `id` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(250) NOT NULL,
   `accountType` varchar(20) NOT NULL
@@ -247,40 +260,9 @@ CREATE TABLE `loginnames` (
 -- Dumping data for table `loginnames`
 --
 
-INSERT INTO `loginnames` (`username`, `password`, `accountType`) VALUES
-('abi', 'admin', 'user'),
-('Joseph', 'admin', 'admin');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `rate_history`
---
-
-CREATE TABLE `rate_history` (
-  `refno` int(11) NOT NULL,
-  `rate` double DEFAULT NULL,
-  `rateperhour` double DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `rate_history`
---
-
-INSERT INTO `rate_history` (`refno`, `rate`, `rateperhour`) VALUES
-(1, 1000, 100),
-(2, 2000, 200),
-(3, 3000, 300),
-(4, 4000, 400),
-(5, 5000, 500),
-(6, 5005, 505),
-(7, 5555, 505),
-(8, 4004, 400),
-(9, 4004, 400),
-(10, 5553, 505),
-(11, 5550, 505),
-(12, 2002, 200),
-(13, 12345, 332);
+INSERT INTO `loginnames` (`id`, `username`, `password`, `accountType`) VALUES
+(1, 'abi', 'admin', 'user'),
+(2, 'Joseph', 'admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -289,7 +271,7 @@ INSERT INTO `rate_history` (`refno`, `rate`, `rateperhour`) VALUES
 --
 
 CREATE TABLE `reservations` (
-  `reservationId` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `personal_id` varchar(255) NOT NULL,
   `personal_id_type` varchar(255) NOT NULL,
   `room_id` int(100) NOT NULL,
@@ -309,7 +291,7 @@ CREATE TABLE `reservations` (
 -- Dumping data for table `reservations`
 --
 
-INSERT INTO `reservations` (`reservationId`, `personal_id`, `personal_id_type`, `room_id`, `name`, `mobile`, `compName`, `compAddress`, `checkInDate`, `checkOutDate`, `adultsCount`, `childrensCount`, `reservationDate`, `status`) VALUES
+INSERT INTO `reservations` (`id`, `personal_id`, `personal_id_type`, `room_id`, `name`, `mobile`, `compName`, `compAddress`, `checkInDate`, `checkOutDate`, `adultsCount`, `childrensCount`, `reservationDate`, `status`) VALUES
 (1, '1231444', 'Drivers_License', 4, 'bbcnovaliches.org', '131231', 'bbcnovaliches.org', 'bbcnovaliches.org', '2018-08-03', '2018-08-15', 3, 2, '2018-07-31 02:26:13', 'Pending'),
 (2, '312313', 'Philhealt', 7, 'admin', '0192301924', '', '', '2018-08-01', '2018-08-09', 2, 1, '2018-07-31 02:26:40', 'Pending');
 
@@ -358,7 +340,7 @@ CREATE TABLE `rooms` (
 
 INSERT INTO `rooms` (`id`, `roomNo`, `roomType`, `floor`, `status`, `createdDate`, `ispublished`) VALUES
 (2, 2, 2, '2', 'Occupied', '2018-09-26 15:41:13', 1),
-(3, 3, 3, '1', 'Vacant', '2018-09-26 15:41:25', 1),
+(3, 3, 3, '1', 'Maintenance', '2018-09-26 15:41:25', 1),
 (4, 4, 4, '4', 'Vacant', '2018-09-26 15:41:36', 1),
 (5, 5, 5, '1', 'Vacant', '2018-09-26 15:50:26', 1),
 (6, 6, 6, '3', 'Vacant', '2018-09-26 15:51:01', 1),
@@ -371,10 +353,10 @@ INSERT INTO `rooms` (`id`, `roomNo`, `roomType`, `floor`, `status`, `createdDate
 (60, 14, 3, '2', 'Vacant', '2018-10-07 09:17:28', 1),
 (61, 15, 3, '2', 'Vacant', '2018-10-07 09:18:26', 1),
 (62, 16, 5, '10', 'Vacant', '2018-10-09 16:22:57', 1),
-(63, 17, 3, '9', 'Vacant', '2018-10-09 16:23:12', 1),
+(63, 17, 3, '9', 'Vacant', '2018-10-09 16:23:12', 0),
 (64, 67, 9, '3', 'Vacant', '2018-10-12 03:08:03', 1),
-(65, 18, 18, '1', 'Vacant', '2018-10-12 09:19:20', 1),
-(66, 19, 11, '3', 'Occupied', '2018-10-22 05:05:37', 1);
+(65, 18, 18, '1', 'Vacant', '2018-10-12 09:19:20', 0),
+(66, 19, 11, '3', 'Occupied', '2018-10-22 05:05:37', 0);
 
 -- --------------------------------------------------------
 
@@ -474,15 +456,63 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 
 --
+-- Indexes for table `addedextras`
+--
+ALTER TABLE `addedextras`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `addedfoods`
+--
+ALTER TABLE `addedfoods`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `checkin`
 --
 ALTER TABLE `checkin`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `checkout`
+--
+ALTER TABLE `checkout`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `extras`
+--
+ALTER TABLE `extras`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `foods`
+--
+ALTER TABLE `foods`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `guests`
 --
 ALTER TABLE `guests`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `loginnames`
+--
+ALTER TABLE `loginnames`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `reservations`
+--
+ALTER TABLE `reservations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `roominventory`
+--
+ALTER TABLE `roominventory`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -498,8 +528,26 @@ ALTER TABLE `roomtypes`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `system_variables`
+--
+ALTER TABLE `system_variables`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `addedextras`
+--
+ALTER TABLE `addedextras`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `addedfoods`
+--
+ALTER TABLE `addedfoods`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `checkin`
@@ -508,10 +556,46 @@ ALTER TABLE `checkin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `checkout`
+--
+ALTER TABLE `checkout`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `extras`
+--
+ALTER TABLE `extras`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `foods`
+--
+ALTER TABLE `foods`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
 -- AUTO_INCREMENT for table `guests`
 --
 ALTER TABLE `guests`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `loginnames`
+--
+ALTER TABLE `loginnames`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `reservations`
+--
+ALTER TABLE `reservations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `roominventory`
+--
+ALTER TABLE `roominventory`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `rooms`
@@ -524,6 +608,12 @@ ALTER TABLE `rooms`
 --
 ALTER TABLE `roomtypes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `system_variables`
+--
+ALTER TABLE `system_variables`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
