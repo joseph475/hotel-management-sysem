@@ -1,4 +1,5 @@
 var modal = $('#AddRoomTypeModal');
+var checkifvalid = ['#roomType','#description', '#rate', '#rateperhour', '#maxAdult', '#maxChildren'];
 
 $(document).ready(function () {
     loadRoomTypes(curpage);
@@ -55,16 +56,16 @@ function createRoomTypeTable(id, type, maxAdult, maxChildren, rate, rateperhour)
 }
 
 
-$('#submit').on('click', function () {
-    var roomType = modal.find('#roomType').val(),
-        rate = modal.find('#rate').val(),
-        rateperhour = modal.find('#rateperhour').val(),
-        maxAdult = modal.find('#maxAdult').val(),
-        maxChildren = modal.find('#maxChildren').val();
-        
-    curpage = sessionStorage.getItem("curpage");
-
-    if (roomType != '' && rate != '' && rateperhour != '' && maxAdult != '' && maxChildren != '') {
+$('#submit').on('click', function () {    
+    if(checkValid(checkifvalid)){
+        var roomType = modal.find('#roomType').val(),
+            description = modal.find('#description').val(),
+            rate = modal.find('#rate').val(),
+            rateperhour = modal.find('#rateperhour').val(),
+            maxAdult = modal.find('#maxAdult').val(),
+            maxChildren = modal.find('#maxChildren').val();
+            
+        curpage = sessionStorage.getItem("curpage");
         $.confirm({
             title: 'Save Room Type?',
             content: '',
@@ -76,6 +77,7 @@ $('#submit').on('click', function () {
                         type: 'POST',
                         data: {
                             type: roomType,
+                            description : description,
                             rate: rate,
                             rateperhour: rateperhour,
                             maxAdult: maxAdult,

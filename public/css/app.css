@@ -3574,6 +3574,11 @@ input.with-borders:focus {
   top: 64px;
 }
 
+textarea {
+  height: auto;
+  border: 1px solid #9e9e9e;
+}
+
 .Vacant {
   background-color: #4caf50;
 }

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\ApiController;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
 use App\Models\RoomTypeModel;
+
 
 class RoomTypesController extends Controller
 {
@@ -22,24 +24,31 @@ class RoomTypesController extends Controller
         return $roomtypes;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function upload(Request $request){
+        request()->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        $imageName = time().'.'.request()->image->getClientOriginalExtension();
+        request()->image->move(public_path('images') . '/uploads', $imageName);
+        
+        $roomType = RoomTypeModel::findOrFail($request->id);
+        $roomType->description = $request->description;
+        $roomType->image = $imageName;
+        $roomType->save();
+
+        return back();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
+        if ($request->isMethod('put')) {
+            $roomType = RoomTypeModel::findOrFail($request->id);
+            $roomType->description = $request->description;
+            $roomType->image = $request->image;
+            $roomType->save();
+            return redirect('/RoomTypes');
+        }
+
         $roomType = RoomTypeModel::create($request->all());
         return $roomType;
     }

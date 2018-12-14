@@ -51,19 +51,22 @@
                     <form action="" id="addRoomTypeForm">
                         <div class="row mt20">
                             <div class="col s12 m12">
-                                <input  placeholder="Room Type" id="roomType" type="text">
+                                <input  placeholder="Room Type" id="roomType" type="text" class="validate">
                             </div>
                             <div class="col s12 m12">
-                                <input  placeholder="Rate" id="rate" type="number">
+                                <input  placeholder="Rate" id="rate" type="number" class="validate">
                             </div>
                             <div class="col s12 m12">
-                                <input  placeholder="Rate per Hour" id="rateperhour" type="number">
+                                <input  placeholder="Rate per Hour" id="rateperhour" type="number" class="validate">
                             </div>
                             <div class="col s12 m12">
-                                <input  placeholder="Max Adult" id="maxAdult" type="number">
+                                <input  placeholder="Max Adult" id="maxAdult" type="number" class="validate">
                             </div>
                             <div class="col s12 m12">
-                                <input  placeholder="Max Children" id="maxChildren" type="number">
+                                <input  placeholder="Max Children" id="maxChildren" type="number" class="validate">
+                            </div>
+                            <div class="col s12 m12">
+                                <textarea class="p10 mt20 validate" id="description" rows="10" placeholder="Description"></textarea>
                             </div>
                         </div>
                     </form>
