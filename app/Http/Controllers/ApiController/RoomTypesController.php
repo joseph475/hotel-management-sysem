@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
 use App\Models\RoomTypeModel;
+use App\Models\RoomImagesModel;
 
 
 class RoomTypesController extends Controller
@@ -25,16 +26,21 @@ class RoomTypesController extends Controller
     }
 
     public function upload(Request $request){
-        request()->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-        $imageName = time().'.'.request()->image->getClientOriginalExtension();
-        request()->image->move(public_path('images') . '/uploads', $imageName);
         
-        $roomType = RoomTypeModel::findOrFail($request->id);
-        $roomType->description = $request->description;
-        $roomType->image = $imageName;
-        $roomType->save();
+        foreach ($request->image as $photo) {
+            $filename = time() . '_' . $photo->getClientOriginalName();
+            $photo->move(public_path('images') . '/uploads', $filename);
+            // $filename = request()->image->move(public_path('images') . '/uploads', $filename);
+            $image = (['roomtype_id' => $request->id, 'filename' => $filename]);
+            $image = RoomImagesModel::create($image);
+        }
+        // $imageName = time().'.'.request()->image->getClientOriginalExtension();
+        // request()->image->move(public_path('images') . '/uploads', $imageName);
+        
+        // $roomType = RoomTypeModel::findOrFail($request->id);
+        // $roomType->description = $request->description;
+        // $roomType->image = $imageName;
+        // $roomType->save();
 
         return back();
     }

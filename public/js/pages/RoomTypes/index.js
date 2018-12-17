@@ -95,11 +95,12 @@ $('#submit').on('click', function () {
                                         loadRoomTypes(1);
                                         clearmodal();
                                     }
-                                });
-                            },
-                            error: function (aaa, bbb, ccc) {
-                                console.log(aaa + "-" + bbb + "-" + ccc);
-                            }
+                                }
+                            })
+                        },
+                        error: function (aaa, bbb, ccc) {
+                            console.log(aaa + "-" + bbb + "-" + ccc);
+                        }
                         });
                     }
                 }
