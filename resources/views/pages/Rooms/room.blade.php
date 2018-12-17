@@ -30,7 +30,8 @@
                         <div class="file-field input-field">
                             <div class="btn btn-1">
                                 <span><i class="material-icons left">file_upload</i>Upload</span>
-                                <input type="file" multiple>
+                                {{--  <input type="file" multiple>  --}}
+                                <input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>
                             </div>
                             <div class="file-path-wrapper">
                                 <input class="file-path validate" type="text" placeholder="Upload one or more Images">

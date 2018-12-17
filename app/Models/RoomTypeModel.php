@@ -11,9 +11,11 @@ class RoomTypeModel extends Model
     public $timestamps = false;
     protected $fillable = [
         'type',
+        'description',
         'rate',
         'rateperhour',
         'maxAdult',
-        'maxChildren'
+        'maxChildren',
+        'image'
     ];
 }

@@ -1,5 +1,7 @@
 $(function () {
+
     var modal = $('#AddRoomTypeModal');
+    var checkifvalid = ['#roomType','#description', '#rate', '#rateperhour', '#maxAdult', '#maxChildren'];
 
     $(document).ready(function () {
         loadRoomTypes(curpage);
@@ -56,42 +58,42 @@ $(function () {
     }
 
 
-    $('#submit').on('click', function () {
+$('#submit').on('click', function () {    
+    if(checkValid(checkifvalid)){
         var roomType = modal.find('#roomType').val(),
+            description = modal.find('#description').val(),
             rate = modal.find('#rate').val(),
             rateperhour = modal.find('#rateperhour').val(),
             maxAdult = modal.find('#maxAdult').val(),
             maxChildren = modal.find('#maxChildren').val();
             
         curpage = sessionStorage.getItem("curpage");
-
-        if (roomType != '' && rate != '' && rateperhour != '' && maxAdult != '' && maxChildren != '') {
-            $.confirm({
-                title: 'Save Room Type?',
-                content: '',
-                buttons: {
-                    cancel: function () { },
-                    confirm: function () {
-                        $.ajax({
-                            url: '../api/RoomType',
-                            type: 'POST',
-                            data: {
-                                type: roomType,
-                                rate: rate,
-                                rateperhour: rateperhour,
-                                maxAdult: maxAdult,
-                                maxChildren: maxChildren
-                            },
-                            dataType: 'json',
-                            success: function (data) {
-                                $.confirm({
-                                    title: 'Room Type Added Succesfully',
-                                    content: '',
-                                    buttons: {
-                                        OK: function () {
-                                            loadRoomTypes(1);
-                                            clearmodal();
-                                        }
+        $.confirm({
+            title: 'Save Room Type?',
+            content: '',
+            buttons: {
+                cancel: function () { },
+                confirm: function () {
+                    $.ajax({
+                        url: '../api/RoomType',
+                        type: 'POST',
+                        data: {
+                            type: roomType,
+                            description : description,
+                            rate: rate,
+                            rateperhour: rateperhour,
+                            maxAdult: maxAdult,
+                            maxChildren: maxChildren
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            $.confirm({
+                                title: 'Room Type Added Succesfully',
+                                content: '',
+                                buttons: {
+                                    OK: function () {
+                                        loadRoomTypes(1);
+                                        clearmodal();
                                     }
                                 });
                             },

@@ -31,6 +31,8 @@ Route::delete('Room/{id}','ApiController\RoomsController@destroy');
 
 
 Route::post('RoomType','ApiController\RoomTypesController@store');
+Route::post('image-upload', 'ApiController\RoomTypesController@upload')->name('image.upload.post');
+
 Route::get('RoomTypes','ApiController\RoomTypesController@index');
 Route::get('RoomTypes/{id}','ApiController\RoomTypesController@show');
 Route::delete('RoomType/{id}','ApiController\RoomTypesController@destroy');
