@@ -2928,7 +2928,7 @@
 }
 
 header {
-  z-index: 10000;
+  z-index: 5;
 }
 
 header .header-nav {
@@ -2979,6 +2979,7 @@ footer .page-footer {
 }
 
 .sidenav {
+  z-index: 4;
   width: 300px;
   background: #20201e;
 }
@@ -3177,6 +3178,35 @@ footer .page-footer {
   padding: 15px;
 }
 
+.roomTypeInnerPage .image-container {
+  background-color: white;
+  margin-top: 20px;
+  padding: 10px 20px 20px 20px;
+}
+
+.roomTypeInnerPage .myTable {
+  background-color: white;
+}
+
+.roomTypeInnerPage .myTable th,
+.roomTypeInnerPage .myTable td {
+  padding-left: 15px;
+}
+
+.roomTypeInnerPage .myTable th {
+  font-weight: 600;
+}
+
+.roomTypeInnerPage .myTable td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.roomTypeInnerPage .myTable td .imgdisp {
+  width: 80px;
+  height: 80px;
+}
+
 * {
   font-size: 13.5px;
   font-family: 'Raleway' ,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -3237,7 +3267,7 @@ a {
             transform: -webkit-translate(-45%, -45%);
     transform: -moz-translate(-45%, -45%);
     transform: -ms-translate(-45%, -45%);
-    z-index: 1001;
+    z-index: 10;
     display: none;
   }
 }
@@ -3286,7 +3316,7 @@ a {
   background-color: whitesmoke;
   -webkit-box-shadow: 0px 1px 2px 0px #8a8484;
   box-shadow: 0px 1px 2px 0px #8a8484;
-  z-index: 500;
+  z-index: 9;
 }
 
 #page-header .page-title {
@@ -3328,7 +3358,7 @@ a {
   position: relative;
   border: 1px solid #21a4e0;
   border-radius: 0px;
-  z-index: 500;
+  z-index: 8;
   color: white;
   height: 38px;
 }
@@ -3450,7 +3480,7 @@ input.with-borders:focus {
 }
 
 .modal {
-  z-index: 10001 !important;
+  z-index: 6 !important;
   top: 75px !important;
   border: 2px solid #21a4e0;
   width: 450px;
@@ -3498,7 +3528,7 @@ input.with-borders:focus {
           transform: -webkit-translate(-45%, -45%);
   transform: -moz-translate(-45%, -45%);
   transform: -ms-translate(-45%, -45%);
-  z-index: 1011;
+  z-index: 11;
 }
 
 .preloader-bg {
@@ -3517,7 +3547,7 @@ input.with-borders:focus {
   width: 100%;
   height: 100%;
   background: rgba(58, 55, 55, 0.5);
-  z-index: 1010;
+  z-index: 10;
 }
 
 /* Safari */

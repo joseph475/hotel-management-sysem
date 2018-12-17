@@ -28,16 +28,18 @@ class RoomTypesController extends Controller
 
     public function upload(Request $request){
         
-        foreach ($request->image as $photo) {
-            $filename = time() . '_' . $photo->getClientOriginalName();
-            $photo->move(public_path('images') . '/uploads', $filename);
-            $image = (['roomtype_id' => $request->id, 'filename' => $filename]);
-            $image = RoomImagesModel::create($image);
-
-            $roomType = RoomTypeModel::findOrFail($request->id);
-            $roomType->description = $request->description;
-            $roomType->save();
+        if(isset($request->image)){
+            foreach ($request->image as $photo) {
+                $filename = $photo->getClientOriginalName();
+                $photo->move(public_path('images') . '/uploads', $filename);
+                $image = (['roomtype_id' => $request->id, 'filename' => $filename]);
+                $image = RoomImagesModel::create($image);
+            }
         }
+        $roomType = RoomTypeModel::findOrFail($request->id);
+        $roomType->description = $request->description;
+        $roomType->save();
+        
         return back();
     }
 

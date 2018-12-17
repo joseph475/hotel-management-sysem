@@ -15,8 +15,8 @@ class RoomTypesController extends Controller
 
     public function show($id){
         $roomtype = RoomTypeModel::findOrFail($id);
-        $room_images = RoomImagesModel::select('filename')->where('roomtype_id',$id);
-        
+        $room_images = RoomImagesModel::select('id','filename','date_created')->where('roomtype_id', $id)->get();
+  
         $data = array(
             'roomtype' => $roomtype,
             'room_images' => $room_images
