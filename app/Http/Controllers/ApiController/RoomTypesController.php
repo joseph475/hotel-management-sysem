@@ -30,18 +30,13 @@ class RoomTypesController extends Controller
         foreach ($request->image as $photo) {
             $filename = time() . '_' . $photo->getClientOriginalName();
             $photo->move(public_path('images') . '/uploads', $filename);
-            // $filename = request()->image->move(public_path('images') . '/uploads', $filename);
             $image = (['roomtype_id' => $request->id, 'filename' => $filename]);
             $image = RoomImagesModel::create($image);
-        }
-        // $imageName = time().'.'.request()->image->getClientOriginalExtension();
-        // request()->image->move(public_path('images') . '/uploads', $imageName);
-        
-        // $roomType = RoomTypeModel::findOrFail($request->id);
-        // $roomType->description = $request->description;
-        // $roomType->image = $imageName;
-        // $roomType->save();
 
+            $roomType = RoomTypeModel::findOrFail($request->id);
+            $roomType->description = $request->description;
+            $roomType->save();
+        }
         return back();
     }
 
