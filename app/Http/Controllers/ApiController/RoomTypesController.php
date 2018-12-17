@@ -22,6 +22,7 @@ class RoomTypesController extends Controller
         ->orderBy('createdDate', 'desc')
         ->paginate(10);
         
+        // $room_images = RoomImagesModel::
         return $roomtypes;
     }
 
