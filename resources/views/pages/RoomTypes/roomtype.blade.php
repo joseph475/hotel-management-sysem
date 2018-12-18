@@ -50,18 +50,18 @@
                             <table class="highlight z-depth-1 myTable">
                                     <thead>
                                         <tr>
-                                            <th>Image</th>
+                                            <!-- <th>Image</th> -->
                                             <th>Filename</th>
-                                            <!-- <th>Uploaded</th> -->
+                                            <th>Uploaded</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody id="roomTypeTable">
                                         @foreach($room_images as $images)
                                             <tr>
-                                                <td><img class="imgdisp responsive-img" src="{{url('/images/uploads/' . $images->filename)}}" alt=""></td>
+                                                <!-- <td><img class="imgdisp responsive-img" src="{{url('/images/uploads/' . $images->filename)}}" alt=""></td> -->
                                                 <td>{{ $images->filename }}</td>
-                                                <!-- <td>{{ date('Y-m-d', strtotime($images->date_created)) }}</td> -->
+                                                <td>{{ date('Y-m-d', strtotime($images->date_created)) }}</td>
                                                 <td><a href="" class="btn btn-flat btn-2"><i class="far fa-trash-alt"></i></a></td>
                                             </tr>
                                         @endforeach

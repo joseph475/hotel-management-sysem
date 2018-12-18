@@ -19,6 +19,12 @@ $(document).ajaxStart(function () {
     $dimScreem.hide();
 });
 
+function ckEditorInit(selector){
+    CKEDITOR.replace(selector , {
+        uiColor: '#c0c0c0'
+    });
+}
+
 function checkValid(checkifvalid){
     for (i = 0 ; i < checkifvalid.length ; i++) {
         if(!$(checkifvalid[i]).hasClass('valid')){
