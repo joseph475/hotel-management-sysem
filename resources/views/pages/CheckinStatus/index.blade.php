@@ -18,7 +18,97 @@
         </div>
     </div>
     <div class="row content">
-        <div class="col s12 m4 push-m8 mb15">
+        <div class="col s12 m4 push-m8">
+            <ul class="collapsible expandable mb6">
+                <li class="active">
+                    <div class="collapsible-header">
+                        <i class="far fa-money-bill-alt"></i>Billing Summary 
+                        <a class="headerbtn printSummary tooltipped" data-tooltip="Print">
+                            <i class="material-icons">print</i>
+                        </a>
+                    </div>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>Room <span class="right">&#8369;5000</span></li>
+                            <li>Food <span class="right">&#8369;1000</span></li>
+                            <li>Extras <span class="right">&#8369;500</span></li>
+                            <li>Total <span class="right">&#8369;6500</span></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <ul class="collapsible expandable mb6">
+                <li>
+                    <div class="collapsible-header">
+                        <i class="far fa-money-bill-alt"></i>Room Breakdown 
+                        <a class="headerbtn printSummary tooltipped" data-tooltip="Print">
+                            <i class="material-icons">print</i>
+                        </a>
+                    </div>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>Room <span class="right">&#8369;5000</span></li>
+                            <li>Food <span class="right">&#8369;1000</span></li>
+                            <li>Extras <span class="right">&#8369;500</span></li>
+                            <li>Total <span class="right">&#8369;6500</span></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <ul class="collapsible expandable mb6">
+                <li>
+                    <div class="collapsible-header">
+                        <i class="far fa-money-bill-alt"></i>Foods Breakdown 
+                        <a class="headerbtn printSummary tooltipped" data-tooltip="Print">
+                            <i class="material-icons">print</i>
+                        </a>
+                    </div>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>Room <span class="right">&#8369;5000</span></li>
+                            <li>Food <span class="right">&#8369;1000</span></li>
+                            <li>Extras <span class="right">&#8369;500</span></li>
+                            <li>Total <span class="right">&#8369;6500</span></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <ul class="collapsible expandable mb6">
+                <li>
+                    <div class="collapsible-header">
+                        <i class="far fa-money-bill-alt"></i>Extras Breakdown 
+                        <a class="headerbtn printSummary tooltipped" data-tooltip="Print">
+                            <i class="material-icons">print</i>
+                        </a>
+                    </div>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>Room <span class="right">&#8369;5000</span></li>
+                            <li>Food <span class="right">&#8369;1000</span></li>
+                            <li>Extras <span class="right">&#8369;500</span></li>
+                            <li>Total <span class="right">&#8369;6500</span></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col s12 m8 pull-m4">
+            <ul class="collapsible expandable mb6">
+                <li class="active">
+                    <div class="collapsible-header"><i class="fas fa-users"></i>Guest Details
+                        <a class="headerbtn viewGuest tooltipped" data-tooltip="View Details">
+                            <i class="fas fa-external-link-square-alt"></i>
+                        </a>
+                    </div>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>Name <span class="right">{{ $data->name }}</span></li>
+                            <li>Contact <span class="right">{{ $data->contact }}</span></li>
+                            <li>Company <span class="right">{{ $data->companyName }}</span></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
             <ul class="collapsible expandable mb6">
                 <li class="active">
                     <div class="collapsible-header"><i class="far fa-calendar-check"></i>Check-in Details</div>
@@ -32,7 +122,7 @@
                 </li>
             </ul>
             <ul class="collapsible expandable mb6">
-                <li class="active">
+                <li>
                     <div class="collapsible-header"><i class="fas fa-bed"></i>Room Details</div>
                     <div class="collapsible-body">
                         <ul>
@@ -44,31 +134,28 @@
                     </div>
                 </li>
             </ul>
-            <ul class="collapsible expandable">
-                <li class="active">
-                    <div class="collapsible-header"><i class="fas fa-users"></i>Guest Details</div>
+            <ul class="collapsible expandable mb6">
+                <li>
+                    <div class="collapsible-header"><i class="fas fa-utensils"></i></i>Add Foods</div>
                     <div class="collapsible-body">
                         <ul>
-                            <li>Name <span class="right">{{ $data->name }}</span></li>
-                            <li>Contact <span class="right">{{ $data->contact }}</span></li>
-                            <li>Company <span class="right">{{ $data->companyName }}</span></li>
-                            <li>Adults Count <span class="right">{{ $data->adultsCount }}</span></li>
-                            <li>Children Count <span class="right">{{ $data->childrenCount }}</span></li>
+                            <li>Room No <span class="right">{{ $data->roomNo }}</span></li>
+                            <li>Room Type <span class="right">{{ $data->type }}</span></li>
+                            <li>Rate <span class="right">{{ $data->rate }}</span></li>
+                            <li>Rate\Hour <span class="right">{{ $data->rateperhour }}</span></li>
                         </ul>
                     </div>
                 </li>
             </ul>
-        </div>
-        <div class="col s12 m8 pull-m4">
-            <ul class="collapsible expandable">
-                <li class="active">
-                    <div class="collapsible-header"><i class="far fa-money-bill-alt"></i>Billing Summary <a class="printSummary tooltipped" data-tooltip="Print"><i class="fas fa-print"></i></a></div>
+            <ul class="collapsible expandable mb6">
+                <li>
+                    <div class="collapsible-header"><i class="fab fa-ethereum"></i></i>Add Extras</div>
                     <div class="collapsible-body">
                         <ul>
-                            <li>Room <span class="right">&#8369;5000</span></li>
-                            <li>Food <span class="right">&#8369;1000</span></li>
-                            <li>Extras <span class="right">&#8369;500</span></li>
-                            <li>Total <span class="right">&#8369;6500</span></li>
+                            <li>Room No <span class="right">{{ $data->roomNo }}</span></li>
+                            <li>Room Type <span class="right">{{ $data->type }}</span></li>
+                            <li>Rate <span class="right">{{ $data->rate }}</span></li>
+                            <li>Rate\Hour <span class="right">{{ $data->rateperhour }}</span></li>
                         </ul>
                     </div>
                 </li>

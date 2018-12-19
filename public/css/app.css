@@ -3214,9 +3214,9 @@ footer .page-footer {
   color: #26a69a;
 }
 
-.checkin-status-page .printSummary {
+.checkin-status-page .headerbtn {
   position: absolute;
-  right: 15px;
+  right: 10px;
 }
 
 .roomTypeInnerPage .image-container {
