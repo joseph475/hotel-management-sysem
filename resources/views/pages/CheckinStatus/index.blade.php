@@ -3,7 +3,7 @@
 @section('content')
 <div class="row checkin-page">
     <div id="page-header">
-        <div class="page-title">Check in</div>
+        <div class="page-title">Room# {{ $data->roomNo }}</div>
         <div class="page-buttons">
             <div class="button-content">
                 <a class="btn btn-1" href="/">
@@ -17,13 +17,8 @@
             </div>
         </div>
     </div>
-    
     <div class="row content z-depth-1">
-        <div class="col s12 m6 first-col">
-            <div class="page-header-2">
-                <div class="page-title-2">Checkin Status</div>
-            </div>
-        </div>
+
     </div>
 </div>
 @endsection
