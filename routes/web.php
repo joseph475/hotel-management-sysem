@@ -19,6 +19,7 @@ Route::get('/RoomTypes', 'WebController\RoomTypesController@index');
 Route::get('/RoomType/{id}', 'WebController\RoomTypesController@show');
 
 Route::get('/Checkin/{id}', 'WebController\CheckinController@index');
+Route::get('/Checkin-status/{id}', 'WebController\CheckinController@show');
 
 Route::get('/RoomManagement', 'WebController\RoomManagementController@index');
 

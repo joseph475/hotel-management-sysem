@@ -3480,7 +3480,7 @@ input.with-borders:focus {
 }
 
 .modal {
-  z-index: 6 !important;
+  z-index: 1003 !important;
   top: 75px !important;
   border: 2px solid #21a4e0;
   width: 450px;

@@ -39,7 +39,7 @@
                                 </div>
                             </div>
                             <div class="file-field input-field mb10">
-                                <div class="btn">
+                                <div class="btn btn-1 white-text">
                                     <span>Upload</span>
                                     <input type="file" name="image[]" multiple>
                                 </div>
@@ -53,7 +53,7 @@
                                             <!-- <th>Image</th> -->
                                             <th>Filename</th>
                                             <th>Uploaded</th>
-                                            <th>Action</th>
+                                            <th style="width:20%;">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody id="roomTypeTable">
@@ -62,7 +62,10 @@
                                                 <!-- <td><img class="imgdisp responsive-img" src="{{url('/images/uploads/' . $images->filename)}}" alt=""></td> -->
                                                 <td>{{ $images->filename }}</td>
                                                 <td>{{ date('Y-m-d', strtotime($images->date_created)) }}</td>
-                                                <td><a href="" class="btn btn-flat btn-2"><i class="far fa-trash-alt"></i></a></td>
+                                                <td>
+                                                    <a href="" class="btn btn-flat btn-2 tooltipped" data-tooltip="Delete"><i class="far fa-trash-alt"></i></a>
+                                                    <a href="{{url('/images/uploads/' . $images->filename)}}" target="_blank" class="btn btn-flat btn-2 tooltipped" data-tooltip="View"><i class="fas fa-search-plus"></i></i></i></a>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>    

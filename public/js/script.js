@@ -21,7 +21,7 @@ $(document).ajaxStart(function () {
 
 function ckEditorInit(selector){
     CKEDITOR.replace(selector , {
-        uiColor: '#c0c0c0'
+        uiColor: '#d9d9d9'
     });
 }
 
