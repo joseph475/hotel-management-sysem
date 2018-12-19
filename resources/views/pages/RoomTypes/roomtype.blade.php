@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col m4 push-m8 s12">
                 <div class="room-container pt10">
-                    <ul class="collection">
+                    <ul class="collection z-depth-1">
                         <li class="collection-item"><i class="far fa-lg fa-money-bill-alt pr10"></i>Rate<span class="secondary-content">&#8369;{{ $roomtype->rate }}</span></li>
                         <li class="collection-item"><i class="far fa-lg fa-money-bill-alt pr10"></i>Rate/Hour <span class="secondary-content">&#8369;{{ $roomtype->rateperhour }}</span></li>
                         <li class="collection-item"><i class="fas fa-lg fa-users pr10"></i>Max Adult <span class="secondary-content">{{ $roomtype->maxAdult }}</span></li>
@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="col m8 pull-m4 s12">
-                <div class="image-container">
+                <div class="image-container z-depth-1">
                     <form id="submitForm" action="{{ route('image.upload.post') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
@@ -47,7 +47,7 @@
                                     <input class="file-path validate" type="text" placeholder="Upload one or more files">
                                 </div>
                             </div>
-                            <table class="highlight z-depth-1 myTable">
+                            <table class="highlight myTable">
                                     <thead>
                                         <tr>
                                             <!-- <th>Image</th> -->

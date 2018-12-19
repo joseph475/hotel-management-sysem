@@ -3178,6 +3178,47 @@ footer .page-footer {
   padding: 15px;
 }
 
+.checkin-status-page .content {
+  margin: 20px 10px;
+}
+
+.checkin-status-page .content .collapsible {
+  margin: 0;
+}
+
+.checkin-status-page .content .collapsible li .collapsible-header {
+  font-size: 16px;
+  padding: 10px 15px;
+}
+
+.checkin-status-page .content .collapsible li .collapsible-body {
+  padding: 0;
+}
+
+.checkin-status-page .content .collapsible li .collapsible-body ul li {
+  cursor: pointer;
+  background-color: rgba(248, 246, 246, 0.795);
+  padding: 10px 20px;
+  border-bottom: 1px solid #e4d5d5;
+}
+
+.checkin-status-page .content .collapsible li .collapsible-body ul li:hover {
+  background-color: rgba(114, 181, 243, 0.5);
+}
+
+.checkin-status-page .content .collapsible li .collapsible-body ul li:last-child {
+  border-bottom: none;
+}
+
+.checkin-status-page .content .collapsible li .collapsible-body ul li span {
+  color: #26a69a;
+}
+
+.checkin-status-page .printSummary {
+  position: absolute;
+  right: 15px;
+}
+
 .roomTypeInnerPage .image-container {
   background-color: white;
   margin-top: 20px;
