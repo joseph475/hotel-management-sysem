@@ -53,7 +53,7 @@
                                             <!-- <th>Image</th> -->
                                             <th>Filename</th>
                                             <th>Uploaded</th>
-                                            <th style="width:20%;">Action</th>
+                                            <th style="width:30%;">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody id="roomTypeTable">
