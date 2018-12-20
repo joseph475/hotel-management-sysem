@@ -116,7 +116,13 @@
                         <ul>
                             <li>Check-in Date <span class="right">{{ date('F d, Y', strtotime($data->checkInDate)) }}</span></li>
                             <li>Check-in Time <span class="right">{{ date('g:i A', strtotime($data->checkInDate)) }}</span></li>
-                            <li>Check-out Date <span class="right">{{ date('F d, Y', strtotime($data->checkOutDate)) }} <a class="editCheckout tooltipped" data-tooltip="Edit"><i class="far fa-edit pl5"></i></a></span></li>
+                            <li>Check-out Date 
+                                <span class="right">{{ date('F d, Y', strtotime($data->checkOutDate)) }} 
+                                    <a class="editCheckout tooltipped" data-tooltip="Edit">
+                                        <i class="far fa-edit fa-lg ml10"></i>
+                                    </a>
+                                </span>
+                            </li>
                         </ul>
                     </div>
                 </li>
@@ -139,10 +145,15 @@
                     <div class="collapsible-header"><i class="fas fa-utensils"></i></i>Add Foods</div>
                     <div class="collapsible-body">
                         <ul>
-                            <li>Room No <span class="right">{{ $data->roomNo }}</span></li>
-                            <li>Room Type <span class="right">{{ $data->type }}</span></li>
-                            <li>Rate <span class="right">{{ $data->rate }}</span></li>
-                            <li>Rate\Hour <span class="right">{{ $data->rateperhour }}</span></li>
+                            @foreach($foodlist as $foods)
+                                <li data-id="{{ $foods->id }}">{{ $foods->menuName }} 
+                                    <span class="right">&#8369;{{ $foods->sellingPrice }} 
+                                        <a href="" class="addbtn ml30 tooltipped" data-tooltip="Add Food">
+                                            <i class="far fa-plus-square fa-lg"></i>
+                                        </a> 
+                                    </span>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </li>
@@ -152,10 +163,15 @@
                     <div class="collapsible-header"><i class="fab fa-ethereum"></i></i>Add Extras</div>
                     <div class="collapsible-body">
                         <ul>
-                            <li>Room No <span class="right">{{ $data->roomNo }}</span></li>
-                            <li>Room Type <span class="right">{{ $data->type }}</span></li>
-                            <li>Rate <span class="right">{{ $data->rate }}</span></li>
-                            <li>Rate\Hour <span class="right">{{ $data->rateperhour }}</span></li>
+                            @foreach($extraslist as $extras)
+                                <li data-id="{{ $extras->id }}">{{ $extras->description }} 
+                                    <span class="right">&#8369;{{ $extras->cost }} 
+                                        <a href="" class="addbtn ml30 tooltipped" data-tooltip="Add Extras">
+                                            <i class="far fa-plus-square fa-lg"></i>
+                                        </a> 
+                                    </span>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </li>
