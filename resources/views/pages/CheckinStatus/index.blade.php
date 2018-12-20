@@ -64,11 +64,23 @@
                         </a>
                     </div>
                     <div class="collapsible-body">
-                        <ul>
-                            <li>Room <span class="right">&#8369;5000</span></li>
-                            <li>Food <span class="right">&#8369;1000</span></li>
-                            <li>Extras <span class="right">&#8369;500</span></li>
-                            <li>Total <span class="right">&#8369;6500</span></li>
+                        <ul class="mx5">
+                            <table class="addedTable">
+                                <tbody>
+                                    @foreach($addedfoods as $foods)
+                                        <tr data-id="{{ $foods->id }}">
+                                            <td>{{ $foods->menuName }}</td>
+                                            <td class="teals-text">Quantity ( {{ $foods->quantity }} )</td>
+                                            <td class="teals-text">&#8369;{{ $foods->quantity * $foods->sellingPrice }}</td>
+                                            <td class="right-align">
+                                                <a class="editCheckout tooltipped" data-tooltip="Edit">
+                                                    <i class="far fa-edit ml20"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </ul>
                     </div>
                 </li>
@@ -82,11 +94,23 @@
                         </a>
                     </div>
                     <div class="collapsible-body">
-                        <ul>
-                            <li>Room <span class="right">&#8369;5000</span></li>
-                            <li>Food <span class="right">&#8369;1000</span></li>
-                            <li>Extras <span class="right">&#8369;500</span></li>
-                            <li>Total <span class="right">&#8369;6500</span></li>
+                        <ul class="mx5">
+                            <table class="addedTable">
+                                <tbody>
+                                    @foreach($addedextras as $extras)
+                                        <tr data-id="{{ $extras->id }}">
+                                            <td>{{ $extras->description }}</td>
+                                            <td class="teals-text">Quantity ( {{ $extras->quantity }} )</td>
+                                            <td class="teals-text">&#8369;{{ $extras->quantity * $extras->cost }}</td>
+                                            <td class="right-align">
+                                                <a class="editCheckout tooltipped" data-tooltip="Edit">
+                                                    <i class="far fa-edit ml20"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </ul>
                     </div>
                 </li>

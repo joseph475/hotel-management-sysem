@@ -25,6 +25,7 @@
     }
 }
 .checkin-status-page{
+    a{ cursor: pointer; }
     .content{
         margin: 20px 10px;
         .collapsible{
@@ -50,6 +51,16 @@
                             }
                             span{
                                 color: #26a69a;
+                            }
+                        }
+                        table{
+                            tr{
+                                td{
+                                    padding: 10px;
+                                }
+                                &:last-child{
+                                    border-bottom:none;
+                                }
                             }
                         }
                     }

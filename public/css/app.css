@@ -3181,6 +3181,9 @@ footer .page-footer {
 .checkin-status-page .content {
   margin: 20px 10px;
 }
+.checkin-status-page a{
+  cursor: pointer;
+}
 
 .checkin-status-page .content .collapsible {
   margin: 0;
@@ -3201,6 +3204,13 @@ footer .page-footer {
   padding: 10px 20px;
   border-bottom: 1px solid #e4d5d5;
 }
+.checkin-status-page .content .collapsible li .collapsible-body ul table tr td{
+  padding: 10px;
+}
+.checkin-status-page .content .collapsible li .collapsible-body ul table tr:last-child{
+  border-bottom: none;
+}
+
 
 .checkin-status-page .content .collapsible li .collapsible-body ul li:hover {
   background-color: rgba(114, 181, 243, 0.5);
@@ -3672,5 +3682,9 @@ textarea {
 
 .Cleaning {
   background-color: #2196f3;
+}
+
+.teals-text{
+  color:#26a69a;
 }
 

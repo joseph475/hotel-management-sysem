@@ -10,6 +10,7 @@ use App\Models\RoomModel;
 use App\Models\KitchenModel;
 use App\Models\ExtrasModel;
 use App\Models\AddedFoodsModel;
+use App\Models\AddedExtrasModel;
 
 class CheckinController extends Controller
 {   
@@ -32,7 +33,12 @@ class CheckinController extends Controller
         ->get();
 
         $addedFoods = AddedFoodsModel::join('foods', 'addedfoods.foodsId', '=', 'foods.id')
-        ->select('menuName', 'servings', 'remaining', 'cost', 'sellingPrice')
+        ->select('foods.id','menuName', 'servings', 'remaining', 'cost', 'sellingPrice', 'quantity')
+        ->where(['checkinId'=> $id, 'ispublished' => 1])
+        ->get();
+
+        $addedExtras = AddedExtrasModel::join('extras', 'addedextras.extrasId', '=', 'extras.id')
+        ->select('extras.id', 'description', 'cost', 'quantity')
         ->where(['checkinId'=> $id, 'ispublished' => 1])
         ->get();
 
@@ -41,6 +47,7 @@ class CheckinController extends Controller
         $data = array(
             'data' => $checkinDetails,
             'addedfoods' => $addedFoods,
+            'addedextras' => $addedExtras,
             'foodlist' => $foodlist,
             'extraslist' => $extrasList
         );
