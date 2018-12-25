@@ -1,6 +1,7 @@
 .sidenav{
     // top: 64px;
-    z-index: 4;
+    z-index: 5;
+
     width: 300px;
     background: $header-footer;
     li{
@@ -43,4 +44,17 @@
     .collapsible-header{
         padding: 0 32px;
     }
+}
+
+@media (min-width: 992px){
+    .sidenav{
+        z-index: 3;   
+    }
+    .sidenav-overlay{
+        display: none;
+    }
+}
+
+.sidenav-overlay{
+    z-index: 2;
 }

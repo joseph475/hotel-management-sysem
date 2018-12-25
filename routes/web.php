@@ -14,7 +14,6 @@
 Route::get('/Rooms', 'WebController\RoomsController@index');
 Route::get('/Room/{id}', 'WebController\RoomsController@show');
 
-
 Route::get('/RoomTypes', 'WebController\RoomTypesController@index');
 Route::get('/RoomType/{id}', 'WebController\RoomTypesController@show');
 
@@ -28,6 +27,10 @@ Route::get('/Guests', 'WebController\GuestsController@index');
 Route::get('/Kitchen', 'WebController\KitchenController@index');
 
 Route::get('/Extras', 'WebController\ExtrasController@index');
+
+Route::get('/HotelInfo', 'WebController\HotelInfoController@index');
+
+Route::get('/BookNow', 'WebController\BookNowController@index');
 
 
 Route::get('/', function () {

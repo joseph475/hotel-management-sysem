@@ -14,21 +14,22 @@
 </head>
 
 <body>
-    <header>
-        @include('partials.admin.header')
-    </header>
+    <div class="web">
+        <header>
+            @include('partials.web.header')
+        </header>
 
-         @include('partials.admin.sidenav')
+            {{--  @include('partials.sidenav')  --}}
 
-    <main>  
-        @yield('content')
-        <div id="dimScreen"></div>
-    </main>
+        <main>  
+            @yield('content')
+            {{--  <div id="dimScreen"></div>  --}}
+        </main>
 
-    <footer>
-        @include('partials.admin.footer')
-    </footer>
-    
+        <footer>
+            {{--  @include('partials.footer')  --}}
+        </footer>
+    </div>
     <script>M.AutoInit();</script>
 </body>
 

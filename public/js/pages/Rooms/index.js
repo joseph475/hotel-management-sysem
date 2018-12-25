@@ -88,10 +88,7 @@ $('#submit').on('click', function () {
                                 title: 'Room Added Succesfully',
                                 content: '',
                                 buttons: {
-                                    OK: function () {
-                                        loadRooms(1); 
-                                        clearmodal();
-                                    }
+                                    OK: function () { loadRooms(1); clearmodal(); }
                                 }
                             });
                         },

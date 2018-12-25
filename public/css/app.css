@@ -2928,7 +2928,7 @@
 }
 
 header {
-  z-index: 5;
+  z-index: 4;
 }
 
 header .header-nav {
@@ -2979,7 +2979,7 @@ footer .page-footer {
 }
 
 .sidenav {
-  z-index: 4;
+  z-index: 5;
   width: 300px;
   background: #20201e;
 }
@@ -3023,6 +3023,20 @@ footer .page-footer {
 
 .sidenav .collapsible-header {
   padding: 0 32px;
+}
+
+@media (min-width: 992px) {
+  .sidenav {
+    z-index: 3;
+  }
+
+  .sidenav-overlay {
+    display: none;
+  }
+}
+
+.sidenav-overlay {
+  z-index: 2;
 }
 
 .rooms-page .modal {
@@ -3178,11 +3192,12 @@ footer .page-footer {
   padding: 15px;
 }
 
+.checkin-status-page a {
+  cursor: pointer;
+}
+
 .checkin-status-page .content {
   margin: 20px 10px;
-}
-.checkin-status-page a{
-  cursor: pointer;
 }
 
 .checkin-status-page .content .collapsible {
@@ -3204,13 +3219,6 @@ footer .page-footer {
   padding: 10px 20px;
   border-bottom: 1px solid #e4d5d5;
 }
-.checkin-status-page .content .collapsible li .collapsible-body ul table tr td{
-  padding: 10px;
-}
-.checkin-status-page .content .collapsible li .collapsible-body ul table tr:last-child{
-  border-bottom: none;
-}
-
 
 .checkin-status-page .content .collapsible li .collapsible-body ul li:hover {
   background-color: rgba(114, 181, 243, 0.5);
@@ -3222,6 +3230,14 @@ footer .page-footer {
 
 .checkin-status-page .content .collapsible li .collapsible-body ul li span {
   color: #26a69a;
+}
+
+.checkin-status-page .content .collapsible li .collapsible-body ul table tr td {
+  padding: 10px;
+}
+
+.checkin-status-page .content .collapsible li .collapsible-body ul table tr:last-child {
+  border-bottom: none;
 }
 
 .checkin-status-page .headerbtn {
@@ -3476,6 +3492,10 @@ input.with-borders:focus {
   border-radius: 0px;
 }
 
+.teals-text {
+  color: #26a69a;
+}
+
 .activePage {
   background-color: #21a4e0 !important;
 }
@@ -3684,7 +3704,59 @@ textarea {
   background-color: #2196f3;
 }
 
-.teals-text{
-  color:#26a69a;
+body {
+  background-color: white;
+}
+
+body .web header {
+  padding: 0px;
+}
+
+body .web header .navbar {
+  height: 40px;
+}
+
+body .web header .navbar .header-nav {
+  height: inherit;
+}
+
+body .web header .navbar .header-nav .nav-wrapper {
+  height: inherit;
+}
+
+body .web header .navbar .header-nav .nav-wrapper .header-logo {
+  height: inherit;
+  line-height: 40px;
+}
+
+body .web header .navbar .header-nav .nav-wrapper .header-logo a {
+  font-size: 20px;
+  font-weight: 200;
+}
+
+body .web header .navbar .header-nav .nav-wrapper .header-icons {
+  height: inherit;
+  line-height: 40px;
+  margin-right: 25px;
+}
+
+body .web header .navbar .header-nav .nav-wrapper .header-icons a {
+  height: inherit;
+  line-height: inherit;
+  font-size: 12px;
+}
+
+body .web header .navbar .header-nav .nav-wrapper .header-icons a i {
+  font-size: 15px;
+  height: inherit;
+  line-height: inherit;
+}
+
+body .web header .navbar .header-nav .nav-wrapper .header-icons a i.left {
+  margin-right: 5px;
+}
+
+body .web main {
+  padding: 0px;
 }
 

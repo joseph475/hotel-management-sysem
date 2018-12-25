@@ -1,6 +1,9 @@
 <div class="navbar-fixed">
     <nav class="header-nav">
         <div class="nav-wrapper">
+            <a href="#!" data-target="slide-out" class="sidenav-trigger left">
+                <i class="material-icons white-text">menu</i>
+            </a>
             <div class="header-logo">
                 <a href="#!" class="brand-logo hide-on-med-and-down">Hotel Management System</a>
             </div>

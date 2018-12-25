@@ -1,0 +1,26 @@
+body{
+    background-color: white;
+    .web{
+        header{ padding: 0px;
+            .navbar{ height: 40px;
+                .header-nav{ height: inherit;
+                    .nav-wrapper { height: inherit;
+                        .header-logo{ height: inherit; line-height: 40px;
+                            a{ font-size: 20px; font-weight: 200;}
+                        }
+                        .header-icons{ height: inherit; line-height: 40px; margin-right: 25px;
+                            a{ height: inherit; line-height: inherit; font-size: 12px;
+                                i{ font-size: 15px; height: inherit; line-height: inherit; 
+                                    &.left{ margin-right: 5px; }
+                                }
+                            }
+                        }
+                    }
+                } 
+            }
+        }
+        main{ padding: 0px;
+       
+        }
+    }
+}
