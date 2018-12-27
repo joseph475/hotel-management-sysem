@@ -12,12 +12,8 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    // public function __construct(){
-        
-    // }
     public function getSystemVariables(){
-        $floor = SystemVariables::findOrFail('floor');
-
+        $floor = SystemVariables::where('key_name','floor')->first();
         $data = array(
             'floor' => $floor->value,
         );

@@ -17,7 +17,7 @@ class CheckinController extends Controller
     public function index($id){
         $room = DashboardModel::findOrFail($id);
         if($room->status != 'Vacant'){ return redirect('/'); }
-        else{ return view('pages.Checkin.index', ['data' => $room]); }
+        else{ return view('pages.admin.Checkin.index', ['data' => $room]); }
     }
 
     public function show($id){
@@ -51,6 +51,6 @@ class CheckinController extends Controller
             'foodlist' => $foodlist,
             'extraslist' => $extrasList
         );
-        return view('pages.CheckinStatus.index',$data);
+        return view('pages.admin.CheckinStatus.index',$data);
     }
 }

@@ -9,6 +9,6 @@ class GuestsController extends Controller
 {
     public function index()
     {   
-        return view('pages.Guests.index'); 
+        return view('pages.admin.Guests.index'); 
     }
 }

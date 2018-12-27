@@ -23,6 +23,8 @@ Route::middleware('auth:api')->group(function(){
 });
 
 Route::get('SystemVariables','ApiController\SystemVariablesController@index');
+Route::get('HotelInfo','ApiController\HotelInfoController@index');
+Route::put('HotelInfo','ApiController\HotelInfoController@store');
 
 Route::get('Rooms','ApiController\RoomsController@index');
 Route::post('Room','ApiController\RoomsController@store');

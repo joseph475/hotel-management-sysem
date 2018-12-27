@@ -33,6 +33,10 @@ Route::get('/HotelInfo', 'WebController\HotelInfoController@index');
 Route::get('/BookNow', 'WebController\BookNowController@index');
 
 
+
+
+Route::get('/reservation', 'WebController\Web_ReservationController@index');
+
 Route::get('/', function () {
-    return view('pages.index');
+    return view('pages.admin.index');
 });

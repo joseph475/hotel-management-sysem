@@ -9,7 +9,7 @@ class HotelInfoController extends Controller
 {
     public function index()
     { 
-        return view('pages.HotelInfo.index'); 
+        return view('pages.admin.HotelInfo.index'); 
     }
     // return view('pages.Rooms.room', ['data' => $room]); 
 }

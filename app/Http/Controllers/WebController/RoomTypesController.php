@@ -10,7 +10,7 @@ use App\Models\RoomImagesModel;
 class RoomTypesController extends Controller
 {
     public function index(){
-        return view('pages.RoomTypes.index'); 
+        return view('pages.admin.RoomTypes.index'); 
     }
 
     public function show($id){
@@ -21,6 +21,6 @@ class RoomTypesController extends Controller
             'roomtype' => $roomtype,
             'room_images' => $room_images
         );
-        return view('pages.RoomTypes.roomtype', $data); 
+        return view('pages.admin.RoomTypes.roomtype', $data); 
     }
 }

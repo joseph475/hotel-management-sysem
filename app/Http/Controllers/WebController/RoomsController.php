@@ -13,7 +13,7 @@ class RoomsController extends Controller
     public function index()
     {   
         $data = $this->getSystemVariables();
-        return view('pages.Rooms.index', $data); 
+        return view('pages.admin.Rooms.index', $data); 
     }
 
     public function show($id){

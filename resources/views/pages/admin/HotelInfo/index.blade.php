@@ -1,7 +1,7 @@
 @extends('layouts.app') 
 
 @section('content')
-    <div class="row rooms-page">
+    <div class="row">
         <div id="page-header">
             <div class="page-title">Hotel Settings</div>
             <div class="page-buttons">
@@ -26,6 +26,24 @@
                         <!-- js generated -->
                     </tbody>    
             </table>
+        </div>
+        <div id="UpdateModal" class="modal mt50">
+            <div class="row mb0">
+                <div class="col s12 m12">
+                    <div class="input-field col s12 mt25">
+                        <input id="key" type="text" class="validate">
+                        <label for="key"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a class="modal-close waves-effect waves-green btn btn-1 right">
+                    Cancel
+                </a>
+                <button id="submit" class="waves-effect waves-green btn btn-1 right">
+                    Save
+                </button>
+            </div>
         </div>
     </div>
 @endsection

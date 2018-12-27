@@ -9,6 +9,6 @@ class ExtrasController extends Controller
 {
     public function index()
     {   
-        return view('pages.Extras.index'); 
+        return view('pages.admin.Extras.index'); 
     }
 }
