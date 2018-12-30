@@ -1,15 +1,15 @@
-<div class="navbar">
-    <nav class="header-nav">
-        <div class="nav-wrapper">
+<div class="navbar z-depth-1">
+    <nav class="header-nav white">
+        <div class="nav-wrapper container">
             <div class="header-logo">
-                <a href="#!" class="brand-logo hide-on-med-and-down">My Hotel</a>
+                <a href="#!" class="brand-logo hide-on-med-and-down black-text">{{ isset($hotel)? $hotel : 'Hotel' }}</a>
             </div>
             <div class="header-icons">
-                <a href="" class="tooltipped mr20" data-position="bottom" data-tooltip="Contact">
-                    <i class="material-icons left">telephone</i>09153960030
+                <a href="" class="tooltipped mr20 black-text" data-position="bottom" data-tooltip="Contact">
+                    {!! isset($contact1)? '<i class="fas fa-phone"></i>' . $contact1 : '' !!}
                 </a>
-                <a href="" class="tooltipped" data-position="bottom" data-tooltip="Email">
-                    <i class="material-icons left">email</i>Markjoseph475@gmail.com
+                <a href="" class="tooltipped black-text" data-position="bottom" data-tooltip="Email">
+                    {!! isset($email)? '<i class="far fa-envelope"></i>' . $email : '' !!}
                 </a>
             </div>
         </div>

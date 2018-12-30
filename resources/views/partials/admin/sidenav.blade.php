@@ -47,7 +47,6 @@
                 <a class="collapsible-header"><i class="fas fa-cogs"></i>Manage<i class="material-icons right">arrow_drop_down</i></a>
                 <div class="collapsible-body">
                     <ul> 
-                        <li><a href="{{ url('/HotelInfo') }}"><i class="material-icons left">business</i>Hotel Info</a></li>
                         <li><a href="{{ url('/Rooms') }}"><i class="material-icons left">hotel</i>Rooms</a></li>
                         <li><a href="{{ url('/RoomTypes') }}"><i class="material-icons left">weekend</i>Room Types</a></li>
                         <li><a href="{{ url('/Kitchen') }}"><i class="material-icons left">restaurant_menu</i>Food Menus</a></li>

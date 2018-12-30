@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 class Web_ReservationController extends Controller
 {
     public function index(){
-        return view('pages.web.index');
+        $data = $this->getSystemVariables();
+        return view('pages.web.index', $data);
     }
 }

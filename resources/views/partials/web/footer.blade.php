@@ -1,7 +1,6 @@
 <!-- <footer class="page-footer">
 
 </footer> -->
-<div class="loader"></div>
 
 <script type="text/javascript" src="{{ url('/js/ckeditor/ckeditor.js') }}"></script>
 <script type="text/javascript" src="{{ url('/js/materialize.js') }}"></script>

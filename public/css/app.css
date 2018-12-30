@@ -3383,7 +3383,7 @@ a {
   background-color: whitesmoke;
   -webkit-box-shadow: 0px 1px 2px 0px #8a8484;
   box-shadow: 0px 1px 2px 0px #8a8484;
-  z-index: 9;
+  z-index: 2;
 }
 
 #page-header .page-title {
@@ -3713,7 +3713,7 @@ body .web header {
 }
 
 body .web header .navbar {
-  height: 40px;
+  height: 60px;
 }
 
 body .web header .navbar .header-nav {
@@ -3726,33 +3726,30 @@ body .web header .navbar .header-nav .nav-wrapper {
 
 body .web header .navbar .header-nav .nav-wrapper .header-logo {
   height: inherit;
-  line-height: 40px;
+  line-height: 60px;
+  margin: 0px;
 }
 
 body .web header .navbar .header-nav .nav-wrapper .header-logo a {
   font-size: 20px;
-  font-weight: 200;
 }
 
 body .web header .navbar .header-nav .nav-wrapper .header-icons {
   height: inherit;
-  line-height: 40px;
+  line-height: 60px;
   margin-right: 25px;
 }
 
 body .web header .navbar .header-nav .nav-wrapper .header-icons a {
   height: inherit;
   line-height: inherit;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 body .web header .navbar .header-nav .nav-wrapper .header-icons a i {
-  font-size: 15px;
+  font-size: 18px;
   height: inherit;
   line-height: inherit;
-}
-
-body .web header .navbar .header-nav .nav-wrapper .header-icons a i.left {
   margin-right: 5px;
 }
 

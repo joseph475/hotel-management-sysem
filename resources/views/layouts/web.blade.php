@@ -27,7 +27,7 @@
         </main>
 
         <footer>
-            {{--  @include('partials.footer')  --}}
+            @include('partials.web.footer')
         </footer>
     </div>
     <script>M.AutoInit();</script>
