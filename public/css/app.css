@@ -3756,4 +3756,24 @@ body .web header .navbar .header-nav .nav-wrapper .header-icons a i {
 body .web main {
   padding: 0px;
 }
+.web-tr-card{
+  background-color: hsla(199, 51%, 89%, 0.5);
+}
+.web-tr-card input[type=text]:not(.browser-default){
+    border-bottom: 2px solid white;
+}
+.parallax-container{
+  min-height: 550px;
+  height: auto;
+}
 
+.datepicker-day-button{
+  color:black;
+}
+.datepicker-modal{
+  width: 500px;
+}
+.web-tr-card .input-field > label{
+  /* color:rgb(26, 103, 247); */
+  color:black;
+}
