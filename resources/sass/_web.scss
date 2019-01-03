@@ -18,7 +18,37 @@ body{
             }
         }
         main{ padding: 0px;
-       
+            .web-reservation{
+                .web-tr-card{
+                    background-color: rgba(109, 111, 112, 0.425);
+                  }
+                .web-tr-card input[type=text]:not(.browser-default){
+                    border-bottom: 2px solid rgb(179, 175, 175);
+                }
+                .parallax-container{
+                min-height: 550px;
+                height: auto;
+                }
+                
+                .datepicker-day-button{
+                color:black;
+                }
+                .datepicker-modal{
+                width: 500px;
+                }
+                // .web-tr-card .input-field > label{
+                // /* color:rgb(26, 103, 247); */
+                // color:black;
+                // }
+                input{
+                    // color:rgb(158, 236, 225);
+                    color:white;
+                }
+                ::placeholder{
+                    color:white;
+                }
+            }
+            
         }
     }
 }
