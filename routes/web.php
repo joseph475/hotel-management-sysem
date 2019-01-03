@@ -32,6 +32,8 @@ Route::get('/HotelInfo', 'WebController\HotelInfoController@index');
 
 Route::get('/BookNow', 'WebController\BookNowController@index');
 
+Route::get('/ChooseRoom', 'WebController\ChooseRoomController@index');
+
 
 
 

@@ -100,7 +100,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col s12 m4">
-                        <div class="card card-2">
+                        <div class="card card-2 center">
                             <div class="card-content">
                                 <span class="card-title">
                                     <h4 class="mt0">Accomodation</h4>
@@ -109,14 +109,14 @@
                                 I am convenient because I require little markup to use effectively.</p>
                             </div>
                             <div class="card-action">
-                                <button class="btn waves-effect waves-light btn-1 hoverable" type="submit" name="action">View Rooms
+                                <a href="{{ url('/ChooseRoom') }}" class="btn waves-effect waves-light btn-1 hoverable">View Rooms
                                     <i class="material-icons right">forward</i>
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
                     <div class="col s12 m4">
-                        <div class="card card-2">
+                        <div class="card card-2 center">
                             <div class="card-content">
                                 <span class="card-title">
                                     <h4 class="mt0">Facilities</h4>
@@ -125,14 +125,14 @@
                                 I am convenient because I require little markup to use effectively.</p>
                             </div>
                             <div class="card-action">
-                                <button class="btn waves-effect waves-light btn-1 hoverable" type="submit" name="action">View Facilities
+                                <a href="{{ url('/ChooseRoom') }}" class="btn waves-effect waves-light btn-1 hoverable">View Facilities
                                     <i class="material-icons right">forward</i>
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
                     <div class="col s12 m4">
-                        <div class="card card-2">
+                        <div class="card card-2 center">
                             <div class="card-content">
                                 <span class="card-title">
                                     <h4 class="mt0">Location</h4>
@@ -143,9 +143,9 @@
                                 </p>
                             </div>
                             <div class="card-action">
-                                <button class="btn waves-effect waves-light btn-1 hoverable" type="submit" name="action">View Location
+                                <a href="{{ url('/ChooseRoom') }}" class="btn waves-effect waves-light btn-1 hoverable">View Location
                                     <i class="material-icons right">forward</i>
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -159,5 +159,5 @@
 @endsection
 
 @section('pagejs')
-    <script src="{{ asset('/js/pages/BookNow/index.js') }}"></script>
+    <!-- <script src="{{ asset('/js/pages/BookNow/index.js') }}"></script> -->
 @stop
