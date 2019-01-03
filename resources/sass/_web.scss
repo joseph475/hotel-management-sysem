@@ -20,35 +20,55 @@ body{
         main{ padding: 0px;
             .web-reservation{
                 .web-tr-card{
-                    background-color: rgba(109, 111, 112, 0.425);
+                    background-color: rgba(71, 71, 71, 0.418);
                   }
                 .web-tr-card input[type=text]:not(.browser-default){
-                    border-bottom: 2px solid rgb(179, 175, 175);
+                    border-bottom: 2px solid #cac7c7;
                 }
                 .parallax-container{
-                min-height: 550px;
-                height: auto;
+                    min-height: 550px;
+                    height: auto;
                 }
                 
                 .datepicker-day-button{
-                color:black;
+                    color:black;
                 }
                 .datepicker-modal{
-                width: 500px;
+                    width: 500px;
                 }
-                // .web-tr-card .input-field > label{
-                // /* color:rgb(26, 103, 247); */
-                // color:black;
-                // }
                 input{
-                    // color:rgb(158, 236, 225);
                     color:white;
                 }
                 ::placeholder{
                     color:white;
                 }
-            }
-            
+                .datepicker-modal{
+                    input{
+                        color: black;
+                    }
+                    input[type=text]:not(.browser-default){
+                        border: none;
+                    }
+                }
+                .card.room-cards{
+                    height: 350px;
+                    overflow: hidden;
+                    .card-image {
+                        img{
+                            height:240px;
+                        }
+                    }
+                }
+                .parallax-container.par2{
+                    min-height: 350px;
+                    height: auto;
+                }
+                .card-2{
+                    .card-content{
+                        height: 180px;
+                    }
+                }
+            }   
         }
     }
 }

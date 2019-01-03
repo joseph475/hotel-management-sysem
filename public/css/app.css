@@ -3284,7 +3284,6 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-height: 100vh;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -3295,6 +3294,7 @@ main {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  min-height: 90vh;
 }
 
 a {
@@ -3303,7 +3303,7 @@ a {
 
 @media (min-width: 992px) {
   main,
-  header{
+  header {
     padding-left: 300px;
   }
 }
@@ -3424,7 +3424,7 @@ a {
   position: relative;
   border: 1px solid #21a4e0;
   border-radius: 0px;
-  z-index: 8;
+  z-index: 2;
   color: white;
   height: 38px;
 }
@@ -3764,7 +3764,7 @@ body .web main .web-reservation .web-tr-card input[type=text]:not(.browser-defau
   border-bottom: 2px solid #cac7c7;
 }
 
-body .web main .web-reservation .parallax-container.par1 {
+body .web main .web-reservation .parallax-container {
   min-height: 550px;
   height: auto;
 }
@@ -3780,12 +3780,7 @@ body .web main .web-reservation .datepicker-modal {
 body .web main .web-reservation input {
   color: white;
 }
-body .web main .web-reservation .datepicker-modal input{
-  color: black;
-}
-body .web main .web-reservation .web-tr-card .datepicker-modal input[type=text]:not(.browser-default) {
-  border: none;
-}
+
 body .web main .web-reservation ::-webkit-input-placeholder {
   color: white;
 }
@@ -3797,8 +3792,22 @@ body .web main .web-reservation ::-ms-input-placeholder {
 body .web main .web-reservation ::placeholder {
   color: white;
 }
-body .web main .web-reservation .card .card-image img{
-  height:240px;
+
+body .web main .web-reservation .datepicker-modal input {
+  color: black;
+}
+
+body .web main .web-reservation .datepicker-modal input[type=text]:not(.browser-default) {
+  border: none;
+}
+
+body .web main .web-reservation .card.room-cards {
+  height: 350px;
+  overflow: hidden;
+}
+
+body .web main .web-reservation .card.room-cards .card-image img {
+  height: 240px;
 }
 
 body .web main .web-reservation .parallax-container.par2 {
@@ -3806,10 +3815,7 @@ body .web main .web-reservation .parallax-container.par2 {
   height: auto;
 }
 
-body .web main .web-reservation .card-2 .card-content{
+body .web main .web-reservation .card-2 .card-content {
   height: 180px;
 }
 
-main{
-  min-height: 90vh;
-}

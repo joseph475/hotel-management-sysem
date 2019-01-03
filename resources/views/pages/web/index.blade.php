@@ -16,7 +16,7 @@
                                 <div class="card-content white-text">
                                     <!-- <span class="card-title white-text">Reservation Form</span> -->
                                     <div class="row">
-                                        <div class="input-field col m2 s12">
+                                        <div class="input-field col m3 s12">
                                             <input placeholder="Date" id="checkin_date" type="text" class="datepicker">
                                         </div>
                                         <div class="input-field col m3 s12">
@@ -35,7 +35,7 @@
                                                 <option value="3">Option 3</option>
                                             </select>
                                         </div>
-                                        <div class="input-field col m4 s12">
+                                        <div class="input-field col m3 s12">
                                             <select>
                                                 <option value="" disabled selected>Room Type</option>
                                                 <option value="1">Option 1</option>
@@ -64,7 +64,7 @@
                 <div class="row">
                     @foreach($roomTypes as $type)
                         <div class="col s12 m4">
-                            <div class="card">
+                            <div class="card room-cards">
                                 <div class="card-image">
                                     <img src="<?php echo '/images/' . $type->img ?>" alt="/images/bg1.jpg">
                                     <span class="card-title"><?php echo $type->type; ?></span>
@@ -153,7 +153,6 @@
                 </div>
             </div>
         </div>
-
     </div>
     
 @endsection
