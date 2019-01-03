@@ -3762,10 +3762,10 @@ body .web main .web-reservation .web-tr-card {
 }
 
 body .web main .web-reservation .web-tr-card input[type=text]:not(.browser-default) {
-  border-bottom: 2px solid #b3afaf;
+  border-bottom: 2px solid #cac7c7;
 }
 
-body .web main .web-reservation .parallax-container {
+body .web main .web-reservation .parallax-container.par1 {
   min-height: 550px;
   height: auto;
 }
@@ -3781,7 +3781,12 @@ body .web main .web-reservation .datepicker-modal {
 body .web main .web-reservation input {
   color: white;
 }
-
+body .web main .web-reservation .datepicker-modal input{
+  color: black;
+}
+body .web main .web-reservation .web-tr-card .datepicker-modal input[type=text]:not(.browser-default) {
+  border: none;
+}
 body .web main .web-reservation ::-webkit-input-placeholder {
   color: white;
 }
@@ -3793,4 +3798,15 @@ body .web main .web-reservation ::-ms-input-placeholder {
 body .web main .web-reservation ::placeholder {
   color: white;
 }
+body .web main .web-reservation .card .card-image img{
+  height:240px;
+}
 
+body .web main .web-reservation .parallax-container.par2 {
+  min-height: 350px;
+  height: auto;
+}
+
+body .web main .web-reservation .card-2 .card-content{
+  height: 180px;
+}
