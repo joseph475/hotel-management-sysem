@@ -17,11 +17,11 @@
                                     <span class="card-title black-text">Reservation Form</span>
                                     <div class="row">
                                         <div class="input-field col m3 s12">
-                                            <i class="material-icons prefix">event</i>
+                                            <!-- <i class="material-icons prefix">event</i> -->
                                             <label for="checkin_date">Date</label>
                                             <input id="checkin_date" type="text" class="datepicker">
                                         </div>
-                                        <div class="input-field col m2 s12">
+                                        <div class="input-field col m3 s12">
                                             <select>
                                                 <option value="" disabled selected>Adult (18+)</option>
                                                 <option value="1">Option 1</option>
@@ -29,7 +29,7 @@
                                                 <option value="3">Option 3</option>
                                             </select>
                                         </div>
-                                        <div class="input-field col m2 s12">
+                                        <div class="input-field col m3 s12">
                                             <select>
                                                 <option value="" disabled selected>Children (0-17)</option>
                                                 <option value="1">Option 1</option>
@@ -37,7 +37,7 @@
                                                 <option value="3">Option 3</option>
                                             </select>
                                         </div>
-                                        <div class="input-field col m5 s12">
+                                        <div class="input-field col m3 s12">
                                             <select>
                                                 <option value="" disabled selected>Room Type</option>
                                                 <option value="1">Option 1</option>
@@ -50,15 +50,9 @@
                                         <a href="#" id="download-button" class="btn-large waves-effect waves-light blue lighten-1 hoverable">Book Now</a>
                                     </div>
                                 </div>
-                                <!-- <div class="card-action">
-                                    
-                                </div> -->
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="row center">
-                        <a href="#" id="download-button" class="btn-large waves-effect waves-light blue lighten-1 hoverable">Book Now</a>
-                    </div> -->
                     <br><br>
                 </div>
             </div>
