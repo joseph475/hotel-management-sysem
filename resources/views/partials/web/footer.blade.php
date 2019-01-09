@@ -1,7 +1,7 @@
 <footer class="page-footer">
-    <div class="container">
+    <!-- <div class="container">
         <span>MJRC</span>
-    </div>
+    </div> -->
 </footer>
 
 <script type="text/javascript" src="{{ url('/js/ckeditor/ckeditor.js') }}"></script>

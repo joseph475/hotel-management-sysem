@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\WebController;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\RoomTypeModel;
 use App\Models\RoomImagesModel;
+use Illuminate\Support\Facades\DB;
 
 class Web_ReservationController extends Controller
 {

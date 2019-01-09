@@ -1,0 +1,2 @@
+$('.chooseRoomsLi:first').addClass('active');
+
