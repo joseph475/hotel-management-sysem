@@ -18,12 +18,9 @@
         <header>
             @include('partials.web.header')
         </header>
-
-            {{--  @include('partials.sidenav')  --}}
-
+        
         <main>  
             @yield('content')
-            {{--  <div id="dimScreen"></div>  --}}
         </main>
 
         <footer>
