@@ -15,17 +15,17 @@
                                     </span>
                                 </div>
                                 <div class="collapsible-body grey lighten-3">
-                                    <div class="row">
+                                    <div class="row mb0">
                                         <div class="col s12 m6">
                                             <span>
-                                                <img class="responsive-img materialboxed z-depth-1 mb10" src="<?php echo ($roomtype->img != "") ? '/images/' . $roomtype->img : "" ?>" alt="">
+                                                <img class="responsive-img materialboxed z-depth-1 mb20" src="<?php echo ($roomtype->img != "") ? '/images/' . $roomtype->img : "" ?>" alt="">
                                             </span>
-                                            <div class="row">
+                                            <div class="row mb0">
                                                 @foreach($room_images as $image)
                                                     @if($image->roomtype_id == $roomtype->id)
                                                         <div class="col s4 m4">
                                                             <div class="image-container" style="height:80px;">
-                                                                <img style="height:inherit; width:100%; object-fit:contain" class="responsive-img materialboxed z-depth-1" 
+                                                                <img style="height:80px; width:100%;" class="responsive-img materialboxed z-depth-1" 
                                                                 src="<?php echo ($image->filename != "") ? '/images/uploads/' . $image->filename : "" ?>" alt="">
                                                             </div>
                                                         </div>
