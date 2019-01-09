@@ -14,7 +14,7 @@
                                     <span class="new badge blue lighten-1 tooltipped" data-tooltip="Available" data-badge-caption="">4
                                     </span>
                                 </div>
-                                <div class="collapsible-body">
+                                <div class="collapsible-body grey lighten-3">
                                     <div class="row">
                                         <div class="col s12 m6">
                                             <span>
@@ -22,7 +22,10 @@
                                             </span>
                                         </div>
                                         <div class="col s12 m6">
-                                            <h5 class="light">Amenities</h5>
+                                            <h5>{{ isset($roomtype->description) ? "Amenities" : "" }}</h5>
+                                            <div>
+                                                <?php echo isset($roomtype->description) ? $roomtype->description : ""; ?>
+                                            </div>
                                         </div>
                                     </div>
                                     
