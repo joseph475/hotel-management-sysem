@@ -18,11 +18,23 @@
                                     <div class="row">
                                         <div class="col s12 m6">
                                             <span>
-                                                <img class="responsive-img materialboxed z-depth-1" src="<?php echo ($roomtype->img != "") ? '/images/' . $roomtype->img : "" ?>" alt="">
+                                                <img class="responsive-img materialboxed z-depth-1 mb10" src="<?php echo ($roomtype->img != "") ? '/images/' . $roomtype->img : "" ?>" alt="">
                                             </span>
+                                            <div class="row">
+                                                @foreach($room_images as $image)
+                                                    @if($image->roomtype_id == $roomtype->id)
+                                                        <div class="col s4 m4">
+                                                            <div class="image-container" style="height:80px;">
+                                                                <img style="height:inherit; width:100%; object-fit:contain" class="responsive-img materialboxed z-depth-1" 
+                                                                src="<?php echo ($image->filename != "") ? '/images/uploads/' . $image->filename : "" ?>" alt="">
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                @endforeach
+                                            </div>
                                         </div>
                                         <div class="col s12 m6">
-                                            <h5>{{ isset($roomtype->description) ? "Amenities" : "" }}</h5>
+                                            <h5>{{ isset($roomtype->description) ? "Room Info" : "" }}</h5>
                                             <div>
                                                 <?php echo isset($roomtype->description) ? $roomtype->description : ""; ?>
                                             </div>
