@@ -3819,3 +3819,15 @@ body .web main .web-reservation .card-2 .card-content {
   height: 180px;
 }
 
+body .web main .web-RoomTypes .container .roomType-header {
+  font-size: 18px;
+  /* font-weight: 400; */
+}
+
+body .web main .web-RoomTypes .container .room_desc ul:not(.browser-default) > li{
+  list-style: inherit;
+  list-style-type: disc;
+}
+body .web main .web-RoomTypes .container .room_desc ul:not(.browser-default){
+  padding-left: 20px;
+}

@@ -1,0 +1,20 @@
+.web-RoomTypes{
+    .container{
+        .roomType-header{
+            font-size: 25px;
+        }
+        .img-list{
+            height: 80px;
+            width: 100%;
+        }
+        .room-desc{
+            ul:not(.browser-default) > li{
+                list-style: inherit;
+                list-style-type: circle;
+            }
+            ul:not(.browser-default){
+                padding-left: 20px;
+            }
+        }
+    }
+}
