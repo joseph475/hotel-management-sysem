@@ -34,7 +34,14 @@
                                             </div>
                                         </div>
                                         <div class="col s12 m6">
-                                            <h5>{{ isset($roomtype->description) ? "Room Info" : "" }}</h5>
+                                            <div class="title_book mb20">
+                                                <h5 class="my0">{{ isset($roomtype->description) ? "Room Info" : "" }}</h5>
+                                                <a href="" class="btn waves-effect waves-light btn-1 btn-flat white-text hoverable btn_booknow">
+                                                    <i class="material-icons right">send</i>
+                                                    Book Now
+                                                </a>
+                                            </div>
+                                            
                                             <div class="room_desc">
                                                 <?php echo isset($roomtype->description) ? $roomtype->description : ""; ?>
                                             </div>

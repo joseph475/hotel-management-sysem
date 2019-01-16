@@ -3823,11 +3823,19 @@ body .web main .web-RoomTypes .container .roomType-header {
   font-size: 18px;
   /* font-weight: 400; */
 }
-
+body .web main .web-RoomTypes{
+  background-color: rgba(219, 208, 208, 0.774);
+}
 body .web main .web-RoomTypes .container .room_desc ul:not(.browser-default) > li{
   list-style: inherit;
   list-style-type: disc;
 }
 body .web main .web-RoomTypes .container .room_desc ul:not(.browser-default){
   padding-left: 20px;
+}
+
+body .web main .web-RoomTypes .container .title_book{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
