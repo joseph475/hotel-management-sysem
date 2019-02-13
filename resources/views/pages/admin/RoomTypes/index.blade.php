@@ -23,8 +23,8 @@
                     <thead>
                         <tr>
                             <th style="width:30%">Type</th>
-                            <th style="width:13%">Rate</th>
-                            <th style="width:12%">Rate/Hour</th>
+                            <th style="width:13%">Daily Rate</th>
+                            <th style="width:12%">Penalty Rate/Hour</th>
                             <th style="width:13%">Max Adult</th>
                             <th style="width:13%">Max Children</th>
                             <th style="width:20%;">Action</th>

@@ -84,13 +84,9 @@ $('#submit').on('click', function () {
                         },
                         dataType: 'json',
                         success: function (data) {
-                            $.confirm({
-                                title: 'Room Added Succesfully',
-                                content: '',
-                                buttons: {
-                                    OK: function () { loadRooms(1); clearmodal(); }
-                                }
-                            });
+                            M.toast({html: 'Room Added Succesfully'});
+                            loadRooms(1); 
+                            clearmodal();
                         },
                         error: function (aaa, bbb, ccc) { console.log(aaa); }
                     });

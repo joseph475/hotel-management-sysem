@@ -19,7 +19,7 @@
                     <li><a class="" href="bookReservation.php"><i class="material-icons">assignment</i>Book Reservation</a></li>
                 </ul>
                 <ul>
-                    <li><a class="" href="reservationList.php"><i class="material-icons">list</i>Reservation List</a></li>
+                    <li><a class="" href="{{ url('/AdminReservationList') }}"><i class="material-icons">list</i>Reservation List</a></li>
                 </ul>
             </div>
         </li>

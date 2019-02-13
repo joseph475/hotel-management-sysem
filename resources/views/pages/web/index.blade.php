@@ -16,36 +16,35 @@
                                 <div class="card-content white-text">
                                     <!-- <span class="card-title white-text">Reservation Form</span> -->
                                     <div class="row">
-                                        <div class="input-field col m3 s12">
-                                            <input placeholder="Date" id="checkin_date" type="text" class="datepicker">
+                                        <div class="input-field col m4 s12">
+                                            <label class="white-text" for="checkin_date">Checkin Date </label>
+                                            <input placeholder="Checkin Date" id="checkin_date" type="date">
                                         </div>
-                                        <div class="input-field col m3 s12">
-                                            <select>
-                                                <option value="" disabled selected>Adult (18+)</option>
-                                                <option value="1">Option 1</option>
-                                                <option value="2">Option 2</option>
-                                                <option value="3">Option 3</option>
-                                            </select>
-                                        </div>
-                                        <div class="input-field col m3 s12">
-                                            <select>
-                                                <option value="" disabled selected>Children (0-17)</option>
-                                                <option value="1">Option 1</option>
-                                                <option value="2">Option 2</option>
-                                                <option value="3">Option 3</option>
-                                            </select>
-                                        </div>
-                                        <div class="input-field col m3 s12">
-                                            <select>
+                                        {{--  <div class="input-field col m2 s12">
+                                            <input placeholder="Checkout Date" id="checkout_date" type="date">
+                                        </div>  --}}
+                                        <div class="input-field col m4 s12">
+                                            <select id="roomType">
                                                 <option value="" disabled selected>Room Type</option>
-                                                <option value="1">Option 1</option>
-                                                <option value="2">Option 2</option>
-                                                <option value="3">Option 3</option>
+                                                @foreach($roomTypeList as $typelist)
+                                                    <option value="{{ $typelist->id }}"  data-maxChildren="{{ $typelist->maxChildren }}" data-maxAdult="{{ $typelist->maxAdult }}" >{{ $typelist->type }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="input-field col m2 s12">
+                                            <select id="adult_count" class="validate">
+                                                <option value="" disabled selected>Adult (18+)</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-field col m2 s12">
+                                            <select id="child_count">
+                                                <option value="" disabled selected>Children (0-17)</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="row center mb0">
-                                        <a href="#" id="download-button" class="btn-large waves-effect waves-light blue lighten-1 hoverable">Book Now</a>
+                                        <!-- <a data-target="reservation_modal" class="btn modal-trigger btn-large waves-effect waves-light blue lighten-1 hoverable btn_bookNow">Book Now</a> -->
+                                        <a class="btn btn-large waves-effect waves-light blue lighten-1 hoverable btn_bookNow">Book Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -153,10 +152,60 @@
                 </div>
             </div>
         </div>
+    
+        <div id="reservation_modal" class="modal">
+            <div class="modal-content">
+                <h4>Guest Details</h4>
+                <div class="input-field col s12 mt30 mb20">
+                    <p>
+                        <label class="mr20">
+                            <input id="rdo-personal" class="with-gap" name="group1" type="radio" checked />
+                            <span>Personal</span>
+                        </label>
+                        <label>
+                            <input id="rdo-company" class="with-gap" name="group1" type="radio" />
+                            <span>Charge to Company</span>
+                        </label>
+                    </p>
+                </div>
+                <div class="input-field col s12">
+                    <input id="guest_name" type="text" class="validate">
+                    <label for="guest_name">Guest Name</label>
+                </div>  
+                <div class="input-field col s12">
+                    <input id="guest_id_type" type="text" class="validate">
+                    <label for="guest_id_type">Government ID Type</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="guest_id" type="text" class="validate">
+                    <label for="guest_id">ID Number</label>
+                </div>
+                <div class="input-field col s12 comp_name_cont">
+                    <input id="compName" type="text" class="validate">
+                    <label for="compName">Company Name</label>
+                </div>
+                <div class="input-field col s12 comp_name_address">
+                    <input id="compAddress" type="text" class="validate">
+                    <label for="compAddress">Company Address</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="contact" type="text" class="validate">
+                    <label for="contact">Contact</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="email" type="email" class="validate">
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a class="waves-effect waves-green btn btn-1 cancel_res">Cancel</a>
+                <a class="waves-effect waves-green btn btn-1 book_res">Reserve</a>
+            </div>
+        </div>
     </div>
     
 @endsection
 
 @section('pagejs')
-    <!-- <script src="{{ asset('/js/pages/BookNow/index.js') }}"></script> -->
+    <script src="{{ asset('/js/pages/WebReservation/index.js') }}"></script>
 @stop

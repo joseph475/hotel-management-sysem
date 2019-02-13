@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
 use App\Models\RoomTypeModel;
 use App\Models\RoomImagesModel;
-
+use App\Models\AdditionalRoomRates;
+use Illuminate\Support\Facades\DB;
 
 class RoomTypesController extends Controller
 {
@@ -42,6 +43,16 @@ class RoomTypesController extends Controller
         
         return back();
     }
+    public function addRoomRate(Request $request){
+        $roomRate = AdditionalRoomRates::create($request->all());
+        return $roomRate;
+    }
+    
+    public function getRoomRate($id){
+        $roomRate = AdditionalRoomRates::select('id', 'hours', 'rate')->where('roomtype_id', $id)->orderBy('hours')->get();
+        // echo "<pre>"; print_r($roomRate); exit;
+        return $roomRate;
+    }
 
     public function store(Request $request)
     {
@@ -57,46 +68,7 @@ class RoomTypesController extends Controller
         return $roomType;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function destroy($id)
     {
         //

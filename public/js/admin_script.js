@@ -34,6 +34,13 @@ function checkValid(checkifvalid){
     return true;
 }
 
+function clearModal(fields){
+    for (i = 0 ; i < fields.length ; i++) {
+        $(fields[i]).val('');
+        $(fields[i]).removeClass('valid');
+    }
+}
+
 function getCurrentDate(){
     var d = new Date();
 

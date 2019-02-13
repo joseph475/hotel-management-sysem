@@ -34,10 +34,11 @@ Route::get('/BookNow', 'WebController\BookNowController@index');
 
 Route::get('/ChooseRoom', 'WebController\ChooseRoomController@index');
 
-
+Route::get('/AdminReservationList', 'WebController\Admin_ReservationController@index');
 
 
 Route::get('/reservation', 'WebController\Web_ReservationController@index');
+
 
 Route::get('/', function () {
     return view('pages.admin.index');

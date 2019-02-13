@@ -33,6 +33,8 @@ Route::delete('Room/{id}','ApiController\RoomsController@destroy');
 
 
 Route::post('RoomType','ApiController\RoomTypesController@store');
+Route::post('AddRoomRate','ApiController\RoomTypesController@addRoomRate');
+Route::get('RoomRate/{id}','ApiController\RoomTypesController@getRoomRate');
 Route::post('image-upload', 'ApiController\RoomTypesController@upload')->name('image.upload.post');
 
 Route::get('RoomTypes','ApiController\RoomTypesController@index');
@@ -56,4 +58,10 @@ Route::post('Checkin','ApiController\CheckinController@store');
 Route::put('RoomManagement/update/{id}','ApiController\RoomManagementController@update');
 Route::get('Rooms/getRoomsNotOccupied','ApiController\RoomsController@getRoomsNotOccupied');
 
+Route::get('AdminReservationList','ApiController\Admin_ReservationController@index');
+
 Route::get('dashboard','ApiController\DashboardController@index');
+
+// web
+
+Route::post('WebReservation','ApiController\Web_ReservationController@store');

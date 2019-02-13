@@ -13,7 +13,13 @@
             </div>
         </div>
     </div>
-    
+    <div class="filters">
+        <div class="left-filter">
+            <div class="search-content">
+                @include('partials.search')
+            </div>
+        </div>
+    </div> 
     <div class="table-container">
             <table class="highlight z-depth-1 myTable">
                     <thead>

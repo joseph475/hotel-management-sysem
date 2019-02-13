@@ -3,7 +3,7 @@
 @section('content')
 <div class="row checkin-page">
     <div id="page-header">
-        <div class="page-title">Food Menu</div>
+        <div class="page-title">Reservation List</div>
         <div class="page-buttons">
             <div class="button-content">
                 <a class="btn btn-1" href="/">
@@ -28,15 +28,17 @@
         <table class="highlight z-depth-1 myTable">
                 <thead>
                     <tr>
-                        <th>Menu</th>
-                        <th>Servings</th>
-                        <th>Remaining</th>
-                        <th>Cost</th>
-                        <th>Selling Price</th>
-                        <th style="width:20%;">Action</th>
+                        <th>Guest Name</th>
+                        <th>Personal ID</th>
+                        <th>RoomType</th>
+                        <th>Contact</th>
+                        <th>Reservation Date</th>
+                        {{--  <th>Company Name</th>
+                        <th>Company Address</th>  --}}
+                        <th style="width:15%;">Action</th>
                     </tr>
                 </thead>
-                <tbody id="foodTable">
+                <tbody id="ReservationListTable">
                     <!-- js generated -->
                 </tbody>    
         </table>
@@ -84,5 +86,5 @@
 @endsection
 
 @section('pagejs')
-    <script src="{{ asset('/js/pages/Kitchen/index.js') }}"></script>
+    <script src="{{ asset('/js/pages/AdminReservation/reservationList.js') }}"></script>
 @stop

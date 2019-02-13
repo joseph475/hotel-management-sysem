@@ -78,16 +78,9 @@ $('#submit').on('click', function () {
                         },
                         dataType: 'json',
                         success: function (data) {
-                            $.confirm({
-                                title: 'Extra Succesfully Added',
-                                content: '',
-                                buttons: {
-                                    OK: function () {
-                                        loadExtras(1); 
-                                        clearmodal();
-                                    }
-                                }
-                            });
+                            M.toast({html: 'Extras Added Succesfully'});
+                            loadExtras(1); 
+                            clearmodal();
                         },
                         error: function (aaa, bbb, ccc) {
                             console.log(aaa);

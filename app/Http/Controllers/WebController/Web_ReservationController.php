@@ -12,6 +12,7 @@ class Web_ReservationController extends Controller
 {
     public function index(){
         $variables = $this->getSystemVariables();
+        $roomTypeList = DB::select('select id,type,maxAdult,maxChildren from roomtypes');
         $roomTypes = DB::select('select A.id, A.type, A.description,A.maxAdult,
             A.maxChildren,(select filename from room_images where roomtype_id = A.id
             order by created_at desc limit 1) as img 
@@ -19,7 +20,8 @@ class Web_ReservationController extends Controller
         
         $data = [
             'variables' => $variables,
-            'roomTypes' => $roomTypes
+            'roomTypes' => $roomTypes,
+            'roomTypeList' => $roomTypeList
         ];
         return view('pages.web.index', $data);
     }

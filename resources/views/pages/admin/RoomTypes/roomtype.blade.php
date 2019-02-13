@@ -9,6 +9,7 @@
                     <a class="btn btn-1 submitRoomType">
                         <i class="material-icons left">save</i>Save
                     </a>
+                    <a data-target="add_rates_modal" class="modal-trigger btn btn-1"><i class="material-icons left">add</i>Add Rate</a>
                     <a class="btn btn-1" href="/">
                         {!! ($roomtype->ispublished == 1) ? '<i class="material-icons left">swap_vert</i>Unpublish' : '<i class="material-icons left">swap_vert</i>Publish' !!}
                     </a>
@@ -19,10 +20,23 @@
             <div class="col m4 push-m8 s12">
                 <div class="room-container pt10">
                     <ul class="collection z-depth-1">
-                        <li class="collection-item"><i class="far fa-lg fa-money-bill-alt pr10"></i>Rate<span class="secondary-content">&#8369;{{ $roomtype->rate }}</span></li>
-                        <li class="collection-item"><i class="far fa-lg fa-money-bill-alt pr10"></i>Rate/Hour <span class="secondary-content">&#8369;{{ $roomtype->rateperhour }}</span></li>
+                        <li class="collection-item"><i class="far fa-lg fa-money-bill-alt pr10"></i>Daily Rate<span class="secondary-content">&#8369;{{ $roomtype->rate }}</span></li>
+                        <li class="collection-item"><i class="far fa-lg fa-money-bill-alt pr10"></i>Penalty Rate/Hour <span class="secondary-content">&#8369;{{ $roomtype->rateperhour }}</span></li>
                         <li class="collection-item"><i class="fas fa-lg fa-users pr10"></i>Max Adult <span class="secondary-content">{{ $roomtype->maxAdult }}</span></li>
                         <li class="collection-item"><i class="fas fa-lg fa-users pr10"></i>Max Children <span class="secondary-content">{{ $roomtype->maxChildren }}</span></li>
+                    </ul>
+                    <ul class="collapsible expandable mb6">
+                        <li class="active">
+                            <div class="collapsible-header">
+                                
+                                <span class="title">Additional Room Rates</span>
+                            </div>
+                            <div class="collapsible-body">
+                                <ul class="add_ul">
+                                    <!-- js generated -->
+                                </ul>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -73,6 +87,23 @@
                         </div>
                     </form>
                 </div>    
+            </div>
+        </div>
+        <div id="add_rates_modal" class="modal">
+            <div class="modal-content">
+                <h4>Add Room Rates</h4>
+                <div class="input-field col s6 m6">
+                    <input id="add_hour" type="number" class="validate">
+                    <label for="add_hour">Hours</label>
+                </div>  
+                <div class="input-field col s6 m6">
+                    <input id="add_rate" type="number" class="validate">
+                    <label for="add_rate">Rate</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a class="waves-effect waves-green btn btn-1 modal-close">Cancel</a>
+                <a data-id="{{ $roomtype->id }}" class="modal-close waves-effect waves-green btn btn-1 btn_add_rate">Save</a>
             </div>
         </div>
     </div>

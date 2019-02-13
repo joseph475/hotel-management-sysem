@@ -1,8 +1,38 @@
 .roomTypeInnerPage{
+    .collection{
+        .collection-item{
+            background-color: rgba(248, 246, 246, 0.795);
+        }
+    }
     .image-container{
-        background-color: white;
+        background-color: rgba(248, 246, 246, 0.795);
         margin-top: 20px;
         padding: 10px 20px 20px 20px;
+    }
+    .room-container{
+        .collapsible-header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+        }
+        .collapsible-body{
+            padding:0px;
+            ul{
+                li{
+                    padding: 10px 20px;
+                    border-bottom: 1px solid #e4d5d5;
+                    background-color: rgba(248, 246, 246, 0.795);
+                    span{
+                        color: #26a69a;
+                    }
+                }
+            }
+        }
+        .title{
+            // font-weight: 400;
+            font-size: 16px;
+        }
     }
     .myTable{
         background-color: white;

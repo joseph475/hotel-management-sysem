@@ -62,7 +62,7 @@ function changeStatus(){
         success: function (data) {
             if(data.status == 1){
                 $('.room_row[data-id = '+ id +']').find('.room_status').html(status);
-                displayMessage('Room Status Updated Succesfully','');
+                M.toast({html: 'Room Status Updated Succesfully'});
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {

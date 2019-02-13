@@ -87,16 +87,9 @@ $('#submit').on('click', function () {
                         },
                         dataType: 'json',
                         success: function (data) {
-                            $.confirm({
-                                title: 'Room Type Added Succesfully',
-                                content: '',
-                                buttons: {
-                                    OK: function () {
-                                        loadRoomTypes(1);
-                                        clearmodal();
-                                    }
-                                }
-                            })
+                            M.toast({html: 'Room Type Added Succesfully'});
+                            loadRoomTypes(1);
+                            clearmodal();
                         },
                         error: function (aaa, bbb, ccc) {
                             console.log(aaa + "-" + bbb + "-" + ccc);
