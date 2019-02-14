@@ -2,18 +2,31 @@ $(document).ready(function(){
     $('#submitCheckin').on('click', saveCheckin);
 })
 
+var checkifvalid = ['#name', '#contact', '#room_id', '#adultsCount','#childrenCount'];
+
+$("#rdo-personal").click(rdopersonal);
+$("#rdo-company").click(rdocompany);
+
+$('.comp_name_cont').hide();
+$('.comp_name_address').hide();
+
 function saveCheckin(){
+    
     var guestname = $('#name').val().trim();
     var contact = $('#contact').val().trim();
     var compName = $('#compName').val().trim();
     var compAdress = $('#compAdress').val().trim();
-
     var room_id = $('#room_id').val();
-    var checkoutdate = $('#checkoutdate').val().trim();
     var adultsCount = $('#adultsCount').val().trim();
     var childrenCount = $('#childrenCount').val().trim();
+    var raterefno = $('#roomRate').attr('data-id');
+    var remainingTime = 0;
+    
 
-    if (guestname != '' && contact != '' && compName != '' && compAdress != '' && checkoutdate != '' && adultsCount != '' && childrenCount != '') {
+    if($('#rdo-hours').prop("checked") == true){ remainingTime = $('#roomRate').val(); }
+    else{ remainingTime = 24; }
+
+    if(checkifValidated(checkifvalid)){
         $.confirm({
             title: 'Checkin Confrimation?',
             content: '',
@@ -29,9 +42,10 @@ function saveCheckin(){
                             companyName: compName,
                             companyAddress: compAdress,
                             room_id: room_id,
-                            checkOutDate: checkoutdate,
                             adultsCount: adultsCount,
-                            childrenCount: childrenCount
+                            childrenCount: childrenCount,
+                            remainingTime : remainingTime,
+                            raterefno : raterefno
                         },
                         dataType: 'json',
                         success: function (data) {
@@ -62,3 +76,15 @@ function saveCheckin(){
         displayMessage('Please fill up all fields', '');
     }
 }
+function rdopersonal(){
+    $('.comp_name_cont').hide();
+    $('.comp_name_address').hide();
+}
+function rdocompany(){
+    $('.comp_name_cont').show();
+    $('.comp_name_address').show(); 
+}
+
+$('.conf_select_hours').on('click', function(){
+    $('#rdo-hours').prop("checked", true);
+});

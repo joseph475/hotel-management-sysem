@@ -33,6 +33,14 @@ function checkValid(checkifvalid){
     }
     return true;
 }
+function checkifValidated(checkifvalid){
+    for (i = 0 ; i < checkifvalid.length ; i++) {
+        if(!$(checkifvalid[i]).val()){
+            return false;
+        }
+    }
+    return true;
+}
 
 function clearModal(fields){
     for (i = 0 ; i < fields.length ; i++) {

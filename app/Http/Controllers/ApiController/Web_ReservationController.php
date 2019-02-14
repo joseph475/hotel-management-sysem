@@ -21,7 +21,6 @@ class Web_ReservationController extends Controller
             'compName' => $request->compName,
             'compAddress' => $request->compAddress,
             'checkInDate' =>  date('Y-m-d' , strtotime($request->checkInDate)),
-            // 'checkOutDate' => date('Y-m-d' , strtotime($request->checkOutDate)),
             'adultsCount' => $request->adultsCount,
             'childrensCount' => $request->childrensCount
         );

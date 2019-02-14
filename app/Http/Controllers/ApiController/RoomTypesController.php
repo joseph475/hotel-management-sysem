@@ -64,6 +64,13 @@ class RoomTypesController extends Controller
             return redirect('/RoomTypes');
         }
 
+        $roomType = array(
+            'type' => $request->type,
+            'description' => $request->description,
+            'maxAdult' =>  $request->maxAdult,
+            'maxChildren' => $request->maxChildren,
+        );
+        
         $roomType = RoomTypeModel::create($request->all());
         return $roomType;
     }

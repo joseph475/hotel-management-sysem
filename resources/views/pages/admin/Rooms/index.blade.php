@@ -39,8 +39,8 @@
                             <th>Room #</th>
                             <th>Type</th>
                             <th>Floor</th>
-                            <th>Rate</th>
-                            <th>Rate/Hour</th>
+                            {{--  <th>Rate</th>
+                            <th>Rate/Hour</th>  --}}
                             <th style="width:20%;">Action</th>
                         </tr>
                     </thead>
@@ -65,7 +65,7 @@
                 <form action="" id="addRoomForm">
                     <div class="row mt20">
                         <div class="col s12 m12">
-                            <input  placeholder="Room No" id="roomNo" type="text">
+                            <input  placeholder="Room No" id="roomNo" type="text" class="validate">
                         </div>
                         <div class="col s12 m12">
                             @include('partials.roomtypes')

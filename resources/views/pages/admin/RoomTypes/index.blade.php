@@ -22,11 +22,11 @@
             <table class="highlight z-depth-1 myTable">
                     <thead>
                         <tr>
-                            <th style="width:30%">Type</th>
-                            <th style="width:13%">Daily Rate</th>
-                            <th style="width:12%">Penalty Rate/Hour</th>
-                            <th style="width:13%">Max Adult</th>
-                            <th style="width:13%">Max Children</th>
+                            <th style="width:40%">Type</th>
+                            {{--  <th style="width:13%">Daily Rate</th>  --}}
+                            {{--  <th style="width:12%">Penalty Rate/Hour</th>  --}}
+                            <th style="width:20%">Max Adult</th>
+                            <th style="width:20%">Max Children</th>
                             <th style="width:20%;">Action</th>
                         </tr>
                     </thead>
@@ -53,12 +53,12 @@
                             <div class="col s12 m12">
                                 <input  placeholder="Room Type" id="roomType" type="text" class="validate">
                             </div>
-                            <div class="col s12 m12">
-                                <input  placeholder="Rate" id="rate" type="number" class="validate">
-                            </div>
-                            <div class="col s12 m12">
-                                <input  placeholder="Rate per Hour" id="rateperhour" type="number" class="validate">
-                            </div>
+                            {{--  <div class="col s12 m12">
+                                <input  placeholder="Daily Rate" id="rate" type="number" class="validate">
+                            </div>  --}}
+                            {{--  <div class="col s12 m12">
+                                <input  placeholder="Penalty Rate per Hour" id="rateperhour" type="number" class="validate">
+                            </div>  --}}
                             <div class="col s12 m12">
                                 <input  placeholder="Max Adult" id="maxAdult" type="number" class="validate">
                             </div>

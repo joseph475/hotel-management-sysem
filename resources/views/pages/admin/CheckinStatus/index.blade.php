@@ -147,6 +147,14 @@
                                     </a>
                                 </span>
                             </li>
+                            <li>Check-Out Time 
+                                <span class="right">{{ date('g:i A', strtotime($data->checkOutDate)) }}
+                                    <a class="editCheckout tooltipped" data-tooltip="Edit">
+                                        <i class="far fa-edit fa-lg ml10"></i>
+                                    </a>
+                                </span>
+                            </li>
+                            <li>Remaining Time <span class="right">{{ date('H:i', strtotime($data->remaining_time)) }}</span></li>
                         </ul>
                     </div>
                 </li>

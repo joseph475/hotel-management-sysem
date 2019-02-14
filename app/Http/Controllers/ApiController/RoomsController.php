@@ -18,7 +18,7 @@ class RoomsController extends Controller
     public function index()
     {
         $rooms = RoomModel::join('roomtypes', 'rooms.roomType', '=', 'roomtypes.id')
-        ->select('rooms.id', 'rooms.roomNo', 'roomtypes.type', 'rooms.floor', 'roomtypes.rate', 'roomtypes.rateperhour','rooms.status','rooms.ispublished')
+        ->select('rooms.id', 'rooms.roomNo', 'roomtypes.type', 'rooms.floor', 'roomtypes.rateperhour','rooms.status','rooms.ispublished')
         ->orderBy('rooms.created_at', 'desc')
         ->paginate(10);
         return $rooms;

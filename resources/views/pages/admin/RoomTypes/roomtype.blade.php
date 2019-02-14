@@ -20,16 +20,22 @@
             <div class="col m4 push-m8 s12">
                 <div class="room-container pt10">
                     <ul class="collection z-depth-1">
-                        <li class="collection-item"><i class="far fa-lg fa-money-bill-alt pr10"></i>Daily Rate<span class="secondary-content">&#8369;{{ $roomtype->rate }}</span></li>
-                        <li class="collection-item"><i class="far fa-lg fa-money-bill-alt pr10"></i>Penalty Rate/Hour <span class="secondary-content">&#8369;{{ $roomtype->rateperhour }}</span></li>
+                        {{--  <li class="collection-item"><i class="far fa-lg fa-money-bill-alt pr10"></i>Daily Rate<span class="secondary-content">&#8369;{{ $roomtype->rate }}</span></li>  --}}
                         <li class="collection-item"><i class="fas fa-lg fa-users pr10"></i>Max Adult <span class="secondary-content">{{ $roomtype->maxAdult }}</span></li>
                         <li class="collection-item"><i class="fas fa-lg fa-users pr10"></i>Max Children <span class="secondary-content">{{ $roomtype->maxChildren }}</span></li>
+                        <li class="collection-item"><i class="far fa-lg fa-money-bill-alt pr10"></i>Penalty Rate/Hour 
+                            <span class="secondary-content">&#8369;{{ $roomtype->rateperhour }} 
+                                <a class="editCheckout tooltipped" data-tooltip="Edit">
+                                    <i class="far fa-edit ml20"></i>
+                                </a>
+                            </span>
+                        </li>
                     </ul>
                     <ul class="collapsible expandable mb6">
                         <li class="active">
                             <div class="collapsible-header">
                                 
-                                <span class="title">Additional Room Rates</span>
+                                <span class="title">Room Rates</span>
                             </div>
                             <div class="collapsible-body">
                                 <ul class="add_ul">

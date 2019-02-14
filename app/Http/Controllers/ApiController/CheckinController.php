@@ -21,15 +21,18 @@ class CheckinController extends Controller
         $guest = GuestModel::create($request->all());
         $guest_id = GuestModel::select('id')->whereRaw('id = (select max(`id`) from guests)')->first();
         
-        $checkout = $request->checkOutDate;
-        $checkout = date('Y-m-d H:i:s' , strtotime($checkout));
-
+        $remainingTime = $request->remainingTime;
+        
+        $checkout = date("Y-m-d H:i:s", strtotime("+{$remainingTime} hours"));
+        $remainingTime = "{$remainingTime}:00";
         $checkin = array(
             'room_id' => $request->room_id,
             'guestId' => $guest_id->id,
             'checkOutDate' => $checkout,
             'adultsCount' => $request->adultsCount,
-            'childrenCount' => $request->childrenCount
+            'childrenCount' => $request->childrenCount,
+            'remaining_time' => $remainingTime,
+            'raterefno' => $request->raterefno
         );
 
         $checkin = CheckinModel::create($checkin);

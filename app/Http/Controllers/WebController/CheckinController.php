@@ -11,13 +11,22 @@ use App\Models\KitchenModel;
 use App\Models\ExtrasModel;
 use App\Models\AddedFoodsModel;
 use App\Models\AddedExtrasModel;
+use App\Models\AdditionalRoomRates;
 
 class CheckinController extends Controller
 {   
     public function index($id){
         $room = DashboardModel::findOrFail($id);
+        // echo "<pre>"; print_r($room->roomtype_id); exit;
+        $roomRate = AdditionalRoomRates::select('id', 'hours', 'rate')->where('roomtype_id', $room->roomtype_id)->where('hours','<','24')->orderBy('hours', 'desc')->get();
+        
+        $data = array(
+            'room' => $room,
+            'roomRate' => $roomRate
+        );
+
         if($room->status != 'Vacant'){ return redirect('/'); }
-        else{ return view('pages.admin.Checkin.index', ['data' => $room]); }
+        else{ return view('pages.admin.Checkin.index', ['data' => $data]); }
     }
 
     public function show($id){

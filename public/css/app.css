@@ -3245,6 +3245,10 @@ footer .page-footer {
   right: 10px;
 }
 
+.roomTypeInnerPage a {
+  cursor: pointer;
+}
+
 .roomTypeInnerPage .collection .collection-item {
   background-color: rgba(248, 246, 246, 0.795);
 }
@@ -3860,11 +3864,6 @@ body .web main .web-reservation #reservation_modal .input-field.col label {
 
 body .web main .web-reservation #reservation_modal input {
   color: black;
-  background-color: rgba(219, 208, 208, 0.774);
-}
-body .web main .web-RoomTypes .container .room_desc ul:not(.browser-default) > li{
-  list-style: inherit;
-  list-style-type: disc;
 }
 
 body .web main .web-reservation #reservation_modal input::-webkit-input-placeholder {
@@ -3886,8 +3885,3 @@ body .web main .web-reservation input[type="date"]::-webkit-inner-spin-button {
   display: none;
 }
 
-body .web main .web-RoomTypes .container .title_book{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}

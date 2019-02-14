@@ -4,6 +4,8 @@ $(document).ready(loadRooms(1));
 $(document).on('click', '.changeStatus', changeStatus);
 $(document).on('click', '.deleteRoom', deleteRoom);
 
+var checkifvalid = ['#roomNo','#roomType','#floor-select'];
+
 function loadRooms(curpage) {
     sessionStorage.setItem("curpage", curpage);
     $.ajax({
@@ -33,20 +35,16 @@ function loopRoomDetails(data) {
             roomNo = data[i].roomNo,
             type = data[i].type,
             floor = data[i].floor,
-            rate = data[i].rate,
-            rateperhour = data[i].rateperhour,
             ispublished = data[i].ispublished
-        $('#roomTable').append(createRoomTable(id, roomNo, type, floor, rate, rateperhour, ispublished));
+        $('#roomTable').append(createRoomTable(id, roomNo, type, floor, ispublished));
     }
 }
 
-function createRoomTable(id, roomNo, type, floor, rate, rateperhour, ispublished) {    
+function createRoomTable(id, roomNo, type, floor, ispublished) {    
     var myRoom = '<tr data-id='+ id +'>' +
         '<td>' + roomNo + '</td>' +
         '<td>' + type + '</td>' +
         '<td>' + floor + '</td>' +
-        '<td>' + rate + '</td>' +
-        '<td>' + rateperhour + '</td>' +
         '<td>' +
             '<a class="btn btn-flat btn-2 mr3 changeStatus" target="_blank">';
 
@@ -86,7 +84,7 @@ $('#submit').on('click', function () {
                         success: function (data) {
                             M.toast({html: 'Room Added Succesfully'});
                             loadRooms(1); 
-                            clearmodal();
+                            clearModal(checkifvalid);
                         },
                         error: function (aaa, bbb, ccc) { console.log(aaa); }
                     });
