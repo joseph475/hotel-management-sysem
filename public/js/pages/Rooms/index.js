@@ -29,7 +29,7 @@ function loadRooms(curpage) {
 };
 
 function loopRoomDetails(data) {
-    $('#roomTable').html("");
+    $('#roomTable').html();
     for (var i = 0; i < data.length; i++) {
         var id = data[i].id,
             roomNo = data[i].roomNo,

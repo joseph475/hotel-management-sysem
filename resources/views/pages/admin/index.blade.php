@@ -20,19 +20,20 @@
         <div class="col s12 m3 push-m9 mb15">
             <ul class="collapsible expandable">
                 <li class="active">
-                    <div class="collapsible-header"><i class="material-icons">event_available</i>Available Room Types</div>
+                    <div class="collapsible-header"><i class="material-icons">event_available</i>Available Rooms</div>
                     <div class="collapsible-body">
-                        <ul>
-                            <li>Available<span class="new badge grey darken-2" data-badge-caption="">4</span></li>
+                        <ul id="availableTypes">
+                        {{--  js generated  --}}
+                            {{--  <li>Available<span class="new badge grey darken-2" data-badge-caption="">4</span></li>
                             <li>Occupied<span class="new badge grey darken-2" data-badge-caption="">5</span></li>
-                            <li>Reserved<span class="new badge grey darken-2" data-badge-caption="">6</span></li>
+                            <li>Reserved<span class="new badge grey darken-2" data-badge-caption="">6</span></li>  --}}
                         </ul>
                     </div>
                 </li>
             </ul>
         </div>
         <div class="col s12 m9 pull-m3">
-            <div class="cards-container">
+            <div class="row cards-container">
                 <div class="col m4 s12">
                     <div class="card-panel white cvacant hoverable">
                         <div class="cardlabel">
@@ -59,11 +60,12 @@
                         </div>
                         <h4>30</h4>
                     </div>
-                </div>    
+                </div>  
             </div>
-            <div id="room-cards">
+            <div class="row" id="room-cards">
                 <!-- Displays Each Rooms using JS-->
             </div>
+            <div class="right" id="pagination"><ul id="paginationUL"></ul></div>
         </div>
         
     </div>

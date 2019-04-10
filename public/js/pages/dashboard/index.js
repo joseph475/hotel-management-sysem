@@ -1,4 +1,8 @@
-$(document).ready(loadRoomCards);
+$(document).ready(function(){
+    loadRoomCards(1);
+    loadAvailableRoomsCount();
+});
+// $(document).ready(loadRoomCards);
 
 $('body').on('click',function(){ $('.legends ul').fadeOut("slow"); });
 
@@ -7,13 +11,39 @@ $('.menu').on('click',function(e){
     e.stopPropagation();
 });
 
-function loadRoomCards() {
+function loadAvailableRoomsCount(){
     $.ajax({
-        url: 'api/dashboard',
+        url: 'api/dashboard/getAvailableRooms',
         type: 'get',
         dataType: 'json',
         success: function (data) {
-            loopRoomCards(data);
+            var availableTypes = "";
+            for (var i = 0; i < data.length; i++) {
+                availableTypes += '<li>' + data[i].type + '<span class="new badge grey darken-2" data-badge-caption="">' + data[i].total + '</span></li>';
+            }
+            $('#availableTypes').append(availableTypes);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(textStatus, errorThrown);
+        }
+    });
+}
+
+function loadRoomCards(curpage) {
+    sessionStorage.setItem("curpage", curpage);
+    $.ajax({
+        url: 'api/dashboard',
+        data:{
+            page: curpage  
+        },
+        type: 'get',
+        dataType: 'json',
+        success: function (data) {
+            loopRoomCards(data.data);
+            $.getScript("js/pagination.js", function () {  // load pagination
+                createPagination(data.last_page, "loadRoomCards");
+                $('#page_' + curpage).addClass("activePage");
+            });
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(textStatus, errorThrown);
@@ -28,8 +58,6 @@ function loopRoomCards(data) {
             room_id = data[i].room_id,
             type = data[i].type,
             floor = data[i].floor,
-            // rate = convert(data[i].rate),
-            // rateperhour = convert(data[i].rateperhour),
             maxAdult = data[i].maxAdult,
             maxChildren = data[i].maxChildren,
             checkin_id = data[i].checkin_id,
