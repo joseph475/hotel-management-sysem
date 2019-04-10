@@ -11,6 +11,7 @@ class Web_ReservationController extends Controller
 
     public function store(Request $request)
     {   
+
         $reservation = array(
             'name' => $request->name,
             'mobile' => $request->mobile,

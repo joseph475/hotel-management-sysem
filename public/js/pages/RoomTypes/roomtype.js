@@ -2,6 +2,7 @@ $(document).ready(loadRoomRate);
 $(document).ready(ckEditorInit('description'));
 $(document).on('click','.submitRoomType', save);
 $(document).on('click', '.btn_add_rate', addRate);
+$(document).on('click','#submit_penalty_rate', changePenaltyRate);
 
 var checkifvalid = ['#add_hour', '#add_rate'];
 var roomtype_id = $('.btn_add_rate').attr('data-id');
@@ -36,6 +37,28 @@ function loopdetails(data){
 function createlist(id, hours, rate){
     var myList = '<li data-id="'+ id +'">'+ hours +' hrs <span class="right">&#8369;'+ rate +'</span></li>';
     return myList;
+}
+function changePenaltyRate(){
+    var penalty_rate = $('#penalty_rate_change').val();
+    // alert(penalty_rate);
+    $.ajax({
+        url: '../api/ChangePenaltyRate',
+        type: 'PUT',
+        data: {
+            id: roomtype_id,
+            rateperhour: penalty_rate
+        },
+        dataType: 'json',
+        success: function (data) {
+            M.toast({html: 'Penalty Rate Updated Succesfully'});
+            $('#penalty_rate').html(penalty_rate);
+            $('#penalty_rate_change').val('');
+            $('#penalty_rate_change').removeClass('valid');
+        },
+        error: function (aaa, bbb, ccc) {
+            console.log(aaa + "-" + bbb + "-" + ccc);
+        }
+    });
 }
 function addRate(){
     var hours = $('#add_hour').val().trim();

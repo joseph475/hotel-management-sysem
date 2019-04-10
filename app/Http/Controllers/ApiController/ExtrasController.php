@@ -16,6 +16,10 @@ class ExtrasController extends Controller
         ->paginate(10);
         return $extras;
     }
+    public function getIsPublishedExtras(){
+        $extras = ExtrasModel::where('ispublished' , 1)->orderBy('createdDate', 'desc')->get();
+        return $extras;
+    }
 
     public function store(Request $request)
     {   

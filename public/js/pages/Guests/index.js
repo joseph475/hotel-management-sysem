@@ -36,6 +36,8 @@ function loopGuestDetails(data) {
 }
 
 function createGuestTable(roomNo, name, contact, companyName, checkin_id) {
+    companyName = (companyName == null)? "" : companyName;
+    contact = (contact == null)? "" : contact;
     var myGuest = '<tr data-id='+ checkin_id +'>' +
         '<td>' + name + '</td>' +
         '<td>' + contact + '</td>' +

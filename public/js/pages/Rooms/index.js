@@ -83,8 +83,7 @@ $('#submit').on('click', function () {
                         dataType: 'json',
                         success: function (data) {
                             M.toast({html: 'Room Added Succesfully'});
-                            loadRooms(1); 
-                            clearModal(checkifvalid);
+                            location.reload();
                         },
                         error: function (aaa, bbb, ccc) { console.log(aaa); }
                     });

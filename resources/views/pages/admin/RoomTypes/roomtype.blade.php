@@ -24,8 +24,8 @@
                         <li class="collection-item"><i class="fas fa-lg fa-users pr10"></i>Max Adult <span class="secondary-content">{{ $roomtype->maxAdult }}</span></li>
                         <li class="collection-item"><i class="fas fa-lg fa-users pr10"></i>Max Children <span class="secondary-content">{{ $roomtype->maxChildren }}</span></li>
                         <li class="collection-item"><i class="far fa-lg fa-money-bill-alt pr10"></i>Penalty Rate/Hour 
-                            <span class="secondary-content">&#8369;{{ $roomtype->rateperhour }} 
-                                <a class="editCheckout tooltipped" data-tooltip="Edit">
+                            <span class="secondary-content">&#8369; <span id="penalty_rate">{{{ isset($roomtype->rateperhour) ? $roomtype->rateperhour : '0' }}}</span>
+                                <a href="#UpdateModal" class="modal-trigger editCheckout tooltipped" data-tooltip="Edit">
                                     <i class="far fa-edit ml20"></i>
                                 </a>
                             </span>
@@ -110,6 +110,25 @@
             <div class="modal-footer">
                 <a class="waves-effect waves-green btn btn-1 modal-close">Cancel</a>
                 <a data-id="{{ $roomtype->id }}" class="modal-close waves-effect waves-green btn btn-1 btn_add_rate">Save</a>
+            </div>
+        </div>
+        <div id="UpdateModal" class="modal mt50">
+            <div class="row mb0">
+                <div class="col s12 m12">
+                    <h4 class="pt20">Update Penalty Rate/Hour</h4>
+                    <div class="input-field col s12 mt25">
+                        <input id="penalty_rate_change" type="number" class="validate">
+                        <label for="penalty_rate_change"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a class="modal-close waves-effect waves-green btn btn-1 right">
+                    Cancel
+                </a>
+                <button id="submit_penalty_rate" class="modal-close waves-effect waves-green btn btn-1 right">
+                    Save
+                </button>
             </div>
         </div>
     </div>

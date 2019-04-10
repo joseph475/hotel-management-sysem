@@ -301,7 +301,9 @@ textarea{
     height: auto;
     border: 1px solid #9e9e9e;
 }
-
+.toHide{
+    visibility: hidden;
+}
 
 .Vacant{ background-color: $vacant; }
 .Occupied{ background-color: $occupied; }

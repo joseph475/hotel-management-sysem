@@ -2958,9 +2958,12 @@ header .header-nav .nav-wrapper .header-icons {
   margin-right: 317px;
 }
 
+header .header-nav .nav-wrapper .header-icons a {
+  margin-left: 20px;
+}
+
 header .header-nav .nav-wrapper .header-icons i {
   font-size: 26px;
-  margin-right: 20px;
 }
 
 @media (max-width: 992px) {
@@ -3049,6 +3052,75 @@ footer .page-footer {
   background-color: white;
 }
 
+.dashboard-page #page-header .legends {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 99999;
+}
+
+.dashboard-page #page-header .legends .menu {
+  cursor: pointer;
+}
+
+.dashboard-page #page-header .legends ul {
+  margin: 0;
+  background-color: #6d6b6b;
+  display: none;
+  position: absolute;
+  right: 18px;
+  top: 110px;
+  padding: 5px 0px;
+}
+
+.dashboard-page #page-header .legends ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 8px 25px 8px 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.dashboard-page #page-header .legends ul li i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.dashboard-page #page-header .legends ul li:hover {
+  background-color: #999595;
+}
+
+.dashboard-page #page-header .legends ul li:nth-child(1) i {
+  color: #4caf50;
+}
+
+.dashboard-page #page-header .legends ul li:nth-child(2) i {
+  color: #f44336;
+}
+
+.dashboard-page #page-header .legends ul li:nth-child(3) i {
+  color: #0ef3d5;
+}
+
+.dashboard-page #page-header .legends ul li:nth-child(4) i {
+  color: #2196f3;
+}
+
+.dashboard-page #page-header .legends ul li:nth-child(5) i {
+  color: #f75717;
+}
+
+.dashboard-page #page-header .legends ul li:nth-child(6) i {
+  color: #ffeb3b;
+}
+
 .dashboard-page .content {
   margin: 20px 9px;
 }
@@ -3078,6 +3150,73 @@ footer .page-footer {
 
 .dashboard-page .content .col.m3 .collapsible li .collapsible-body ul li:last-child {
   border-bottom: none;
+}
+
+.dashboard-page .content .col.m9 .cards-container .card-panel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.dashboard-page .content .col.m9 .cards-container .card-panel h5 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.dashboard-page .content .col.m9 .cards-container .card-panel h4 {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.dashboard-page .content .col.m9 .cards-container .card-panel i {
+  font-size: 25px;
+  margin-right: 12px;
+}
+
+.dashboard-page .content .col.m9 .cards-container .card-panel.cvacant {
+  border-bottom: 4px solid #787a8d;
+}
+
+.dashboard-page .content .col.m9 .cards-container .card-panel.cvacant i,
+.dashboard-page .content .col.m9 .cards-container .card-panel.cvacant h4 {
+  color: #4caf50;
+}
+
+.dashboard-page .content .col.m9 .cards-container .card-panel.creserved {
+  border-bottom: 4px solid #787a8d;
+}
+
+.dashboard-page .content .col.m9 .cards-container .card-panel.creserved i,
+.dashboard-page .content .col.m9 .cards-container .card-panel.creserved h4 {
+  color: #0ef3d5;
+}
+
+.dashboard-page .content .col.m9 .cards-container .card-panel.ccheckout {
+  border-bottom: 4px solid #787a8d;
+}
+
+.dashboard-page .content .col.m9 .cards-container .card-panel.ccheckout i,
+.dashboard-page .content .col.m9 .cards-container .card-panel.ccheckout h4 {
+  color: #f44336;
+}
+
+.dashboard-page .content .col.m9 .cards-container .card-panel .cardlabel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .dashboard-page .content .col.m9 #room-cards .cards {
@@ -3718,6 +3857,10 @@ textarea {
   border: 1px solid #9e9e9e;
 }
 
+.toHide {
+  visibility: hidden;
+}
+
 .Vacant {
   background-color: #4caf50;
 }
@@ -3727,7 +3870,7 @@ textarea {
 }
 
 .Maintenance {
-  background-color: #ee591e;
+  background-color: #f75717;
 }
 
 .ForCheckout {

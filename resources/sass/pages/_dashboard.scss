@@ -1,4 +1,22 @@
 .dashboard-page{
+    #page-header{
+        .legends{ display: flex; align-items: center; z-index: 99999;
+            .menu{ cursor: pointer; }
+        }
+        .legends ul{ margin: 0; background-color: rgb(109, 107, 107);  display: none;
+            position: absolute; right: 18px; top:110px; padding: 5px 0px;
+            li{ display: flex; align-items: center; padding: 8px 25px 8px 20px; color: white; cursor: pointer;
+                i{ font-size: 20px; margin-right: 10px; }
+                &:hover{ background-color: rgb(153, 149, 149); }
+            }
+            li:nth-child(1) i{ color: $vacant; }
+            li:nth-child(2) i{ color: $occupied; }
+            li:nth-child(3) i{ color: $reserved; }
+            li:nth-child(4) i{ color: $cleaning; }
+            li:nth-child(5) i{ color: $maintenance; }
+            li:nth-child(6) i{ color: $forCheckout; }
+        } 
+    }
     .content{
         margin: 20px 9px;
         .col{
@@ -30,6 +48,23 @@
                 }
             }
             &.m9{
+                .cards-container{ 
+                    .card-panel{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        margin: 0px;
+                        margin-bottom: 30px;
+                        cursor:pointer;
+                        h5{ font-size: 16px; margin: 0;}
+                        h4{ margin: 0; font-size: 25px; font-weight: 600;}
+                        i{ font-size: 25px; margin-right: 12px;}
+                       &.cvacant{ border-bottom: 4px solid rgb(120, 122, 141); i,h4{ color:$vacant; }} 
+                       &.creserved{ border-bottom: 4px solid rgb(120, 122, 141); i,h4{ color:$reserved; }} 
+                       &.ccheckout{ border-bottom: 4px solid rgb(120, 122, 141); i,h4{ color:$occupied; }} 
+                       .cardlabel{ display: flex; align-items: center;}
+                    }
+                }
                 #room-cards{
                     .cards{
                         // width: 166px;

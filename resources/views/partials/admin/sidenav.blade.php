@@ -16,7 +16,7 @@
             <a class="collapsible-header"><i class="material-icons">event_note</i>Reservations<i class="material-icons right">arrow_drop_down</i></a>
             <div class="collapsible-body">
                 <ul>
-                    <li><a class="" href="bookReservation.php"><i class="material-icons">assignment</i>Book Reservation</a></li>
+                    <li><a class="" href="{{ url('/BookReservation') }}"><i class="material-icons">assignment</i>Reserve a Room</a></li>
                 </ul>
                 <ul>
                     <li><a class="" href="{{ url('/AdminReservationList') }}"><i class="material-icons">list</i>Reservation List</a></li>

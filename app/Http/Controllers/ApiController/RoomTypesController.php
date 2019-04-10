@@ -27,6 +27,13 @@ class RoomTypesController extends Controller
         return $roomtypes;
     }
 
+    public function changePenaltyRate(Request $request){
+        $penaltyRateChange = RoomTypeModel::findOrFail($request->id);
+        $penaltyRateChange->rateperhour = $request->rateperhour;
+        $penaltyRateChange->save();
+        return $penaltyRateChange;
+    }
+
     public function upload(Request $request){
         
         if(isset($request->image)){

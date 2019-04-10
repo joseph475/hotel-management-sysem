@@ -12,6 +12,6 @@ class AddedFoodsModel extends Model
     protected $fillable = [
         'checkinId',
         'foodsId',
-        'quantiry'
+        'quantity'
     ];
 }

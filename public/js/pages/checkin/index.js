@@ -19,11 +19,12 @@ function saveCheckin(){
     var room_id = $('#room_id').val();
     var adultsCount = $('#adultsCount').val().trim();
     var childrenCount = $('#childrenCount').val().trim();
-    var raterefno = $('#roomRate').attr('data-id');
+    var raterefno = $('input[name=roomRate]:checked').attr('data-id');
+    // var raterefno = $('#roomRate').attr('data-id');
     var remainingTime = 0;
     
 
-    if($('#rdo-hours').prop("checked") == true){ remainingTime = $('#roomRate').val(); }
+    if($('#rdo-hours').prop("checked") == true){ remainingTime = $('input[name=roomRate]:checked').val(); }
     else{ remainingTime = 24; }
 
     if(checkifValidated(checkifvalid)){

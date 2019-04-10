@@ -17,6 +17,10 @@ class KitchenController extends Controller
         
         return $foods;
     }
+    public function getIsPublishedFoods(){
+        $foods = KitchenModel::where('ispublished' , 1)->orderBy('createdDate', 'desc')->get();
+        return $foods;
+    }
 
     public function store(Request $request)
     {   

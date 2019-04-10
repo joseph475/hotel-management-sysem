@@ -9,7 +9,7 @@ use App\Models\DashboardModel;
 class DashboardController extends Controller
 {
     public function index(){
-        $roomCards = DashboardModel::orderBy('room_id')->get();
+        $roomCards = DashboardModel::where('ispublished', 1)->orderBy('room_id')->get();
         return $roomCards;
     }
 }

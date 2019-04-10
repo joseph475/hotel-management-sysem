@@ -1,5 +1,12 @@
 $(document).ready(loadRoomCards);
 
+$('body').on('click',function(){ $('.legends ul').fadeOut("slow"); });
+
+$('.menu').on('click',function(e){
+    $('.legends ul').fadeToggle("slow");
+    e.stopPropagation();
+});
+
 function loadRoomCards() {
     $.ajax({
         url: 'api/dashboard',

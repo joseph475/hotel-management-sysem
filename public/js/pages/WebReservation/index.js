@@ -73,14 +73,13 @@ function BookNow(){
                             content: '',
                             buttons: {
                                 OK: function () {
-                                    // loadFoods(1); 
-                                    // clearmodal();
+                                   location.reload();
                                 }
                             }
                         });
                     },
                     error: function (aaa, bbb, ccc) {
-                        console.log(aaa + "-" + bbb + "-" + ccc);
+                        console.log(ccc);
                     }
                 });
             }

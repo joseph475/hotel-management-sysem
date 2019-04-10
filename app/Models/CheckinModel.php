@@ -15,7 +15,6 @@ class CheckinModel extends Model
         'checkOutDate',
         'adultsCount',
         'childrenCount',
-        'remaining_time',
-        'raterefno'
+        'remaining_time'
     ];
 }

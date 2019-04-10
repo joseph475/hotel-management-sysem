@@ -13,7 +13,6 @@ class ReservationModel extends Model
         'personal_id',
         'personal_id_type',
         'roomtype',
-        'room_id',
         'name',
         'mobile',
         'email',

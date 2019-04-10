@@ -129,7 +129,7 @@
             @foreach($data['roomRate'] as $rates)
                 <p class="pl11">
                     <label class="mr20">
-                        <input id="roomRate" data-id="{{ $rates['id'] }}" value="{{ $rates['hours'] }}" class="with-gap" name="group3" type="radio" checked/>
+                        <input id="roomRate" name="roomRate" data-id="{{ $rates['id'] }}" value="{{ $rates['hours'] }}" class="with-gap" name="group3" type="radio" checked/>
                         <span class="mr10">Hours: {{ $rates['hours'] }}</span>
                         <span>Rate: &#8369 {{ $rates['rate'] }}</span>
                     </label>
