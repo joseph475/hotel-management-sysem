@@ -69,6 +69,7 @@ Route::put('RoomManagement/update/{id}','ApiController\RoomManagementController@
 Route::get('Rooms/getRoomsNotOccupied','ApiController\RoomsController@getRoomsNotOccupied');
 
 Route::get('AdminReservationList','ApiController\Admin_ReservationController@index');
+Route::get('AdminReservationList/getAvailableRooms','ApiController\Admin_ReservationController@getAvailableRooms');
 
 Route::get('dashboard','ApiController\DashboardController@index');
 Route::get('dashboard/getAvailableRooms','ApiController\DashboardController@loadAvailableRooms');

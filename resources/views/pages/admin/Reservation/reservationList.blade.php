@@ -79,12 +79,13 @@
 
     <div id="RoomList" class="modal bottom-sheet">
         <div class="modal-content">
-            <h4>Select Room</h4>
-            
+            <ul class="collection with-header" id="roomListUl">
+                {{--  <li class="collection-header"><h4>Select a Room</h4></li>
+                <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+                <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+                <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>  --}}
+            </ul>
         </div>
-        {{--  <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-        </div>  --}}
     </div>
 </div>
 @endsection
