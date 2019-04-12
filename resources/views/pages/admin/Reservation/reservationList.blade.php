@@ -28,7 +28,7 @@
                         <th>Personal ID</th>
                         <th>RoomType</th>
                         <th>Contact</th>
-                        <th>Reservation Date</th>
+                        <th>Checkin Date</th>
                         <th style="width:15%;">Action</th>
                     </tr>
                 </thead>
@@ -80,10 +80,7 @@
     <div id="RoomList" class="modal bottom-sheet">
         <div class="modal-content">
             <ul class="collection with-header" id="roomListUl">
-                {{--  <li class="collection-header"><h4>Select a Room</h4></li>
-                <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-                <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-                <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>  --}}
+                {{--  js generated  --}}
             </ul>
         </div>
     </div>

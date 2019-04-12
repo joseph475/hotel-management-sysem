@@ -12,11 +12,15 @@ class Admin_ReservationController extends Controller
 {
     public function index(){
         
-        $reservationList = DB::select('Select A.id, personal_id, personal_id_type, B.type, B.id as roomTypeId,
-        name, mobile, email, compName, compAddress, checkInDate, adultsCount, childrensCount, reservationDate
-        from reservations A inner join roomtypes B on A.roomtype = B.id');
+        $reservationList = ReservationModel::join('roomtypes', 'reservations.roomType', '=', 'roomtypes.id')
+        ->select('reservations.id', 'personal_id','personal_id_type', 'roomtypes.type',
+         'roomtypes.id as roomTypeId','name', 'mobile', 'email', 'compName', 'compAddress',
+          'checkInDate', 'adultsCount', 'childrensCount', 'reservationDate')
+        ->where('status', 'Pending')
+        ->orderBy('reservations.reservationDate', 'asc')
+        ->paginate(10);
 
-        return ['data' => $reservationList];
+        return $reservationList;
     }
 
     public function getAvailableRooms(Request $request){

@@ -1,7 +1,7 @@
 var mytable = $('#ReservationListTable');
 $(document).ready(loadReservationList(curpage));
 $(document).on('click','.openReservationModal', openReservationModal);
-
+$(document).on('click','#reserveRoom', reserveRoom);
 
 function loadReservationList(curpage) {
     $.ajax({
@@ -13,11 +13,12 @@ function loadReservationList(curpage) {
         dataType: 'json',
         success: function (data) {
             loopDetails(data.data);
+            // M.AutoInit();
             $.getScript("js/pagination.js", function () {  // load pagination
                 createPagination(data.last_page, "loadReservationList");
                 $('#page_' + curpage).addClass("activePage");
             });
-            M.AutoInit();
+            
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(textStatus, errorThrown);
@@ -44,20 +45,25 @@ function loopDetails(data) {
 }
 
 function createTable(id, guest_name, personal_id, personal_id_type, roomtype, mobile, checkInDate, roomtype_id) {
-    var myExtra = '<tr data-id="'+ id +'">' +
-        '<td>' + guest_name + '</td>' +
-        '<td>' + personal_id_type + " ("+ personal_id +")" + '</td>' +
-        '<td>' + roomtype + '</td>' +
-        '<td>' + mobile + '</td>' +
-        '<td>' + checkInDate + '</td>' +
-        // '<td>' + compName + '</td>' +
-        // '<td>' + compAddress + '</td>' +
-        '<td>' +
-            '<a class="btn btn-2 tooltipped btn-flat mr5 openReservationModal modal-trigger" data-roomTypeId='+ roomtype_id +' data-tooltip="Reserve" href="#RoomList"><i class="fas fa-user-lock"></i></i></a>' +
-            '<a class="btn btn-2 tooltipped btn-flat mr5 deleteExtra" data-tooltip="Cancel"><i class="far fa-trash-alt"></i></a>' +
-        '</td>' +
+    var checkInDate = parseDate(checkInDate, '-');
+    var today = new Date();
+    var isWarning = checkdatediff(today, checkInDate) < 3 ? true : false;
+    var trClass = (isWarning)? 'Warning pulse' : '';
+    today = today.toLocaleDateString("en-US");
+    checkInDate = checkInDate.toLocaleDateString("en-US");
+
+    var myReservation = '<tr class="" data-id="'+ id +'">' +
+            '<td>' + guest_name + '</td>' +
+            '<td>' + personal_id_type + " ("+ personal_id +")" + '</td>' +
+            '<td>' + roomtype + '</td>' +
+            '<td>' + mobile + '</td>' +
+            '<td>' + checkInDate + '</td>' +
+            '<td>' +
+                '<a class="btn-floating btn btn-float '+ trClass +' btn-flat mr5 openReservationModal modal-trigger" data-roomTypeId='+ roomtype_id +' href="#RoomList"><i class="fas fa-sign-in-alt"></i></a>' +
+                '<a class="btn-floating btn btn-float '+ trClass +' btn-flat mr5 deleteExtra"><i class="far fa-trash-alt"></i></a>' +
+            '</td>' +
         '</tr>'
-    return myExtra;
+    return myReservation;
 }
 
 function openReservationModal(){
@@ -73,7 +79,16 @@ function openReservationModal(){
             var template = "";
             $('#roomListUl').html('<li class="collection-header"><h4>Select a Room</h4></li>');
             for (var i = 0; i < data.length; i++) {
-                template += '<li class="collection-item" data-id="'+ data[i].id +'"><div>Room# '+ data[i].roomNo +'<a href="#!" class="secondary-content"><i class="material-icons blue-text">send</i></a></div></li>';
+                template += '<li class="collection-item" data-id="'+ data[i].id +'">' +
+                                '<div class="custom-collection">' +
+                                    '<div>Room#  ' +
+                                        '<span>'+ data[i].roomNo +'</span>' +
+                                    '</div>' +
+                                    '<a href="#!" class="secondary-content btn btn-2" id="reserveRoom">'+
+                                        '<i class="material-icons left">send</i>Reserve' +
+                                    '</a>' +
+                                '</div>' +
+                            '</li>';
             }
             $('#roomListUl').append(template);
         },
@@ -81,4 +96,8 @@ function openReservationModal(){
             console.log(textStatus, errorThrown);
         }
     });
+}
+
+function reserveRoom(){
+    
 }

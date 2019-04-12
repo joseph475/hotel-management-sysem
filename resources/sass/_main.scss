@@ -155,6 +155,16 @@ input.with-borders{
 .btn-4{
     background-color: $btn-1;
 }
+.btn-float{
+    border-radius: 0;
+    background-color: $btn-2;
+    width: auto;
+    padding: 0 16px;
+    i{ color:#1e1e1e; font-size: 1.3rem; }
+    &:hover{
+        background-color: rgb(231, 216, 216);
+    }
+}
 .teals-text{
   color:$teals-text;
 }
@@ -321,6 +331,16 @@ textarea{
 .dropdown-content{
     z-index: 2;
 }
+.custom-collection{
+    display: flex;
+    justify-content: space-between;    
+    align-items: center;
+    font-size: 14.5px;
+    font-weight: 600;
+    span{
+        font-size: 18px;
+    }
+}
 .Vacant{ background-color: $vacant; }
 .Occupied{ background-color: $occupied; }
 .Maintenance{ background-color: $maintenance; }
@@ -328,3 +348,4 @@ textarea{
 .Penalty{ background-color: $penalty; }
 .Cleaning{ background-color: $cleaning; }
 .Reserved { background-color: $reserved; }
+.Warning { background-color: $warning; }

@@ -3679,6 +3679,22 @@ input.with-borders:focus {
   background-color: #21a4e0;
 }
 
+.btn-float {
+  border-radius: 0;
+  background-color: #eeeaea;
+  width: auto;
+  padding: 0 16px;
+}
+
+.btn-float i {
+  color: #1e1e1e;
+  font-size: 1.3rem;
+}
+
+.btn-float:hover {
+  background-color: #e7d8d8;
+}
+
 .teals-text {
   color: #26a69a;
 }
@@ -3891,6 +3907,24 @@ textarea {
   z-index: 2;
 }
 
+.custom-collection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.custom-collection span {
+  font-size: 18px;
+}
+
 .Vacant {
   background-color: #4caf50;
 }
@@ -3917,6 +3951,10 @@ textarea {
 
 .Reserved {
   background-color: #94fff1;
+}
+
+.Warning {
+  background-color: #fd7f6ecc;
 }
 
 body {

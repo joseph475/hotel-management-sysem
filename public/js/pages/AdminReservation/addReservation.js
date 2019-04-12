@@ -49,7 +49,7 @@ function saveReservation(){
                                 content: '',
                                 buttons: {
                                     OK: function () {
-                                        window.location ="/";
+                                        window.location ="/PendingReservationList";
                                     }
                                 }
                             });

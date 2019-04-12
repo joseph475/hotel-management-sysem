@@ -156,12 +156,21 @@ function convert(x){
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-function parseDate(str) {
-    var mdy = str.split('/');
-    return new Date(mdy[2], mdy[0] - 1, mdy[1]);
+function parseDate(str, delimiter) {
+    var mdy = str.split(delimiter);
+    return new Date(mdy[0], mdy[1] - 1, mdy[2]);
 }
+function checkdatediff(date1, date2){
+    // const diffTime = Math.abs(date2.getTime() - date1.getTime());
+    // const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24)); 
+    const _MS_PER_DAY = 1000 * 60 * 60 * 24;
 
-function datediff(first, second) {
+    const utc1 = Date.UTC(date1.getFullYear(), date1.getMonth(), date1.getDate());
+    const utc2 = Date.UTC(date2.getFullYear(), date2.getMonth(), date2.getDate());
+  
+    return Math.floor((utc2 - utc1) / _MS_PER_DAY);
+}
+function checkdaydiff(first, second) {
     return Math.round((second - first) / (1000 * 60 * 60 * 24));
 }
 
