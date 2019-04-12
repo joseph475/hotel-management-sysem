@@ -6,11 +6,12 @@
             <div class="page-title">Add Reservation</div>
             <div class="page-buttons">
                 <div class="button-content">
-                    <a class="btn btn-1" href="/">
-                        <i class="material-icons left">arrow_back</i>
-                        Back
+                    <a class="btn-floating btn-4 btn-small tooltipped" 
+                        data-tooltip="Back" data-position="left" href="/">
+                        <i class="material-icons">arrow_back</i>
                     </a>
-                    <a class="btn btn-1" id="btn_save_res">
+                    <a class="btn-floating btn-4 btn-small tooltipped"
+                        data-tooltip="Save" data-position="left" id="btn_save_res">
                         <i class="material-icons left">save</i>
                         Save
                     </a>
@@ -82,5 +83,5 @@
 @endsection
 
 @section('pagejs')
-    <script src="{{ asset('/js/pages/BookReservation/index.js') }}"></script>
+    <script src="{{ asset('/js/pages/AdminReservation/addReservation.js') }}"></script>
 @stop

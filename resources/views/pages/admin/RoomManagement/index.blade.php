@@ -6,9 +6,9 @@
         <div class="page-title">Room Management</div>
         <div class="page-buttons">
             <div class="button-content">
-                <a class="btn btn-1" href="/">
-                    <i class="material-icons left">arrow_back</i>
-                    Back
+               <a class="btn-floating btn-4 btn-small tooltipped" 
+                    data-tooltip="Back" data-position="left" href="/">
+                    <i class="material-icons">arrow_back</i>
                 </a>
             </div>
         </div>

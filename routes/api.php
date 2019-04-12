@@ -72,6 +72,8 @@ Route::get('AdminReservationList','ApiController\Admin_ReservationController@ind
 
 Route::get('dashboard','ApiController\DashboardController@index');
 Route::get('dashboard/getAvailableRooms','ApiController\DashboardController@loadAvailableRooms');
+Route::get('dashboard/getResrveAndAvailableCount','ApiController\DashboardController@loadReserveAndAvailableCount');
+
 // web
 
 Route::post('WebReservation','ApiController\Web_ReservationController@store');

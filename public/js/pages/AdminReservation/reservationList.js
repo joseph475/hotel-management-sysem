@@ -1,5 +1,7 @@
 var mytable = $('#ReservationListTable');
 $(document).ready(loadReservationList(curpage));
+$(document).on('click','.openReservationModal', openReservationModal);
+
 
 function loadReservationList(curpage) {
     $.ajax({
@@ -50,9 +52,13 @@ function createTable(id, guest_name, personal_id, personal_id_type, roomtype, mo
         // '<td>' + compName + '</td>' +
         // '<td>' + compAddress + '</td>' +
         '<td>' +
-            '<a class="btn btn-2 tooltipped btn-flat mr5 deleteExtra" data-tooltip="Cancel Reservation"><i class="far fa-trash-alt"></i></a>' +
-            '<a class="btn btn-2 tooltipped btn-flat mr5 deleteExtra" data-tooltip="BookNow"><i class="fas fa-sign-in-alt"></i></a>' +
+            '<a class="btn btn-2 tooltipped btn-flat mr5 openReservationModal modal-trigger" data-tooltip="Reserve" href="#RoomList"><i class="fas fa-user-lock"></i></i></a>' +
+            '<a class="btn btn-2 tooltipped btn-flat mr5 deleteExtra" data-tooltip="Cancel"><i class="far fa-trash-alt"></i></a>' +
         '</td>' +
         '</tr>'
     return myExtra;
+}
+
+function openReservationModal(){
+    
 }

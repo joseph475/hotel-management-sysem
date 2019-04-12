@@ -13,10 +13,9 @@
             }
         }
         ul{
-            background: $header-footer;
+            background: rgb(41, 41, 40);;
         }
         .user-view{
-            // background-image: url('/images/userbg3.jpg');
             background: $header-footer;
             @extend .px20;
             @extend .py10;

@@ -13,20 +13,23 @@
     <li><a href="{{ url('/') }}"><i class="material-icons">dashboard</i>Dashboard</a></li>
     <ul class="collapsible collapsible-accordion">
         <li>
-            <a class="collapsible-header"><i class="material-icons">event_note</i>Reservations<i class="material-icons right">arrow_drop_down</i></a>
+            <a class="collapsible-header dropdownArr"><i class="material-icons">event_note</i>Reservations<i class="material-icons right arrow">arrow_drop_down</i></a>
             <div class="collapsible-body">
                 <ul>
-                    <li><a class="" href="{{ url('/BookReservation') }}"><i class="material-icons">assignment</i>Reserve a Room</a></li>
+                    <li><a class="" href="{{ url('/AddReservation') }}"><i class="material-icons">assignment</i>Reserve a Room</a></li>
                 </ul>
                 <ul>
-                    <li><a class="" href="{{ url('/AdminReservationList') }}"><i class="material-icons">list</i>Reservation List</a></li>
+                    <li><a class="" href="{{ url('/PendingReservationList') }}"><i class="material-icons">cached</i>Pending Reservations</a></li>
+                </ul>
+                <ul>
+                    <li><a class="" href="{{ url('/PendingReservationList') }}"><i class="material-icons">import_contacts</i>Reserved Rooms</a></li>
                 </ul>
             </div>
         </li>
     </ul>
     <ul class="collapsible collapsible-accordion">
         <li>
-            <a class="collapsible-header"><i class="material-icons">face</i>Guests<i class="material-icons right">arrow_drop_down</i></a>
+            <a class="collapsible-header dropdownArr"><i class="material-icons">face</i>Guests<i class="material-icons right arrow">arrow_drop_down</i></a>
             <div class="collapsible-body">
                 <ul>
                     <li><a class="modal-trigger" href="{{ url('/Guests') }}"><i class="material-icons">group</i>Guest List</a></li>
@@ -44,7 +47,7 @@
         <ul class="collapsible collapsible-accordion">
         <!-- settings -->
             <li>
-                <a class="collapsible-header"><i class="fas fa-cogs"></i>Manage<i class="material-icons right">arrow_drop_down</i></a>
+                <a class="collapsible-header dropdownArr"><i class="fas fa-cogs"></i>Manage<i class="material-icons right arrow">arrow_drop_down</i></a>
                 <div class="collapsible-body">
                     <ul> 
                         <li><a href="{{ url('/Rooms') }}"><i class="material-icons left">hotel</i>Rooms</a></li>
@@ -57,7 +60,7 @@
             </li>
         <!-- reports -->
             <li>
-                <a class="collapsible-header"><i class="material-icons">insert_chart</i>Reports<i class="material-icons right">arrow_drop_down</i></a>
+                <a class="collapsible-header dropdownArr"><i class="material-icons">insert_chart</i>Reports<i class="material-icons right arrow">arrow_drop_down</i></a>
                 <div class="collapsible-body">
                     <ul>
                         <li><a href="collections.php"><i class="material-icons">attach_money</i>Collections</a></li>

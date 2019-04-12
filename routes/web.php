@@ -30,11 +30,11 @@ Route::get('/Extras', 'WebController\ExtrasController@index');
 
 Route::get('/HotelInfo', 'WebController\HotelInfoController@index');
 
-Route::get('/BookReservation', 'WebController\BookReservationController@index');
-
 Route::get('/ChooseRoom', 'WebController\ChooseRoomController@index');
 
-Route::get('/AdminReservationList', 'WebController\Admin_ReservationController@index');
+Route::get('/AddReservation', 'WebController\Admin_ReservationController@AddReservation');
+Route::get('/PendingReservationList', 'WebController\Admin_ReservationController@reservationList');
+
 
 
 Route::get('/reservation', 'WebController\Web_ReservationController@index');

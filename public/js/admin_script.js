@@ -8,7 +8,11 @@ $(document).ready(function ($) {
     $(window).on('load', function () {
         $('.loader').fadeOut('fast', function () { $(this).hide();  });
         $('#dimScreen').fadeOut('fast', function () { $(this).hide(); });
-    });  
+    });
+
+    $('.dropdownArr').on('click', function(){
+        $(this).find('.arrow').toggleClass("arrowRotate");
+    })
 });
 
 $(document).ajaxStart(function () {

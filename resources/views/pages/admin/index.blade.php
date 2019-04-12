@@ -23,10 +23,7 @@
                     <div class="collapsible-header"><i class="material-icons">event_available</i>Available Rooms</div>
                     <div class="collapsible-body">
                         <ul id="availableTypes">
-                        {{--  js generated  --}}
-                            {{--  <li>Available<span class="new badge grey darken-2" data-badge-caption="">4</span></li>
-                            <li>Occupied<span class="new badge grey darken-2" data-badge-caption="">5</span></li>
-                            <li>Reserved<span class="new badge grey darken-2" data-badge-caption="">6</span></li>  --}}
+                            {{--  js generated  --}}
                         </ul>
                     </div>
                 </li>
@@ -40,7 +37,7 @@
                             <i class="far fa-check-circle"></i> 
                             <h5>Available</h5>
                         </div>
-                        <h4>30</h4>
+                        <h4 id="vacantCount">0</h4>
                     </div> 
                 </div>
                 <div class="col m4 s12">
@@ -49,7 +46,7 @@
                             <i class="far fa-address-card"></i>
                             <h5>Reserved</h5>
                         </div>
-                        <h4>30</h4>
+                        <h4 id="ReservedCount">0</h4>
                     </div>
                 </div>
                 <div class="col m4 s12">
@@ -58,7 +55,7 @@
                             <i class="far fa-bell"></i>
                             <h5>Checkout</h5>
                         </div>
-                        <h4>30</h4>
+                        <h4 id="forCheckoutCount">0</h4>
                     </div>
                 </div>  
             </div>

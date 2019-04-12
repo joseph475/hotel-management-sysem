@@ -19,7 +19,7 @@ class RoomsController extends Controller
     {
         $rooms = RoomModel::join('roomtypes', 'rooms.roomType', '=', 'roomtypes.id')
         ->select('rooms.id', 'rooms.roomNo', 'roomtypes.type', 'rooms.floor', 'roomtypes.rateperhour','rooms.status','rooms.ispublished')
-        ->orderBy('rooms.created_at', 'asc')
+        ->orderBy('rooms.id', 'asc')
         ->paginate(10);
         return $rooms;
     }

@@ -7,7 +7,7 @@
             <div class="header-logo">
                 <a href="#!" class="brand-logo hide-on-med-and-down">Hotel Management System</a>
             </div>
-            <div class="header-icons">
+            <div class="header-icons">               
                 <a href="" class="tooltipped" data-position="left" data-tooltip="Notifications"><i class="material-icons">notifications</i></a>
                 <a href="{{ url('/HotelInfo') }}" class="tooltipped" data-position="left" data-tooltip="Settings"><i class="fas fa-tools"></i></a>
                 <a href="" class="tooltipped" data-position="left" data-tooltip="Logout"><i class="material-icons">exit_to_app</i></a>

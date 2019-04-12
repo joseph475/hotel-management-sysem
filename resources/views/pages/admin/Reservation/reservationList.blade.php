@@ -6,13 +6,9 @@
         <div class="page-title">Reservation List</div>
         <div class="page-buttons">
             <div class="button-content">
-                <a class="btn btn-1" href="/">
-                    <i class="material-icons left">arrow_back</i>
-                    Back
-                </a>
-                <a class="btn btn-1 modal-trigger addRoom" href="#AddMenuModal">
-                    <i class="material-icons left">add</i>
-                    Add Menu
+                <a class="btn-floating btn-4 btn-small tooltipped" 
+                    data-tooltip="Back" data-position="left" href="/">
+                    <i class="material-icons">arrow_back</i>
                 </a>
             </div>
         </div>
@@ -33,8 +29,6 @@
                         <th>RoomType</th>
                         <th>Contact</th>
                         <th>Reservation Date</th>
-                        {{--  <th>Company Name</th>
-                        <th>Company Address</th>  --}}
                         <th style="width:15%;">Action</th>
                     </tr>
                 </thead>
@@ -81,6 +75,16 @@
                 Save
             </button>
         </div>
+    </div>
+
+    <div id="RoomList" class="modal bottom-sheet">
+        <div class="modal-content">
+            <h4>Select Room</h4>
+            
+        </div>
+        {{--  <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>  --}}
     </div>
 </div>
 @endsection

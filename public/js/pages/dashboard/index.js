@@ -1,6 +1,7 @@
 $(document).ready(function(){
     loadRoomCards(1);
     loadAvailableRoomsCount();
+    loadReserveAndAvailableCount();
 });
 // $(document).ready(loadRoomCards);
 
@@ -22,6 +23,21 @@ function loadAvailableRoomsCount(){
                 availableTypes += '<li>' + data[i].type + '<span class="new badge grey darken-2" data-badge-caption="">' + data[i].total + '</span></li>';
             }
             $('#availableTypes').append(availableTypes);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(textStatus, errorThrown);
+        }
+    });
+}
+
+function loadReserveAndAvailableCount(){
+    $.ajax({
+        url: 'api/dashboard/getResrveAndAvailableCount',
+        type: 'get',
+        dataType: 'json',
+        success: function (data) {
+            $('#vacantCount').html(data[0].total);
+            $('#ReservedCount').html(data[1].total);
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(textStatus, errorThrown);

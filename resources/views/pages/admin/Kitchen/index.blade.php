@@ -6,13 +6,13 @@
         <div class="page-title">Food Menu</div>
         <div class="page-buttons">
             <div class="button-content">
-                <a class="btn btn-1" href="/">
-                    <i class="material-icons left">arrow_back</i>
-                    Back
+                <a class="btn-floating btn-4 btn-small tooltipped" 
+                    data-tooltip="Back" data-position="left" href="/">
+                    <i class="material-icons">arrow_back</i>
                 </a>
-                <a class="btn btn-1 modal-trigger addRoom" href="#AddMenuModal">
+                <a class="btn-floating btn-4 btn-small tooltipped modal-trigger addRoom" data-tooltip="Add Menu"
+                    data-position="left" href="#AddMenuModal">
                     <i class="material-icons left">add</i>
-                    Add Menu
                 </a>
             </div>
         </div>

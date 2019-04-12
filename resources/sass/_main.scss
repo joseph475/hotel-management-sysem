@@ -84,10 +84,8 @@ a{
     }
     .page-buttons{
         display: flex;
-        justify-content: flex-end;
-    }
-    .page-buttons > div{
-        margin: 0px 10px;
+        // justify-content: flex-end;
+        a{ margin-left: 5px; }
     }
 }
 
@@ -154,6 +152,9 @@ input.with-borders{
     background-color: $btn-3;
     border-radius: 0px;
 }
+.btn-4{
+    background-color: $btn-1;
+}
 .teals-text{
   color:$teals-text;
 }
@@ -203,7 +204,7 @@ input.with-borders{
 .modal{
     h4{ text-align: center; }
     z-index: 1003 !important;
-    top: 75px !important;
+    // top: 75px !important;
     border: 2px solid $btn-1;
     width: 450px;
     .modal-footer{
@@ -215,6 +216,13 @@ input.with-borders{
             margin-left: 5px !important;
             width: 100px;
         }
+    }
+}
+.modal.bottom-sheet{
+    border:none;
+    h4{
+        text-align: left;
+        font-size: 25px;
     }
 }
 .select-wrapper{
@@ -305,9 +313,17 @@ textarea{
     visibility: hidden;
 }
 
+.arrowRotate{
+    transform: rotate(180deg);
+    transition: 0.3s;
+}
+.dropdown-content{
+    z-index: 1;
+}
 .Vacant{ background-color: $vacant; }
 .Occupied{ background-color: $occupied; }
 .Maintenance{ background-color: $maintenance; }
 .ForCheckout{ background-color: $forCheckout; }
 .Penalty{ background-color: $penalty; }
 .Cleaning{ background-color: $cleaning; }
+.Reserved { background-color: $reserved; }

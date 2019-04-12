@@ -59,9 +59,9 @@
                         h5{ font-size: 16px; margin: 0;}
                         h4{ margin: 0; font-size: 25px; font-weight: 600;}
                         i{ font-size: 25px; margin-right: 12px;}
-                       &.cvacant{ border-bottom: 4px solid rgb(120, 122, 141); i,h4{ color:$vacant; }} 
-                       &.creserved{ border-bottom: 4px solid rgb(120, 122, 141); i,h4{ color:$reserved; }} 
-                       &.ccheckout{ border-bottom: 4px solid rgb(120, 122, 141); i,h4{ color:$occupied; }} 
+                       &.cvacant{ border-top: 4px solid rgb(120, 122, 141); i{ color:$vacant; } h4{ color: rgb(68, 66, 66); } } 
+                       &.creserved{ border-top: 4px solid rgb(120, 122, 141); i{ color:$reserved; } h4{ color: rgb(68, 66, 66); } } 
+                       &.ccheckout{ border-top: 4px solid rgb(120, 122, 141); i{ color:$occupied; } h4{ color: rgb(68, 66, 66); } } 
                        .cardlabel{ display: flex; align-items: center;}
                     }
                 }

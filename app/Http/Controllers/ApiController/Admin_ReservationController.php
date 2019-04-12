@@ -21,4 +21,5 @@ class Admin_ReservationController extends Controller
         return ['data' => $reservationList];
 
     }
+
 }

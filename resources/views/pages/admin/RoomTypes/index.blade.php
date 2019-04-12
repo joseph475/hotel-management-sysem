@@ -6,11 +6,10 @@
             <div class="page-title">Manage Room Types</div>
             <div class="page-buttons">
                 <div class="button-content">
-                    <a class="btn btn-1" href="/">
-                        <i class="material-icons left">arrow_back</i>
-                        Back
+                    <a class="btn-floating btn-4 btn-small tooltipped" data-tooltip="Back" data-position="left" href="/">
+                        <i class="material-icons">arrow_back</i>
                     </a>
-                    <a class="btn btn-1 modal-trigger addRoomType" href="#AddRoomTypeModal">
+                    <a class="btn-floating btn-4 btn-small tooltipped modal-trigger addRoomType" data-tooltip="Add Room Type" data-position="left" href="#AddRoomTypeModal">
                         <i class="material-icons left">add</i>
                         Add Room Type
                     </a>
