@@ -13,7 +13,6 @@ function loadReservationList(curpage) {
         dataType: 'json',
         success: function (data) {
             loopDetails(data.data);
-            // M.AutoInit();
             $.getScript("js/pagination.js", function () {  // load pagination
                 createPagination(data.last_page, "loadReservationList");
                 $('#page_' + curpage).addClass("activePage");
@@ -68,6 +67,7 @@ function createTable(id, guest_name, personal_id, personal_id_type, roomtype, mo
 
 function openReservationModal(){
     var roomTypeId = $(this).attr('data-roomTypeId');
+    var reservationId = $(this).closest('tr').attr('data-id');
     $.ajax({
         url: 'api/AdminReservationList/getAvailableRooms',
         data:{
@@ -77,20 +77,26 @@ function openReservationModal(){
         dataType: 'json',
         success: function (data) {
             var template = "";
-            $('#roomListUl').html('<li class="collection-header"><h4>Select a Room</h4></li>');
-            for (var i = 0; i < data.length; i++) {
-                template += '<li class="collection-item" data-id="'+ data[i].id +'">' +
-                                '<div class="custom-collection">' +
-                                    '<div>Room#  ' +
-                                        '<span>'+ data[i].roomNo +'</span>' +
+            if(data.length > 0){ 
+                $('#roomListUl').html('<li class="collection-header"><h4>Select a Room</h4></li>');
+                for (var i = 0; i < data.length; i++) {
+                    template += '<li class="collection-item" data-reservationId="'+ reservationId +'" data-roomId ="'+ data[i].roomNo +'">' +
+                                    '<div class="custom-collection">' +
+                                        '<div>Room#  ' +
+                                            '<span>'+ data[i].roomNo +'</span>' +
+                                        '</div>' +
+                                        '<a href="#!" class="secondary-content btn btn-2 modal-close" id="reserveRoom">'+
+                                            '<i class="material-icons left">send</i>Reserve' +
+                                        '</a>' +
                                     '</div>' +
-                                    '<a href="#!" class="secondary-content btn btn-2" id="reserveRoom">'+
-                                        '<i class="material-icons left">send</i>Reserve' +
-                                    '</a>' +
-                                '</div>' +
-                            '</li>';
+                                '</li>';
+                }
+                $('#roomListUl').append(template);
             }
-            $('#roomListUl').append(template);
+            else{
+                $('#roomListUl').html('<li class="collection-header"><h4>No Vacant Room for this Room Type</h4></li>');
+            }
+            
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(textStatus, errorThrown);
@@ -99,5 +105,21 @@ function openReservationModal(){
 }
 
 function reserveRoom(){
-    
+    var reservationId = $(this).closest('li').attr('data-reservationId');
+    var roomId = $(this).closest('li').attr('data-roomId');
+
+    $.ajax({
+        url: '../api/AdminReservationList/reserve',
+        type: 'PUT',
+        data: {
+            reservationId: reservationId,
+            roomId: roomId
+        },
+        dataType: 'json',
+        success: function (data) {
+            M.toast({html: 'Saving Pls. Wait!!!'});
+            location.reload();
+        },
+        error: function (aaa, bbb, ccc) { console.log(aaa); }
+    });
 }

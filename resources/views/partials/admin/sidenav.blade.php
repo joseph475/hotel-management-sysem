@@ -22,7 +22,7 @@
                     <li><a class="" href="{{ url('/PendingReservationList') }}"><i class="material-icons">cached</i>Pending Reservations</a></li>
                 </ul>
                 <ul>
-                    <li><a class="" href="{{ url('/PendingReservationList') }}"><i class="material-icons">import_contacts</i>Reserved Rooms</a></li>
+                    <li><a class="" href="{{ url('/CheckinReservation') }}"><i class="material-icons">import_contacts</i>Checkin Reservations</a></li>
                 </ul>
             </div>
         </li>

@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <div id="page-header">
-        <div class="page-title">Pending Reservations List</div>
+        <div class="page-title">Reservation List</div>
         <div class="page-buttons">
             <div class="button-content">
                 <a class="btn-floating btn-4 btn-small tooltipped" 
@@ -25,10 +25,9 @@
                 <thead>
                     <tr>
                         <th>Guest Name</th>
-                        <th>Personal ID</th>
+                        <th>Room No</th>
                         <th>RoomType</th>
                         <th>Contact</th>
-                        <th>Checkin Date</th>
                         <th style="width:15%;">Action</th>
                     </tr>
                 </thead>
@@ -42,17 +41,9 @@
 
         </ul>
     </div>
-
-    <div id="RoomList" class="modal bottom-sheet">
-        <div class="modal-content">
-            <ul class="collection with-header" id="roomListUl">
-                {{--  js generated  --}}
-            </ul>
-        </div>
-    </div>
 </div>
 @endsection
 
 @section('pagejs')
-    <script src="{{ asset('/js/pages/AdminReservation/reservationList.js') }}"></script>
+    <script src="{{ asset('/js/pages/AdminReservation/checkinReservation.js') }}"></script>
 @stop

@@ -24,5 +24,6 @@ class ReservationModel extends Model
         'childrensCount',
         'adultsCount',
         'status',
+        'room_id',
     ];   
 }

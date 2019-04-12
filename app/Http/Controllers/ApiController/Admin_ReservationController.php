@@ -29,4 +29,22 @@ class Admin_ReservationController extends Controller
         ->get();
         return $availableRooms;
     }
+
+    public function reserve(Request $request){
+        $reserve = ReservationModel::findOrFail($request->reservationId)->update(['status'=>'Reserved', 'room_id'=>$request->roomId]);
+        $roomStatus = RoomModel::findOrFail($request->roomId)->update(['status'=>'Reserved']);
+        return [];
+    }
+    public function getReservedRooms(){
+        $availableRooms = ReservationModel::join('roomtypes', 'reservations.roomType', '=', 'roomtypes.id')
+        ->join('rooms', 'reservations.room_id', '=', 'rooms.id')
+        ->select('reservations.id','reservations.room_id','rooms.roomNo', 'roomtypes.type',
+         'roomtypes.id as roomTypeId','name', 'mobile', 'email', 'compName', 'compAddress', 'adultsCount',
+          'childrensCount')
+        ->where('reservations.status', 'Reserved')
+        ->orderBy('reservations.reservationDate', 'asc')
+        ->paginate(10);
+
+        return $availableRooms;
+    }
 }

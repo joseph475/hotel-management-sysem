@@ -70,6 +70,9 @@ Route::get('Rooms/getRoomsNotOccupied','ApiController\RoomsController@getRoomsNo
 
 Route::get('AdminReservationList','ApiController\Admin_ReservationController@index');
 Route::get('AdminReservationList/getAvailableRooms','ApiController\Admin_ReservationController@getAvailableRooms');
+Route::get('AdminReservationList/getReservedRooms','ApiController\Admin_ReservationController@getReservedRooms');
+Route::put('AdminReservationList/reserve','ApiController\Admin_ReservationController@reserve');
+
 
 Route::get('dashboard','ApiController\DashboardController@index');
 Route::get('dashboard/getAvailableRooms','ApiController\DashboardController@loadAvailableRooms');
@@ -78,3 +81,4 @@ Route::get('dashboard/getResrveAndAvailableCount','ApiController\DashboardContro
 // web
 
 Route::post('WebReservation','ApiController\Web_ReservationController@store');
+

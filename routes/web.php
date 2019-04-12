@@ -34,7 +34,7 @@ Route::get('/ChooseRoom', 'WebController\ChooseRoomController@index');
 
 Route::get('/AddReservation', 'WebController\Admin_ReservationController@AddReservation');
 Route::get('/PendingReservationList', 'WebController\Admin_ReservationController@reservationList');
-
+Route::get('/CheckinReservation', 'WebController\Admin_ReservationController@checkinReservation');
 
 
 Route::get('/reservation', 'WebController\Web_ReservationController@index');

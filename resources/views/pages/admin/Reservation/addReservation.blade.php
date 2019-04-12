@@ -1,7 +1,7 @@
 @extends('layouts.app') 
 
 @section('content')
-    <div class="BookReservation">
+    <div class="AddReservation">
         <div id="page-header">
             <div class="page-title">Add Reservation</div>
             <div class="page-buttons">

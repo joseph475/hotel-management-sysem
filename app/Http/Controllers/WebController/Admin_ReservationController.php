@@ -13,4 +13,7 @@ class Admin_ReservationController extends Controller
     public function AddReservation(){
         return view('pages.admin.Reservation.addReservation');
     }
+    public function checkinReservation(){
+        return view('pages.admin.Reservation.checkinReservation');
+    }
 }
