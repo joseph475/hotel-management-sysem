@@ -47,7 +47,7 @@ function createTable(id, guest_name, personal_id, personal_id_type, roomtype, mo
     var checkInDate = parseDate(checkInDate, '-');
     var today = new Date();
     var isWarning = checkdatediff(today, checkInDate) < 3 ? true : false;
-    var trClass = (isWarning)? 'Warning pulse' : '';
+    var trClass = (isWarning)? 'Warning' : '';
     today = today.toLocaleDateString("en-US");
     checkInDate = checkInDate.toLocaleDateString("en-US");
 
@@ -102,8 +102,7 @@ function openReservationModal(){
             }
             else{
                 $('#roomListUl').html('<li class="collection-header"><h4>No Vacant Room for this Room Type</h4></li>');
-            }
-            
+            }            
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(textStatus, errorThrown);
