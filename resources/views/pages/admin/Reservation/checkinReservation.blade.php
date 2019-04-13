@@ -27,6 +27,7 @@
                         <th>Guest Name</th>
                         <th>Room No</th>
                         <th>RoomType</th>
+                        <th>Duration</th>
                         <th>Contact</th>
                         <th style="width:15%;">Action</th>
                     </tr>

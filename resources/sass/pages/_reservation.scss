@@ -1,0 +1,33 @@
+.reservation-list{
+    .mycollection-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        div{
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+            select{ display: block; width: 150px;
+                   margin-left: 10px; cursor: pointer;
+                   background-color: rgba(243, 239, 239, 0.767);
+                   border-radius: 5px;
+                }    
+        }
+        
+    }
+    .mycollection{
+        padding: 3px 20px;
+    }
+    .custom-collection{
+        display: flex;
+        justify-content: space-between;    
+        align-items: center;
+        font-size: 14px;
+        font-weight: 600;
+        
+        span{
+            margin-left: 5px;
+            font-size: 15px;
+        }
+    }
+}

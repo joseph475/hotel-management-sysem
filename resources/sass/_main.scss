@@ -331,16 +331,7 @@ textarea{
 .dropdown-content{
     z-index: 2;
 }
-.custom-collection{
-    display: flex;
-    justify-content: space-between;    
-    align-items: center;
-    font-size: 14.5px;
-    font-weight: 600;
-    span{
-        font-size: 18px;
-    }
-}
+
 .Vacant{ background-color: $vacant; }
 .Occupied{ background-color: $occupied; }
 .Maintenance{ background-color: $maintenance; }

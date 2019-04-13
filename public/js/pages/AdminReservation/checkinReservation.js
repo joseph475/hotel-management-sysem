@@ -33,17 +33,20 @@ function loopDetails(data) {
             roomNo = data[i].roomNo
             roomtype = data[i].type,
             roomtype_id = data[i].roomTypeId,
+            rate_id = data[i].rate_id,
+            duration = data[i].hours,
             mobile = data[i].mobile,
-            mytable.append(createTable(id, guest_name, roomNo, roomtype, mobile, roomtype_id));
+            mytable.append(createTable(id, guest_name, roomNo, roomtype, mobile, roomtype_id, rate_id, duration));
     }
 }
 
-function createTable(id, guest_name, roomNo, roomtype, mobile, roomtype_id) {
+function createTable(id, guest_name, roomNo, roomtype, mobile, roomtype_id, rate_id, duration) {
 
-    var myReservation = '<tr class="" data-id="'+ id +'">' +
+    var myReservation = '<tr data-id="'+ id +'" data-rateId="'+ rate_id +'" >' +
             '<td>' + guest_name + '</td>' +
             '<td>' + roomNo + '</td>' +
             '<td>' + roomtype + '</td>' +
+            '<td>' + duration + ' hrs</td>' +
             '<td>' + mobile + '</td>' +
             '<td>' +
                 '<a class="btn btn-2 btn-flat mr5 openReservationModal modal-trigger" data-roomTypeId='+ roomtype_id +' href="#RoomList"><i class="fas fa-sign-in-alt"></i></a>' +

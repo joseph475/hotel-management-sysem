@@ -3461,6 +3461,60 @@ footer .page-footer {
   height: 80px;
 }
 
+.reservation-list .mycollection-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.reservation-list .mycollection-header div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 15px;
+}
+
+.reservation-list .mycollection-header div select {
+  display: block;
+  width: 150px;
+  margin-left: 10px;
+  cursor: pointer;
+  background-color: rgba(243, 239, 239, 0.767);
+  border-radius: 5px;
+}
+
+.reservation-list .mycollection {
+  padding: 3px 20px;
+}
+
+.reservation-list .custom-collection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.reservation-list .custom-collection span {
+  margin-left: 5px;
+  font-size: 15px;
+}
+
 * {
   font-size: 13.5px;
   font-family: 'Raleway' ,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -3905,24 +3959,6 @@ textarea {
 
 .dropdown-content {
   z-index: 2;
-}
-
-.custom-collection {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 14.5px;
-  font-weight: 600;
-}
-
-.custom-collection span {
-  font-size: 18px;
 }
 
 .Vacant {

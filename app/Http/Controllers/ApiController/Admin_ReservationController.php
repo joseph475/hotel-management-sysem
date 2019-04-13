@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\ReservationModel;
 use App\Models\RoomModel;
+use App\Models\AdditionalRoomRates;
 use Illuminate\Support\Facades\DB;
 
 class Admin_ReservationController extends Controller
@@ -27,18 +28,27 @@ class Admin_ReservationController extends Controller
         $availableRooms = RoomModel::select('rooms.id', 'rooms.roomNo', 'rooms.floor')
         ->where(['ispublished' => 1, 'status' => 'Vacant', 'roomType' => $request->roomTypeId])
         ->get();
-        return $availableRooms;
+
+        $roomRates = AdditionalRoomRates::select('id', 'hours', 'rate')->where('roomtype_id', $request->roomTypeId)->orderBy('hours', 'desc')->get();
+
+        $data = array(
+            'availableRooms' => $availableRooms,
+            'roomRates' => $roomRates
+        );
+
+        return $data;
     }
 
     public function reserve(Request $request){
-        $reserve = ReservationModel::findOrFail($request->reservationId)->update(['status'=>'Reserved', 'room_id'=>$request->roomId]);
+        $reserve = ReservationModel::findOrFail($request->reservationId)->update(['status'=>'Reserved', 'room_id'=>$request->roomId, 'rate_id' => $request->rate_id]);
         $roomStatus = RoomModel::findOrFail($request->roomId)->update(['status'=>'Reserved']);
         return [];
     }
     public function getReservedRooms(){
         $availableRooms = ReservationModel::join('roomtypes', 'reservations.roomType', '=', 'roomtypes.id')
         ->join('rooms', 'reservations.room_id', '=', 'rooms.id')
-        ->select('reservations.id','reservations.room_id','rooms.roomNo', 'roomtypes.type',
+        ->join('roomtype_additional_rates', 'reservations.rate_id', '=', 'roomtype_additional_rates.id')
+        ->select('reservations.id','reservations.room_id','rooms.roomNo', 'roomtypes.type','reservations.rate_id as rate_id', 'roomtype_additional_rates.hours',
          'roomtypes.id as roomTypeId','name', 'mobile', 'email', 'compName', 'compAddress', 'adultsCount',
           'childrensCount')
         ->where('reservations.status', 'Reserved')

@@ -77,13 +77,20 @@ function openReservationModal(){
         dataType: 'json',
         success: function (data) {
             var template = "";
-            if(data.length > 0){ 
-                $('#roomListUl').html('<li class="collection-header"><h4>Select a Room</h4></li>');
-                for (var i = 0; i < data.length; i++) {
-                    template += '<li class="collection-item" data-reservationId="'+ reservationId +'" data-roomId ="'+ data[i].roomNo +'">' +
+            if(data.availableRooms.length > 0){
+                var roomrates = "<div>Duration: <select id='rate_id' class='z-depth-1'>";
+                for(var j = 0; j < data.roomRates.length; j++){
+                    roomrates += '<option value="'+ data.roomRates[j].id +'">'+ data.roomRates[j].hours +' hrs ( &#8369;'+ data.roomRates[j].rate +' )</option>';
+                }
+                roomrates += "</select></div>";
+
+                $('#roomListUl').html('<li class="collection-header mycollection-header"><h4>Select Room and Duration</h4>' + roomrates + '</li>');
+
+                for (var i = 0; i < data.availableRooms.length; i++) {
+                    template += '<li class="collection-item mycollection" data-reservationId="'+ reservationId +'" data-roomId ="'+ data.availableRooms[i].roomNo +'">' +
                                     '<div class="custom-collection">' +
-                                        '<div>Room#  ' +
-                                            '<span>'+ data[i].roomNo +'</span>' +
+                                        '<div>Room#' +
+                                            '<span>'+ data.availableRooms[i].roomNo +'</span>' +
                                         '</div>' +
                                         '<a href="#!" class="secondary-content btn btn-2 modal-close" id="reserveRoom">'+
                                             '<i class="material-icons left">send</i>Reserve' +
@@ -107,13 +114,15 @@ function openReservationModal(){
 function reserveRoom(){
     var reservationId = $(this).closest('li').attr('data-reservationId');
     var roomId = $(this).closest('li').attr('data-roomId');
+    var rate_id = $('#rate_id').val();
 
     $.ajax({
         url: '../api/AdminReservationList/reserve',
         type: 'PUT',
         data: {
             reservationId: reservationId,
-            roomId: roomId
+            roomId: roomId,
+            rate_id: rate_id
         },
         dataType: 'json',
         success: function (data) {

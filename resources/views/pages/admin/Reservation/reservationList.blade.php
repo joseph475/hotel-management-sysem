@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row">
+<div class="row reservation-list">
     <div id="page-header">
         <div class="page-title">Pending Reservations List</div>
         <div class="page-buttons">
