@@ -1,3 +1,6 @@
+var roomCards = $('#room-cards');
+var dataLength = 0;
+
 $(document).ready(function(){
     loadRoomCards(1);
     loadAvailableRoomsCount();
@@ -18,8 +21,10 @@ function loadAvailableRoomsCount(){
         type: 'get',
         dataType: 'json',
         success: function (data) {
+            dataLength = data.length;
             var availableTypes = "";
-            for (var i = 0; i < data.length; i++) {
+
+            for (var i = 0; i < dataLength; i++) {
                 availableTypes += '<li>' + data[i].type + '<span class="new badge grey darken-2" data-badge-caption="">' + data[i].total + '</span></li>';
             }
             $('#availableTypes').append(availableTypes);
@@ -68,24 +73,29 @@ function loadRoomCards(curpage) {
 };
 
 function loopRoomCards(data) {
-    $('#room-cards').html("");
-    for (var i = 0; i < data.length; i++) {
-        var roomNo = data[i].roomNo,
-            room_id = data[i].room_id,
-            type = data[i].type,
-            floor = data[i].floor,
-            maxAdult = data[i].maxAdult,
-            maxChildren = data[i].maxChildren,
-            checkin_id = data[i].checkin_id,
-            status = data[i].status    
-        $('#room-cards').append(createRoomCards(roomNo,room_id, type, floor, maxAdult,maxChildren, status));
+    dataLength = data.length;
 
-        if(status == 'Vacant'){ $('#room_' + room_id).wrap('<a href="Checkin/'+ room_id +'"></a>'); }
-        if(status == 'Occupied'){ $('#room_' + room_id).wrap('<a href="Checkin-status/'+ checkin_id +'"></a>'); }
+    roomCards.html("");
+    if(dataLength > 0){
+        for (var i = 0; i < data.length; i++) {
+            var roomNo = data[i].roomNo,
+                room_id = data[i].room_id,
+                type = data[i].type,
+                floor = data[i].floor,
+                maxAdult = data[i].maxAdult,
+                maxChildren = data[i].maxChildren,
+                checkin_id = data[i].checkin_id,
+                status = data[i].status;
+
+                roomCards.append(createRoomCards(roomNo,room_id, type, floor, maxAdult,maxChildren, status));
+
+            if(status === 'Vacant'){ $('#room_' + room_id).wrap('<a href="Checkin/'+ room_id +'"></a>'); }
+            if(status === 'Occupied'){ $('#room_' + room_id).wrap('<a href="Checkin-status/'+ checkin_id +'"></a>'); }
+        }
     }
 }
 
-function createRoomCards(roomNo, room_id, type, floor,maxAdult,maxChildren, status) {
+function createRoomCards(roomNo, room_id, type, floor, maxAdult, maxChildren, status) {
     var myRoomCard = "<div class='col m3 s6'>" +
                         "<div class='cards z-depth-1' id='room_"+ room_id +"'>" +
                             "<p class='p-room'>Room " + roomNo + "</p>" +   
@@ -104,6 +114,6 @@ function createRoomCards(roomNo, room_id, type, floor,maxAdult,maxChildren, stat
                                 "</div>" +
                             "</div>" +
                         "</div>" +
-                    "</div>" 
+                    "</div>";
     return myRoomCard;
 }

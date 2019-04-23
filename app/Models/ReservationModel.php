@@ -26,5 +26,6 @@ class ReservationModel extends Model
         'status',
         'room_id',
         'rate_id',
+        'days',
     ];   
 }

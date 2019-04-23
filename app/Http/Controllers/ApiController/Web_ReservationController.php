@@ -23,7 +23,9 @@ class Web_ReservationController extends Controller
             'compAddress' => $request->compAddress,
             'checkInDate' =>  date('Y-m-d' , strtotime($request->checkInDate)),
             'adultsCount' => $request->adultsCount,
-            'childrensCount' => $request->childrensCount
+            'childrensCount' => $request->childrensCount,
+            'rate_id' => $request->rate_id,
+            'days' => $request->days
         );
 
         $reservation = ReservationModel::create($reservation);

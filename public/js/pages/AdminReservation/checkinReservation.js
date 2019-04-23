@@ -1,7 +1,6 @@
 var mytable = $('#ReservationListTable');
 $(document).ready(loadReservationList(curpage));
-
-// $(document).on('click','#reserveRoom', reserveRoom);
+$(document).on('click','#checkInReservation', reserveRoom);
 
 function loadReservationList(curpage) {
     $.ajax({
@@ -26,38 +25,48 @@ function loadReservationList(curpage) {
 };
 
 function loopDetails(data) {
+    var dataLength = data.length;
     mytable.html("");
-    for (var i = 0; i < data.length; i++) {
-        var id =  data[i].id,
-            guest_name = data[i].name
-            roomNo = data[i].roomNo
-            roomtype = data[i].type,
-            roomtype_id = data[i].roomTypeId,
-            rate_id = data[i].rate_id,
-            duration = data[i].hours,
-            mobile = data[i].mobile,
-            mytable.append(createTable(id, guest_name, roomNo, roomtype, mobile, roomtype_id, rate_id, duration));
+
+    if(dataLength > 0){
+        for (var i = 0; i < dataLength; i++) {
+            var id =  data[i].id,
+                guest_name = data[i].name
+                roomNo = data[i].roomNo
+                roomtype = data[i].type,
+                rate_id = data[i].rate_id,
+                duration = data[i].hours,
+                mobile = data[i].mobile,
+                days = data[i].days;
+
+                duration = (parseInt(duration) === 24)? days + " days" : duration + " hrs";
+                mytable.append(createTable(id, guest_name, roomNo, roomtype, mobile, rate_id, duration));
+        }
+    }
+    else{
+        mytable.append('<tr><td colspan="6" style="text-align:center;" class="grey lighten-3">No Reservations Available</td></tr>');
     }
 }
 
-function createTable(id, guest_name, roomNo, roomtype, mobile, roomtype_id, rate_id, duration) {
+function createTable(id, guest_name, roomNo, roomtype, mobile, rate_id, duration) {
 
     var myReservation = '<tr data-id="'+ id +'" data-rateId="'+ rate_id +'" >' +
             '<td>' + guest_name + '</td>' +
             '<td>' + roomNo + '</td>' +
             '<td>' + roomtype + '</td>' +
-            '<td>' + duration + ' hrs</td>' +
+            '<td>' + duration + '</td>' +
             '<td>' + mobile + '</td>' +
             '<td>' +
-                '<a class="btn btn-2 btn-flat mr5 openReservationModal modal-trigger" data-roomTypeId='+ roomtype_id +' href="#RoomList"><i class="fas fa-sign-in-alt"></i></a>' +
-                '<a class="btn btn-2 btn-flat mr5 deleteExtra"><i class="far fa-trash-alt"></i></a>' +
+                '<a class="btn btn-2 btn-flat mr5" id="checkInReservation"><i class="fas fa-sign-in-alt"></i></a>' +
+                '<a class="btn btn-2 btn-flat mr5 deleteReservation"><i class="far fa-trash-alt"></i></a>' +
             '</td>' +
         '</tr>'
     return myReservation;
 }
 
 function reserveRoom(){
-    // var reservationId = $(this).closest('li').attr('data-reservationId');
+    var reservationId = $(this).closest('tr').attr('data-id');
+    alert(reservationId);
     // var roomId = $(this).closest('li').attr('data-roomId');
 
     // $.ajax({

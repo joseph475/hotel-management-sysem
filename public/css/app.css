@@ -3515,6 +3515,10 @@ footer .page-footer {
   font-size: 15px;
 }
 
+.AddReservation input {
+  border-bottom: 1px solid black !important;
+}
+
 * {
   font-size: 13.5px;
   font-family: 'Raleway' ,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

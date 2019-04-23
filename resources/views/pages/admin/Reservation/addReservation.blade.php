@@ -27,14 +27,13 @@
                     </div>
                     <div class="input-field col s12 m6">
                         <select id="valid_id_type">
-                            <option value="" disabled selected>Choose Valid ID</option>
+                            <option value="" disabled selected>Valid ID</option>
                             <option value="SSS">SSS</option>
                             <option value="Pag Ibig">Pag Ibig</option>
                             <option value="Phil Health">Phil Health</option>
                             <option value="Drivers License">Drivers License</option>
                             <option value="Voters ID">Voters ID</option>
                         </select>
-                        <label>Select Valid ID</label>
                     </div>
                     <div class="input-field col s12 m6">
                         <input placeholder="-" id="valid_id" type="text" class="validate">
@@ -63,9 +62,15 @@
                         <input placeholder="-" id="compAddress" type="text">
                         <label for="compAddress">Company Address</label>
                     </div>
-                    <div class="input-field col s12 m12">
+                    <div class="input-field col s12 m6">
                         <input placeholder="-" id="checkinDate" type="text" class="datepicker validate">
                         <label for="checkinDate">Checkin Date</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <select id="duration">
+                            {{--  js generated  --}}
+                        </select>
+                        <label for="duration">Duration and Room Rate</label>
                     </div>
                     <div class="input-field col s12 m6">
                         <input placeholder="-" id="adultsCount" type="number" class="validate">

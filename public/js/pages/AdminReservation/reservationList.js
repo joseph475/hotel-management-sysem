@@ -1,4 +1,6 @@
 var mytable = $('#ReservationListTable');
+var roomListUl = $('#roomListUl');
+
 $(document).ready(loadReservationList(curpage));
 $(document).on('click','.openReservationModal', openReservationModal);
 $(document).on('click','#reserveRoom', reserveRoom);
@@ -26,20 +28,27 @@ function loadReservationList(curpage) {
 };
 
 function loopDetails(data) {
+    var dataLength = data.length;
     mytable.html("");
-    for (var i = 0; i < data.length; i++) {
-        var id =  data[i].id,
-            guest_name = data[i].name
-            personal_id = data[i].personal_id,
-            personal_id_type = data[i].personal_id_type,
-            roomtype = data[i].type,
-            roomtype_id = data[i].roomTypeId,
-            mobile = data[i].mobile,
-            email = data[i].email,
-            checkInDate = data[i].checkInDate,
-            // compName = (data[i].compName == null) ? '' : data[i].compName,
-            // compAddress = (data[i].compAddress == null) ? '' : data[i].compAddress,
-            mytable.append(createTable(id, guest_name, personal_id, personal_id_type, roomtype, mobile, checkInDate, roomtype_id));
+
+    if(dataLength > 0){
+        for (var i = 0; i < dataLength; i++) {
+            var id =  data[i].id,
+                guest_name = data[i].name
+                personal_id = data[i].personal_id,
+                personal_id_type = data[i].personal_id_type,
+                roomtype = data[i].type,
+                roomtype_id = data[i].roomTypeId,
+                mobile = data[i].mobile,
+                email = data[i].email,
+                checkInDate = data[i].checkInDate,
+                // compName = (data[i].compName == null) ? '' : data[i].compName,
+                // compAddress = (data[i].compAddress == null) ? '' : data[i].compAddress,
+                mytable.append(createTable(id, guest_name, personal_id, personal_id_type, roomtype, mobile, checkInDate, roomtype_id));
+        }
+    }
+    else{
+        mytable.append('<tr><td colspan="6" style="text-align:center;" class="grey lighten-3">No Reservations Available</td></tr>');
     }
 }
 
@@ -68,6 +77,7 @@ function createTable(id, guest_name, personal_id, personal_id_type, roomtype, mo
 function openReservationModal(){
     var roomTypeId = $(this).attr('data-roomTypeId');
     var reservationId = $(this).closest('tr').attr('data-id');
+
     $.ajax({
         url: 'api/AdminReservationList/getAvailableRooms',
         data:{
@@ -77,16 +87,12 @@ function openReservationModal(){
         dataType: 'json',
         success: function (data) {
             var template = "";
-            if(data.availableRooms.length > 0){
-                var roomrates = "<div>Duration: <select id='rate_id' class='z-depth-1'>";
-                for(var j = 0; j < data.roomRates.length; j++){
-                    roomrates += '<option value="'+ data.roomRates[j].id +'">'+ data.roomRates[j].hours +' hrs ( &#8369;'+ data.roomRates[j].rate +' )</option>';
-                }
-                roomrates += "</select></div>";
+            var availableRoomsLength = data.availableRooms.length;
 
-                $('#roomListUl').html('<li class="collection-header mycollection-header"><h4>Select Room and Duration</h4>' + roomrates + '</li>');
+            if(availableRoomsLength > 0){
+                roomListUl.html('<li class="collection-header mycollection-header"><h4>Select Room</h4></li>');
 
-                for (var i = 0; i < data.availableRooms.length; i++) {
+                for (var i = 0; i < availableRoomsLength; i++) {
                     template += '<li class="collection-item mycollection" data-reservationId="'+ reservationId +'" data-roomId ="'+ data.availableRooms[i].roomNo +'">' +
                                     '<div class="custom-collection">' +
                                         '<div>Room#' +
@@ -98,10 +104,10 @@ function openReservationModal(){
                                     '</div>' +
                                 '</li>';
                 }
-                $('#roomListUl').append(template);
+                roomListUl.append(template);
             }
             else{
-                $('#roomListUl').html('<li class="collection-header"><h4>No Vacant Room for this Room Type</h4></li>');
+                roomListUl.html('<li class="collection-header"><h4>No Vacant Room for this Room Type</h4></li>');
             }            
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -126,7 +132,7 @@ function reserveRoom(){
         dataType: 'json',
         success: function (data) {
             M.toast({html: 'Saving Pls. Wait!!!'});
-            location.reload();
+            window.location = "/";
         },
         error: function (aaa, bbb, ccc) { console.log(aaa); }
     });

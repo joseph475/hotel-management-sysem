@@ -71,6 +71,7 @@ Route::get('Rooms/getRoomsNotOccupied','ApiController\RoomsController@getRoomsNo
 Route::get('AdminReservationList','ApiController\Admin_ReservationController@index');
 Route::get('AdminReservationList/getAvailableRooms','ApiController\Admin_ReservationController@getAvailableRooms');
 Route::get('AdminReservationList/getReservedRooms','ApiController\Admin_ReservationController@getReservedRooms');
+Route::get('AdminReservationList/getRoomRates/{id}','ApiController\Admin_ReservationController@getRoomRates');
 Route::put('AdminReservationList/reserve','ApiController\Admin_ReservationController@reserve');
 
 
