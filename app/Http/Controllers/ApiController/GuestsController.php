@@ -17,7 +17,7 @@ class GuestsController extends Controller
     {
         $guests = GuestModel::join('checkin', 'guests.id', '=', 'checkin.guestId')
         ->join('rooms', 'rooms.id', '=', 'checkin.room_id')
-        ->select('guests.id', 'guests.name', 'guests.contact', 'guests.companyName', 'guests.companyAddress', 'rooms.roomNo','checkin.id AS checkin_id')
+        ->select('guests.id', 'guests.name', 'guests.contact', 'guests.companyName','guests.email', 'guests.companyAddress', 'rooms.roomNo','checkin.id AS checkin_id')
         ->orderBy('checkin.checkOutDate')
         ->paginate(10);
         return $guests;

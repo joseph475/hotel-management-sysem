@@ -14,5 +14,6 @@ class GuestModel extends Model
         'contact',
         'companyName',
         'companyAddress',
+        'email',
     ];
 }

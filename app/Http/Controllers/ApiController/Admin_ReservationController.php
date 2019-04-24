@@ -7,7 +7,11 @@ use App\Http\Controllers\Controller;
 use App\Models\ReservationModel;
 use App\Models\RoomModel;
 use App\Models\AdditionalRoomRates;
+use App\Models\CheckinModel;
+use App\Models\GuestModel;
+use App\Models\CheckinRoomBillingModel;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\QueryException;
 
 class Admin_ReservationController extends Controller
 {
@@ -44,7 +48,16 @@ class Admin_ReservationController extends Controller
 
         return $data;
     }
-
+    public function cancelForCheckinReservation(Request $request){
+        $room = ReservationModel::findOrFail($request->reservationId);
+        $reservation = ReservationModel::findOrFail($request->reservationId)->update(['status'=>'Cancelled']);
+        $roomStatus = RoomModel::findOrFail($room->room_id)->update(['status'=>'Vacant']);
+        return [];
+    }
+    public function cancelPendingReservation(Request $request){
+        $reservation = ReservationModel::findOrFail($request->reservationId)->update(['status'=>'Cancelled']);
+        return [];
+    }
     public function reserve(Request $request){
         $reserve = ReservationModel::findOrFail($request->reservationId)->update(['status'=>'Reserved', 'room_id'=>$request->roomId]);
         $roomStatus = RoomModel::findOrFail($request->roomId)->update(['status'=>'Reserved']);
@@ -64,7 +77,66 @@ class Admin_ReservationController extends Controller
         return $availableRooms;
     }
 
-    public function checkInReservation(){
+    public function checkInReservation(Request $request){
+        $reservation = ReservationModel::findOrFail($request->reservationId);
+
+        $guest = array(
+            'name' => $reservation->name,
+            'contact' => $reservation->mobile,
+            'email' => $reservation->email,
+            'companyName' => $reservation->compName,
+            'companyAddress' => $reservation->compAddress,
+        );
+
+        try {
+            $guest = GuestModel::create($guest);
+        }
+        catch (QueryException $e) {
+            return dd($e->getMessage());
+        }
+       
+        $guest_id = GuestModel::select('id')->whereRaw('id = (select max(`id`) from guests)')->first();
+    
+        $basicHourfromRates = AdditionalRoomRates::findOrFail($reservation->rate_id, ['hours']);
+        $basicHourfromRates = $basicHourfromRates->hours;
+
+        $duration = ($reservation->days != 0)?  $basicHourfromRates * $reservation->days : $basicHourfromRates;
+
+        $checkout = date("Y-m-d H:i:s", strtotime("+{$duration} hours"));
+
+        $checkin = array(
+            'room_id' => $reservation->room_id,
+            'guestId' => $guest_id->id,
+            'checkOutDate' => $checkout,
+            'adultsCount' => $reservation->adultsCount,
+            'childrenCount' => $reservation->childrensCount
+        );
+
+        try {
+            $checkin = CheckinModel::create($checkin);
+        }
+        catch (QueryException $e) {
+            return dd($e->getMessage());
+        }
+
+        $checkin_id = CheckinModel::select('id')->whereRaw('id = (select max(`id`) from checkin)')->first();
+
+        $roomBilling = array(
+            'checkin_id' => $checkin_id->id,
+            'rate_id' => $reservation->rate_id,
+            'days' => $reservation->days
+        );
         
+        try {
+            $roomBilling = CheckinRoomBillingModel::create($roomBilling);
+        }
+        catch (QueryException $e) {
+            return dd($e->getMessage());
+        }
+
+        RoomModel::findOrFail($reservation->room_id)->update(['status'=>'Occupied']);
+        ReservationModel::findOrFail($request->reservationId)->update(['status'=>'Checked_In']);
+
+        return [];
     }
 }

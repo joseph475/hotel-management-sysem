@@ -4,6 +4,8 @@ var roomListUl = $('#roomListUl');
 $(document).ready(loadReservationList(curpage));
 $(document).on('click','.openReservationModal', openReservationModal);
 $(document).on('click','#reserveRoom', reserveRoom);
+$(document).on('click','.deleteReservation', deleteReservation);
+
 
 function loadReservationList(curpage) {
     $.ajax({
@@ -68,7 +70,7 @@ function createTable(id, guest_name, personal_id, personal_id_type, roomtype, mo
             '<td>' + checkInDate + '</td>' +
             '<td>' +
                 '<a class="btn-floating btn btn-float '+ trClass +' btn-flat mr5 openReservationModal modal-trigger" data-roomTypeId='+ roomtype_id +' href="#RoomList"><i class="fas fa-sign-in-alt"></i></a>' +
-                '<a class="btn-floating btn btn-float '+ trClass +' btn-flat mr5 deleteExtra"><i class="far fa-trash-alt"></i></a>' +
+                '<a class="btn-floating btn btn-float '+ trClass +' btn-flat mr5 deleteReservation"><i class="far fa-trash-alt"></i></a>' +
             '</td>' +
         '</tr>'
     return myReservation;
@@ -135,5 +137,31 @@ function reserveRoom(){
             window.location = "/";
         },
         error: function (aaa, bbb, ccc) { console.log(aaa); }
+    });
+}
+
+function deleteReservation(){
+    var reservationId = $(this).closest('tr').attr('data-id');
+    
+    $.confirm({
+        title: 'Cancel Reservation?',
+        buttons: {
+            cancel: function () { },
+            confirm: function () { 
+                $.ajax({
+                    url: '../api/AdminReservationList/cancelPendingReservation',
+                    type: 'PUT',
+                    data: {
+                        reservationId: reservationId
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        M.toast({html: 'Saving Pls. Wait!!!'});
+                        location.reload();
+                    },
+                    error: function (aaa, bbb, ccc) { console.log(aaa); }
+                });
+            }
+        }
     });
 }

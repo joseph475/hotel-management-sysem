@@ -1,6 +1,7 @@
 var mytable = $('#ReservationListTable');
 $(document).ready(loadReservationList(curpage));
 $(document).on('click','#checkInReservation', reserveRoom);
+$(document).on('click','.deleteReservation', deleteReservation);
 
 function loadReservationList(curpage) {
     $.ajax({
@@ -66,21 +67,44 @@ function createTable(id, guest_name, roomNo, roomtype, mobile, rate_id, duration
 
 function reserveRoom(){
     var reservationId = $(this).closest('tr').attr('data-id');
-    alert(reservationId);
-    // var roomId = $(this).closest('li').attr('data-roomId');
+    
+    $.ajax({
+        url: '../api/AdminReservationList/checkInReservation',
+        type: 'POST',
+        data: {
+            reservationId: reservationId
+        },
+        dataType: 'json',
+        success: function (data) {
+            M.toast({html: 'Saving Pls. Wait!!!'});
+            window.location = "/";
+        },
+        error: function (aaa, bbb, ccc) { console.log(aaa); }
+    });
+}
 
-    // $.ajax({
-    //     url: '../api/AdminReservationList/reserve',
-    //     type: 'PUT',
-    //     data: {
-    //         reservationId: reservationId,
-    //         roomId: roomId
-    //     },
-    //     dataType: 'json',
-    //     success: function (data) {
-    //         M.toast({html: 'Saving Pls. Wait!!!'});
-    //         location.reload();
-    //     },
-    //     error: function (aaa, bbb, ccc) { console.log(aaa); }
-    // });
+function deleteReservation(){
+    var reservationId = $(this).closest('tr').attr('data-id');
+    
+    $.confirm({
+        title: 'Cancel Reservation?',
+        buttons: {
+            cancel: function () { },
+            confirm: function () { 
+                $.ajax({
+                    url: '../api/AdminReservationList/cancelForCheckinReservation',
+                    type: 'PUT',
+                    data: {
+                        reservationId: reservationId
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        M.toast({html: 'Saving Pls. Wait!!!'});
+                        location.reload();
+                    },
+                    error: function (aaa, bbb, ccc) { console.log(aaa); }
+                });
+            }
+        }
+    });
 }

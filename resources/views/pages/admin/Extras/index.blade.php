@@ -6,13 +6,13 @@
             <div class="page-title">Manage Extras</div>
             <div class="page-buttons">
                 <div class="button-content">
-                    <a class="btn-floating btn-4 btn-small tooltipped" 
-                        data-tooltip="Back" data-position="left" href="/">
-                        <i class="material-icons">arrow_back</i>
+                    <a class="btn btn-1" href="/">
+                        <i class="material-icons left">arrow_back</i>
+                        Back
                     </a>
-                    <a class="btn-floating btn-4 btn-small tooltipped modal-trigger addRoom"
-                        data-tooltip="Add Extras" data-position="left" href="#AddExtrasModal">
+                    <a class="btn btn-1 modal-trigger addExtras" href="#AddExtrasModal">
                         <i class="material-icons left">add</i>
+                        Add Extras
                     </a>
                 </div>
             </div>

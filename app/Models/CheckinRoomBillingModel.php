@@ -11,6 +11,7 @@ class CheckinRoomBillingModel extends Model
     public $timestamps = false;
     protected $fillable = [
         'checkin_id',
-        'raterefno'
+        'rate_id',
+        'days'
     ];
 }

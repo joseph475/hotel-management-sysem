@@ -6,14 +6,13 @@
             <div class="page-title">Add Reservation</div>
             <div class="page-buttons">
                 <div class="button-content">
-                    <a class="btn-floating btn-4 btn-small tooltipped" 
-                        data-tooltip="Back" data-position="left" href="/">
-                        <i class="material-icons">arrow_back</i>
+                    <a class="btn btn-1" href="/">
+                        <i class="material-icons left">arrow_back</i>
+                        Back
                     </a>
-                    <a class="btn-floating btn-4 btn-small tooltipped"
-                        data-tooltip="Save" data-position="left" id="btn_save_res">
+                    <a class="btn btn-1 modal-trigger" id="btn_save_res">
                         <i class="material-icons left">save</i>
-                        Save
+                        save
                     </a>
                 </div>
             </div>
@@ -73,11 +72,11 @@
                         <label for="duration">Duration and Room Rate</label>
                     </div>
                     <div class="input-field col s12 m6">
-                        <input placeholder="-" id="adultsCount" type="number" class="validate">
+                        <input placeholder="-" id="adultsCount" type="number" value="1" class="validate">
                         <label for="adultsCount">Adults Count</label>
                     </div>
                     <div class="input-field col s12 m6">
-                        <input placeholder="-" id="childCount" type="number" class="validate">
+                        <input placeholder="-" id="childCount" type="number" value="0" class="validate">
                         <label for="childCount">Children Count</label>
                     </div>
                 </div>

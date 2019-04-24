@@ -73,7 +73,9 @@ Route::get('AdminReservationList/getAvailableRooms','ApiController\Admin_Reserva
 Route::get('AdminReservationList/getReservedRooms','ApiController\Admin_ReservationController@getReservedRooms');
 Route::get('AdminReservationList/getRoomRates/{id}','ApiController\Admin_ReservationController@getRoomRates');
 Route::put('AdminReservationList/reserve','ApiController\Admin_ReservationController@reserve');
-
+Route::put('AdminReservationList/cancelPendingReservation','ApiController\Admin_ReservationController@cancelPendingReservation');
+Route::put('AdminReservationList/cancelForCheckinReservation','ApiController\Admin_ReservationController@cancelForCheckinReservation');
+Route::post('AdminReservationList/checkInReservation','ApiController\Admin_ReservationController@checkInReservation');
 
 Route::get('dashboard','ApiController\DashboardController@index');
 Route::get('dashboard/getAvailableRooms','ApiController\DashboardController@loadAvailableRooms');

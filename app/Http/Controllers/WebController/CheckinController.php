@@ -64,7 +64,7 @@ class CheckinController extends Controller
         $addedExtras = DB::select('Select sum(quantity) as quantity, extrasId as id, (select description from extras where id = A.extrasId) as description,
         (select cost from extras where id = A.extrasId) as cost from addedextras A where A.checkinId = '. $id .' group by A.extrasId');
 
-        $roomBilling = CheckinRoomBillingModel::join('roomtype_additional_rates', 'checkin_table_room_billing.raterefno', '=', 'roomtype_additional_rates.id')
+        $roomBilling = CheckinRoomBillingModel::join('roomtype_additional_rates', 'checkin_table_room_billing.rate_id', '=', 'roomtype_additional_rates.id')
         ->select('rate', 'hours')
         ->where(['checkin_id'=> $id])
         ->get();
@@ -73,7 +73,7 @@ class CheckinController extends Controller
 
         $roomRate = AdditionalRoomRates::select('id', 'hours', 'rate')->where('roomtype_id', $checkinDetails->roomtype_id)->orderBy('hours', 'desc')->get();
 
-        $totalRoom =  DB::select('Select sum((select rate from roomtype_additional_rates where id = raterefno)) as rate
+        $totalRoom =  DB::select('Select sum((select rate from roomtype_additional_rates where id = rate_id)) as rate
             from checkin_table_room_billing where checkin_id = '. $id .' GROUP by checkin_id');
 
         $totalFoods = DB::select('select sum(price) as price 

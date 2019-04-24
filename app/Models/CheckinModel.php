@@ -15,6 +15,5 @@ class CheckinModel extends Model
         'checkOutDate',
         'adultsCount',
         'childrenCount',
-        'remaining_time'
     ];
 }

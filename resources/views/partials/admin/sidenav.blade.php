@@ -16,7 +16,7 @@
             <a class="collapsible-header dropdownArr"><i class="material-icons">event_note</i>Reservations<i class="material-icons right arrow">arrow_drop_down</i></a>
             <div class="collapsible-body">
                 <ul>
-                    <li><a class="" href="{{ url('/AddReservation') }}"><i class="material-icons">assignment</i>Reserve a Room</a></li>
+                    <li><a class="" href="{{ url('/AddReservation') }}"><i class="material-icons">assignment</i>Make a Reservation</a></li>
                 </ul>
                 <ul>
                     <li><a class="" href="{{ url('/PendingReservationList') }}"><i class="material-icons">cached</i>Pending Reservations</a></li>

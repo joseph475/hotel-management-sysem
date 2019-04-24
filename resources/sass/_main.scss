@@ -175,6 +175,7 @@ input.with-borders{
 .table-container{
     overflow-x: auto;
     margin: 20px;
+    margin-top: 10px;
     padding: 5px;
     .myTable{
         background-color: white;
@@ -186,8 +187,8 @@ input.with-borders{
             font-weight: 600;
         }
         td{
-            padding-top: 10px;
-            padding-bottom: 10px;
+            padding-top: 6px;
+            padding-bottom: 6px;
         }
     }
 }
