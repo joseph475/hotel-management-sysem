@@ -1,15 +1,16 @@
+var myFoodList = $('.foodList');
+var myExtrasList = $('.ExtrasList');
+var addSomethingModal = $('#addFoodsExtrasModal');
+var checkin_id = $('.checkin-status-page').attr('data-id');
+var tobeCleared = ['#something_quantity']
+
 $(document).on('click','.update_hours', extendTime);
 $(document).ready(loadFoodList);
 $(document).ready(loadExtrasList);
 $(document).on('click','.addSomething', showAddSomething);
 $(document).on('click','.add_something', confirmAddSomething);
+$(document).on('click','#submitCheckOut', submitCheckOut);
 
-var myFoodList = $('.foodList');
-var myExtrasList = $('.ExtrasList');
-var addSomethingModal = $('#addFoodsExtrasModal');
-var checkin_id = $('.checkin-status-page').attr('data-id');
-
-var tobeCleared = ['#something_quantity']
 
 function confirmAddSomething(){
     var id = addSomethingModal.find('#something_quantity').attr('data-id');
@@ -17,8 +18,8 @@ function confirmAddSomething(){
     var type = addSomethingModal.find('#something_quantity').attr('data-type');
     var remaining = addSomethingModal.find('#something_quantity').attr('data-count');
 
-    if (quantity > 0){
-        if(type == 'Extras'){
+    if (parseInt(quantity) > 0){
+        if(type === 'Extras'){
             $.ajax({
                 url: '../api/AddExtras',
                 type: 'post',
@@ -38,7 +39,7 @@ function confirmAddSomething(){
             });
         }
         else{
-            if(remaining > quantity){
+            if(parseInt(remaining) > parseInt(quantity)){
                 $.ajax({
                     url: '../api/AddFoods',
                     type: 'post',
@@ -108,7 +109,6 @@ function loopExtraslist(data) {
     }
 }
 
-
 function loopFoodlist(data) {
     myFoodList.html("");
     for (var i = 0; i < data.length; i++) {
@@ -150,7 +150,7 @@ function extendTime(){
         type: 'POST',
         data: {
             checkin_id : checkin_id,
-            raterefno: rate_id,
+            rate_id: rate_id,
             hours: hours
         },
         dataType: 'json',
@@ -178,4 +178,18 @@ function showAddSomething(){
         addSomethingModal.find('#something_quantity').attr('placeholder', 'Remaining (' + remaining + ') servings');
     }
     
+}
+
+function submitCheckOut(){
+    $.confirm({
+        title: 'Confirm checkout?',
+        content: '',
+        buttons: {
+            cancel: function () { },
+            confirm: function () {
+               window.open("../api/Checkout/" + checkin_id);
+               window.location = "/";
+            }
+        }
+    });
 }

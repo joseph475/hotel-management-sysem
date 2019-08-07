@@ -20,8 +20,8 @@ class DashboardController extends Controller
     public function loadReserveAndAvailableCount(){
         $data = DB::select(
             'Select status, count(*) as total from rooms where status = "Vacant" and ispublished = 1 GROUP by status
-            UNION
-            Select status, count(*) as total from rooms where status = "Reserved" and ispublished = 1 GROUP by status');
+                UNION
+             Select status, count(*) as total from rooms where status = "Reserved" and ispublished = 1 GROUP by status');
         return $data;
     }
 }

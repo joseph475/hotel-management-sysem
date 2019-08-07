@@ -1,71 +1,66 @@
 @extends('layouts.web') 
 
 @section('content')
-    <div class="web-reservation">
-        <div class="parallax-container par1">
-            <div class="section no-pad-bot">
-                <div class="container">
-                    <br><br>
-                    <h1 class="teal-text header center text-lighten-2">{{ isset($variables['hotel'])? $variables['hotel'] : 'Hotel' }}</h1>
-                    <div class="row center">
-                        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-                    </div>
-                    <div class="row center">
-                        <div class="col s12 m12">
-                            <div class="card web-tr-card">
-                                <div class="card-content white-text">
-                                    <!-- <span class="card-title white-text">Reservation Form</span> -->
-                                    <div class="row">
-                                        <div class="input-field col m4 s12">
-                                            <label class="white-text" for="checkin_date">Checkin Date </label>
-                                            <input placeholder="Checkin Date" id="checkin_date" type="date">
-                                        </div>
-                                        {{--  <div class="input-field col m2 s12">
-                                            <input placeholder="Checkout Date" id="checkout_date" type="date">
-                                        </div>  --}}
-                                        <div class="input-field col m4 s12">
-                                            <select id="roomType">
-                                                <option value="" disabled selected>Room Type</option>
-                                                @foreach($roomTypeList as $typelist)
-                                                    <option value="{{ $typelist->id }}"  data-maxChildren="{{ $typelist->maxChildren }}" data-maxAdult="{{ $typelist->maxAdult }}" >{{ $typelist->type }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="input-field col m2 s12">
-                                            <select id="adult_count" class="validate">
-                                                <option value="" disabled selected>Adult (18+)</option>
-                                            </select>
-                                        </div>
-                                        <div class="input-field col m2 s12">
-                                            <select id="child_count">
-                                                <option value="" disabled selected>Children (0-17)</option>
-                                            </select>
-                                        </div>
+    <div class="web-reservation" id="fullpage">
+        <div class="section first-section">
+            <div class="container px20 first-page">
+                <br><br>
+                <h1 class="teal-text header center text-lighten-1">{{ isset($variables['hotel'])? $variables['hotel'] : 'Hotel' }}</h1>
+                <div class="row center">
+                    <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+                </div>
+                <div class="row center">
+                    <div class="col s12 m12">
+                        <div class="card web-tr-card">
+                            <div class="card-content white-text">
+                                <!-- <span class="card-title white-text">Reservation Form</span> -->
+                                <div class="row">
+                                    <div class="input-field col m4 s12">
+                                        <label class="white-text" for="checkin_date">Checkin Date </label>
+                                        <input placeholder="Checkin Date" id="checkin_date" type="date">
                                     </div>
-                                    <div class="row center mb0">
-                                        <!-- <a data-target="reservation_modal" class="btn modal-trigger btn-large waves-effect waves-light blue lighten-1 hoverable btn_bookNow">Book Now</a> -->
-                                        <a class="btn btn-large waves-effect waves-light blue lighten-1 hoverable btn_bookNow">Book Now</a>
+                                    {{--  <div class="input-field col m2 s12">
+                                        <input placeholder="Checkout Date" id="checkout_date" type="date">
+                                    </div>  --}}
+                                    <div class="input-field col m4 s12">
+                                        <select id="roomType">
+                                            <option value="" disabled selected>Room Type</option>
+                                            @foreach($roomTypeList as $typelist)
+                                                <option value="{{ $typelist->id }}"  data-maxChildren="{{ $typelist->maxChildren }}" data-maxAdult="{{ $typelist->maxAdult }}" >{{ $typelist->type }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
+                                    <div class="input-field col m2 s12">
+                                        <select id="adult_count" class="validate">
+                                            <option value="" disabled selected>Adult (18+)</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-field col m2 s12">
+                                        <select id="child_count">
+                                            <option value="" disabled selected>Children (0-17)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row center mb0">
+                                    <!-- <a data-target="reservation_modal" class="btn modal-trigger btn-large waves-effect waves-light blue lighten-1 hoverable btn_bookNow">Book Now</a> -->
+                                    <a class="btn btn-large waves-effect waves-light blue lighten-1 hoverable btn_bookNow">Book Now</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <br><br>
                 </div>
-            </div>
-            <div class="parallax">
-                <img class="responsive-img" src='/images/bg3.jpg'>
+                <br><br>
             </div>
         </div>
 
-        <div class="section white pt30 z-depth-1">
-            <div class="container">
+        <div class="section second-section">
+            <div class="container px20 second-page">
                 <div class="row">
                     @foreach($roomTypes as $type)
                         <div class="col s12 m4">
                             <div class="card room-cards">
                                 <div class="card-image">
-                                    <img src="<?php echo '/images/' . $type->img ?>" alt="/images/bg1.jpg">
+                                    <img src="<?php echo '/images/uploads/' . $type->img ?>" alt="/images/bg1.jpg">
                                     <span class="card-title"><?php echo $type->type; ?></span>
                                     <a class="btn-floating halfway-fab waves-effect waves-light blue hoverable tooltipped" data-tooltip="View Details"><i class="material-icons">forward</i></a>
                                 </div>
@@ -79,24 +74,8 @@
             </div>
         </div>
 
-        <div class="parallax-container par2">
-            <div class="section no-pad-bot">
-                <div class="container">
-                    <br><br>
-                    <h1 class="teal-text header center text-lighten-2">Contact Us</h1>
-                    <div class="row center">
-                        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-                    </div>
-                    <br><br>
-                </div>
-            </div>
-            <div class="parallax">
-                <img class="responsive-img" src='/images/bg6.jpg'>
-            </div>
-        </div>
-
-        <div class="section white z-depth-1">
-            <div class="container">
+        <div class="section third-section">
+            <div class="container px20 third-page">
                 <div class="row">
                     <div class="col s12 m4">
                         <div class="card card-2 center">
@@ -151,7 +130,18 @@
 
                 </div>
             </div>
+        </div>        
+        <div class="section fourth-section">
+            <div class="container px20 fourth-page">
+                <br><br>
+                <h1 class="teal-text header center text-lighten-2">Contact Us</h1>
+                <div class="row center">
+                    <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+                </div>
+                <br><br>
+            </div>
         </div>
+
     
         <div id="reservation_modal" class="modal">
             <div class="modal-content">
@@ -207,5 +197,20 @@
 @endsection
 
 @section('pagejs')
+    <script>
+        new fullpage('#fullpage', {
+            autoScrolling:true,
+            scrollHorizontally: false,
+            anchors:['Reservation', 'Room_Types','Facilities', 'Contact_Us'],
+            sectionsColor : ['#385170', '#385170', '#c0c0c0', '#1e1e1e'],
+            navigation: true,
+            controlArrows: false,
+            scrollOverflow: true,
+            navigationTooltips: ['Reservation', 'Room Types','Facilities', 'Contact Us'],
+            scrollingSpeed: 1200,
+            verticalCentered: true
+        });
+        fullpage_api.setAllowScrolling(true);
+    </script>
     <script src="{{ asset('/js/pages/WebReservation/index.js') }}"></script>
 @stop

@@ -41,8 +41,12 @@ function loadReserveAndAvailableCount(){
         type: 'get',
         dataType: 'json',
         success: function (data) {
-            $('#vacantCount').html(data[0].total);
-            $('#ReservedCount').html(data[1].total);
+            try{$('#vacantCount').html(data[0].total);}
+            catch{$('#vacantCount').html("0");}
+            
+            try{ $('#ReservedCount').html(data[1].total); }
+            catch{ $('#ReservedCount').html("0"); }
+            
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(textStatus, errorThrown);

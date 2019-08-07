@@ -3318,7 +3318,7 @@ footer .page-footer {
 }
 
 .checkin-page .content {
-  margin: 20px;
+  margin: 10px;
   background-color: white;
 }
 
@@ -4010,10 +4010,25 @@ body .web header {
 
 body .web header .navbar {
   height: 60px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 9;
+  padding: 15px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 body .web header .navbar .header-nav {
   height: inherit;
+  background-color: rgba(71, 71, 71, 0.8);
 }
 
 body .web header .navbar .header-nav .nav-wrapper {
@@ -4051,6 +4066,12 @@ body .web header .navbar .header-nav .nav-wrapper .header-icons a i {
 
 body .web main {
   padding: 0px;
+}
+
+body .web main .web-reservation .first-section {
+  background-image: url("/images/bg3.jpg");
+  background-position: center;
+  background-size: cover;
 }
 
 body .web main .web-reservation .web-tr-card {

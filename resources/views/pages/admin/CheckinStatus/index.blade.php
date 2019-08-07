@@ -14,7 +14,7 @@
                     <i class="material-icons left">access_time</i>
                     Extend Time
                 </a>
-                <a class="btn btn-1" id="submitCheckin">
+                <a class="btn btn-1" id="submitCheckOut">
                     <i class="material-icons left">exit_to_app</i>
                     Check Out
                 </a>
@@ -34,8 +34,8 @@
                     <div class="collapsible-body">
                         <ul>
                             <li>Room <span class="right">&#8369; {{ $totalRoom[0]->rate }}</span></li>
-                            <li>Food <span class="right">&#8369; {{ $totalFoods[0]->price }}</span></li>
-                            <li>Extras <span class="right">&#8369; {{ $totalExtras[0]->price }}</span></li>
+                            <li>Food <span class="right">&#8369; {{ ($totalFoods[0]->price == 0)? '0' : $totalFoods[0]->price }}</span></li>
+                            <li>Extras <span class="right">&#8369; {{ ($totalExtras[0]->price == 0)? '0' : $totalExtras[0]->price }}</span></li>
                             <li>Total <span class="right">&#8369; {{ $totalRoom[0]->rate + $totalFoods[0]->price + $totalExtras[0]->price}}</span></li>
                         </ul>
                     </div>
@@ -52,7 +52,8 @@
                     <div class="collapsible-body">
                         <ul class="room_breakdown">
                             @foreach($roombilling as $roombill)
-                                <li>{{ $roombill->hours }} hrs <span class="right">&#8369; {{ $roombill->rate }}</span></li>
+                                <li>{{  ($roombill->days > 0)? $roombill->days . ' days' : $roombill->hours . ' hrs'}} 
+                                <span class="right">&#8369; {{ ($roombill->days > 0)? $roombill->rate * $roombill->days : $roombill->rate }}</span></li>
                             @endforeach
                         </ul>
                     </div>

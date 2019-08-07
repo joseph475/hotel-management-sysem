@@ -3,6 +3,7 @@ $(document).ready(function(){
 })
 
 var checkifvalid = ['#name', '#contact', '#room_id', '#adultsCount','#childrenCount'];
+var durationSelect = $('#duration');
 
 $("#rdo-personal").click(rdopersonal);
 $("#rdo-company").click(rdocompany);
@@ -10,22 +11,45 @@ $("#rdo-company").click(rdocompany);
 $('.comp_name_cont').hide();
 $('.comp_name_address').hide();
 
-function saveCheckin(){
+(function loadRoomRates(){
+    var roomtypeId = $("#roomType").attr("data-type_id");
     
-    var guestname = $('#name').val().trim();
-    var contact = $('#contact').val().trim();
-    var compName = $('#compName').val().trim();
-    var compAdress = $('#compAdress').val().trim();
-    var room_id = $('#room_id').val();
-    var adultsCount = $('#adultsCount').val().trim();
-    var childrenCount = $('#childrenCount').val().trim();
-    var raterefno = $('input[name=roomRate]:checked').attr('data-id');
-    // var raterefno = $('#roomRate').attr('data-id');
-    var remainingTime = 0;
-    
+    $.ajax({
+        url: '../api/AdminReservationList/getRoomRates/' + roomtypeId,
+        type: 'get',
+        dataType: 'json',
+        success: function (data) {
+            var dataLength = data.length;
+            
+            durationSelect.html("");
+            for (i = 0; i < dataLength; i++) {
+                var id = data[i].id,
+                    hours = data[i].hours;
 
-    if($('#rdo-hours').prop("checked") == true){ remainingTime = $('input[name=roomRate]:checked').val(); }
-    else{ remainingTime = 24; }
+                if(hours < 24){
+                    durationSelect.append('<option data-days="0" value=' + id + '>' + hours +' hrs</option>');
+                }
+                else{
+                    for(j = 1; j <= 7; j++){
+                        if(j === 1){
+                            durationSelect.append('<option data-days='+ j +' value=' + id + '>' + j +' day</option>');
+                            continue;
+                        }
+                        durationSelect.append('<option data-days='+ j +' value=' + id + '>' + j +' days</option>');
+                    }
+                    break;
+                }
+            }
+            M.AutoInit();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(textStatus, errorThrown);
+        }
+    });
+})();
+
+
+function saveCheckin(){
 
     if(checkifValidated(checkifvalid)){
         $.confirm({
@@ -38,15 +62,16 @@ function saveCheckin(){
                         url: '../api/Checkin',
                         type: 'POST',
                         data: {
-                            name: guestname,
-                            contact: contact,
-                            companyName: compName,
-                            companyAddress: compAdress,
-                            room_id: room_id,
-                            adultsCount: adultsCount,
-                            childrenCount: childrenCount,
-                            remainingTime : remainingTime,
-                            raterefno : raterefno
+                            name: $('#name').val().trim(),
+                            contact: $('#contact').val().trim(),
+                            email: $('#email').val().trim(),
+                            companyName: $('#compName').val().trim(),
+                            companyAddress: $('#compAdress').val().trim(),
+                            room_id: $('#room_id').val(),
+                            adultsCount: $('#adultsCount').val().trim(),
+                            childrenCount: $('#childrenCount').val().trim(),
+                            rate_id : durationSelect.val().trim(),
+                            days : durationSelect.find(':selected').attr('data-days'),
                         },
                         dataType: 'json',
                         success: function (data) {
@@ -86,6 +111,6 @@ function rdocompany(){
     $('.comp_name_address').show(); 
 }
 
-$('.conf_select_hours').on('click', function(){
-    $('#rdo-hours').prop("checked", true);
-});
+// $('.conf_select_hours').on('click', function(){
+//     $('#rdo-hours').prop("checked", true);
+// });

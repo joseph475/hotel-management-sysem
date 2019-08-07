@@ -11,6 +11,9 @@ use App\Models\CheckinRoomBillingModel;
 use App\Models\AddedFoodsModel;
 use App\Models\AddedExtrasModel;
 use App\Models\KitchenModel;
+use App\Models\AdditionalRoomRates;
+use App\Models\BillingModel;
+use Illuminate\Support\Facades\DB;
 
 class CheckinController extends Controller
 {
@@ -21,11 +24,26 @@ class CheckinController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $guest = GuestModel::create($request->all());
+    {   
+        $guest = array(
+            'name' => $request->name,
+            'contact' => $request->contact,
+            'email' => $request->email,
+            'companyName' => $request->companyName,
+            'companyAddress' => $request->companyAddress
+        );
+
+        $guest = GuestModel::create($guest);
         $guest_id = GuestModel::select('id')->whereRaw('id = (select max(`id`) from guests)')->first();
-        $remainingTime = $request->remainingTime;
-        $checkout = date("Y-m-d H:i:s", strtotime("+{$remainingTime} hours"));
+
+        $basicHourfromRates = AdditionalRoomRates::findOrFail($request->rate_id, ['hours']);
+        $basicHourfromRates = $basicHourfromRates->hours;
+        $duration = ($request->days != 0)?  $basicHourfromRates * $request->days : $basicHourfromRates;
+
+        $checkout = date("Y-m-d H:i:s", strtotime("+{$duration} hours"));
+
+        // $remainingTime = $request->remainingTime;
+        // $checkout = date("Y-m-d H:i:s", strtotime("+{$remainingTime} hours"));
         // $remainingTime = "{$remainingTime}:00";
         $checkin = array(
             'room_id' => $request->room_id,
@@ -39,8 +57,15 @@ class CheckinController extends Controller
         $checkin_id = CheckinModel::select('id')->whereRaw('id = (select max(`id`) from checkin)')->first();
         $roomBilling = array(
             'checkin_id' => $checkin_id->id,
-            'raterefno' => $request->raterefno
+            'rate_id' => $request->rate_id,
+            'days' => $request->days
         );
+
+        $generateOR = array(
+            'checkInId' => $checkin_id->id
+        );
+
+        BillingModel::create($generateOR);
         $roomBilling = CheckinRoomBillingModel::create($roomBilling);
 
         RoomModel::findOrFail($request->room_id)->update(['status'=>'Occupied']);
@@ -73,5 +98,48 @@ class CheckinController extends Controller
         $remainingFoods->save();
 
         return $addedFoods;
+    }
+
+    public function checkout($id){
+        $variables = $this->getSystemVariables();
+        $foods = DB::select('Select * from addedfoods A inner join foods B on A.foodsId = B.id where A.checkinId = '. $id);
+        $extras = DB::select('Select * from addedextras A inner join extras B on A.extrasId = B.id where A.checkinId = '. $id);
+        $room = DB::select('Select * from checkin_table_room_billing A inner join roomtype_additional_rates B on A.rate_id = B.id where A.checkin_Id = '. $id);
+        $info = DB::select('Select * from vw_dashboard_room_list A inner join Billing B on A.checkin_id = B.checkInId where A.checkin_id = ' . $id);
+        
+        $totalRoom =  DB::select('Select 
+            Sum((CASE WHEN days > 0 then
+                    (select rate from roomtype_additional_rates where id = rate_id) * days
+                ELSE
+                    (select rate from roomtype_additional_rates where id = rate_id)
+            End)) as rate
+            from checkin_table_room_billing where checkin_id = '. $id .' GROUP by checkin_id');
+
+        $totalFoods = DB::select('select sum(price) as price 
+            from ( select (select sellingPrice from foods where id = foodsId) * sum(quantity) as price
+            from addedfoods where checkinId = '. $id .' GROUP By foodsId ) as t1');
+
+        $totalExtras = DB::select('select sum(price) as price 
+            from ( select (select cost from extras where id = extrasId) * sum(quantity) as price
+            from addedextras where checkinId = '. $id .' GROUP By extrasId ) as t1');
+        
+        $grandTotal = $totalRoom[0]->rate + $totalFoods[0]->price + $totalExtras[0]->price;
+
+        $data = array(
+            'variables' => $variables,
+            'foods' => $foods,
+            'extras' => $extras,
+            'rooms' => $room,
+            'info' => $info,
+            'totalRoom' => $totalRoom,
+            'totalFoods' => $totalFoods,
+            'totalExtras' => $totalExtras,
+            'grandTotal' => $grandTotal,
+        );
+        // echo $grandTotal; exit;
+        // echo "<pre>"; print_r($data); exit;
+        $pdf = \PDF::loadView('pdf.receipt', $data)->setOptions(['defaultFont' => 'sans-serif', 'fontHeightRatio' => '0.8']);
+        return $pdf->stream('receipt.pdf');
+        // return $request->checkin_id;
     }
 }

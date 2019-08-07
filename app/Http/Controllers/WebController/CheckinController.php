@@ -65,7 +65,7 @@ class CheckinController extends Controller
         (select cost from extras where id = A.extrasId) as cost from addedextras A where A.checkinId = '. $id .' group by A.extrasId');
 
         $roomBilling = CheckinRoomBillingModel::join('roomtype_additional_rates', 'checkin_table_room_billing.rate_id', '=', 'roomtype_additional_rates.id')
-        ->select('rate', 'hours')
+        ->select('rate', 'hours','days')
         ->where(['checkin_id'=> $id])
         ->get();
 
@@ -73,16 +73,21 @@ class CheckinController extends Controller
 
         $roomRate = AdditionalRoomRates::select('id', 'hours', 'rate')->where('roomtype_id', $checkinDetails->roomtype_id)->orderBy('hours', 'desc')->get();
 
-        $totalRoom =  DB::select('Select sum((select rate from roomtype_additional_rates where id = rate_id)) as rate
+        $totalRoom =  DB::select('Select 
+            Sum((CASE WHEN days > 0 then
+                    (select rate from roomtype_additional_rates where id = rate_id) * days
+                ELSE
+                    (select rate from roomtype_additional_rates where id = rate_id)
+            End)) as rate
             from checkin_table_room_billing where checkin_id = '. $id .' GROUP by checkin_id');
 
         $totalFoods = DB::select('select sum(price) as price 
             from ( select (select sellingPrice from foods where id = foodsId) * sum(quantity) as price
-            from addedfoods where checkinId = 1 GROUP By foodsId ) as t1');
+            from addedfoods where checkinId = '. $id .' GROUP By foodsId ) as t1');
 
         $totalExtras = DB::select('select sum(price) as price 
             from ( select (select cost from extras where id = extrasId) * sum(quantity) as price
-            from addedextras where checkinId = 1 GROUP By extrasId ) as t1');
+            from addedextras where checkinId = '. $id .' GROUP By extrasId ) as t1');
 
         //  print_r($totalFoods[0]->price); exit;
         $data = array(

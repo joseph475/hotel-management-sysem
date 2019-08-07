@@ -69,7 +69,7 @@
                         <select id="duration">
                             {{--  js generated  --}}
                         </select>
-                        <label for="duration">Duration and Room Rate</label>
+                        <label for="duration">Duration</label>
                     </div>
                     <div class="input-field col s12 m6">
                         <input placeholder="-" id="adultsCount" type="number" value="1" class="validate">
