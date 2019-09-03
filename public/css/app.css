@@ -3981,6 +3981,10 @@ textarea {
   z-index: 2;
 }
 
+.datepicker-date-display {
+  background-color: #21a4e0;
+}
+
 .Vacant {
   background-color: #4caf50;
 }
