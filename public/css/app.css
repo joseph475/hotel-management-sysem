@@ -3523,7 +3523,7 @@ footer .page-footer {
 
 * {
   font-size: 13.5px;
-  font-family: 'Raleway' ,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Work Sans','Manjari','Roboto','Raleway' ,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -3544,6 +3544,10 @@ main {
   min-height: 90vh;
 }
 
+nav .brand-logo {
+  line-height: 72px;
+}
+
 a {
   color: black;
 }
@@ -3555,7 +3559,7 @@ a {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 992px) {
   #dimScreen {
     position: fixed;
     top: 0 !important;
@@ -3583,9 +3587,11 @@ a {
     z-index: 10;
     display: none;
   }
-}
 
-@media (max-width: 992px) {
+  .btn-1 {
+    margin-bottom: 5px;
+  }
+
   .filters {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -3641,6 +3647,13 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
 }
 
 #page-header .page-buttons a {
@@ -3817,7 +3830,7 @@ input.with-borders:focus {
 .modal {
   z-index: 1003 !important;
   border: 2px solid #21a4e0;
-  width: 450px;
+  min-width: 450px;
 }
 
 .modal h4 {

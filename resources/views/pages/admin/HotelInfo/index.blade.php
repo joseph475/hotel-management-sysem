@@ -27,7 +27,7 @@
                     </tbody>    
             </table>
         </div>
-        <div id="UpdateModal" class="modal mt50">
+        <div id="UpdateModal" class="modal bottom-sheet">
             <div class="row mb0">
                 <div class="col s12 m12">
                     <div class="input-field col s12 mt25">

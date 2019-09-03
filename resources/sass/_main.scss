@@ -1,6 +1,6 @@
 * {
     font-size: 13.5px;
-    font-family: 'Raleway' ,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;   
+    font-family: 'Work Sans','Manjari','Roboto','Raleway' ,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;   
 }
 
 body{
@@ -13,6 +13,9 @@ main {
     flex: 1;
     min-height: 90vh
 }
+nav .brand-logo{
+    line-height: 72px;
+}
 a{
     color: black;
 }
@@ -23,6 +26,11 @@ a{
 }
 
 @media (max-width: 480px){
+
+    
+}
+
+@media (max-width: 992px){
     #dimScreen{
         position:fixed;
         top:0 !important;
@@ -46,9 +54,9 @@ a{
         z-index: 10;
         display: none;
     }
-}
-
-@media (max-width: 992px){
+    .btn-1{
+        margin-bottom:5px;
+    }
     .filters{
         flex-direction: column;
         .right-filter{
@@ -84,8 +92,10 @@ a{
     }
     .page-buttons{
         display: flex;
+        flex: 1;
+        flex-direction: row-reverse;
         // justify-content: flex-end;
-        a{ margin-left: 5px; }
+        a{ margin-left: 5px;}
     }
 }
 
@@ -217,7 +227,7 @@ input.with-borders{
     z-index: 1003 !important;
     // top: 75px !important;
     border: 2px solid $btn-1;
-    width: 450px;
+    min-width: 450px;
     .modal-footer{
         border-top: 2px solid $btn-1;
         padding: 2px 24px;

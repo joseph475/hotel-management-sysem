@@ -26,13 +26,13 @@
                 <td style="width: 15%">Room #: </td>
                 <td style="width: 45%">{{ $info[0]->roomNo }}</td>
                 <td style="width: 10%">Checkin: </td>
-                <td style="width: 30%">{{ $info[0]->checkInDate }}</td>             
+                <td style="width: 30%">{{ date("M d, Y h:i A", strtotime($info[0]->checkInDate) ) }}</td>             
             </tr>
             <tr>
                 <td style="width: 15%">Type: </td>
                 <td style="width: 45%">{{ $info[0]->type }}</td>
                 <td style="width: 10%">Checkout: </td>
-                <td style="width: 30%">{{ date("M d, Y") }}</td>
+                <td style="width: 30%">{{ date("M d, Y h:i A") }}</td>
             </tr>
             <tr>
                 <td style="width: 15%">Contact #: </td>

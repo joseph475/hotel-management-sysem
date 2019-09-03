@@ -97,7 +97,7 @@
             </div>
         </div>
     </div>
-    <div id="ChooseHoursModal" class="modal modal-fixed-footer">
+    {{--  <div id="ChooseHoursModal" class="modal bottom-sheet">
         <div class="modal-content">
             <div class="row">
                 <div class="col m12 s12">
@@ -122,7 +122,7 @@
                 Confirm
             </button>
         </div>
-    </div>
+    </div>  --}}
 </div>
 @endsection
 

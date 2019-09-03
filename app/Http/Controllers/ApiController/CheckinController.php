@@ -125,6 +125,26 @@ class CheckinController extends Controller
         
         $grandTotal = $totalRoom[0]->rate + $totalFoods[0]->price + $totalExtras[0]->price;
 
+        // update checkin table to checkout
+        $checkin = CheckinModel::findOrFail($id);
+        $actual_checkout =  date("Y-m-d H:i:s");
+        $checkin->actual_checkout = $actual_checkout;
+        $checkin->isCheckIn = 0;
+
+        // update room status
+        $room_status = RoomModel::findOrFail($checkin->room_id);
+        $room_status->status = 'Cleaning';
+
+        // update billing table
+        $billing = BillingModel::select('*')->where('checkInId', $id)->first();
+        $billing->date_collected = date("Y-m-d H:i:s");
+        $billing->collection = $grandTotal;
+
+        $checkin->save();
+        $room_status->save();
+        $billing->save();
+        
+
         $data = array(
             'variables' => $variables,
             'foods' => $foods,
@@ -139,6 +159,8 @@ class CheckinController extends Controller
         // echo $grandTotal; exit;
         // echo "<pre>"; print_r($data); exit;
         $pdf = \PDF::loadView('pdf.receipt', $data)->setOptions(['defaultFont' => 'sans-serif', 'fontHeightRatio' => '0.8']);
+
+
         return $pdf->stream('receipt.pdf');
         // return $request->checkin_id;
     }

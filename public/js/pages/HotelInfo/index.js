@@ -51,6 +51,7 @@ function showModal(){
     modal.find('label').html(key);
     modal.find('label').addClass("active");
     modal.find('#key').val(value);
+    modal.css('bottom','0px');
     modal.show();
 }
 

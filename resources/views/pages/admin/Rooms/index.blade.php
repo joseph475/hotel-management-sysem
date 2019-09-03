@@ -55,7 +55,7 @@
             </ul>
         </div>   
         
-        <div id="AddRoomModal" class="modal modal-fixed-footer">
+        <div id="AddRoomModal" class="modal bottom-sheet">
             <div class="modal-content">
                 <div class="row">
                     <div class="col s12 m12">

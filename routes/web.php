@@ -36,8 +36,8 @@ Route::get('/AddReservation', 'WebController\Admin_ReservationController@AddRese
 Route::get('/PendingReservationList', 'WebController\Admin_ReservationController@reservationList');
 Route::get('/CheckinReservation', 'WebController\Admin_ReservationController@checkinReservation');
 
-
 Route::get('/reservation', 'WebController\Web_ReservationController@index');
+Route::get('/Collections', 'WebController\CollectionController@index');
 
 
 Route::get('/', function () {

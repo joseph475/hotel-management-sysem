@@ -47,7 +47,7 @@
         </ul>
     </div>
 
-    <div id="AddMenuModal" class="modal modal-fixed-footer">
+    <div id="AddMenuModal" class="modal bottom-sheet">
         <div class="modal-content">
             <div class="row">
                 <div class="col s12 m12">

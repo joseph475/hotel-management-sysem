@@ -63,7 +63,7 @@
                 <a class="collapsible-header dropdownArr"><i class="material-icons">insert_chart</i>Reports<i class="material-icons right arrow">arrow_drop_down</i></a>
                 <div class="collapsible-body">
                     <ul>
-                        <li><a href="collections.php"><i class="material-icons">attach_money</i>Collections</a></li>
+                        <li><a href="{{ url('/Collections') }}"><i class="material-icons">attach_money</i>Collections</a></li>
                         <li><a href="#"><i class="material-icons">attach_money</i>Expenses</a></li>
                     </ul>
                 </div>

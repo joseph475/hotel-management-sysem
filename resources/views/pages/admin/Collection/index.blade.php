@@ -1,18 +1,14 @@
 @extends('layouts.app') 
 
 @section('content')
-    <div class="row rooms-page">
+    <div class="row collections-page">
         <div id="page-header">
-            <div class="page-title">Manage Extras</div>
+            <div class="page-title">Collections Report</div>
             <div class="page-buttons">
                 <div class="button-content">
                     <a class="btn btn-1" href="/">
                         <i class="material-icons left">arrow_back</i>
                         Back
-                    </a>
-                    <a class="btn btn-1 modal-trigger addExtras" href="#AddExtrasModal">
-                        <i class="material-icons left">add</i>
-                        Add Extras
                     </a>
                 </div>
             </div>
@@ -23,17 +19,28 @@
                     @include('partials.search')
                 </div>
             </div>
+            <div class="right-filter">
+                <div class="select-content">
+                    <input type="text" class="datepicker">
+                </div>
+                <div class="select-content">
+                    <input type="text" class="datepicker">
+                </div>
+            </div>
         </div>                   
         <div class="table-container">
             <table class="highlight z-depth-1 myTable">
                     <thead>
                         <tr>
-                            <th>Description</th>
-                            <th>Price</th>
+                            <th>Room #</th>
+                            <th>Type</th>
+                            <th>Floor</th>
+                            {{--  <th>Rate</th>
+                            <th>Rate/Hour</th>  --}}
                             <th style="width:20%;">Action</th>
                         </tr>
                     </thead>
-                    <tbody id="extrasTable">
+                    <tbody id="roomTable">
                         <!-- js generated -->
                     </tbody>    
             </table>
@@ -44,20 +51,23 @@
             </ul>
         </div>   
         
-        <div id="AddExtrasModal" class="modal bottom-sheet">
+        <div id="AddRoomModal" class="modal modal-fixed-footer">
             <div class="modal-content">
                 <div class="row">
                     <div class="col s12 m12">
-                        <h4>Add Extras</h4>
+                        <h4>Add New Room</h4>
                     </div>
                 </div>
-                <form action="" id="addExtrasForm">
+                <form action="" id="addRoomForm">
                     <div class="row mt20">
                         <div class="col s12 m12">
-                            <input  placeholder="Description" id="description" type="text" class="validate">
+                            <input  placeholder="Room No" id="roomNo" type="text" class="validate">
                         </div>
                         <div class="col s12 m12">
-                            <input  placeholder="Price" id="price" type="number" class="validate">
+                            @include('partials.roomtypes')
+                        </div>
+                        <div class="col s12 m12">
+                            @include('partials.floors')
                         </div>
                     </div>
                 </form>
@@ -75,5 +85,5 @@
 @endsection
 
 @section('pagejs')
-    <script src="{{ asset('/js/pages/Extras/index.js') }}"></script>
+    <script src="{{ asset('/js/pages/Collection/index.js') }}"></script>
 @stop

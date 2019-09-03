@@ -213,7 +213,7 @@
             </ul>
         </div>
     </div>
-    <div id="ChooseHoursModal" class="modal">
+    <div id="ChooseHoursModal" class="modal bottom-sheet">
         <div class="modal-content">
             <div class="row">
                 <div class="col m12 s12">
@@ -239,7 +239,7 @@
             </button>
         </div>
     </div>
-    <div id="addFoodsExtrasModal" class="modal">
+    <div id="addFoodsExtrasModal" class="modal bottom-sheet">
         <div class="row mb0">
             <div class="col m12 s12">
                 <h4 class="pt20"></h4>
