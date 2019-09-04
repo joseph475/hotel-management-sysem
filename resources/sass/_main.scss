@@ -19,11 +19,12 @@ nav .brand-logo{
 a{
     color: black;
 }
+p.headline{ font-size:20px !important;}
 .border-1{
     border: 1px solid rgb(218, 210, 210);
 }
 .tabs .tab a, .tabs .tab a:hover, .tabs .tab a.active{ color:black; }
-.tabs .tab a:hover, .tabs .tab a.active{ background-color: $btn-2 !important;  }
+.tabs .tab a:hover, .tabs .tab a.active{ background-color: $btn-1 !important;  color: white; }
 .tabs .indicator{ background-color: transparent; }
 
 .card.horizontal{

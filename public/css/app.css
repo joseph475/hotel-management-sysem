@@ -3552,6 +3552,10 @@ a {
   color: black;
 }
 
+p.headline {
+  font-size: 20px !important;
+}
+
 .border-1 {
   border: 1px solid #dad2d2;
 }
@@ -3564,7 +3568,8 @@ a {
 
 .tabs .tab a:hover,
 .tabs .tab a.active {
-  background-color: #eeeaea !important;
+  background-color: #21a4e0 !important;
+  color: white;
 }
 
 .tabs .indicator {

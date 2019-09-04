@@ -28,10 +28,11 @@
                         </div>
                         <div class="card-stacked">
                             <div class="card-content">
-                                <p>I am a very simple card. I am good at containing small bits of information.</p>
+                                <p class="headline">Date: {{ date("M d, Y") }}</p>
+                                <p class="headline total_collection">Collections: </p>
                             </div>
                             <div class="card-action">
-                                <a href="#" class="btn btn-2 right"><i class="material-icons left">print</i>print</a>
+                                <a href="#" class="btn btn-2 right"><i class="material-icons left">print</i>Preview</a>
                             </div>
                         </div>
                     </div>
@@ -70,7 +71,7 @@
                                 <input type="text" id="todate" class="datepicker" value="{{ date("Y-m-d") }}" placeholder="Date To">
                             </div>
                             <div class="input-field col s12 m3 mb2">
-                               <a class="btn btn-1" href=""><i class="material-icons left">filter_list</i>Filter</a>
+                               <a class="btn btn-2" href=""><i class="material-icons left">filter_list</i>Filter</a>
                             </div>
                         </div>
                     </div>
@@ -83,7 +84,7 @@
                                
                             </div>
                             <div class="card-action">
-                                <a href="#" class="btn btn-2 right"><i class="material-icons left">print</i>print</a>
+                                <a href="#" class="btn btn-2 right"><i class="material-icons left">print</i>Preview</a>
                             </div>
                         </div>
                     </div>

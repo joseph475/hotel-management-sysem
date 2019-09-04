@@ -1,4 +1,10 @@
 var mytable = $('#ORTable');
+
+// for todays collection
+var datenowfrom = getMyDate(getCurdate1());
+var datenowto = getMyDateTime(getCurdate1());
+
+// for filtered
 var dateFrom = getMyDate($('#fromdate').val());
 var dateTo = getMyDateTime($('#todate').val());
 
@@ -9,13 +15,14 @@ function loadCollections(curpage) {
         url: 'api/Collections',
         data:{
             page: curpage,
-            dateFrom: dateFrom,
-            dateTo: dateTo
+            dateFrom: datenowfrom,
+            dateTo: datenowto
         },
         type: 'get',
         dataType: 'json',
         success: function (data) {
-            loopCollectionDetails(data.data);
+            loopCollectionDetails(data.collections.data);
+            $('.total_collection').append('&#8369;' + convert(data.total_collections[0].total));
             $.getScript("js/pagination.js", function () {  // load pagination
                 createPagination(data.last_page, "loadCollections");
                 $('#page_' + curpage).addClass("activePage");
