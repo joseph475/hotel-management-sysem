@@ -3773,12 +3773,12 @@ input.with-borders:focus {
 }
 
 .btn-1 {
-  background-color: #21a4e0;
+  background-color: #21a4e0 !important;
   border-radius: 0px;
 }
 
 .btn-2 {
-  background-color: #eeeaea;
+  background-color: #eeeaea !important;
   color: #1e1e1e;
 }
 
@@ -3787,7 +3787,7 @@ input.with-borders:focus {
 }
 
 .btn-3 {
-  background-color: #e93535;
+  background-color: #e93535 !important;
   border-radius: 0px;
 }
 

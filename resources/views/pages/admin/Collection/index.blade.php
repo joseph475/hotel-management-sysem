@@ -29,10 +29,10 @@
                         <div class="card-stacked">
                             <div class="card-content">
                                 <p class="headline">Date: {{ date("M d, Y") }}</p>
-                                <p class="headline total_collection">Collections: </p>
+                                <p class="headline total_collectionDaily">Collections: </p>
                             </div>
                             <div class="card-action">
-                                <a href="#" class="btn btn-2 right"><i class="material-icons left">print</i>Preview</a>
+                                <a href="#" class="btn btn-2 right printReport" report-type="daily"><i class="material-icons left">print</i>Preview</a>
                             </div>
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                                 <th width="10%">Action</th>
                             </tr>
                         </thead>
-                        <tbody id="ORTable">
+                        <tbody id="DailyTable">
                             <!-- js generated -->
                         </tbody>    
                 </table>
@@ -63,15 +63,15 @@
                             <div class="input-field col s12 m3 mb2">
                                 <i class="material-icons prefix">date_range</i>
                                 <label for="fromdate">From</label>
-                                <input type="text" id="fromdate" class="datepicker" value="{{ date("Y-m-d") }}" placeholder="Date From">
+                                <input type="text" id="fromdate" class="datepicker" value="{{ date("M d, Y") }}" placeholder="Date From">
                             </div>
                             <div class="input-field col s12 m3 mb2">
                                 <i class="material-icons prefix">date_range</i>
                                 <label for="todate">To</label>
-                                <input type="text" id="todate" class="datepicker" value="{{ date("Y-m-d") }}" placeholder="Date To">
+                                <input type="text" id="todate" class="datepicker" value="{{ date("M d, Y") }}" placeholder="Date To">
                             </div>
                             <div class="input-field col s12 m3 mb2">
-                               <a class="btn btn-2" href=""><i class="material-icons left">filter_list</i>Filter</a>
+                               <a class="btn btn-2 filterlist" href="#"><i class="material-icons right">arrow_forward</i>Filter</a>
                             </div>
                         </div>
                     </div>
@@ -81,32 +81,27 @@
                         </div>
                         <div class="card-stacked">
                             <div class="card-content">
-                               
+                                <p class="headline datedisplay">From: {{ date("M d, Y") }} &nbsp; &nbsp; To: {{ date("M d, Y") }}</p>
+                                <p class="headline total_collectionRange">Collections: </p>
                             </div>
                             <div class="card-action">
-                                <a href="#" class="btn btn-2 right"><i class="material-icons left">print</i>Preview</a>
+                                <a href="#" class="btn btn-2 right printReport" report-type="range"><i class="material-icons left">print</i>Preview</a>
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="card">
-                        <div class="card-content">
-                            <div class="row">
-                                <div class="input-field col s12 m3">
-                                    <i class="material-icons prefix">date_range</i>
-                                    <label for="fromdate">From</label>
-                                    <input type="text" id="fromdate" class="datepicker" value="{{ date("Y-m-d") }}" placeholder="Date From">
-                                </div>
-                                <div class="input-field col s12 m3">
-                                    <i class="material-icons prefix">date_range</i>
-                                    <label for="todate">To</label>
-                                    <input type="text" id="todate" class="datepicker" value="{{ date("Y-m-d") }}" placeholder="Date To">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-action">
-                            <a href="#" class="btn btn-2 right"><i class="material-icons left">print</i>print</a>
-                        </div>
-                    </div> -->
+                    <table class="highlight z-depth-1 myTable">
+                        <thead>
+                            <tr>
+                                <th width="20%">Or #</th>
+                                <th width="30%">Collection</th>
+                                <th width="30%">Date Collected</th> 
+                                <th width="10%">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="RangeTable">
+                            <!-- js generated -->
+                        </tbody>    
+                    </table>
                 </div>
             </div>
             <div id="ORnumber" class="col s12">

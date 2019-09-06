@@ -67,6 +67,8 @@ Route::post('ExtendTime','ApiController\CheckinController@extendTime');
 Route::get('Checkout/{id}','ApiController\CheckinController@checkout');
 
 Route::get('Collections','ApiController\CollectionController@index');
+Route::get('Collections/Receipt/{id}','ApiController\CollectionController@printReceipt');
+Route::get('Collections/Report/{type}/From/{dateFrom}/To/{dateTo}','ApiController\CollectionController@printReport');
 
 Route::put('RoomManagement/update/{id}','ApiController\RoomManagementController@update');
 Route::get('Rooms/getRoomsNotOccupied','ApiController\RoomsController@getRoomsNotOccupied');

@@ -164,18 +164,18 @@ input.with-borders{
 }
 
 .btn-1{
-    background-color: $btn-1;
+    background-color: $btn-1 !important;
     border-radius: 0px;
 }
 .btn-2{
-    background-color: $btn-2;
+    background-color: $btn-2 !important;
     color:#1e1e1e;
     &:hover{
         background-color: rgb(231, 216, 216);
     }
 }
 .btn-3{
-    background-color: $btn-3;
+    background-color: $btn-3 !important;
     border-radius: 0px;
 }
 .btn-4{

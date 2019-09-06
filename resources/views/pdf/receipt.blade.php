@@ -3,10 +3,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <style>
             .page-break {page-break-after: always;}
-            *{ font-size: 14px; }
+            *{ font-size: 12px; }
             .bold {  font-weight: 600; font-size:22px;} 
             .break-table td, .break-table th{
                 padding: 5px;
+            }
+            body {
+                font-family: DejaVu Sans;
             }
         </style>
             
@@ -38,7 +41,7 @@
                 <td style="width: 15%">Contact #: </td>
                 <td style="width: 45%">{{ $info[0]->contact }}</td>
                 <td style="width: 10%">Total: </td>
-                <td style="width: 30%; font-weight: 600;">{{ number_format($grandTotal) }}</td>
+                <td style="width: 30%; font-weight: 600;">&#8369;{{ number_format($grandTotal) }}</td>
             </tr>
         </table>
 
@@ -47,18 +50,18 @@
         <h3 style="margin-bottom: 10px;">Room Fees</h3>
         <table class="break-table" style="width: 100%; border-collapse: collapse;" border="1">
             <tr>
-                <th style="width: 70%">Hours</th>
-                <th style="width: 30%; text-align:center;">Rate</th>
+                <th style="width: 80%">Hours</th>
+                <th style="width: 20%; text-align:center;">Rate</th>
             </tr>
             @foreach($rooms as $room)
               <tr>
-                  <td>{{ number_format($room->hours) }}</td>
-                  <td style="text-align: right;">{{ number_format($room->rate) }}</td>
+                  <td style="text-indent: 20px;">{{ ($room->days > 0)? number_format($room->hours * $room->days) : number_format($room->hours) }}</td>
+                  <td style="text-align: right;">&#8369;{{ ($room->days > 0)? number_format($room->rate * $room->days) : number_format($room->rate) }}</td>
               </tr>
             @endforeach
             <tr>
                 <th>Total</td>
-                <th style="text-align: right;">{{ number_format($totalRoom[0]->rate) }}</td>
+                <th style="text-align: right;">&#8369;{{ number_format($totalRoom[0]->rate) }}</td>
             </tr>
         </table>
 
@@ -66,20 +69,22 @@
             <h3 style="margin-bottom: 10px;">Foods Breakdown</h3>
             <table class="break-table" style="width: 100%; border-collapse: collapse;" border="1">
                 <tr>
-                    <th style="width: 55%">Name</th>
+                    <th style="width: 50%">Name</th>
+                    <th style="width: 15%; text-align: center;">Price / unit</th>
                     <th style="width: 15%; text-align: center;">Quanity</th>
-                    <th style="width: 30%; text-align: center;">Cost</th>
+                    <th style="width: 20%; text-align: center;">Cost</th>
                 </tr>
                 @foreach($foods as $food)
                 <tr>
-                    <td>{{ $food->menuName }}</td>
+                    <td style="text-indent: 20px;">{{ $food->menuName }}</td>
+                    <td style="text-align: center;">&#8369;{{ number_format($food->sellingPrice) }}</td>
                     <td style="text-align: center;">{{ $food->quantity }}</td>
-                    <td style="text-align: right;">{{ number_format($food->sellingPrice * $food->quantity) }}</td>
+                    <td style="text-align: right;">&#8369;{{ number_format($food->sellingPrice * $food->quantity) }}</td>
                 </tr>
                 @endforeach
                 <tr>
-                    <th colspan="2">Total</td>
-                    <th style="text-align: right;">{{ number_format($totalFoods[0]->price) }}</td>
+                    <th colspan="3">Total</td>
+                    <th style="text-align: right;">&#8369;{{ number_format($totalFoods[0]->price) }}</td>
                 </tr>
             </table>
         @endif
@@ -88,20 +93,22 @@
             <h3 style="margin-bottom: 10px;">Extras Breakdown</h3>
             <table class="break-table" style="width: 100%; border-collapse: collapse;" border="1">
                 <tr>
-                    <th style="width: 55%">Name</th>
+                    <th style="width: 50%">Name</th>
+                    <th style="width: 15%; text-align: center;">Price / unit</th>
                     <th style="width: 15%; text-align: center;">Quanity</th>
-                    <th style="width: 30%; text-align: center;">Cost</th>
+                    <th style="width: 20%; text-align: center;">Cost</th>
                 </tr>
                 @foreach($extras as $extra)
                 <tr>
-                    <td>{{ $extra->description }}</td>
+                    <td style="text-indent: 20px;">{{ $extra->description }}</td>
+                    <td style="text-align: center;">&#8369;{{ number_format($extra->cost * $extra->quantity) }}</td>
                     <td style="text-align: center;">{{ $extra->quantity }}</td>
-                    <td style="text-align: right;">{{ number_format($extra->cost * $extra->quantity) }}</td>
+                    <td style="text-align: right;">&#8369;{{ number_format($extra->cost) }}</td>
                 </tr>
                 @endforeach
                 <tr>
-                    <th colspan="2">Total</td>
-                    <th style="text-align: right;">{{ number_format($totalExtras[0]->price) }}</td>
+                    <th colspan="3">Total</td>
+                    <th style="text-align: right;">&#8369;{{ number_format($totalExtras[0]->price) }}</td>
                 </tr>
             </table>
         @endif
