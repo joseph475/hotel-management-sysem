@@ -1,5 +1,5 @@
 $(document).ready(loadGuests(curpage));
-
+$('.printGuestlist').on('click', printGuestList);
 function loadGuests(curpage) {
     sessionStorage.setItem("curpage", curpage);
     $.ajax({
@@ -21,7 +21,9 @@ function loadGuests(curpage) {
         }
     });
 };
-
+function printGuestList(){
+    window.open("../api/Guests/Report");
+}
 function loopGuestDetails(data) {
     $('#guestTable').html("");
     for (var i = 0; i < data.length; i++) {

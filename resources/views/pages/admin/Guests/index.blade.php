@@ -19,6 +19,11 @@
                     @include('partials.search')
                 </div>
             </div>
+            <div class="right-filter">
+                <div class="input-field my0">
+                    <a class="btn btn-2 printGuestlist" href="#"><i class="material-icons right">print</i>Print</a>
+                </div>
+            </div>
         </div>                   
         <div class="table-container">
             <table class="highlight z-depth-1 myTable">

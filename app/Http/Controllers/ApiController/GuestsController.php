@@ -24,69 +24,23 @@ class GuestsController extends Controller
         return $guests;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    public function printGuestList(){
+        $variables = $this->getSystemVariables();
+        $guests = GuestModel::join('checkin', 'guests.id', '=', 'checkin.guestId')
+        ->join('rooms', 'rooms.id', '=', 'checkin.room_id')
+        ->join('roomtypes', 'rooms.roomType', '=', 'roomtypes.id')
+        ->select('guests.id', 'guests.name', 'guests.contact', 'guests.companyName','guests.email', 'guests.companyAddress', 'rooms.roomNo', 'roomtypes.type','checkin.id AS checkin_id','checkin.adultsCount', 'checkin.childrenCount', 'checkin.checkInDate', 'checkin.checkOutDate')
+        ->where('checkin.isCheckIn', 1)
+        ->orderBy('checkin.checkOutDate')->get();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        $data = array(
+            'variables' => $variables,
+            'guests' => $guests
+        );
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        $pdf = \PDF::loadView('pdf.guestList', $data)->setOptions(['defaultFont' => 'sans-serif', 'fontHeightRatio' => '0.8']);
+        $pdf->setPaper('A4', 'landscape');
+        return $pdf->stream('guestList.pdf');
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+    
 }

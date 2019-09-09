@@ -44,6 +44,7 @@ Route::get('RoomTypes/{id}','ApiController\RoomTypesController@show');
 Route::delete('RoomType/{id}','ApiController\RoomTypesController@destroy');
 
 Route::get('Guests','ApiController\GuestsController@index');
+Route::get('Guests/Report','ApiController\GuestsController@printGuestList');
 
 Route::get('Kitchen','ApiController\KitchenController@index');
 Route::get('Kitchen/getPublishedFoods','ApiController\KitchenController@getIsPublishedFoods');
