@@ -104,8 +104,32 @@
                     </table>
                 </div>
             </div>
-            <div id="ORnumber" class="col s12">
-                
+            <div id="ORnumber" class="col s12 no-pad">
+                 <div class="col s12 m12 no-pad-mar">
+                    <div class="card-panel py10">
+                        <div class="row no-mar">
+                            <div class="input-field col s12 m4 mb2">
+                                <input type="text" id="search" value="" placeholder="Search">
+                            </div>
+                            <div class="input-field col s12 m3 mb2">
+                               <a class="btn btn-2 searchOR" href="#"><i class="material-icons right">search</i>Search</a>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="highlight z-depth-1 myTable">
+                        <thead>
+                            <tr>
+                                <th width="20%">Or #</th>
+                                <th width="30%">Collection</th>
+                                <th width="30%">Date Collected</th> 
+                                <th width="10%">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ORTable">
+                            <!-- js generated -->
+                        </tbody>    
+                    </table>
+                </div>
             </div>
         </div> 
     </div>

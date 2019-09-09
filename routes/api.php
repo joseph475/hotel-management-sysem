@@ -67,6 +67,7 @@ Route::post('ExtendTime','ApiController\CheckinController@extendTime');
 Route::get('Checkout/{id}','ApiController\CheckinController@checkout');
 
 Route::get('Collections','ApiController\CollectionController@index');
+Route::get('Collections/Search/{search}','ApiController\CollectionController@searchOR');
 Route::get('Collections/Receipt/{id}','ApiController\CollectionController@printReceipt');
 Route::get('Collections/Report/{type}/From/{dateFrom}/To/{dateTo}','ApiController\CollectionController@printReport');
 

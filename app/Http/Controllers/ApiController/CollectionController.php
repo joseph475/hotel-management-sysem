@@ -52,7 +52,11 @@ class CollectionController extends Controller
         // return $data;
 
     }
-
+    public function searchOR($search){
+        $collections = BillingModel::select('*')
+        ->where('ORNumber', $search)->get();
+        return $collections;
+    }
     public function printReceipt($id){
         $variables = $this->getSystemVariables();
         $foods = DB::select('Select * from addedfoods A inner join foods B on A.foodsId = B.id where A.checkinId = '. $id);

@@ -143,7 +143,6 @@ class CheckinController extends Controller
         $checkin->save();
         $room_status->save();
         $billing->save();
-        
 
         $data = array(
             'variables' => $variables,

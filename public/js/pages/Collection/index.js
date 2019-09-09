@@ -1,6 +1,5 @@
 var mytable = "";
 
-// for todays collection
 var datenowfrom = getMyDate(getCurdate1());
 var datenowto = getMyDateTime(getCurdate1());
 var dateFrom = getMyDate($('#fromdate').val());
@@ -9,6 +8,7 @@ var dateTo = getMyDateTime($('#todate').val());
 $(document).ready(loadCollections(curpage));
 $(document).on('click','.printReceipt', printReceipt);
 $(document).on('click','.printReport', printReport);
+$(document).on('click','.searchOR', searchOR);
 
 $('.filterlist').on('click',filterlist);
 
@@ -40,7 +40,18 @@ function loadCollections(curpage) {
         }
     });
 };
-
+function FilterORtableSearch(data) {
+    let mytable = $('#ORTable');
+    mytable.html("");
+    for (var i = 0; i < data.length; i++) {
+        var id = data[i].id
+            ORNumber = data[i].ORNumber,
+            checkin_id = data[i].checkInId,
+            collection = data[i].collection
+            date_collected = data[i].date_collected
+            mytable.append(createCollectionsTable(ORNumber, checkin_id, collection, date_collected));
+    }
+}
 function loopCollectionDetailsDaily(data) {
     let mytable = $('#DailyTable');
     mytable.html("");
@@ -95,9 +106,27 @@ function printReport(){
     }
     window.open("../api/Collections/Report/"+ type + "/From/" + dateFrom + "/To/" + dateTo);
 }
-// function printRangeReport(){
 
-// }
+function searchOR(){
+    var search = $('#search').val();
+    if(search != ""){
+        $.ajax({
+            url: 'api/Collections/Search/' + search,
+            data:{ },
+            type: 'get',
+            dataType: 'json',
+            success: function (data) {
+                FilterORtableSearch(data);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    }
+    else{
+        $('#ORTable').html('');
+    }
+}
 
 function filterlist(){
     let dateFrom = getMyDate($('#fromdate').val());
