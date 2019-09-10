@@ -10,6 +10,10 @@
                         <i class="material-icons left">arrow_back</i>
                         Back
                     </a>
+                    <a class="btn btn-1 modal-trigger" href="#AddInventoryModal">
+                        <i class="material-icons left">add</i>
+                        Add Item
+                    </a>
                 </div>
             </div>
         </div>
@@ -43,6 +47,36 @@
 
                 </ul>
             </div>   
+        </div>
+        <div id="AddInventoryModal" class="modal bottom-sheet">
+            <div class="modal-content">
+                <div class="row">
+                    <div class="col s12 m12">
+                        <h4>Add New Item</h4>
+                    </div>
+                </div>
+                <form action="" id="addRoomForm">
+                    <div class="row mt20">
+                        <div class="col s12 m12">
+                            <input  placeholder="Room No" id="roomNo" type="text" class="validate">
+                        </div>
+                        <div class="col s12 m12">
+                            @include('partials.roomtypes')
+                        </div>
+                        <div class="col s12 m12">
+                            @include('partials.floors')
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="#!"  class="modal-close waves-effect waves-green btn btn-1 right">
+                    Cancel
+                </a>
+                <button id="submit" class="modal-close waves-effect waves-green btn btn-1 right">
+                    Save
+                </button>
+            </div>
         </div>
     </div>
 @endsection
