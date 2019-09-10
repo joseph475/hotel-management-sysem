@@ -12,7 +12,8 @@
 */
 
 Route::get('/Rooms', 'WebController\RoomsController@index');
-Route::get('/Room/{id}', 'WebController\RoomsController@show');
+// Route::get('/Room/{id}', 'WebController\RoomsController@show');
+Route::get('/Room/{id}','WebController\RoomsController@showInventory');
 
 Route::get('/RoomTypes', 'WebController\RoomTypesController@index');
 Route::get('/RoomType/{id}', 'WebController\RoomTypesController@show');
