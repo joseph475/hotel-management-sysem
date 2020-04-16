@@ -38,7 +38,10 @@ Route::get('/PendingReservationList', 'WebController\Admin_ReservationController
 Route::get('/CheckinReservation', 'WebController\Admin_ReservationController@checkinReservation');
 
 Route::get('/reservation', 'WebController\Web_ReservationController@index');
+
+// Reports
 Route::get('/Collections', 'WebController\CollectionController@index');
+Route::get('/InventoryStatus', 'WebController\InventoryStatusReportController@index');
 
 
 Route::get('/', function () {

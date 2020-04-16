@@ -45,7 +45,7 @@ function createRoomTable(id, roomNo, type, floor, ispublished) {
         '<td>' + roomNo + '</td>' +
         '<td>' + type + '</td>' +
         '<td>' + floor + '</td>' +
-        '<td>' +
+        '<td class="actionButtons">' +
             '<a class="btn btn-flat btn-2 mr3 changeStatus" target="_blank">';
 
         if(parseInt(ispublished) == 1){

@@ -39,7 +39,7 @@ function createRoomTable(id, roomNo, status) {
     var myRoom = '<tr class="room_row" data-id="'+ id +'">' +
         '<td>' + roomNo + '</td>' +
         '<td class="room_status">' + status + '</td>' +
-        '<td>' +
+        '<td class="actionButtons button-content">' +
             '<a class="btn btn-flat changestatus mr5 Vacant white-text" data-status="Vacant"><i class="material-icons left">check</i>Vacant</a>' +
             '<a class="btn btn-flat changestatus mr5 Cleaning white-text" data-status="Cleaning"><i class="material-icons left">delete_sweep</i>Cleaning</a>' +
             '<a class="btn btn-flat changestatus mr5 Maintenance white-text" data-status="Maintenance"><i class="material-icons left">launch</i>Maintenance</a>' +

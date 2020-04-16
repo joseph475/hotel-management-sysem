@@ -25,6 +25,7 @@
     <main>  
         @yield('content')
         <div id="dimScreen"></div>
+        <div class="loader"></div>
     </main>
 
     <footer>

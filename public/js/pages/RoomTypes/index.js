@@ -48,7 +48,7 @@ function createRoomTypeTable(id, type, maxAdult, maxChildren) {
         // '<td>' + rateperhour + '</td>' +
         '<td>' + maxAdult + '</td>' +
         '<td>' + maxChildren + '</td>' +
-        '<td>' +
+        '<td class="button-content">' +
         '<a href="/RoomType/'+ id +'" class="btn btn-flat btn-2"><i class="material-icons left">input</i>View</a>' +
         '</td>' +
         '</tr>'

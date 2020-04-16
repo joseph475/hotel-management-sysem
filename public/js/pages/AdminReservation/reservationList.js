@@ -68,7 +68,7 @@ function createTable(id, guest_name, personal_id, personal_id_type, roomtype, mo
             '<td>' + roomtype + '</td>' +
             '<td>' + mobile + '</td>' +
             '<td>' + checkInDate + '</td>' +
-            '<td>' +
+            '<td class="actionButtons">' +
                 '<a class="btn-floating btn btn-float '+ trClass +' btn-flat mr5 openReservationModal modal-trigger" data-roomTypeId='+ roomtype_id +' href="#RoomList"><i class="fas fa-sign-in-alt"></i></a>' +
                 '<a class="btn-floating btn btn-float '+ trClass +' btn-flat mr5 deleteReservation"><i class="far fa-trash-alt"></i></a>' +
             '</td>' +

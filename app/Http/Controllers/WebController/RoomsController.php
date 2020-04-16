@@ -20,25 +20,20 @@ class RoomsController extends Controller
     }
 
     public function showInventory($id){
-        // $data = $this->getSystemVariables();
-        $inventory = DB::select('select description, 
-        (select count(id) from roominventory where A.id = roominventory.inventory_id and roominventory.status = 1) as good,
-        (select count(id) from roominventory where A.id = roominventory.inventory_id and roominventory.status = 2) as damaged,
-        (select count(id) from roominventory where A.id = roominventory.inventory_id and roominventory.status = 3) as missing
+        $inventory = DB::select('select id,description, 
+        (select count(id) from roominventory where A.id = roominventory.inventory_id and roominventory.status = 1 and roominventory.room_id ='. $id .') as good,
+        (select count(id) from roominventory where A.id = roominventory.inventory_id and roominventory.status = 2 and roominventory.room_id ='. $id .') as damaged,
+        (select count(id) from roominventory where A.id = roominventory.inventory_id and roominventory.status = 3 and roominventory.room_id ='. $id .') as missing
         from inventory_category A');
+
+        $availableInventory = DB::select('select id,description from inventory_category');
 
         $data = array(
             'inventory' => $inventory,
             'roomNo' => $id,
+            'availableInventory' => $availableInventory,
         );
         // print_r($data); exit;
         return view('pages.admin.Rooms.inventory', $data); 
     }
-
-    // public function show($id){
-    //     $room = RoomModel::join('roomtypes', 'rooms.roomType', '=', 'roomtypes.id')
-    //     ->select('rooms.id', 'rooms.roomNo', 'roomtypes.type', 'rooms.floor', 'roomtypes.rate', 'roomtypes.rateperhour','rooms.status','rooms.ispublished')
-    //     ->findOrFail($id);
-    //     return view('pages.Rooms.room', ['data' => $room]); 
-    // }
 }

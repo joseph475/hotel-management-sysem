@@ -42,7 +42,7 @@ function createExtrasTable(id, description, cost, ispublished) {
     var myExtra = '<tr data-id="'+ id +'">' +
         '<td>' + description + '</td>' +
         '<td>' + cost + '</td>' +
-        '<td>' +
+        '<td class="actionButtons">' +
             '<a class="btn btn-2 btn-flat mr5 changeStatus">';
                 if(parseInt(ispublished) == 1){
                     myExtra += '<i class="far fa-eye"></i>';

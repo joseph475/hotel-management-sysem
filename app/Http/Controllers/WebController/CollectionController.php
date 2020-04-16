@@ -9,6 +9,6 @@ class CollectionController extends Controller
 {
     public function index()
     {   
-        return view('pages.admin.Collection.index'); 
+        return view('pages.admin.Collections.index'); 
     }
 }

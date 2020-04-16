@@ -41,9 +41,20 @@ p.headline{ font-size:20px !important;}
 }
 
 @media (max-width: 480px){
-
+   
 }
 
+@media (max-width: 600px){
+    .button-content{
+        // flex-direction: column;
+        .btn{ 
+            font-size: 0; 
+            letter-spacing: 0;
+            i{ margin-right:0; float:none;}
+        }
+        
+    }
+}
 @media (max-width: 992px){
     #dimScreen{
         position:fixed;
@@ -112,13 +123,16 @@ p.headline{ font-size:20px !important;}
         flex-direction: row-reverse;
         // justify-content: flex-end;
         a{ margin-left: 5px;}
+        .button-content{
+            display: flex;
+        }
     }
 }
 
 .search{
     display: flex;
     .search-field{
-        width: 200px !important;
+        // width: 83% !important;
         border: 2px solid $btn-1;
         text-indent: 7px;
         border-right: none !important;
@@ -153,12 +167,15 @@ input.with-borders{
     padding-left: 25px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    // align-items: center;
     .right-filter{
         display: flex;
         justify-content: flex-end;
     }
     .right-filter > div{
+        margin-right: 25px;
+    }
+    .left-filter > div{
         margin-right: 25px;
     }
 }
@@ -267,6 +284,7 @@ input.with-borders{
 .select-wrapper{
     ul{
         max-height: 200px !important;
+        top:0 !important;
     }
 }
 
@@ -357,10 +375,21 @@ textarea{
     transition: 0.3s;
 }
 .dropdown-content{
-    z-index: 2;
+    // z-index: 2;
 }
 .datepicker-date-display{
     background-color: $btn-1;
+}
+.close{
+    position: absolute;
+    font-size: 20px;
+    color:gray;
+    top:0;
+    right:10px;
+    font-weight: 600;
+}
+.actionButtons{
+    display: flex;
 }
 .Vacant{ background-color: $vacant; }
 .Occupied{ background-color: $occupied; }

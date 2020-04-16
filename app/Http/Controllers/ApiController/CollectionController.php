@@ -32,7 +32,7 @@ class CollectionController extends Controller
         $collections = BillingModel::select('*')
         ->whereBetween('date_collected', [ $dateFrom, $dateTo ])
         ->orderBy('date_collected')
-        ->paginate(10);
+        ->get();
 
         $total_collections = BillingModel::select(DB::raw('SUM(collection) as total'))
         ->whereBetween('date_collected', [ $dateFrom, $dateTo ])->get();

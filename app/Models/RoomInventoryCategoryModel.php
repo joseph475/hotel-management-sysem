@@ -10,6 +10,7 @@ class RoomInventoryCategoryModel extends Model
     protected $primaryKey = 'id';
     public $timestamps = false;
     protected $fillable = [
-        'description'
+        'description',
+        'ispublished'
     ];
 }

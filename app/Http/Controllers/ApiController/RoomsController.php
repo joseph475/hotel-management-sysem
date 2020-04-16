@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\RoomModel;
 use App\Models\CheckinModel;
 use App\Models\CheckOutModel;
+use App\Models\RoomInventoryModel;
+use Illuminate\Support\Facades\DB;
 
 class RoomsController extends Controller
 {
@@ -56,5 +58,26 @@ class RoomsController extends Controller
         else{
             return ['status' => 0];
         }
+    }
+
+    public function addInventory(Request $request){
+       
+        for($i = 0; $i < $request->quantity; $i++){
+            $inventoryItem = RoomInventoryModel::create($request->all());
+        }
+        return $inventoryItem;
+    }
+
+    public function getInventorytatus(Request $request){
+        $inventoryStatus = DB::select('select A.id, status, B.description from roominventory A INNER JOIN inventory_category B on A.inventory_id = B.id where A.inventory_id = '. $request->inventory_id .' and room_id = '. $request->room_id .'');
+        // echo $inventoryStatus; exit;
+        return $inventoryStatus;
+    }
+
+    public function updateInventoryStatus(Request $request){
+        $inventoryStatus = RoomInventoryModel::findOrFail($request->inventory_id);
+        $inventoryStatus->status = $request->status;
+        $inventoryStatus->save();
+        return $inventoryStatus;
     }
 }

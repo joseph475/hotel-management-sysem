@@ -64,7 +64,7 @@
                 <div class="collapsible-body">
                     <ul>
                         <li><a href="{{ url('/Collections') }}"><i class="material-icons">attach_money</i>Collections</a></li>
-                        <li><a href="#"><i class="material-icons">attach_money</i>Expenses</a></li>
+                        <li><a href="{{ url('/InventoryStatus') }}"><i class="material-icons">format_list_numbered</i>Room Inventory Report</a></li>
                     </ul>
                 </div>
             </li>

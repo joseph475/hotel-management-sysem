@@ -28,6 +28,9 @@ Route::put('HotelInfo','ApiController\HotelInfoController@store');
 
 Route::get('Rooms','ApiController\RoomsController@index');
 Route::post('Room','ApiController\RoomsController@store');
+Route::post('Room/AddInventory','ApiController\RoomsController@addInventory');
+Route::get('Room/Inventorystatus','ApiController\RoomsController@getInventorytatus');
+Route::put('Room/UpdateInventorystatus','ApiController\RoomsController@updateInventoryStatus');
 Route::put('Room','ApiController\RoomsController@store');
 Route::delete('Room/{id}','ApiController\RoomsController@destroy');
 
@@ -67,10 +70,15 @@ Route::post('Checkin','ApiController\CheckinController@store');
 Route::post('ExtendTime','ApiController\CheckinController@extendTime');
 Route::get('Checkout/{id}','ApiController\CheckinController@checkout');
 
+// Collections Report
 Route::get('Collections','ApiController\CollectionController@index');
 Route::get('Collections/Search/{search}','ApiController\CollectionController@searchOR');
 Route::get('Collections/Receipt/{id}','ApiController\CollectionController@printReceipt');
 Route::get('Collections/Report/{type}/From/{dateFrom}/To/{dateTo}','ApiController\CollectionController@printReport');
+
+// InventoryStatus Report
+Route::get('InventoryStatus/{id}','ApiController\InventoryStatusReportController@printperRoom');
+Route::get('InventoryStatus/','ApiController\InventoryStatusReportController@printperRoom');
 
 Route::put('RoomManagement/update/{id}','ApiController\RoomManagementController@update');
 Route::get('Rooms/getRoomsNotOccupied','ApiController\RoomsController@getRoomsNotOccupied');

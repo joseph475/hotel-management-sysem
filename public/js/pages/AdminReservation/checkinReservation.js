@@ -57,7 +57,7 @@ function createTable(id, guest_name, roomNo, roomtype, mobile, rate_id, duration
             '<td>' + roomtype + '</td>' +
             '<td>' + duration + '</td>' +
             '<td>' + mobile + '</td>' +
-            '<td>' +
+            '<td class="actionButtons">' +
                 '<a class="btn btn-2 btn-flat mr5" id="checkInReservation"><i class="fas fa-sign-in-alt"></i></a>' +
                 '<a class="btn btn-2 btn-flat mr5 deleteReservation"><i class="far fa-trash-alt"></i></a>' +
             '</td>' +

@@ -48,7 +48,7 @@ function createFoodTable(id, menuName, servings, remaining, cost, sellingPrice, 
         '<td>' + remaining + '</td>' +
         '<td>' + cost + '</td>' +
         '<td>' + sellingPrice + '</td>' +
-        '<td>' +
+        '<td class="actionButtons">' +
             '<a class="btn btn-2 btn-flat mr5 changeStatus">'; 
                 if(parseInt(ispublished) == 1){
                     myFood += '<i class="far fa-eye"></i>';

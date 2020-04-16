@@ -45,7 +45,7 @@ function createGuestTable(roomNo, name, contact, companyName, checkin_id) {
         '<td>' + contact + '</td>' +
         '<td>' + companyName + '</td>' +
         '<td>' + roomNo + '</td>' +
-        '<td>' +
+        '<td class="actionButtons">' +
             '<a href="Checkin-status/'+ checkin_id +'" class="btn btn-flat btn-2"><i class="material-icons left">input</i>View</a>' +
         '</td>' +
         '</tr>'

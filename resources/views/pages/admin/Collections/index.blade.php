@@ -136,5 +136,5 @@
 @endsection
 
 @section('pagejs')
-    <script src="{{ asset('/js/pages/Collection/index.js') }}"></script>
+    <script src="{{ asset('/js/pages/CollectionsReport/index.js') }}"></script>
 @stop
