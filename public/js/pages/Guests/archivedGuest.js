@@ -14,7 +14,7 @@ function loadArchivedGuests(curpage, search = '') {
         success: function (data) {
             loopGuestDetails(data.data);
             $.getScript("js/pagination.js", function () {  // load pagination
-                createPagination(data.last_page, "loadArchivedGuests");
+                createPagination(data.last_page, "loadArchivedGuests", search);
                 $('#page_' + curpage).addClass("activePage");
             });
         },

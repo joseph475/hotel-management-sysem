@@ -3,7 +3,6 @@ var modal = $('#AddRoomModal');
 $(document).ready(loadRooms(1));
 $(document).on('click', '.changeStatus', changeStatus);
 $(document).on('click', '.deleteRoom', deleteRoom);
-$(document).on('click', '.checkInventory', checkInventory)
 var checkifvalid = ['#roomNo','#roomType','#floor-select'];
 
 function loadRooms(curpage, search = '') {
@@ -19,7 +18,7 @@ function loadRooms(curpage, search = '') {
         success: function (data) {
             loopRoomDetails(data.data);
             $.getScript("js/pagination.js", function () {  // load pagination
-                createPagination(data.last_page, "loadRooms");
+                createPagination(data.last_page, "loadRooms", search);
                 $('#page_' + curpage).addClass("activePage");
             });
         },

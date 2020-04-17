@@ -133,8 +133,11 @@ function createRoomCards(roomNo, room_id, type, floor, maxAdult, maxChildren, st
 }
 
 function filterAOR(){
+    sessionStorage.setItem("curpage", 1);
+    let curpage = sessionStorage.getItem("curpage");
     let filter = $(this).attr('data-filter');
     $(this).toggleClass('active');
     $('.card-panel').not(this).removeClass('active');
-    loadRoomCards(curpage, filter);
+    $(this).hasClass('active')? loadRoomCards(curpage, filter) : loadRoomCards(curpage, '');
+    
 }

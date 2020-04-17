@@ -18,7 +18,7 @@ function loadRoomTypes(curpage, search = '') {
         success: function (data) {
             loopRoomTypeDetails(data.data);
             $.getScript("js/pagination.js", function () {  // load pagination
-                createPagination(data.last_page, "loadRoomTypes");
+                createPagination(data.last_page, "loadRoomTypes", search);
                 $('#page_' + curpage).addClass("activePage");
             });
             M.AutoInit();

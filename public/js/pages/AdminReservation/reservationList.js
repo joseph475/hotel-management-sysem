@@ -19,7 +19,7 @@ function loadReservationList(curpage, search = '') {
         success: function (data) {
             loopDetails(data.data);
             $.getScript("js/pagination.js", function () {  // load pagination
-                createPagination(data.last_page, "loadReservationList");
+                createPagination(data.last_page, "loadReservationList" , search);
                 $('#page_' + curpage).addClass("activePage");
             });
             

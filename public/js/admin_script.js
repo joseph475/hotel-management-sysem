@@ -1,4 +1,6 @@
 var curpage = 1;
+sessionStorage.setItem('cursection', 1);
+
 var $loading = $('.loader').hide();
 var $dimScreem = $('#dimScreen').hide();
 

@@ -16,7 +16,7 @@ function loadRooms(curpage, search = '') {
         success: function (data) {
             loopRoomDetails(data.data);
             $.getScript("js/pagination.js", function () {  // load pagination
-                createPagination(data.last_page, "loadRooms");
+                createPagination(data.last_page, "loadRooms", search);
                 $('#page_' + curpage).addClass("activePage");
             });
         },

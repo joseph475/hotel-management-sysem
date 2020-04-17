@@ -18,7 +18,7 @@ function loadExtras(curpage, search = '') {
         success: function (data) {
             loopExtrasDetails(data.data);
             $.getScript("js/pagination.js", function () {  // load pagination
-                createPagination(data.last_page, "loadExtras");
+                createPagination(data.last_page, "loadExtras", search);
                 $('#page_' + curpage).addClass("activePage");
             });
         },

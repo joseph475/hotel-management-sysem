@@ -3866,6 +3866,8 @@ input.with-borders:focus {
 
 .activePage {
   background-color: #21a4e0 !important;
+  color: white;
+  border: 0;
 }
 
 .table-container {
@@ -3893,10 +3895,6 @@ input.with-borders:focus {
   padding-bottom: 6px;
 }
 
-#pagination {
-  margin-right: 25px;
-}
-
 #pagination #paginationUL {
   margin: 0;
   display: -webkit-box;
@@ -3911,8 +3909,7 @@ input.with-borders:focus {
   margin-left: 10px;
 }
 
-#pagination #paginationUL > li button {
-  padding: 8px 12px;
+#pagination #paginationUL > li a {
   border: 0px;
   cursor: pointer;
   color: white;

@@ -18,7 +18,7 @@ function loadFoods(curpage, search = '') {
         success: function (data) {
             loopFoodDetails(data.data);
             $.getScript("js/pagination.js", function () {  // load pagination
-                createPagination(data.last_page, "loadFoods");
+                createPagination(data.last_page, "loadFoods", search);
                 $('#page_' + curpage).addClass("activePage");
             });
         },

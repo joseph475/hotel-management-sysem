@@ -18,7 +18,7 @@ function loadInventoryList(curpage, search = '') {
         success: function (data) {
             loopInventoryListsDetails(data.data);
             $.getScript("js/pagination.js", function () {  // load pagination
-                createPagination(data.last_page, "loadInventoryList");
+                createPagination(data.last_page, "loadInventoryList", search);
                 $('#page_' + curpage).addClass("activePage");
             });
         },
