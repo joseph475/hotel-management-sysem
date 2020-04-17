@@ -6,7 +6,7 @@ $(document).ready(function(){
     loadAvailableRoomsCount();
     loadReserveAvailableOccupiedCount();
 });
-// $(document).ready(loadRoomCards);
+$(document).on('click', '.card-panel', filterAOR);
 
 $('body').on('click',function(){ $('.legends ul').fadeOut("slow"); });
 
@@ -44,11 +44,17 @@ function loadReserveAvailableOccupiedCount(){
             try{$('#vacantCount').html(data[0].total);}
             catch{$('#vacantCount').html("0");}
             
-            try{ $('#OccupiedCount').html(data[1].total); }
-            catch{ $('#OccupiedCount').html("0"); }
+            try{ $('#occupiedCount').html(data[1].total); }
+            catch{ $('#occupiedCount').html("0"); }
 
-            try{ $('#ReservedCount').html(data[2].total); }
-            catch{ $('#ReservedCount').html("0"); }
+            try{ $('#reservedCount').html(data[2].total); }
+            catch{ $('#reservedCount').html("0"); }
+
+            // try{ $('#cleaningCount').html(data[3].total); }
+            // catch{ $('#cleaningCount').html("0"); }
+
+            // try{ $('#maintenanceCount').html(data[4].total); }
+            // catch{ $('#maintenanceCount').html("0"); }
             
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -70,7 +76,7 @@ function loadRoomCards(curpage, search = '') {
         success: function (data) {
             loopRoomCards(data.data);
             $.getScript("js/pagination.js", function () {  // load pagination
-                createPagination(data.last_page, "loadRoomCards");
+                createPagination(data.last_page, "loadRoomCards", search);
                 $('#page_' + curpage).addClass("activePage");
             });
         },
@@ -124,4 +130,11 @@ function createRoomCards(roomNo, room_id, type, floor, maxAdult, maxChildren, st
                         "</div>" +
                     "</div>";
     return myRoomCard;
+}
+
+function filterAOR(){
+    let filter = $(this).attr('data-filter');
+    $(this).toggleClass('active');
+    $('.card-panel').not(this).removeClass('active');
+    loadRoomCards(curpage, filter);
 }

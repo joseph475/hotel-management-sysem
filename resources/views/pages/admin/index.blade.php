@@ -31,7 +31,7 @@
             <div class="search-content">
                 @include('partials.search')
             </div>
-            <ul class="collapsible expandable">
+            <ul class="collapsible expandable mb15">
                 <li class="active">
                     <div class="collapsible-header"><i class="material-icons">event_available</i>Available Rooms</div>
                     <div class="collapsible-body">
@@ -41,34 +41,52 @@
                     </div>
                 </li>
             </ul>
+            {{--  <div class="row cards-container hide-on-small-only">
+                <div class="col m12 s12">
+                    <div class="card-panel white ccleaning hoverable">
+                        <div class="cardlabel">
+                            <i class="material-icons">delete_sweep</i>
+                            <h5>On Cleaning</h5>
+                        </div>
+                        <h4 id="cleaningCount">0</h4>
+                    </div>
+                    <div class="card-panel white cmaintenance hoverable">
+                        <div class="cardlabel">
+                            <i class="material-icons">launch</i>
+                            <h5>On Maintenance</h5>
+                        </div>
+                        <h4 id="maintenanceCount">0</h4>
+                    </div>
+                </div>
+            </div>  --}}
         </div>
         <div class="col s12 m9 pull-m3">
             <div class="row cards-container">
                 <div class="col m4 s12">
-                    <div class="card-panel white cvacant hoverable">
+                    <div class="card-panel cvacant hoverable" data-filter="Vacant">
                         <div class="cardlabel">
                             <i class="far fa-check-circle"></i> 
-                            <h5>Available</h5>
+                            <h5>Vacant</h5>
                         </div>
                         <h4 id="vacantCount">0</h4>
                     </div> 
                 </div>
                 <div class="col m4 s12">
-                    <div class="card-panel white coccupied hoverable">
+                    <div class="card-panel coccupied hoverable" data-filter="Occupied">
                         <div class="cardlabel">
                             <i class="far fa-times-circle"></i> 
                             <h5>Occupied</h5>
                         </div>
-                        <h4 id="OccupiedCount">0</h4>
+                        <h4 id="occupiedCount">0</h4>
                     </div>
                 </div>  
                 <div class="col m4 s12">
-                    <div class="card-panel white creserved hoverable">
+                    <div class="card-panel creserved hoverable" data-filter="Reserved">
                         <div class="cardlabel">
                             <i class="far fa-address-card"></i>
                             <h5>Reserved</h5>
                         </div>
-                        <h4 id="ReservedCount">0</h4>
+                        <h4 id="reservedCount">0</h4>
                     </div>
                 </div>
             </div>

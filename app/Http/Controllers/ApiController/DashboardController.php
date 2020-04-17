@@ -12,6 +12,8 @@ class DashboardController extends Controller
     public function index(Request $request){
         $roomCards = DashboardModel::where('ispublished', 1)
         ->where('roomNo', 'LIKE', "%{$request->search}%")
+        ->orWhere('status', 'LIKE', "%{$request->search}%")
+        ->orWhere('type', 'LIKE', "%{$request->search}%")
         ->orderBy('room_id')->paginate(12);
         return $roomCards;
     }
@@ -25,7 +27,11 @@ class DashboardController extends Controller
                 UNION
              Select status, count(*) as total from rooms where status = "Occupied" and ispublished = 1 GROUP by status
                 UNION
-             Select status, count(*) as total from rooms where status = "Reserved" and ispublished = 1 GROUP by status');
+             Select status, count(*) as total from rooms where status = "Reserved" and ispublished = 1 GROUP by status
+                UNION
+             Select status, count(*) as total from rooms where status = "Cleaning" and ispublished = 1 GROUP by status
+                UNION
+             Select status, count(*) as total from rooms where status = "Maintenance" and ispublished = 1 GROUP by status');
         return $data;
     }
 }

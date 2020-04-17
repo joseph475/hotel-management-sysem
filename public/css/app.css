@@ -3152,7 +3152,7 @@ footer .page-footer {
   border-bottom: none;
 }
 
-.dashboard-page .content .col.m9 .cards-container .card-panel {
+.dashboard-page .content .col .cards-container .card-panel {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3167,59 +3167,83 @@ footer .page-footer {
   cursor: pointer;
 }
 
-.dashboard-page .content .col.m9 .cards-container .card-panel h5 {
+.dashboard-page .content .col .cards-container .card-panel h5 {
   font-size: 16px;
   margin: 0;
 }
 
-.dashboard-page .content .col.m9 .cards-container .card-panel h4 {
+.dashboard-page .content .col .cards-container .card-panel h4 {
   margin: 0;
   font-size: 25px;
   font-weight: 600;
 }
 
-.dashboard-page .content .col.m9 .cards-container .card-panel i {
+.dashboard-page .content .col .cards-container .card-panel i {
   font-size: 25px;
   margin-right: 12px;
 }
 
-.dashboard-page .content .col.m9 .cards-container .card-panel.cvacant {
+.dashboard-page .content .col .cards-container .card-panel.cvacant {
   border-top: 4px solid #787a8d;
 }
 
-.dashboard-page .content .col.m9 .cards-container .card-panel.cvacant i {
+.dashboard-page .content .col .cards-container .card-panel.cvacant i {
   color: #4caf50;
 }
 
-.dashboard-page .content .col.m9 .cards-container .card-panel.cvacant h4 {
+.dashboard-page .content .col .cards-container .card-panel.cvacant h4 {
   color: #444242;
 }
 
-.dashboard-page .content .col.m9 .cards-container .card-panel.creserved {
+.dashboard-page .content .col .cards-container .card-panel.creserved {
   border-top: 4px solid #787a8d;
 }
 
-.dashboard-page .content .col.m9 .cards-container .card-panel.creserved i {
+.dashboard-page .content .col .cards-container .card-panel.creserved i {
   color: #94fff1;
 }
 
-.dashboard-page .content .col.m9 .cards-container .card-panel.creserved h4 {
+.dashboard-page .content .col .cards-container .card-panel.creserved h4 {
   color: #444242;
 }
 
-.dashboard-page .content .col.m9 .cards-container .card-panel.coccupied {
+.dashboard-page .content .col .cards-container .card-panel.coccupied {
   border-top: 4px solid #787a8d;
 }
 
-.dashboard-page .content .col.m9 .cards-container .card-panel.coccupied i {
+.dashboard-page .content .col .cards-container .card-panel.coccupied i {
   color: #f44336;
 }
 
-.dashboard-page .content .col.m9 .cards-container .card-panel.coccupied h4 {
+.dashboard-page .content .col .cards-container .card-panel.coccupied h4 {
   color: #444242;
 }
 
-.dashboard-page .content .col.m9 .cards-container .card-panel .cardlabel {
+.dashboard-page .content .col .cards-container .card-panel.cmaintenance {
+  border-top: 4px solid #787a8d;
+}
+
+.dashboard-page .content .col .cards-container .card-panel.cmaintenance i {
+  color: #f75717;
+}
+
+.dashboard-page .content .col .cards-container .card-panel.cmaintenance h4 {
+  color: #444242;
+}
+
+.dashboard-page .content .col .cards-container .card-panel.ccleaning {
+  border-top: 4px solid #787a8d;
+}
+
+.dashboard-page .content .col .cards-container .card-panel.ccleaning i {
+  color: #2196f3;
+}
+
+.dashboard-page .content .col .cards-container .card-panel.ccleaning h4 {
+  color: #444242;
+}
+
+.dashboard-page .content .col .cards-container .card-panel .cardlabel {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3228,7 +3252,13 @@ footer .page-footer {
           align-items: center;
 }
 
-.dashboard-page .content .col.m9 #room-cards .cards {
+.dashboard-page .content .col .cards-container .card-panel.active {
+  border-bottom: 4px solid #787a8d;
+  -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.dashboard-page .content .col #room-cards .cards {
   height: 215px;
   margin-bottom: 20px;
   position: relative;
@@ -3237,7 +3267,7 @@ footer .page-footer {
   cursor: pointer;
 }
 
-.dashboard-page .content .col.m9 #room-cards .cards:hover .room_status {
+.dashboard-page .content .col #room-cards .cards:hover .room_status {
   -webkit-transform: translateY(0);
           transform: translateY(0);
   -webkit-transition: -webkit-transform 0.6s ease;
@@ -3247,14 +3277,14 @@ footer .page-footer {
   border-top: 5px solid #21a4e0;
 }
 
-.dashboard-page .content .col.m9 #room-cards .cards .p-room {
+.dashboard-page .content .col #room-cards .cards .p-room {
   text-align: center;
   margin: 0px;
   padding: 5px;
   font-size: 18px;
 }
 
-.dashboard-page .content .col.m9 #room-cards .cards .room_status {
+.dashboard-page .content .col #room-cards .cards .room_status {
   background-color: white;
   position: absolute !important;
   top: 0;
@@ -3264,7 +3294,7 @@ footer .page-footer {
           transform: translateY(175px);
 }
 
-.dashboard-page .content .col.m9 #room-cards .cards .room_status .room_status_content {
+.dashboard-page .content .col #room-cards .cards .room_status .room_status_content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3277,7 +3307,7 @@ footer .page-footer {
           align-items: center;
 }
 
-.dashboard-page .content .col.m9 #room-cards .cards .room_status .room_status_content .p-type {
+.dashboard-page .content .col #room-cards .cards .room_status .room_status_content .p-type {
   margin: 0px;
   margin-bottom: 10px;
   padding: 5px;
@@ -3286,13 +3316,13 @@ footer .page-footer {
   text-align: center;
 }
 
-.dashboard-page .content .col.m9 #room-cards .cards .room_status .room_status_content .p-info {
+.dashboard-page .content .col #room-cards .cards .room_status .room_status_content .p-info {
   text-align: center;
   margin: 0px;
   font-size: 14px;
 }
 
-.dashboard-page .content .col.m9 #room-cards .cards .room_status .room_status_content .p-status {
+.dashboard-page .content .col #room-cards .cards .room_status .room_status_content .p-status {
   text-align: center;
   margin: 0px;
   padding: 5px;
@@ -3300,7 +3330,7 @@ footer .page-footer {
   font-size: 15px;
 }
 
-.dashboard-page .content .col.m9 #room-cards .cards .card-image img {
+.dashboard-page .content .col #room-cards .cards .card-image img {
   padding: 0px 15px;
   width: 100%;
   height: 136.5px;

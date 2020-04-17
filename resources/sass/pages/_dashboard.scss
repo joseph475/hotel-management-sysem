@@ -47,87 +47,92 @@
                     }
                 }
             }
-            &.m9{
-                .cards-container{ 
-                    .card-panel{
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-                        margin: 0px;
-                        margin-bottom: 10px;
-                        cursor:pointer;
-                        h5{ font-size: 16px; margin: 0;}
-                        h4{ margin: 0; font-size: 25px; font-weight: 600;}
-                        i{ font-size: 25px; margin-right: 12px;}
-                       &.cvacant{ border-top: 4px solid rgb(120, 122, 141); i{ color:$vacant; } h4{ color: rgb(68, 66, 66); } } 
-                       &.creserved{ border-top: 4px solid rgb(120, 122, 141); i{ color:$reserved; } h4{ color: rgb(68, 66, 66); } } 
-                       &.coccupied{ border-top: 4px solid rgb(120, 122, 141); i{ color:$occupied; } h4{ color: rgb(68, 66, 66); } } 
-                       .cardlabel{ display: flex; align-items: center;}
+            .cards-container{ 
+                .card-panel{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin: 0px;
+                    margin-bottom: 10px;
+                    cursor:pointer;
+                    h5{ font-size: 16px; margin: 0;}
+                    h4{ margin: 0; font-size: 25px; font-weight: 600;}
+                    i{ font-size: 25px; margin-right: 12px;}
+                    &.cvacant{ border-top: 4px solid rgb(120, 122, 141); i{ color:$vacant; } h4{ color: rgb(68, 66, 66); } } 
+                    &.creserved{ border-top: 4px solid rgb(120, 122, 141); i{ color:$reserved; } h4{ color: rgb(68, 66, 66); } } 
+                    &.coccupied{ border-top: 4px solid rgb(120, 122, 141); i{ color:$occupied; } h4{ color: rgb(68, 66, 66); } }
+                    &.cmaintenance{ border-top: 4px solid rgb(120, 122, 141); i{ color:$maintenance; } h4{ color: rgb(68, 66, 66); } }
+                    &.ccleaning{ border-top: 4px solid rgb(120, 122, 141); i{ color:$cleaning; } h4{ color: rgb(68, 66, 66); } } 
+                    .cardlabel{ display: flex; align-items: center;}
+                    &.active{
+                        // background-color: #d6d0c1;
+                        border-bottom: 4px solid rgb(120, 122, 141);
+                        box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
                     }
                 }
-                #room-cards{
-                    .cards{
-                        // width: 166px;
-                        height: 215px;
-                        margin-bottom: 20px;
-                        position: relative;
-                        overflow: hidden;
-                        background-color: white;
-                        cursor: pointer;
-                        &:hover .room_status{ 
-                            transform:translateY(0);
-                            transition: transform 0.6s ease;
-                            border-top: 5px solid $btn-1;
-                        }
+            }
+            #room-cards{
+                .cards{
+                    // width: 166px;
+                    height: 215px;
+                    margin-bottom: 20px;
+                    position: relative;
+                    overflow: hidden;
+                    background-color: white;
+                    cursor: pointer;
+                    &:hover .room_status{ 
+                        transform:translateY(0);
+                        transition: transform 0.6s ease;
+                        border-top: 5px solid $btn-1;
+                    }
 
-                        .p-room{  
-                            text-align: center;
-                            margin: 0px;
-                            padding: 5px;
-                            font-size: 18px;
+                    .p-room{  
+                        text-align: center;
+                        margin: 0px;
+                        padding: 5px;
+                        font-size: 18px;
+                    }
+                    .room_status{
+                        background-color: white;
+                        position: absolute !important;
+                        top:0;
+                        width: 100%;
+                        height: 215px;
+                        transform:translateY(175px);
+                        
+                        .room_status_content{
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            .p-type{
+                                margin: 0px;
+                                margin-bottom: 10px;
+                                padding: 5px;
+                                font-size: 18px;
+                                color: $btn-1;
+                                text-align: center;
+                            }
+                            .p-info{
+                                text-align: center;
+                                margin: 0px;
+                                font-size: 14px;
+                            }
+                            .p-status{
+                                text-align: center;
+                                margin: 0px;
+                                padding: 5px;
+                                color: $btn-1;
+                                font-size: 15px;
+                            }
                         }
-                        .room_status{
-                            background-color: white;
-                            position: absolute !important;
-                            top:0;
+                        
+                    }
+                    .card-image{
+                        img{
+                            padding:0px 15px;
                             width: 100%;
-                            height: 215px;
-                            transform:translateY(175px);
-                            
-                            .room_status_content{
-                                display: flex;
-                                flex-direction: column;
-                                align-items: center;
-                                .p-type{
-                                    margin: 0px;
-                                    margin-bottom: 10px;
-                                    padding: 5px;
-                                    font-size: 18px;
-                                    color: $btn-1;
-                                    text-align: center;
-                                }
-                                .p-info{
-                                    text-align: center;
-                                    margin: 0px;
-                                    font-size: 14px;
-                                }
-                                .p-status{
-                                    text-align: center;
-                                    margin: 0px;
-                                    padding: 5px;
-                                    color: $btn-1;
-                                    font-size: 15px;
-                                }
-                            }
-                           
-                        }
-                        .card-image{
-                            img{
-                                padding:0px 15px;
-                                width: 100%;
-                                height: 136.5px;
-                                object-fit: contain;
-                            }
+                            height: 136.5px;
+                            object-fit: contain;
                         }
                     }
                 }
