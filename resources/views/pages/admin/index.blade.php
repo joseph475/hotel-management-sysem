@@ -3,7 +3,7 @@
 @section('content')
 <div class="row dashboard-page">
     <div id="page-header">
-        <div class="page-title">Dashboard</div>
+        <div class="page-title" page-title="Dashboard">Dashboard</div>
         <div class="legends">
             <ul class="z-depth-1">
                 <li><i class="small material-icons">brightness_1</i>Available</li>
@@ -18,6 +18,9 @@
     </div>
     <div class="content">
         <div class="col s12 m3 push-m9 mb15">
+            <div class="search-content">
+                @include('partials.search')
+            </div>
             <ul class="collapsible expandable">
                 <li class="active">
                     <div class="collapsible-header"><i class="material-icons">event_available</i>Available Rooms</div>

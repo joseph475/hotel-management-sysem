@@ -32,8 +32,10 @@
         @include('partials.admin.footer')
     </footer>
     
+    
     <script>M.AutoInit();</script>
 </body>
+
 
     
 </html>

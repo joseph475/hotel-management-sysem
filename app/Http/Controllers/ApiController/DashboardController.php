@@ -9,8 +9,9 @@ use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
-    public function index(){
-        $roomCards = DashboardModel::where('ispublished', 1)->orderBy('room_id')->paginate(12);
+    public function index(Request $request){
+        // print_r($search); exit;
+        $roomCards = DashboardModel::where('ispublished', 1)->where('roomNo', 'LIKE', "%{$request->search}%")->orderBy('room_id')->paginate(12);
         return $roomCards;
     }
     public function loadAvailableRooms(){

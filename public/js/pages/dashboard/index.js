@@ -54,12 +54,13 @@ function loadReserveAndAvailableCount(){
     });
 }
 
-function loadRoomCards(curpage) {
+function loadRoomCards(curpage, search = '') {
     sessionStorage.setItem("curpage", curpage);
     $.ajax({
         url: 'api/dashboard',
         data:{
-            page: curpage  
+            page: curpage,
+            search: search
         },
         type: 'get',
         dataType: 'json',
