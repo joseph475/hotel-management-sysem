@@ -22,26 +22,27 @@
     </div>        
     <div class="table-container">
         <table class="highlight z-depth-1 myTable">
-                <thead>
-                    <tr>
-                        <th>Guest Name</th>
-                        <th>Room No</th>
-                        <th>RoomType</th>
-                        <th>Duration</th>
-                        <th>Contact</th>
-                        <th style="width:15%;">Action</th>
-                    </tr>
-                </thead>
-                <tbody id="ReservationListTable">
-                    <!-- js generated -->
-                </tbody>    
+            <thead>
+                <tr>
+                    <th>Guest Name</th>
+                    <th>Room No</th>
+                    <th>RoomType</th>
+                    <th>Duration</th>
+                    <th>Contact</th>
+                    <th style="width:15%;">Action</th>
+                </tr>
+            </thead>
+            <tbody id="ReservationListTable">
+                <!-- js generated -->
+            </tbody>    
         </table>
+        <div class="right" id="pagination">
+            <ul id="paginationUL">
+    
+            </ul>
+        </div>
     </div>
-    <div class="right" id="pagination">
-        <ul id="paginationUL">
-
-        </ul>
-    </div>
+    
 </div>
 @endsection
 

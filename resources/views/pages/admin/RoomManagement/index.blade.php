@@ -21,24 +21,24 @@
         </div>
     </div> 
     <div class="table-container">
-            <table class="highlight z-depth-1 myTable">
-                    <thead>
-                        <tr>
-                            <th>Room #</th>
-                            <th>Status</th>
-                            <th style="width:50%;">Change Status</th>
-                        </tr>
-                    </thead>
-                    <tbody id="roomTable">
-                        <!-- js generated -->
-                    </tbody>    
-            </table>
-        </div>
+        <table class="highlight z-depth-1 myTable">
+                <thead>
+                    <tr>
+                        <th>Room #</th>
+                        <th>Status</th>
+                        <th style="width:50%;">Change Status</th>
+                    </tr>
+                </thead>
+                <tbody id="roomTable">
+                    <!-- js generated -->
+                </tbody>    
+        </table>
         <div class="right" id="pagination">
             <ul id="paginationUL">
-
+    
             </ul>
-        </div>   
+        </div> 
+    </div>
 </div>
 @endsection
 

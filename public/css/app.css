@@ -3878,6 +3878,7 @@ input.with-borders:focus {
 }
 
 .table-container .myTable {
+  margin-bottom: 20px;
   background-color: white;
 }
 
@@ -3893,10 +3894,6 @@ input.with-borders:focus {
 .table-container .myTable td {
   padding-top: 6px;
   padding-bottom: 6px;
-}
-
-#pagination {
-  margin-right: 25px;
 }
 
 #pagination #paginationUL {
@@ -3916,7 +3913,6 @@ input.with-borders:focus {
 #pagination #paginationUL > li a {
   border: 0px;
   cursor: pointer;
-  color: white;
   background-color: #a6c0cc;
 }
 

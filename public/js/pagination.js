@@ -15,14 +15,11 @@ function createPagination(data, returnCall, search, cursection = 1) {
 
     var totalPage = parseInt(data);
     var section = Math.ceil(totalPage / pagepersection);
-
-    
     var limit = (totalPage < pagepersection)? totalPage : pagepersection;
+
     limit = limit * parseInt(cursection);
-    // alert(parseInt(cursection));
     limit = limit > totalPage? totalPage : limit;
 
-    // alert(limit);
     if(totalPage > 1){
         $('#paginationUL').append(
             '<li>' +
@@ -34,9 +31,9 @@ function createPagination(data, returnCall, search, cursection = 1) {
              i++) {
             $('#paginationUL').append(
                 '<li>' +
-                    `<btn href="" class="btn btn-2 btn-small border-1 waves-effect waves-light" id="page_${i}" onclick="${returnCall}( ${i}, '${search}' )" >` +
+                    `<a class="btn btn-2 btn-small border-1 waves-effect waves-light" id="page_${i}" onclick="${returnCall}( ${i}, '${search}' )" >` +
                     `${i}` +
-                    '</btn>' +
+                    '</a>' +
                 '</li>'
             )
         }

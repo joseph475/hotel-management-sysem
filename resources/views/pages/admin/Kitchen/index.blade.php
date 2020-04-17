@@ -26,26 +26,27 @@
     </div>        
     <div class="table-container">
         <table class="highlight z-depth-1 myTable">
-                <thead>
-                    <tr>
-                        <th>Menu</th>
-                        <th>Servings</th>
-                        <th>Remaining</th>
-                        <th>Cost</th>
-                        <th>Selling Price</th>
-                        <th style="width:20%;">Action</th>
-                    </tr>
-                </thead>
-                <tbody id="foodTable">
-                    <!-- js generated -->
-                </tbody>    
+            <thead>
+                <tr>
+                    <th>Menu</th>
+                    <th>Servings</th>
+                    <th>Remaining</th>
+                    <th>Cost</th>
+                    <th>Selling Price</th>
+                    <th style="width:20%;">Action</th>
+                </tr>
+            </thead>
+            <tbody id="foodTable">
+                <!-- js generated -->
+            </tbody>    
         </table>
+        <div class="right" id="pagination">
+            <ul id="paginationUL">
+    
+            </ul>
+        </div>
     </div>
-    <div class="right" id="pagination">
-        <ul id="paginationUL">
-
-        </ul>
-    </div>
+    
 
     <div id="AddMenuModal" class="modal bottom-sheet">
         <div class="modal-content">

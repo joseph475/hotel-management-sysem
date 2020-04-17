@@ -38,24 +38,25 @@
                     </div>
                 </div>   
                 <table class="highlight z-depth-1 myTable">
-                        <thead>
-                            <tr>
-                                <th width="20%">Or #</th>
-                                <th width="30%">Collection</th>
-                                <th width="30%">Date Collected</th> 
-                                <th width="10%">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody id="DailyTable">
-                            <!-- js generated -->
-                        </tbody>    
+                    <thead>
+                        <tr>
+                            <th width="20%">Or #</th>
+                            <th width="30%">Collection</th>
+                            <th width="30%">Date Collected</th> 
+                            <th width="10%">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="DailyTable">
+                        <!-- js generated -->
+                    </tbody>    
                 </table>
+                <div class="right" id="pagination">
+                    <ul id="paginationUL">
+        
+                    </ul>
+                </div>
             </div>
-            <div class="right" id="pagination">
-                <ul id="paginationUL">
-    
-                </ul>
-            </div>
+            
             <div id="range" class="col s12 no-pad">
                 <div class="col s12 m12 no-pad-mar">
                     <div class="card-panel py10">

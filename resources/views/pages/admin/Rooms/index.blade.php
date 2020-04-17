@@ -34,26 +34,27 @@
         </div>                   
         <div class="table-container">
             <table class="highlight z-depth-1 myTable">
-                    <thead>
-                        <tr>
-                            <th>Room #</th>
-                            <th>Type</th>
-                            <th>Floor</th>
-                            {{--  <th>Rate</th>
-                            <th>Rate/Hour</th>  --}}
-                            <th style="width:20%;">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="roomTable">
-                        <!-- js generated -->
-                    </tbody>    
+                <thead>
+                    <tr>
+                        <th>Room #</th>
+                        <th>Type</th>
+                        <th>Floor</th>
+                        {{--  <th>Rate</th>
+                        <th>Rate/Hour</th>  --}}
+                        <th style="width:20%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="roomTable">
+                    <!-- js generated -->
+                </tbody>    
             </table>
+            <div class="right" id="pagination">
+                <ul id="paginationUL">
+    
+                </ul>
+            </div>   
         </div>
-        <div class="right" id="pagination">
-            <ul id="paginationUL">
-
-            </ul>
-        </div>   
+        
         
         <div id="AddRoomModal" class="modal bottom-sheet">
             <div class="modal-content">

@@ -40,12 +40,13 @@
                         <!-- js generated -->
                     </tbody>    
             </table>
+            <div class="right" id="pagination">
+                <ul id="paginationUL">
+    
+                </ul>
+            </div>  
         </div>
-        <div class="right" id="pagination">
-            <ul id="paginationUL">
-
-            </ul>
-        </div>   
+         
 @endsection
 
 @section('pagejs')

@@ -36,12 +36,12 @@
                         <!-- js generated -->
                     </tbody>    
             </table>
+            <div class="right" id="pagination">
+                <ul id="paginationUL">
+    
+                </ul>
+            </div>   
         </div>
-        <div class="right" id="pagination">
-            <ul id="paginationUL">
-
-            </ul>
-        </div>   
         
         <div id="AddInventoryItemModal" class="modal bottom-sheet">
             <div class="modal-content">
