@@ -90,7 +90,7 @@ Route::get('InventoryStatus/{id}','ApiController\InventoryStatusReportController
 Route::get('InventoryStatus/','ApiController\InventoryStatusReportController@printperRoom');
 
 Route::put('RoomManagement/update/{id}','ApiController\RoomManagementController@update');
-Route::get('Rooms/getRoomsNotOccupied','ApiController\RoomsController@getRoomsNotOccupied');
+Route::get('RoomManagement/getRoomsNotOccupied','ApiController\RoomManagementController@getRoomsNotOccupied');
 
 Route::get('AdminReservationList','ApiController\Admin_ReservationController@index');
 Route::get('AdminReservationList/getAvailableRooms','ApiController\Admin_ReservationController@getAvailableRooms');

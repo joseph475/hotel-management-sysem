@@ -27,14 +27,6 @@ class RoomsController extends Controller
         ->paginate(10);
         return $rooms;
     }
-
-    public function getRoomsNotOccupied(Request $request){
-        $rooms = RoomModel::where('ispublished',1)
-        ->where('status','!=', 'Occupied')
-        ->where('roomNo', 'LIKE', "%{$request->search}%")
-        ->paginate(10);
-        return $rooms;
-    }
    
     public function store(Request $request)
     {

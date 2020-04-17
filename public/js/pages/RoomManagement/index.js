@@ -6,7 +6,7 @@ $(document).on('click','.changestatus' , changeStatus );
 function loadRooms(curpage, search = '') {
     sessionStorage.setItem("curpage", curpage);
     $.ajax({
-        url: 'api/Rooms/getRoomsNotOccupied',
+        url: 'api/RoomManagement/getRoomsNotOccupied',
         data:{
             page: curpage,
             search: search  

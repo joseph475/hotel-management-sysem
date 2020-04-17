@@ -13,9 +13,15 @@ class RoomManagementController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function getRoomsNotOccupied(Request $request){
+        $rooms = RoomModel::where('ispublished',1)
+        ->where('status','!=', 'Occupied')
+        ->where(function($q) use ($request){
+            $q->where('roomNo', 'LIKE', "%{$request->search}%")
+              ->orWhere('status', 'LIKE', "%{$request->search}%");
+        })
+        ->paginate(10);
+        return $rooms;
     }
 
     public function create()
