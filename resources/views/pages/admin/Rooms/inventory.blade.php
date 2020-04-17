@@ -3,7 +3,7 @@
 @section('content')
     <div class="row room-page">
         <div id="page-header">
-            <div class="page-title" data-roomNo="{{ $roomNo }}">Room {{ $roomNo }} Inventory</div>
+            <div class="page-title" page-title="Room Inventory" data-roomNo="{{ $roomNo }}">Room {{ $roomNo }} Inventory</div>
             <div class="page-buttons">
                 <div class="button-content">
                     <a class="btn btn-1" href="/Rooms">
@@ -18,13 +18,6 @@
                         <i class="material-icons left">add</i>
                         Add Item
                     </a>
-                </div>
-            </div>
-        </div>
-        <div class="filters">
-            <div class="left-filter">
-                <div class="search-content">
-                    @include('partials.search')
                 </div>
             </div>
         </div>

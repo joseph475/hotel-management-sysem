@@ -17,9 +17,10 @@ class RoomTypesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $roomtypes = RoomTypeModel::where('ispublished',1)
+        ->where('type', 'LIKE', "%{$request->search}%")
         ->orderBy('created_at', 'asc')
         ->paginate(10);
         
@@ -83,8 +84,11 @@ class RoomTypesController extends Controller
     }
 
    
-    public function destroy($id)
+    public function changeStatus(Request $request)
     {
-        //
+        $status = RoomTypeModel::findOrFail($request->id);
+        $status->ispublished = $request->ispublished;
+        $status->save();
+        return $status;
     }
 }

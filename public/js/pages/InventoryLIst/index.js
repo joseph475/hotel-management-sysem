@@ -6,11 +6,12 @@ $(document).ready(loadInventoryList(curpage));
 $(document).on('click', '.changeStatus', changeStatus);
 $(document).on('click', '.deleteInventoryItem', deleteInventoryItem);
 
-function loadInventoryList(curpage) {
+function loadInventoryList(curpage, search = '') {
     $.ajax({
         url: 'api/InventoryLists',
         data:{
-            page: curpage  
+            page: curpage,
+            search: search  
         },
         type: 'get',
         dataType: 'json',

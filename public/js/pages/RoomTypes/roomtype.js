@@ -3,6 +3,7 @@ $(document).ready(ckEditorInit('description'));
 $(document).on('click','.submitRoomType', save);
 $(document).on('click', '.btn_add_rate', addRate);
 $(document).on('click','#submit_penalty_rate', changePenaltyRate);
+$(document).on('click', '.changeStatus', changeStatus);
 
 var checkifvalid = ['#add_hour', '#add_rate'];
 var roomtype_id = $('.btn_add_rate').attr('data-id');
@@ -40,7 +41,6 @@ function createlist(id, hours, rate){
 }
 function changePenaltyRate(){
     var penalty_rate = $('#penalty_rate_change').val();
-    // alert(penalty_rate);
     $.ajax({
         url: '../api/ChangePenaltyRate',
         type: 'PUT',
@@ -57,6 +57,33 @@ function changePenaltyRate(){
         },
         error: function (aaa, bbb, ccc) {
             console.log(aaa + "-" + bbb + "-" + ccc);
+        }
+    });
+}
+function changeStatus(e){
+    e.preventDefault();
+    let status = $(this).attr('data-status');
+    status = (status == 1)? 0 : 1;
+    $.confirm({
+        title: `${(status == 1)? 'Publish ':'Unpublish ' }RoomType?`,
+        content: '',
+        buttons: {
+            cancel: function () { },
+            confirm: function () {
+                $.ajax({
+                    url: '../api/ChangeStatus',
+                    type: 'PUT',
+                    data: {
+                        id: roomtype_id,
+                        ispublished : status
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        location.reload();
+                    },
+                    error: function (aaa, bbb, ccc) { console.log(aaa); }
+                });
+            }
         }
     });
 }

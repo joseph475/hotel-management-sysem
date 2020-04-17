@@ -4,7 +4,7 @@ var dataLength = 0;
 $(document).ready(function(){
     loadRoomCards(1);
     loadAvailableRoomsCount();
-    loadReserveAndAvailableCount();
+    loadReserveAvailableOccupiedCount();
 });
 // $(document).ready(loadRoomCards);
 
@@ -35,16 +35,19 @@ function loadAvailableRoomsCount(){
     });
 }
 
-function loadReserveAndAvailableCount(){
+function loadReserveAvailableOccupiedCount(){
     $.ajax({
-        url: 'api/dashboard/getResrveAndAvailableCount',
+        url: 'api/dashboard/getReserveAvailableOccupiedCount',
         type: 'get',
         dataType: 'json',
         success: function (data) {
             try{$('#vacantCount').html(data[0].total);}
             catch{$('#vacantCount').html("0");}
             
-            try{ $('#ReservedCount').html(data[1].total); }
+            try{ $('#OccupiedCount').html(data[1].total); }
+            catch{ $('#OccupiedCount').html("0"); }
+
+            try{ $('#ReservedCount').html(data[2].total); }
             catch{ $('#ReservedCount').html("0"); }
             
         },

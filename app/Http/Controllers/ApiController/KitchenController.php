@@ -10,9 +10,10 @@ use App\Models\AddedFoodsModel;
 class KitchenController extends Controller
 {
     
-    public function index()
+    public function index(Request $request)
     {
         $foods = KitchenModel::orderBy('createdDate', 'desc')
+        ->where('menuName', 'LIKE', "%{$request->search}%")
         ->paginate(10);
         
         return $foods;

@@ -3,7 +3,7 @@
 @section('content')
 <div class="row checkin-page">
     <div id="page-header">
-        <div class="page-title">Food Menu</div>
+        <div class="page-title" page-title="Manage Food Menu">Manage Food Menu</div>
         <div class="page-buttons">
             <div class="button-content">
                 <a class="btn btn-1" href="/">

@@ -3207,15 +3207,15 @@ footer .page-footer {
   color: #444242;
 }
 
-.dashboard-page .content .col.m9 .cards-container .card-panel.ccheckout {
+.dashboard-page .content .col.m9 .cards-container .card-panel.coccupied {
   border-top: 4px solid #787a8d;
 }
 
-.dashboard-page .content .col.m9 .cards-container .card-panel.ccheckout i {
+.dashboard-page .content .col.m9 .cards-container .card-panel.coccupied i {
   color: #f44336;
 }
 
-.dashboard-page .content .col.m9 .cards-container .card-panel.ccheckout h4 {
+.dashboard-page .content .col.m9 .cards-container .card-panel.coccupied h4 {
   color: #444242;
 }
 

@@ -6,11 +6,12 @@ $(document).ready(loadExtras(curpage));
 $(document).on('click', '.changeStatus', changeStatus);
 $(document).on('click', '.deleteExtra', deleteExtra);
 
-function loadExtras(curpage) {
+function loadExtras(curpage, search = '') {
     $.ajax({
         url: 'api/Extras',
         data:{
-            page: curpage  
+            page: curpage,
+            search: search  
         },
         type: 'get',
         dataType: 'json',

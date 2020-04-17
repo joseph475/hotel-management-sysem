@@ -10,9 +10,10 @@ use App\Models\AddedExtrasModel;
 class ExtrasController extends Controller
 {
    
-    public function index()
+    public function index(Request $request)
     {
         $extras = ExtrasModel::orderBy('createdDate', 'asc')
+        ->where('description', 'LIKE', "%{$request->search}%")
         ->paginate(10);
         return $extras;
     }

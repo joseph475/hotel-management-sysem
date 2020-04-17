@@ -19,14 +19,14 @@ class RoomsController extends Controller
         return view('pages.admin.Rooms.index', $data); 
     }
 
-    public function showInventory($id){
+    public function show($id){
         $inventory = DB::select('select id,description, 
         (select count(id) from roominventory where A.id = roominventory.inventory_id and roominventory.status = 1 and roominventory.room_id ='. $id .') as good,
         (select count(id) from roominventory where A.id = roominventory.inventory_id and roominventory.status = 2 and roominventory.room_id ='. $id .') as damaged,
         (select count(id) from roominventory where A.id = roominventory.inventory_id and roominventory.status = 3 and roominventory.room_id ='. $id .') as missing
         from inventory_category A');
 
-        $availableInventory = DB::select('select id,description from inventory_category');
+        $availableInventory = DB::select('select id,description from inventory_category where ispublished = 1');
 
         $data = array(
             'inventory' => $inventory,

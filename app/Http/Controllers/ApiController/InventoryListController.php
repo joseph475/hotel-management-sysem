@@ -9,15 +9,12 @@ use App\Models\RoomInventoryModel;
 
 class InventoryListController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $inventoryList = RoomInventoryCategoryModel::orderBy('createdDate', 'asc')
+        ->where('description', 'LIKE', "%{$request->search}%")
         ->paginate(10);
         return $inventoryList;
-    }
-    public function getIsPublishedExtras(){
-        $extras = ExtrasModel::where('ispublished' , 1)->orderBy('createdDate', 'asc')->get();
-        return $extras;
     }
 
     public function store(Request $request)

@@ -61,7 +61,7 @@
                         i{ font-size: 25px; margin-right: 12px;}
                        &.cvacant{ border-top: 4px solid rgb(120, 122, 141); i{ color:$vacant; } h4{ color: rgb(68, 66, 66); } } 
                        &.creserved{ border-top: 4px solid rgb(120, 122, 141); i{ color:$reserved; } h4{ color: rgb(68, 66, 66); } } 
-                       &.ccheckout{ border-top: 4px solid rgb(120, 122, 141); i{ color:$occupied; } h4{ color: rgb(68, 66, 66); } } 
+                       &.coccupied{ border-top: 4px solid rgb(120, 122, 141); i{ color:$occupied; } h4{ color: rgb(68, 66, 66); } } 
                        .cardlabel{ display: flex; align-items: center;}
                     }
                 }

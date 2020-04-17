@@ -3,7 +3,7 @@
 @section('content')
     <div class="row rooms-page">
         <div id="page-header">
-            <div class="page-title">Manage Extras</div>
+            <div class="page-title" page-title="Manage Extras">Manage Extras</div>
             <div class="page-buttons">
                 <div class="button-content">
                     <a class="btn btn-1" href="/">

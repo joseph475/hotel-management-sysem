@@ -3,7 +3,7 @@
 @section('content')
     <div class="row roomtypes-page">
         <div id="page-header">
-            <div class="page-title">Manage Room Types</div>
+            <div class="page-title" page-title="Manage Room Types">Manage Room Types</div>
             <div class="page-buttons">
                 <div class="button-content">
                     <a class="btn btn-1" href="/">
@@ -17,7 +17,13 @@
                 </div>
             </div>
         </div>
-                    
+        <div class="filters">
+            <div class="left-filter">
+                <div class="search-content">
+                    @include('partials.search')
+                </div>
+            </div>
+        </div>            
         <div class="table-container">
             <table class="highlight z-depth-1 myTable">
                     <thead>

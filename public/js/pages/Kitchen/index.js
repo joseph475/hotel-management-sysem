@@ -6,11 +6,12 @@ $(document).ready(loadFoods(curpage));
 $(document).on('click', '.changeStatus', changeStatus);
 $(document).on('click', '.deleteFood', deleteFood);
 
-function loadFoods(curpage) {
+function loadFoods(curpage, search = '') {
     $.ajax({
         url: 'api/Kitchen',
         data:{
-            page: curpage  
+            page: curpage,
+            search: search 
         },
         type: 'get',
         dataType: 'json',

@@ -5,12 +5,13 @@ $(document).ready(function () {
     loadRoomTypes(curpage);
 });
 
-function loadRoomTypes(curpage) {
+function loadRoomTypes(curpage, search = '') {
     sessionStorage.setItem("curpage", curpage);
     $.ajax({
         url: 'api/RoomTypes',
         data: {
-            page: curpage
+            page: curpage,
+            search: search 
         },
         type: 'get',
         dataType: 'json',

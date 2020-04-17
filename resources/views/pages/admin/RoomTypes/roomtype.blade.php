@@ -10,7 +10,7 @@
                         <i class="material-icons left">save</i>Save
                     </a>
                     <a data-target="add_rates_modal" class="modal-trigger btn btn-1"><i class="material-icons left">add</i>Add Rate</a>
-                    <a class="btn btn-1" href="/">
+                    <a class="btn btn-1 changeStatus" data-status="{{ $roomtype->ispublished }}" href="">
                         {!! ($roomtype->ispublished == 1) ? '<i class="material-icons left">swap_vert</i>Unpublish' : '<i class="material-icons left">swap_vert</i>Publish' !!}
                     </a>
                 </div>

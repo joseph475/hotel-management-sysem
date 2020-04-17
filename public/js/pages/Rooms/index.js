@@ -56,7 +56,7 @@ function createRoomTable(id, roomNo, type, floor, ispublished) {
             myRoom += '<i class="far fa-eye-slash"></i>';
         }
 
-        myRoom += '</a><a class="btn btn-flat btn-2 checkInventory mr3"><i class="far fa-list-alt"></i></a><a class="btn btn-flat btn-2 deleteRoom"><i class="far fa-trash-alt"></i></a></td></tr>';
+        myRoom += `</a><a class="btn btn-flat btn-2 mr3" href="/Room/${id}"><i class="far fa-list-alt"></i></a><a class="btn btn-flat btn-2 deleteRoom"><i class="far fa-trash-alt"></i></a></td></tr>`;
     return myRoom;
 }
 
@@ -143,11 +143,11 @@ function deleteRoom(){
         }
     });
 }
-function checkInventory(){
-    var tr = $(this).closest('tr')
-    var id = tr.attr('data-id');
-    location.replace("../Room/" + id);
-}
+// function checkInventory(){
+//     var tr = $(this).closest('tr')
+//     var id = tr.attr('data-id');
+//     location.replace("../Room/" + id);
+// }
 
 function clearmodal(){
     modal.find('#roomNo').val('');

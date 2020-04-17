@@ -31,5 +31,17 @@ function search() {
         case 'Manage Rooms':
             loadRooms(1, search);
             break;
+        case 'Manage Room Types':
+            loadRoomTypes(1, search);
+            break;
+        case 'Manage Food Menu':
+            loadFoods(1, search);
+            break;
+        case 'Manage Inventory List':
+            loadInventoryList(1, search);
+            break;
+        case 'Manage Extras':
+            loadExtras(1, search);
+            break;
     }
 }

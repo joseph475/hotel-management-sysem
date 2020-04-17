@@ -4,17 +4,27 @@
 <div class="row dashboard-page">
     <div id="page-header">
         <div class="page-title" page-title="Dashboard">Dashboard</div>
-        <div class="legends">
-            <ul class="z-depth-1">
-                <li><i class="small material-icons">brightness_1</i>Available</li>
-                <li><i class="small material-icons">brightness_1</i>Occupied</li>
-                <li><i class="small material-icons">brightness_1</i>Reserved</li>
-                <li><i class="small material-icons">brightness_1</i>Cleaning</li>
-                <li><i class="small material-icons">brightness_1</i>Maintenance</li>
-                <li><i class="small material-icons">brightness_1</i>For Checkout</li>
-            </ul>
-            <i class="small material-icons menu tooltipped" data-position="left"  data-tooltip="Legends">more_vert</i>
+        <div class="page-buttons">
+            <div class="button-content">
+                
+                <div class="legends">
+                    <ul class="z-depth-1">
+                        <li><i class="small material-icons">brightness_1</i>Available</li>
+                        <li><i class="small material-icons">brightness_1</i>Occupied</li>
+                        <li><i class="small material-icons">brightness_1</i>Reserved</li>
+                        <li><i class="small material-icons">brightness_1</i>Cleaning</li>
+                        <li><i class="small material-icons">brightness_1</i>Maintenance</li>
+                        <li><i class="small material-icons">brightness_1</i>For Checkout</li>
+                    </ul>
+                    <i class="small material-icons menu tooltipped" data-position="left"  data-tooltip="Legends">more_vert</i>
+                </div>
+                {{--  <a class="btn btn-1" href=".">
+                    <i class="material-icons">refresh</i>
+                </a>  --}}
+            </div>
+            
         </div>
+        
     </div>
     <div class="content">
         <div class="col s12 m3 push-m9 mb15">
@@ -44,6 +54,15 @@
                     </div> 
                 </div>
                 <div class="col m4 s12">
+                    <div class="card-panel white coccupied hoverable">
+                        <div class="cardlabel">
+                            <i class="far fa-times-circle"></i> 
+                            <h5>Occupied</h5>
+                        </div>
+                        <h4 id="OccupiedCount">0</h4>
+                    </div>
+                </div>  
+                <div class="col m4 s12">
                     <div class="card-panel white creserved hoverable">
                         <div class="cardlabel">
                             <i class="far fa-address-card"></i>
@@ -52,15 +71,6 @@
                         <h4 id="ReservedCount">0</h4>
                     </div>
                 </div>
-                <div class="col m4 s12">
-                    <div class="card-panel white ccheckout hoverable">
-                        <div class="cardlabel">
-                            <i class="far fa-bell"></i>
-                            <h5>Checkout</h5>
-                        </div>
-                        <h4 id="forCheckoutCount">0</h4>
-                    </div>
-                </div>  
             </div>
             <div class="row" id="room-cards">
                 <!-- Displays Each Rooms using JS-->
