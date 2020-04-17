@@ -1,3 +1,4 @@
+var mytable = $('#guestTable');
 $(document).ready(loadArchivedGuests(curpage));
 
 function loadArchivedGuests(curpage, search = '') {
@@ -24,15 +25,20 @@ function loadArchivedGuests(curpage, search = '') {
 };
 
 function loopGuestDetails(data) {
-    $('#guestTable').html("");
-    for (var i = 0; i < data.length; i++) {
-        var roomNo = data[i].roomNo,
-            checkin_id = data[i].checkin_id,
-            name = data[i].name,
-            contact = data[i].contact,
-            checkinDate = data[i].checkInDate
-            checkoutDate = data[i].actual_checkout
-        $('#guestTable').append(createGuestTable(roomNo, name, contact, checkin_id, checkinDate, checkoutDate));
+    mytable.html("");
+    if(data.length > 0){
+        for (var i = 0; i < data.length; i++) {
+            var roomNo = data[i].roomNo,
+                checkin_id = data[i].checkin_id,
+                name = data[i].name,
+                contact = data[i].contact,
+                checkinDate = data[i].checkInDate
+                checkoutDate = data[i].actual_checkout
+                mytable.append(createGuestTable(roomNo, name, contact, checkin_id, checkinDate, checkoutDate));
+        }
+    }
+    else{
+        mytable.append('<tr><td colspan="5" style="text-align:center;" class="grey lighten-3">No Record Available</td></tr>');
     }
 }
 

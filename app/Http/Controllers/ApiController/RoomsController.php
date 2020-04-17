@@ -17,18 +17,21 @@ class RoomsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $rooms = RoomModel::join('roomtypes', 'rooms.roomType', '=', 'roomtypes.id')
         ->select('rooms.id', 'rooms.roomNo', 'roomtypes.type', 'rooms.floor', 'roomtypes.rateperhour','rooms.status','rooms.ispublished')
+        ->where('rooms.roomNo', 'LIKE', "%{$request->search}%")
+        ->orWhere('roomtypes.type', 'LIKE', "%{$request->search}%")
         ->orderBy('rooms.id', 'asc')
         ->paginate(10);
         return $rooms;
     }
 
-    public function getRoomsNotOccupied(){
+    public function getRoomsNotOccupied(Request $request){
         $rooms = RoomModel::where('ispublished',1)
         ->where('status','!=', 'Occupied')
+        ->where('roomNo', 'LIKE', "%{$request->search}%")
         ->paginate(10);
         return $rooms;
     }

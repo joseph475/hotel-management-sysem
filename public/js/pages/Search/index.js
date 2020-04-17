@@ -25,5 +25,11 @@ function search() {
         case 'Archived Guest Masterlist':
             loadArchivedGuests(1, search);
             break;
+        case 'Room Management':
+            loadRooms(1, search);
+            break;
+        case 'Manage Rooms':
+            loadRooms(1, search);
+            break;
     }
 }

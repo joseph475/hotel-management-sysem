@@ -31,7 +31,7 @@ class GuestsController extends Controller
         ->where('checkin.isCheckIn', 0)
         ->where('guests.name', 'LIKE', "%{$request->search}%")
         ->orderBy('checkin.checkOutDate')
-        ->paginate(10);
+        ->paginate(15);
         return $guests;
     }
 

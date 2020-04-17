@@ -1,3 +1,4 @@
+var mytable = $('#guestTable');
 $(document).ready(loadGuests(curpage));
 $('.printGuestlist').on('click', printGuestList);
 
@@ -27,15 +28,20 @@ function printGuestList(){
     window.open("../api/Guests/Report");
 }
 function loopGuestDetails(data) {
-    $('#guestTable').html("");
-    for (var i = 0; i < data.length; i++) {
-        var roomNo = data[i].roomNo,
-            checkin_id = data[i].checkin_id,
-            name = data[i].name,
-            contact = data[i].contact,
-            companyName = data[i].companyName,
-            companyAddress = data[i].companyAddress
-        $('#guestTable').append(createGuestTable(roomNo, name, contact, companyName, checkin_id));
+    mytable.html("");
+    if(data.length){
+        for (var i = 0; i < data.length; i++) {
+            var roomNo = data[i].roomNo,
+                checkin_id = data[i].checkin_id,
+                name = data[i].name,
+                contact = data[i].contact,
+                companyName = data[i].companyName,
+                companyAddress = data[i].companyAddress
+            $('#guestTable').append(createGuestTable(roomNo, name, contact, companyName, checkin_id));
+        }
+    }
+    else{
+        mytable.append('<tr><td colspan="5" style="text-align:center;" class="grey lighten-3">No Record Available</td></tr>');
     }
 }
 

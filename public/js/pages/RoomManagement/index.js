@@ -3,12 +3,13 @@ var mytable = $('#roomTable');
 $(document).ready(loadRooms(curpage));
 $(document).on('click','.changestatus' , changeStatus );
 
-function loadRooms(curpage) {
+function loadRooms(curpage, search = '') {
     sessionStorage.setItem("curpage", curpage);
     $.ajax({
         url: 'api/Rooms/getRoomsNotOccupied',
         data:{
-            page: curpage  
+            page: curpage,
+            search: search  
         },
         type: 'get',
         dataType: 'json',

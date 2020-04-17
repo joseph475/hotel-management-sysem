@@ -6,12 +6,13 @@ $(document).on('click', '.deleteRoom', deleteRoom);
 $(document).on('click', '.checkInventory', checkInventory)
 var checkifvalid = ['#roomNo','#roomType','#floor-select'];
 
-function loadRooms(curpage) {
+function loadRooms(curpage, search = '') {
     sessionStorage.setItem("curpage", curpage);
     $.ajax({
         url: 'api/Rooms',
         data:{
-            page: curpage  
+            page: curpage,
+            search: search  
         },
         type: 'get',
         dataType: 'json',
@@ -55,7 +56,7 @@ function createRoomTable(id, roomNo, type, floor, ispublished) {
             myRoom += '<i class="far fa-eye-slash"></i>';
         }
 
-        myRoom += '</a><a class="btn btn-flat btn-2 checkInventory mr3"><i class="far fa-list-alt"></i></a><a class="btn btn-flat btn-2 deleteRoom" target="_blank"><i class="far fa-trash-alt"></i></a></td></tr>';
+        myRoom += '</a><a class="btn btn-flat btn-2 checkInventory mr3"><i class="far fa-list-alt"></i></a><a class="btn btn-flat btn-2 deleteRoom"><i class="far fa-trash-alt"></i></a></td></tr>';
     return myRoom;
 }
 
@@ -145,7 +146,7 @@ function deleteRoom(){
 function checkInventory(){
     var tr = $(this).closest('tr')
     var id = tr.attr('data-id');
-    window.open("../Room/" + id);
+    location.replace("../Room/" + id);
 }
 
 function clearmodal(){
