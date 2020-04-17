@@ -95,7 +95,7 @@ function openReservationModal(){
                 roomListUl.html('<li class="collection-header mycollection-header"><h4>Select Room</h4></li>');
 
                 for (var i = 0; i < availableRoomsLength; i++) {
-                    template += '<li class="collection-item mycollection" data-reservationId="'+ reservationId +'" data-roomId ="'+ data.availableRooms[i].roomNo +'">' +
+                    template += '<li class="collection-item mycollection" data-reservationId="'+ reservationId +'" data-roomId ="'+ data.availableRooms[i].id +'">' +
                                     '<div class="custom-collection">' +
                                         '<div>Room#' +
                                             '<span>'+ data.availableRooms[i].roomNo +'</span>' +

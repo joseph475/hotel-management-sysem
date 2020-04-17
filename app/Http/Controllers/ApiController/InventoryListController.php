@@ -4,17 +4,16 @@ namespace App\Http\Controllers\ApiController;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\ExtrasModel;
-use App\Models\AddedExtrasModel;
+use App\Models\RoomInventoryCategoryModel;
+use App\Models\RoomInventoryModel;
 
-class ExtrasController extends Controller
+class InventoryListController extends Controller
 {
-   
     public function index()
     {
-        $extras = ExtrasModel::orderBy('createdDate', 'asc')
+        $inventoryList = RoomInventoryCategoryModel::orderBy('createdDate', 'asc')
         ->paginate(10);
-        return $extras;
+        return $inventoryList;
     }
     public function getIsPublishedExtras(){
         $extras = ExtrasModel::where('ispublished' , 1)->orderBy('createdDate', 'asc')->get();
@@ -24,14 +23,14 @@ class ExtrasController extends Controller
     public function store(Request $request)
     {   
         if ($request->isMethod('put')) {
-            $extras = ExtrasModel::findOrFail($request->id);
-            $extras->ispublished = $request->ispublished;
-            $extras->save();
-            return $extras;
+            $inventoryList = RoomInventoryCategoryModel::findOrFail($request->id);
+            $inventoryList->ispublished = $request->ispublished;
+            $inventoryList->save();
+            return $inventoryList;
         }
 
-        $extras = ExtrasModel::create($request->all());
-        return $extras;
+        $inventoryList = RoomInventoryCategoryModel::create($request->all());
+        return $inventoryList;
     }
 
     public function show($id)
@@ -41,10 +40,10 @@ class ExtrasController extends Controller
 
     public function destroy($id)
     {
-        $checkdata1 = AddedExtrasModel::where('extrasId', $id)->first();
+        $checkdata1 = RoomInventoryModel::where('inventory_id', $id)->first();
 
         if(!$checkdata1){
-            ExtrasModel::destroy($id);
+            RoomInventoryCategoryModel::destroy($id);
             return ['status' => 1];
         }
         else{

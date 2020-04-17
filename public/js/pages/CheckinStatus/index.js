@@ -177,6 +177,9 @@ function showAddSomething(){
     if(addSomethingModal.find('#something_quantity').attr('data-type') == "Foods"){
         addSomethingModal.find('#something_quantity').attr('placeholder', 'Remaining (' + remaining + ') servings');
     }
+    else{
+        addSomethingModal.find('#something_quantity').attr('placeholder', '');
+    }
     
 }
 

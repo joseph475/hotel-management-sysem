@@ -59,6 +59,7 @@ class Admin_ReservationController extends Controller
         return [];
     }
     public function reserve(Request $request){
+        // print_r($request->roomId); exit;
         $reserve = ReservationModel::findOrFail($request->reservationId)->update(['status'=>'Reserved', 'room_id'=>$request->roomId]);
         $roomStatus = RoomModel::findOrFail($request->roomId)->update(['status'=>'Reserved']);
         return [];

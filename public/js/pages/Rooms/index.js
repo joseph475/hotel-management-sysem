@@ -46,7 +46,7 @@ function createRoomTable(id, roomNo, type, floor, ispublished) {
         '<td>' + type + '</td>' +
         '<td>' + floor + '</td>' +
         '<td class="actionButtons">' +
-            '<a class="btn btn-flat btn-2 mr3 changeStatus" target="_blank">';
+            '<a class="btn btn-flat btn-2 mr3 changeStatus">';
 
         if(parseInt(ispublished) == 1){
             myRoom += '<i class="far fa-eye"></i>';
@@ -55,7 +55,7 @@ function createRoomTable(id, roomNo, type, floor, ispublished) {
             myRoom += '<i class="far fa-eye-slash"></i>';
         }
 
-        myRoom += '</a><a class="btn btn-flat btn-2 checkInventory mr3" target="_blank"><i class="far fa-list-alt"></i></a><a class="btn btn-flat btn-2 deleteRoom" target="_blank"><i class="far fa-trash-alt"></i></a></td></tr>';
+        myRoom += '</a><a class="btn btn-flat btn-2 checkInventory mr3"><i class="far fa-list-alt"></i></a><a class="btn btn-flat btn-2 deleteRoom" target="_blank"><i class="far fa-trash-alt"></i></a></td></tr>';
     return myRoom;
 }
 

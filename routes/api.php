@@ -51,10 +51,15 @@ Route::get('Guests/Report','ApiController\GuestsController@printGuestList');
 
 Route::get('Kitchen','ApiController\KitchenController@index');
 Route::get('Kitchen/getPublishedFoods','ApiController\KitchenController@getIsPublishedFoods');
-
 Route::post('Kitchen','ApiController\KitchenController@store');
 Route::put('Kitchen','ApiController\KitchenController@store');
 Route::delete('Kitchen/{id}','ApiController\KitchenController@destroy');
+
+Route::get('InventoryLists','ApiController\InventoryListController@index');
+Route::post('InventoryList','ApiController\InventoryListController@store');
+Route::put('InventoryList','ApiController\InventoryListController@store');
+Route::delete('InventoryList/{id}','ApiController\InventoryListController@destroy');
+Route::get('InventoryLists/getPublishedInventoryList','ApiController\InventoryListController@getIsPublishedInventoryList');
 
 Route::get('Extras','ApiController\ExtrasController@index');
 Route::post('Extra','ApiController\ExtrasController@store');

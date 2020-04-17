@@ -53,7 +53,8 @@
                         <li><a href="{{ url('/Rooms') }}"><i class="material-icons left">hotel</i>Rooms</a></li>
                         <li><a href="{{ url('/RoomTypes') }}"><i class="material-icons left">weekend</i>Room Types</a></li>
                         <li><a href="{{ url('/Kitchen') }}"><i class="material-icons left">restaurant_menu</i>Food Menus</a></li>
-                        <li><a href="{{ url('/Extras') }}"><i class="material-icons left">dns</i>Extras</a></li>
+                        <li><a href="{{ url('/InventoryList') }}"><i class="material-icons left">storage</i>Inventory List</a></li>
+                        <li><a href="{{ url('/Extras') }}"><i class="material-icons left">filter_vintage</i>Extras</a></li>
                         <li><a href="accounts.php"><i class="material-icons">supervisor_account</i>Accounts</a></li>
                     </ul>
                 </div>
@@ -64,7 +65,7 @@
                 <div class="collapsible-body">
                     <ul>
                         <li><a href="{{ url('/Collections') }}"><i class="material-icons">attach_money</i>Collections</a></li>
-                        <li><a href="{{ url('/InventoryStatus') }}"><i class="material-icons">format_list_numbered</i>Room Inventory Report</a></li>
+                        <li><a href="{{ url('/InventoryStatus') }}"><i class="material-icons">storage</i>Room Inventory Report</a></li>
                     </ul>
                 </div>
             </li>

@@ -17,7 +17,7 @@ $(document).on('click', '.status-radio', function(){
         },
         dataType: 'json',
         success: function (data) {
-            M.toast({html: 'Status updated succesfully'});
+            // M.toast({html: 'Status updated succesfully'});
             // location.reload();
         },
         error: function (aaa, bbb, ccc) { console.log(aaa); }

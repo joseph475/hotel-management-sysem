@@ -20,7 +20,7 @@ class RoomTypesController extends Controller
     public function index()
     {
         $roomtypes = RoomTypeModel::where('ispublished',1)
-        ->orderBy('created_at', 'desc')
+        ->orderBy('created_at', 'asc')
         ->paginate(10);
         
         // $room_images = RoomImagesModel::

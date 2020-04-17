@@ -27,6 +27,8 @@ Route::get('/Guests', 'WebController\GuestsController@index');
 
 Route::get('/Kitchen', 'WebController\KitchenController@index');
 
+Route::get('/InventoryList', 'WebController\InventoryListController@index');
+
 Route::get('/Extras', 'WebController\ExtrasController@index');
 
 Route::get('/HotelInfo', 'WebController\HotelInfoController@index');
