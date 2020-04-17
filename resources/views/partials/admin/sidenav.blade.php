@@ -35,7 +35,7 @@
                     <li><a class="modal-trigger" href="{{ url('/Guests') }}"><i class="material-icons">group</i>Guest List</a></li>
                 </ul>
                 <ul>
-                    <li><a class="modal-trigger" href="guestArchived.php"><i class="material-icons">storage</i>Archived Guest</a></li>
+                    <li><a class="modal-trigger" href="{{ url('/ArchivedGuest') }}"><i class="material-icons">storage</i>Archived Guest</a></li>
                 </ul>
             </div>
         </li>
@@ -64,8 +64,10 @@
                 <a class="collapsible-header dropdownArr"><i class="material-icons">insert_chart</i>Reports<i class="material-icons right arrow">arrow_drop_down</i></a>
                 <div class="collapsible-body">
                     <ul>
+                        <li><a href="../api/Guests/Report" target="_blank"><i class="material-icons">assignment_ind</i>Guest Masterlist</a></li>
                         <li><a href="{{ url('/Collections') }}"><i class="material-icons">attach_money</i>Collections</a></li>
                         <li><a href="{{ url('/InventoryStatus') }}"><i class="material-icons">storage</i>Room Inventory Report</a></li>
+                        {{--  window.open("../api/Guests/Report");  --}}
                     </ul>
                 </div>
             </li>

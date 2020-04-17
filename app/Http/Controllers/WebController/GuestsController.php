@@ -11,4 +11,7 @@ class GuestsController extends Controller
     {   
         return view('pages.admin.Guests.index'); 
     }
+    public function ArchivedGuests(){
+        return view('pages.admin.Guests.archivedGuest'); 
+    }
 }

@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <div id="page-header">
-        <div class="page-title">Checkin Reservations</div>
+        <div class="page-title" page-title="Checkin Reservation">Checkin Reservations</div>
         <div class="page-buttons">
             <div class="button-content">
                 <a class="btn btn-1" href="/">

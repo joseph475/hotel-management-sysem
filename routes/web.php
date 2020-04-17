@@ -24,6 +24,7 @@ Route::get('/Checkin-status/{id}', 'WebController\CheckinController@show');
 Route::get('/RoomManagement', 'WebController\RoomManagementController@index');
 
 Route::get('/Guests', 'WebController\GuestsController@index');
+Route::get('/ArchivedGuest', 'WebController\GuestsController@ArchivedGuests');
 
 Route::get('/Kitchen', 'WebController\KitchenController@index');
 

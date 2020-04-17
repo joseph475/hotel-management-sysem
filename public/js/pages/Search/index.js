@@ -1,11 +1,29 @@
-$(document).on('click','#searchbtn', search);
+$(document).on('click', '#searchbtn', search);
 
-function search(){
+$('input[name="search"]').keypress(function (e) {
+    var key = e.which;
+    if (key == 13) { search(); }
+});
+
+function search() {
     let page_title = $('.page-title').attr('page-title');
+    let search = $('input[name="search"]').val();
 
-    switch(page_title){
+    switch (page_title) {
         case 'Dashboard':
-            loadRoomCards(1, '9');
-        break
+            loadRoomCards(1, search);
+            break;
+        case 'Pending Reservations':
+            loadReservationList(1, search);
+            break;
+        case 'Checkin Reservation':
+            loadReservationList(1, search);
+            break;
+        case 'Guest Masterlist':
+            loadGuests(1, search);
+            break;
+        case 'Archived Guest Masterlist':
+            loadArchivedGuests(1, search);
+            break;
     }
 }

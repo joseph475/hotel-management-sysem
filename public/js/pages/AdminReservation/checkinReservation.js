@@ -3,11 +3,12 @@ $(document).ready(loadReservationList(curpage));
 $(document).on('click','#checkInReservation', reserveRoom);
 $(document).on('click','.deleteReservation', deleteReservation);
 
-function loadReservationList(curpage) {
+function loadReservationList(curpage, search = '') {
     $.ajax({
         url: 'api/AdminReservationList/getReservedRooms',
         data:{
-            page: curpage  
+            page: curpage,
+            search: search 
         },
         type: 'get',
         dataType: 'json',

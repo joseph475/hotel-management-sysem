@@ -1,10 +1,9 @@
-$(document).ready(loadGuests(curpage));
-$('.printGuestlist').on('click', printGuestList);
+$(document).ready(loadArchivedGuests(curpage));
 
-function loadGuests(curpage, search = '') {
+function loadArchivedGuests(curpage, search = '') {
     sessionStorage.setItem("curpage", curpage);
     $.ajax({
-        url: 'api/Guests',
+        url: 'api/ArchivedGuests',
         data:{
             page: curpage,
             search: search  
@@ -14,7 +13,7 @@ function loadGuests(curpage, search = '') {
         success: function (data) {
             loopGuestDetails(data.data);
             $.getScript("js/pagination.js", function () {  // load pagination
-                createPagination(data.last_page, "loadGuests");
+                createPagination(data.last_page, "loadArchivedGuests");
                 $('#page_' + curpage).addClass("activePage");
             });
         },
@@ -23,9 +22,7 @@ function loadGuests(curpage, search = '') {
         }
     });
 };
-function printGuestList(){
-    window.open("../api/Guests/Report");
-}
+
 function loopGuestDetails(data) {
     $('#guestTable').html("");
     for (var i = 0; i < data.length; i++) {
@@ -33,23 +30,20 @@ function loopGuestDetails(data) {
             checkin_id = data[i].checkin_id,
             name = data[i].name,
             contact = data[i].contact,
-            companyName = data[i].companyName,
-            companyAddress = data[i].companyAddress
-        $('#guestTable').append(createGuestTable(roomNo, name, contact, companyName, checkin_id));
+            checkinDate = data[i].checkInDate
+            checkoutDate = data[i].actual_checkout
+        $('#guestTable').append(createGuestTable(roomNo, name, contact, checkin_id, checkinDate, checkoutDate));
     }
 }
 
-function createGuestTable(roomNo, name, contact, companyName, checkin_id) {
-    companyName = (companyName == null)? "" : companyName;
+function createGuestTable(roomNo, name, contact, checkin_id, checkinDate, checkoutDate) {
     contact = (contact == null)? "" : contact;
     var myGuest = '<tr data-id='+ checkin_id +'>' +
         '<td>' + name + '</td>' +
         '<td>' + contact + '</td>' +
-        '<td>' + companyName + '</td>' +
         '<td>' + roomNo + '</td>' +
-        '<td class="actionButtons">' +
-            '<a href="Checkin-status/'+ checkin_id +'" class="btn btn-flat btn-2"><i class="material-icons left">input</i>View</a>' +
-        '</td>' +
+        '<td>' + checkinDate + '</td>' +
+        '<td>' + checkoutDate + '</td>' +
         '</tr>'
     return myGuest;
 }

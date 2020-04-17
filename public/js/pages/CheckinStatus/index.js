@@ -184,6 +184,7 @@ function showAddSomething(){
 }
 
 function submitCheckOut(){
+    // alert(checkin_id);
     $.confirm({
         title: 'Confirm checkout?',
         content: '',
