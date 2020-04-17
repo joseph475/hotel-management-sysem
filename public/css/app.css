@@ -3895,6 +3895,10 @@ input.with-borders:focus {
   padding-bottom: 6px;
 }
 
+#pagination {
+  margin-right: 25px;
+}
+
 #pagination #paginationUL {
   margin: 0;
   display: -webkit-box;

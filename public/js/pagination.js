@@ -1,24 +1,36 @@
 $(document).on('click', '.changeSection', changeSection);
-cursection = sessionStorage.getItem('cursection');
+
+var pagepersection = 8;
+var offset = pagepersection - 1;
+var sectionpage = 1;
 
 function createPagination(data, returnCall, search, cursection = 1) {
-    curpage = sessionStorage.getItem('curpage');
-
     $('#paginationUL').html("");
+
+    curpage = sessionStorage.getItem('curpage');
+    cursection = sessionStorage.getItem('cursection');
+
+    sectionpage = (parseInt(cursection) * pagepersection - offset);
+    var backsectionpage = ((parseInt(cursection) - 1) * pagepersection - offset);
+
     var totalPage = parseInt(data);
-    var pagepersection = 3;
     var section = Math.ceil(totalPage / pagepersection);
 
-    // alert(cursection);
+    
+    var limit = (totalPage < pagepersection)? totalPage : pagepersection;
+    limit = limit * parseInt(cursection);
+    // alert(parseInt(cursection));
+    limit = limit > totalPage? totalPage : limit;
 
+    // alert(limit);
     if(totalPage > 1){
         $('#paginationUL').append(
             '<li>' +
-                `<a class="btn btn-small btn-2 border-1 waves-effect waves-light black-text ${curpage == 1? 'disabled': ''}" onclick="${returnCall}( ${parseInt(curpage) - 1}, '${search}' )"><</a>`+
+                `<a class="btn btn-small btn-2 border-1 waves-effect waves-light black-text ${(parseInt(cursection) == 1)? 'disabled': ''}" onclick="changeSection(${ data }, '${ returnCall }', '${ search }', '${ parseInt(cursection) - 1 }', '${ backsectionpage }', 'previous')"><<</a>`+
             '</li>'
         );
-        for (i = (cursection * pagepersection -2);
-             i <= (pagepersection > totalPage)? totalPage : pagepersection;
+        for (i = ((sectionpage < 1)? 1 : sectionpage);
+             i <= limit;
              i++) {
             $('#paginationUL').append(
                 '<li>' +
@@ -30,19 +42,28 @@ function createPagination(data, returnCall, search, cursection = 1) {
         }
         $('#paginationUL').append(
             '<li>' +
-                `<a class="btn btn-small btn-2 border-1 waves-effect waves-light black-text ${(parseInt(curpage) >= totalPage)? 'disabled': ''}" onclick="${returnCall}( ${parseInt(curpage) + 1}, '${search}' )">></a>`+
-            '</li>'
-        );
-        $('#paginationUL').append(
-            '<li>' +
-                `<a class="btn btn-small btn-2 border-1 waves-effect waves-light black-text" onclick="changeSection(${ data }, ${ returnCall }, ${ search })">>></a>`+
+                `<a class="btn btn-small btn-2 border-1 waves-effect waves-light black-text ${(parseInt(cursection) >= section)? 'disabled': ''}" onclick="changeSection(${ data }, '${ returnCall }', '${ search }', '${ cursection }', '${ sectionpage }', 'next')">>></a>`+
             '</li>'
         );
     }
 }
 
-function changeSection(data, returnCall, search){
-    sessionStorage.setItem('cursection', parseInt(cursection) + 1);
-    cursection = sessionStorage.getItem('cursection');
+function changeSection(data, returnCall, search, cursection, sectionpage, move){
+    
+    if(move == "next"){
+        sessionStorage.setItem('cursection', parseInt(cursection) + 1);
+        cursection = sessionStorage.getItem('cursection');
+        sectionpage = (parseInt(cursection) * pagepersection - offset)
+    }
+    else{
+        sessionStorage.setItem('cursection', parseInt(cursection));
+        cursection = sessionStorage.getItem('cursection');
+        ((parseInt(cursection) - 1) * pagepersection - offset)
+    }
+    
+    // sectionpage = (move == "next")? sectionpage = (parseInt(cursection) * pagepersection - offset) : ((parseInt(cursection) - 1) * pagepersection - offset);
+    
+    
     createPagination(data, returnCall, search, cursection);
+    window[returnCall](sectionpage, search);
 }
