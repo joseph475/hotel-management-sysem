@@ -145,7 +145,3 @@ function filter(){
 
     $(this).hasClass('active')? loadRoomCards(curpage, filter) : loadRoomCards(curpage, '');
 }
-
-function checkNotif(){
-    
-}

@@ -102,6 +102,7 @@ Route::put('AdminReservationList/cancelForCheckinReservation','ApiController\Adm
 Route::post('AdminReservationList/checkInReservation','ApiController\Admin_ReservationController@checkInReservation');
 
 Route::get('dashboard','ApiController\DashboardController@index');
+Route::get('dashboard/getForCheckout','ApiController\DashboardController@getForCheckout');
 Route::get('dashboard/getAvailableRooms','ApiController\DashboardController@loadAvailableRooms');
 Route::get('dashboard/getReserveAvailableOccupiedCount','ApiController\DashboardController@getReserveAvailableOccupiedCount');
 

@@ -403,6 +403,7 @@ span.notifbadge{
     margin-left: -12px;
     margin-top: 12px;
     background-color: $occupied !important;
+    padding: 0;
 }
 .Vacant{ background-color: $vacant; }
 .Occupied{ background-color: $occupied; }

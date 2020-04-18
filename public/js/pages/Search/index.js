@@ -11,39 +11,71 @@ function search() {
 
     switch (page_title) {
         case 'Dashboard':
+
             loadRoomCards(1, search);
             $('.card-panel').removeClass('active');
             $('.available-filter').removeClass('active');
+
             break;
+
         case 'Pending Reservations':
+
             loadReservationList(1, search);
+
             break;
+
         case 'Checkin Reservation':
+
             loadReservationList(1, search);
+
             break;
+
         case 'Guest Masterlist':
+
             loadGuests(1, search);
+
             break;
+
         case 'Archived Guest Masterlist':
+
             loadArchivedGuests(1, search);
+
             break;
+
         case 'Room Management':
+
             loadRooms(1, search);
+
             break;
+
         case 'Manage Rooms':
+
             loadRooms(1, search);
+
             break;
+
         case 'Manage Room Types':
+
             loadRoomTypes(1, search);
+
             break;
+
         case 'Manage Food Menu':
+
             loadFoods(1, search);
+
             break;
+
         case 'Manage Inventory List':
+
             loadInventoryList(1, search);
+
             break;
+
         case 'Manage Extras':
+
             loadExtras(1, search);
+            
             break;
     }
 }

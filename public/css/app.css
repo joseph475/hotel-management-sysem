@@ -4065,6 +4065,7 @@ span.notifbadge {
   margin-left: -12px;
   margin-top: 12px;
   background-color: #f44336 !important;
+  padding: 0;
 }
 
 .Vacant {

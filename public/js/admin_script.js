@@ -5,6 +5,7 @@ var $loading = $('.loader').hide();
 var $dimScreem = $('#dimScreen').hide();
 
 $(document).ready(function ($) {
+    checkNotif();
     jconfirm.defaults = { content : '', theme: 'dark', boxWidth: '35%', useBootstrap: false };
     if ($(".roomTypeDropDown").length){ loadRoomTypesDropdown() }
     $(window).on('load', function () {
@@ -230,4 +231,20 @@ if (document.body.contains(pageheader)){
             pageheader.classList.remove("sticky");
         }
     }
+}
+
+
+function checkNotif(){
+    $.ajax({
+        url: '/api/dashboard/getForCheckout',
+        type: 'get',
+        dataType: 'json',
+        success: function (data) {
+            $('.notifbadge').css('padding','0 6px');
+            $('.notifbadge').attr('data-badge-caption', data.length);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(textStatus, errorThrown);
+        }
+    });
 }
