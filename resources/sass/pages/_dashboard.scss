@@ -32,7 +32,7 @@
                             ul{
                                 li{
                                     cursor: pointer;
-                                    background-color: rgba(248, 246, 246, 0.795);
+                                    // background-color: rgba(248, 246, 246, 0.795);
                                     padding: 10px 20px;
                                     border-bottom: 1px solid rgb(228, 213, 213);
                                     &:hover{
@@ -40,6 +40,11 @@
                                     }
                                     &:last-child{
                                         border-bottom: none;
+                                    }
+                                    &.active{
+                                        border-left:5px solid gray;
+                                        font-weight: bold;
+                                        background-color: rgb(228, 226, 226);
                                     }
                                 }
                             }
@@ -54,20 +59,24 @@
                     justify-content: space-between;
                     margin: 0px;
                     margin-bottom: 10px;
+                    border-top: 4px solid rgb(120, 122, 141); 
                     cursor:pointer;
                     h5{ font-size: 16px; margin: 0;}
                     h4{ margin: 0; font-size: 25px; font-weight: 600;}
                     i{ font-size: 25px; margin-right: 12px;}
-                    &.cvacant{ border-top: 4px solid rgb(120, 122, 141); i{ color:$vacant; } h4{ color: rgb(68, 66, 66); } } 
-                    &.creserved{ border-top: 4px solid rgb(120, 122, 141); i{ color:$reserved; } h4{ color: rgb(68, 66, 66); } } 
-                    &.coccupied{ border-top: 4px solid rgb(120, 122, 141); i{ color:$occupied; } h4{ color: rgb(68, 66, 66); } }
-                    &.cmaintenance{ border-top: 4px solid rgb(120, 122, 141); i{ color:$maintenance; } h4{ color: rgb(68, 66, 66); } }
-                    &.ccleaning{ border-top: 4px solid rgb(120, 122, 141); i{ color:$cleaning; } h4{ color: rgb(68, 66, 66); } } 
+                    &.cvacant{ i{ color:$vacant; } h4{ color: rgb(68, 66, 66); } } 
+                    &.creserved{ i{ color:$reserved; } h4{ color: rgb(68, 66, 66); } } 
+                    &.coccupied{ i{ color:$occupied; } h4{ color: rgb(68, 66, 66); } }
+                    // &.cmaintenance{ border-top: 4px solid rgb(120, 122, 141); i{ color:$maintenance; } h4{ color: rgb(68, 66, 66); } }
+                    // &.ccleaning{ border-top: 4px solid rgb(120, 122, 141); i{ color:$cleaning; } h4{ color: rgb(68, 66, 66); } } 
                     .cardlabel{ display: flex; align-items: center;}
                     &.active{
                         // background-color: #d6d0c1;
-                        border-bottom: 4px solid rgb(120, 122, 141);
-                        box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                        border-bottom:4px solid  rgb(120, 122, 141);
+                        // background-color: rgba(243, 241, 241, 0.692);
+                        box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.19);
+                        // h5{ font-weight: bold; }
+                       
                     }
                 }
             }

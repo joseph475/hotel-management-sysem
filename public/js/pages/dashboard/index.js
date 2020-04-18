@@ -6,7 +6,8 @@ $(document).ready(function(){
     loadAvailableRoomsCount();
     loadReserveAvailableOccupiedCount();
 });
-$(document).on('click', '.card-panel', filterAOR);
+$(document).on('click', '.card-panel', filter);
+$(document).on('click', '.availableRoomsFilter', filter);
 
 $('body').on('click',function(){ $('.legends ul').fadeOut("slow"); });
 
@@ -25,7 +26,7 @@ function loadAvailableRoomsCount(){
             var availableTypes = "";
 
             for (var i = 0; i < dataLength; i++) {
-                availableTypes += '<li>' + data[i].type + '<span class="new badge grey darken-2" data-badge-caption="">' + data[i].total + '</span></li>';
+                availableTypes += `<li class="availableRoomsFilter" filter-type="available-filter" data-filter="${ data[i].type }">${ data[i].type }<span class="new badge grey darken-2" data-badge-caption="">${ data[i].total }</span></li>`;
             }
             $('#availableTypes').append(availableTypes);
         },
@@ -132,12 +133,19 @@ function createRoomCards(roomNo, room_id, type, floor, maxAdult, maxChildren, st
     return myRoomCard;
 }
 
-function filterAOR(){
+function filter(){
+
     sessionStorage.setItem("curpage", 1);
     let curpage = sessionStorage.getItem("curpage");
     let filter = $(this).attr('data-filter');
     $(this).toggleClass('active');
+
+    $('.availableRoomsFilter').not(this).removeClass('active');
     $('.card-panel').not(this).removeClass('active');
+
     $(this).hasClass('active')? loadRoomCards(curpage, filter) : loadRoomCards(curpage, '');
+}
+
+function checkNotif(){
     
 }

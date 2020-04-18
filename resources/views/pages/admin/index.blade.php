@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('meta')
+    {{-- <meta http-equiv="refresh" content="10" /> --}}
+@stop
+
 @section('content')
 <div class="row dashboard-page">
     <div id="page-header">

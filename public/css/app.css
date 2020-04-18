@@ -3139,7 +3139,6 @@ footer .page-footer {
 
 .dashboard-page .content .col.m3 .collapsible li .collapsible-body ul li {
   cursor: pointer;
-  background-color: rgba(248, 246, 246, 0.795);
   padding: 10px 20px;
   border-bottom: 1px solid #e4d5d5;
 }
@@ -3150,6 +3149,12 @@ footer .page-footer {
 
 .dashboard-page .content .col.m3 .collapsible li .collapsible-body ul li:last-child {
   border-bottom: none;
+}
+
+.dashboard-page .content .col.m3 .collapsible li .collapsible-body ul li.active {
+  border-left: 5px solid gray;
+  font-weight: bold;
+  background-color: #e4e2e2;
 }
 
 .dashboard-page .content .col .cards-container .card-panel {
@@ -3164,6 +3169,7 @@ footer .page-footer {
           justify-content: space-between;
   margin: 0px;
   margin-bottom: 10px;
+  border-top: 4px solid #787a8d;
   cursor: pointer;
 }
 
@@ -3183,20 +3189,12 @@ footer .page-footer {
   margin-right: 12px;
 }
 
-.dashboard-page .content .col .cards-container .card-panel.cvacant {
-  border-top: 4px solid #787a8d;
-}
-
 .dashboard-page .content .col .cards-container .card-panel.cvacant i {
   color: #4caf50;
 }
 
 .dashboard-page .content .col .cards-container .card-panel.cvacant h4 {
   color: #444242;
-}
-
-.dashboard-page .content .col .cards-container .card-panel.creserved {
-  border-top: 4px solid #787a8d;
 }
 
 .dashboard-page .content .col .cards-container .card-panel.creserved i {
@@ -3207,39 +3205,11 @@ footer .page-footer {
   color: #444242;
 }
 
-.dashboard-page .content .col .cards-container .card-panel.coccupied {
-  border-top: 4px solid #787a8d;
-}
-
 .dashboard-page .content .col .cards-container .card-panel.coccupied i {
   color: #f44336;
 }
 
 .dashboard-page .content .col .cards-container .card-panel.coccupied h4 {
-  color: #444242;
-}
-
-.dashboard-page .content .col .cards-container .card-panel.cmaintenance {
-  border-top: 4px solid #787a8d;
-}
-
-.dashboard-page .content .col .cards-container .card-panel.cmaintenance i {
-  color: #f75717;
-}
-
-.dashboard-page .content .col .cards-container .card-panel.cmaintenance h4 {
-  color: #444242;
-}
-
-.dashboard-page .content .col .cards-container .card-panel.ccleaning {
-  border-top: 4px solid #787a8d;
-}
-
-.dashboard-page .content .col .cards-container .card-panel.ccleaning i {
-  color: #2196f3;
-}
-
-.dashboard-page .content .col .cards-container .card-panel.ccleaning h4 {
   color: #444242;
 }
 
@@ -3254,8 +3224,8 @@ footer .page-footer {
 
 .dashboard-page .content .col .cards-container .card-panel.active {
   border-bottom: 4px solid #787a8d;
-  -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-          box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.19);
 }
 
 .dashboard-page .content .col #room-cards .cards {
@@ -3576,6 +3546,10 @@ main {
 
 nav .brand-logo {
   line-height: 72px;
+}
+
+header .header-nav .nav-wrapper .header-icons a {
+  margin-left: 25px;
 }
 
 a {
@@ -4084,6 +4058,13 @@ textarea {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+span.notifbadge {
+  min-width: 0;
+  margin-left: -12px;
+  margin-top: 12px;
+  background-color: #f44336 !important;
 }
 
 .Vacant {

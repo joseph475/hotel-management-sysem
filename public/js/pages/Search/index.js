@@ -12,6 +12,8 @@ function search() {
     switch (page_title) {
         case 'Dashboard':
             loadRoomCards(1, search);
+            $('.card-panel').removeClass('active');
+            $('.available-filter').removeClass('active');
             break;
         case 'Pending Reservations':
             loadReservationList(1, search);

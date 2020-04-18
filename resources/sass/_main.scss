@@ -16,6 +16,9 @@ main {
 nav .brand-logo{
     line-height: 72px;
 }
+header .header-nav .nav-wrapper .header-icons a{
+    margin-left: 25px;
+}
 a{
     color: black;
 }
@@ -394,6 +397,12 @@ textarea{
 }
 .actionButtons{
     display: flex;
+}
+span.notifbadge{
+    min-width: 0;
+    margin-left: -12px;
+    margin-top: 12px;
+    background-color: $occupied !important;
 }
 .Vacant{ background-color: $vacant; }
 .Occupied{ background-color: $occupied; }
