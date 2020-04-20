@@ -13,9 +13,11 @@ class DashboardController extends Controller
 {
     public function index(Request $request){
         $roomCards = DashboardModel::where('ispublished', 1)
-        ->where('roomNo', 'LIKE', "%{$request->search}%")
-        ->orWhere('status', 'LIKE', "%{$request->search}%")
-        ->orWhere('type', 'LIKE', "%{$request->search}%")
+        ->where(function($q) use ($request){
+            $q->where('roomNo', 'LIKE', "%{$request->search}%")
+              ->orWhere('status', 'LIKE', "%{$request->search}%")
+              ->orWhere('type', 'LIKE', "%{$request->search}%");
+        })
         ->orderBy('room_id')->paginate(12);
         return $roomCards;
     }
@@ -25,17 +27,13 @@ class DashboardController extends Controller
     }
     public function getForCheckout(){
         $forCheckOut = DashboardModel::whereNotNull('checkin_id')
-        ->where('checkOutDate','<', Carbon::now()->addMinutes(15)->toDateTimeString())
+        ->where('checkOutDate','<=', Carbon::now()->addMinutes(15)->toDateTimeString())
         ->get();
 
         // ->toSql();
         // echo $forCheckOut->getBindings();
         // var_dump($forCheckOut->toSql());
         // var_dump($forCheckOut->getBindings());
-        // exit;
-        // echo $forCheckOut; exit;
-
-        // print_r($queries); exit;
         return $forCheckOut;
     }
     public function getReserveAvailableOccupiedCount(){

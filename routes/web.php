@@ -31,6 +31,8 @@ Route::get('/InventoryList', 'WebController\InventoryListController@index');
 
 Route::get('/Extras', 'WebController\ExtrasController@index');
 
+Route::get('/UpcomingCheckout', 'WebController\UpcomingCheckout@index');
+
 Route::get('/HotelInfo', 'WebController\HotelInfoController@index');
 
 Route::get('/ChooseRoom', 'WebController\ChooseRoomController@index');

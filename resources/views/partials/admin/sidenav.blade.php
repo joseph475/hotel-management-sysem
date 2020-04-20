@@ -40,7 +40,7 @@
             </div>
         </li>
     </ul>
-    <li><a href="nextCheckout.php"><i class="material-icons left">event_available</i>Upcoming Checkouts</a></li>
+    <li><a href="{{ url('/UpcomingCheckout') }}"><i class="material-icons left">event_available</i>Upcoming Checkouts</a></li>
     
     <li><a href="{{ url('/RoomManagement') }}"><i class="material-icons">hotel</i>Room Management</a></li>
 

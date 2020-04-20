@@ -92,6 +92,8 @@ Route::get('InventoryStatus/','ApiController\InventoryStatusReportController@pri
 Route::put('RoomManagement/update/{id}','ApiController\RoomManagementController@update');
 Route::get('RoomManagement/getRoomsNotOccupied','ApiController\RoomManagementController@getRoomsNotOccupied');
 
+Route::get('UpcomingCheckouts','ApiController\UpcomingCheckoutController@index');
+
 Route::get('AdminReservationList','ApiController\Admin_ReservationController@index');
 Route::get('AdminReservationList/getAvailableRooms','ApiController\Admin_ReservationController@getAvailableRooms');
 Route::get('AdminReservationList/getReservedRooms','ApiController\Admin_ReservationController@getReservedRooms');
