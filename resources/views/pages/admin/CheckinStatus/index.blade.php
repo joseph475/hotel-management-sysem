@@ -176,26 +176,24 @@
                 </li>
             </ul>
             <ul class="collapsible expandable mb6">
-                <li>
-                    <div class="collapsible-header"><i class="fas fa-utensils"></i></i>Add Foods</div>
+                <li class="active">
+                    <div class="collapsible-header"><i class="fas fa-utensils"></i>Add Foods
+                        <span class="checkinSearch">
+                            <input id="search" name="searchFood" placeholder="Search Food" type="text" class="validate mb0">
+                        </span>
+                    </div>
                     <div class="collapsible-body">
                         <ul class="foodList">
-                            {{--  @foreach($foodlist as $foods)
-                                <li data-id="{{ $foods->id }}">{{ $foods->menuName }} 
-                                    <span class="right">&#8369;{{ $foods->sellingPrice }} 
-                                        <a href="" class="addbtn ml30 tooltipped" data-tooltip="Add {{ $foods->menuName }}">
-                                            <i class="far fa-plus-square fa-lg"></i>
-                                        </a> 
-                                    </span>
-                                </li>
-                            @endforeach  --}}
+                            {{-- <li>
+                                <input id="search" name="searchFood" placeholder="Search Food" type="text" class="validate">
+                            </li> --}}
                         </ul>
                     </div>
                 </li>
             </ul>
             <ul class="collapsible expandable mb6">
-                <li>
-                    <div class="collapsible-header"><i class="fab fa-ethereum"></i></i>Add Extras</div>
+                <li class="active">
+                    <div class="collapsible-header"><i class="fab fa-ethereum"></i>Add Extras</div>
                     <div class="collapsible-body">
                         <ul class="ExtrasList">
                             {{--  @foreach($extraslist as $extras)

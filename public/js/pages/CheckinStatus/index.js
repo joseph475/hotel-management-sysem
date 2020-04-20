@@ -5,11 +5,16 @@ var checkin_id = $('.checkin-status-page').attr('data-id');
 var tobeCleared = ['#something_quantity']
 
 $(document).on('click','.update_hours', extendTime);
-$(document).ready(loadFoodList);
+// $(document).ready(loadFoodList);
 $(document).ready(loadExtrasList);
 $(document).on('click','.addSomething', showAddSomething);
 $(document).on('click','.add_something', confirmAddSomething);
 $(document).on('click','#submitCheckOut', submitCheckOut);
+
+$('input[name="searchFood"]').keypress(function (e) {
+    var key = e.which;
+    if (key == 13) { searchFood(); }
+});
 
 
 function confirmAddSomething(){
@@ -71,11 +76,15 @@ function confirmAddSomething(){
     
 }
 
-function loadFoodList(){
+function searchFood(){
+    let search = $('input[name="searchFood"]').val();
     $.ajax({
         url: '../api/Kitchen/getPublishedFoods',
         type: 'get',
         dataType: 'json',
+        data:{
+            search: search  
+        },
         success: function (data) {
             loopFoodlist(data);
         },

@@ -18,7 +18,6 @@
                         <li><i class="small material-icons">brightness_1</i>Reserved</li>
                         <li><i class="small material-icons">brightness_1</i>Cleaning</li>
                         <li><i class="small material-icons">brightness_1</i>Maintenance</li>
-                        <li><i class="small material-icons">brightness_1</i>For Checkout</li>
                     </ul>
                     <i class="small material-icons menu tooltipped" data-position="left"  data-tooltip="Legends">more_vert</i>
                 </div>

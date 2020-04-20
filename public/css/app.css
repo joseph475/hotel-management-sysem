@@ -4068,6 +4068,29 @@ span.notifbadge {
   padding: 0;
 }
 
+.checkinSearch {
+  position: absolute;
+  right: 25px;
+}
+
+.checkinSearch #search {
+  height: 25px;
+  background-color: #eeeaea;
+  padding-left: 5px;
+}
+
+.checkinSearch #search::-webkit-input-placeholder {
+  color: #acacac;
+}
+
+.checkinSearch #search::-ms-input-placeholder {
+  color: #acacac;
+}
+
+.checkinSearch #search::placeholder {
+  color: #acacac;
+}
+
 .Vacant {
   background-color: #4caf50;
 }
