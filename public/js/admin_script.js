@@ -1,5 +1,6 @@
 var curpage = 1;
 sessionStorage.setItem('cursection', 1);
+// sessionStorage.setItem('room-views', 'grid');
 
 var $loading = $('.loader').hide();
 var $dimScreem = $('#dimScreen').hide();

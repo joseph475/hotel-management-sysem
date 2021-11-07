@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\DashboardModel;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 // use Illuminate\Database\Query\Builder;
-use Carbon;
+// use Carbon;
 
 class DashboardController extends Controller
 {
@@ -18,7 +19,7 @@ class DashboardController extends Controller
               ->orWhere('status', 'LIKE', "%{$request->search}%")
               ->orWhere('type', 'LIKE', "%{$request->search}%");
         })
-        ->orderBy('room_id')->paginate(12);
+        ->orderBy('room_id')->paginate(24);
         return $roomCards;
     }
     public function loadAvailableRooms(){
@@ -42,11 +43,7 @@ class DashboardController extends Controller
                 UNION
              Select status, count(*) as total from rooms where status = "Occupied" and ispublished = 1 GROUP by status
                 UNION
-             Select status, count(*) as total from rooms where status = "Reserved" and ispublished = 1 GROUP by status
-                UNION
-             Select status, count(*) as total from rooms where status = "Cleaning" and ispublished = 1 GROUP by status
-                UNION
-             Select status, count(*) as total from rooms where status = "Maintenance" and ispublished = 1 GROUP by status');
+             Select status, count(*) as total from rooms where status = "Reserved" and ispublished = 1 GROUP by status');
         return $data;
     }
 }

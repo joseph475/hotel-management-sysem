@@ -4092,15 +4092,15 @@ span.notifbadge {
 }
 
 .Vacant {
-  background-color: #4caf50;
+  background-color: #d1c8c8;
 }
 
 .Occupied {
-  background-color: #f44336;
+  background-color: #ff8077;
 }
 
 .Maintenance {
-  background-color: #f75717;
+  background-color: rgb(76, 184, 247);
 }
 
 .ForCheckout {
@@ -4112,7 +4112,7 @@ span.notifbadge {
 }
 
 .Cleaning {
-  background-color: #2196f3;
+  background-color: red;
 }
 
 .Reserved {

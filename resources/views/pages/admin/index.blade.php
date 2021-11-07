@@ -19,7 +19,9 @@
                         <li><i class="small material-icons">brightness_1</i>Cleaning</li>
                         <li><i class="small material-icons">brightness_1</i>Maintenance</li>
                     </ul>
-                    <i class="small material-icons menu tooltipped" data-position="left"  data-tooltip="Legends">more_vert</i>
+                    <i id="change-views" class="small material-icons menu tooltipped" data-position="left"  data-tooltip="Change View">view_list</i>
+                    <i id="show-legends" class="small material-icons menu tooltipped" data-position="left"  data-tooltip="Legends">more_vert</i>
+                    
                 </div>
                 {{--  <a class="btn btn-1" href=".">
                     <i class="material-icons">refresh</i>
