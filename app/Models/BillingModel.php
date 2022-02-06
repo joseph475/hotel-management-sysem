@@ -11,6 +11,8 @@ class BillingModel extends Model
     public $timestamps = false;
     protected $fillable = [
         'checkInId',
+        'others',
+        'room',
         'collection',
         'date_collected',
     ];

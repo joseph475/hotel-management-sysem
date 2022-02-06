@@ -41,7 +41,7 @@
                 <td style="width: 15%">Contact #: </td>
                 <td style="width: 45%">{{ $info[0]->contact }}</td>
                 <td style="width: 10%">Total: </td>
-                <td style="width: 30%; font-weight: 600;">&#8369;{{ number_format($grandTotal) }}</td>
+                <td style="width: 30%; font-weight: bold;"> &#8369;{{ number_format($grandTotal) }}</td>
             </tr>
         </table>
 
@@ -50,18 +50,20 @@
         <h3 style="margin-bottom: 10px;">Room Fees</h3>
         <table class="break-table" style="width: 100%; border-collapse: collapse;" border="1">
             <tr>
-                <th style="width: 80%">Hours</th>
+                <th style="width: 80%; text-align: left; text-indent: 20px;">Duration</th>
                 <th style="width: 20%; text-align:center;">Rate</th>
             </tr>
             @foreach($rooms as $room)
               <tr>
-                  <td style="text-indent: 20px;">{{ ($room->days > 0)? number_format($room->hours * $room->days) : number_format($room->hours) }}</td>
-                  <td style="text-align: right;">&#8369;{{ ($room->days > 0)? number_format($room->rate * $room->days) : number_format($room->rate) }}</td>
+                  {{-- <td style="text-indent: 20px;">{{ ($room->days > 0)? number_format($room->hours * $room->days) : number_format($room->hours) }}</td> --}}
+                  <td style="text-indent: 20px;">{{ ($days <= 0)? $hours . ' hours' : $days . ' days' }}</td>
+                  <td style="text-align: right;">&#8369;{{ number_format($room->rate) }}</td>
+                  {{-- <td style="text-align: right;">&#8369;{{ ($days > 0)? number_format($room->rate * $days) : number_format($room->rate) }}</td> --}}
               </tr>
             @endforeach
             <tr>
                 <th>Total</td>
-                <th style="text-align: right;">&#8369;{{ number_format($totalRoom[0]->rate) }}</td>
+                <th style="text-align: right;">&#8369;{{ number_format($totalRoom) }}</td>
             </tr>
         </table>
 
@@ -69,7 +71,7 @@
             <h3 style="margin-bottom: 10px;">Foods Breakdown</h3>
             <table class="break-table" style="width: 100%; border-collapse: collapse;" border="1">
                 <tr>
-                    <th style="width: 50%">Name</th>
+                    <th style="width: 50%; text-align: left; text-indent: 20px;">Name</th>
                     <th style="width: 15%; text-align: center;">Price / unit</th>
                     <th style="width: 15%; text-align: center;">Quanity</th>
                     <th style="width: 20%; text-align: center;">Cost</th>

@@ -150,17 +150,27 @@ function loopRoomList(data){
 
                 // console.log('#room_no_link_' + room_id);
 
-            if(status === 'Vacant'){ $('#room_no_link_' + room_id).html(`<a class="blue-text" href="Checkin/${room_id}">Room ${roomNo}</a>`); }
-            if(status === 'Occupied'){ $('#room_no_link_' + room_id).html(`<a class="blue-text" href="Checkin-status/${room_id}">Room ${roomNo}</a>`); }
+            // if(status === 'Vacant'){ $('#room_no_link_' + room_id).html(`<a class="blue-text" href="Checkin/${room_id}">Room ${roomNo}</a>`); }
+            // if(status === 'Occupied'){ $('#room_no_link_' + room_id).html(`<a class="blue-text" href="Checkin-status/${room_id}">Room ${roomNo}</a>`); }
         }
     }
 }
 function createRoomList(roomNo, room_id, type, floor, maxAdult, maxChildren, status) {
+    var link = 'javascript:void(0)';
+
+    if(status === 'Vacant'){
+        link = `Checkin/${room_id}`;
+    }
+    else if(status === 'Occupied'){
+        link = `Checkin-status/${room_id}`;
+    }
+
     var myRoomCard = `<tr class='room_"${room_id}"'>` +
-                    `<td id="room_no_link_${room_id}">Room ${roomNo}</td>` +
+                    `<td style="font-weight:bold;" id="room_no_link_${room_id}">Room ${roomNo}</td>` +
                     `<td>${type}</td>` +
                     `<td>${floor}</td>` +
-                    `<td class="${status}" width="20">${status}</td>` +
+                    // `<td class="${status}" width="20">${status}</td>` +
+                    `<td width="20" style="text-align:center"><a href="${link}" class="btn btn-flat mr5 ${status} white-text" style="width: 140px;" data-status="${status}">${status}</a></td>` +
                     `</tr>`;
     return myRoomCard;
 }

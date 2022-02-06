@@ -55,6 +55,7 @@
                         <li><a href="{{ url('/Kitchen') }}"><i class="material-icons left">restaurant_menu</i>Food Menus</a></li>
                         <li><a href="{{ url('/InventoryList') }}"><i class="material-icons left">storage</i>Inventory List</a></li>
                         <li><a href="{{ url('/Extras') }}"><i class="material-icons left">filter_vintage</i>Extras</a></li>
+                        <li><a href="{{ url('/Extras') }}"><i class="material-icons left">money_off</i>Discounts</a></li>
                         <li><a href="accounts.php"><i class="material-icons">supervisor_account</i>Accounts</a></li>
                     </ul>
                 </div>

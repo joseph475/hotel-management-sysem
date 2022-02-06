@@ -35,19 +35,26 @@
         @if (count($collections) > 0)
             <table class="break-table" style="width: 100%; border-collapse: collapse;" border="1">
                 <tr>
-                    <th style="width: 30%">OR Number</th>
-                    <th style="width: 30%; text-align: center;">Date Collected</th>
-                    <th style="width: 40%; text-align: center;">Collection</th>
+                    <th rowspan="2" style="width: 30%">OR Number</th>
+                    <th rowspan="2" style="width: 30%; text-align: center;">Date Collected</th>
+                    <th colspan="3" style="width: 40%; text-align: center;">Collection</th>
+                </tr>
+                <tr>
+                    <th style="width: 30%; text-align: center;">Room</th>
+                    <th style="width: 35%; text-align: center;">Others</th>
+                    <th style="width: 35%; text-align: center;">Total</th>
                 </tr>
                 @foreach($collections as $collection)
                 <tr>
                     <td style="text-indent: 20px;">{{ $collection->ORNumber }}</td>
                     <td style="text-align: center;">{{ date('M d, Y', strtotime($collection->date_collected)) }}</td>
+                    <td style="text-align: right;">&#8369;{{ number_format($collection->room) }}</td>
+                    <td style="text-align: right;">&#8369;{{ number_format($collection->others) }}</td>
                     <td style="text-align: right;">&#8369;{{ number_format($collection->collection) }}</td>
                 </tr>
                 @endforeach
                 <tr>
-                    <th colspan="2">Total</td>
+                    <th colspan="4" style="text-align: right">Total</td>
                     <th style="text-align: right;">&#8369;{{ number_format($total_collections[0]->total) }}</td>
                 </tr>
             </table>
