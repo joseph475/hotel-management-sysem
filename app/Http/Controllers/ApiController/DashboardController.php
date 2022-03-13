@@ -23,7 +23,7 @@ class DashboardController extends Controller
         return $roomCards;
     }
     public function loadAvailableRooms(){
-        $availableRooms = DB::select('SELECT B.type, count(*) as total FROM rooms A inner join roomTypes B on A.roomType = B.id where A.status = "Vacant" and A.ispublished = 1 group by B.type');
+        $availableRooms = DB::select('SELECT B.type, count(*) as total FROM rooms A inner join roomtypes B on A.roomtype = B.id where A.status = "Vacant" and A.ispublished = 1 group by B.type');
         return $availableRooms;
     }
     public function getForCheckout(){
