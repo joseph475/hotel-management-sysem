@@ -63,7 +63,7 @@ class CollectionController extends Controller
         $foods = DB::select('Select * from addedfoods A inner join foods B on A.foodsId = B.id where A.checkinId = '. $id);
         $extras = DB::select('Select * from addedextras A inner join extras B on A.extrasId = B.id where A.checkinId = '. $id);
         $room = DB::select('Select *, A.created_at as checkin_date from checkin_table_room_billing A inner join roomtype_additional_rates B on A.rate_id = B.id where A.checkin_Id = '. $id);
-        $info = DB::select('Select * from checkin A inner join Billing B on A.id = B.checkInId inner join guests C on A.guestId = C.id
+        $info = DB::select('Select * from checkin A inner join billing B on A.id = B.checkInId inner join guests C on A.guestId = C.id
          inner join rooms D on A.room_id = D.id inner join roomtypes E on D.roomType = E.id where A.id = ' . $id);
       
         //     print_r($room);
