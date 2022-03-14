@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WebController\LoginController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,44 +13,52 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::middleware('auth')->group(function () {
 
-Route::get('/Rooms', 'WebController\RoomsController@index');
-Route::get('/Room/{id}', 'WebController\RoomsController@show');
+    Route::get('/', function () {
+        return view('pages.admin.index');
+    })->name('dashboard');
 
-Route::get('/RoomTypes', 'WebController\RoomTypesController@index');
-Route::get('/RoomType/{id}', 'WebController\RoomTypesController@show');
+    Route::get('/logout', 'WebController\LoginController@logout');
 
-Route::get('/Checkin/{id}', 'WebController\CheckinController@index');
-Route::get('/Checkin-status/{id}', 'WebController\CheckinController@show');
+    Route::get('/Rooms', 'WebController\RoomsController@index');
+    Route::get('/Room/{id}', 'WebController\RoomsController@show');
+    
+    Route::get('/RoomTypes', 'WebController\RoomTypesController@index');
+    Route::get('/RoomType/{id}', 'WebController\RoomTypesController@show');
+    
+    Route::get('/Checkin/{id}', 'WebController\CheckinController@index');
+    Route::get('/Checkin-status/{id}', 'WebController\CheckinController@show');
+    
+    Route::get('/RoomManagement', 'WebController\RoomManagementController@index');
+    
+    Route::get('/Guests', 'WebController\GuestsController@index');
+    Route::get('/ArchivedGuest', 'WebController\GuestsController@ArchivedGuests');
+    
+    Route::get('/Kitchen', 'WebController\KitchenController@index');
+    
+    Route::get('/InventoryList', 'WebController\InventoryListController@index');
+    
+    Route::get('/Extras', 'WebController\ExtrasController@index');
+    
+    Route::get('/UpcomingCheckout', 'WebController\UpcomingCheckout@index');
+    
+    Route::get('/HotelInfo', 'WebController\HotelInfoController@index');
+    
+    Route::get('/ChooseRoom', 'WebController\ChooseRoomController@index');
+    
+    Route::get('/AddReservation', 'WebController\Admin_ReservationController@AddReservation');
+    Route::get('/PendingReservationList', 'WebController\Admin_ReservationController@reservationList');
+    Route::get('/CheckinReservation', 'WebController\Admin_ReservationController@checkinReservation');
+    
+    Route::get('/reservation', 'WebController\Web_ReservationController@index');
+    
+    // Reports
+    Route::get('/Collections', 'WebController\CollectionController@index');
+    Route::get('/InventoryStatus', 'WebController\InventoryStatusReportController@index');
+    
 
-Route::get('/RoomManagement', 'WebController\RoomManagementController@index');
-
-Route::get('/Guests', 'WebController\GuestsController@index');
-Route::get('/ArchivedGuest', 'WebController\GuestsController@ArchivedGuests');
-
-Route::get('/Kitchen', 'WebController\KitchenController@index');
-
-Route::get('/InventoryList', 'WebController\InventoryListController@index');
-
-Route::get('/Extras', 'WebController\ExtrasController@index');
-
-Route::get('/UpcomingCheckout', 'WebController\UpcomingCheckout@index');
-
-Route::get('/HotelInfo', 'WebController\HotelInfoController@index');
-
-Route::get('/ChooseRoom', 'WebController\ChooseRoomController@index');
-
-Route::get('/AddReservation', 'WebController\Admin_ReservationController@AddReservation');
-Route::get('/PendingReservationList', 'WebController\Admin_ReservationController@reservationList');
-Route::get('/CheckinReservation', 'WebController\Admin_ReservationController@checkinReservation');
-
-Route::get('/reservation', 'WebController\Web_ReservationController@index');
-
-// Reports
-Route::get('/Collections', 'WebController\CollectionController@index');
-Route::get('/InventoryStatus', 'WebController\InventoryStatusReportController@index');
-
-
-Route::get('/', function () {
-    return view('pages.admin.index');
 });
+
+Route::get('/login', 'WebController\LoginController@index')->name('login');
+Route::post('login', [LoginController::class, 'login'])->name('member.login');

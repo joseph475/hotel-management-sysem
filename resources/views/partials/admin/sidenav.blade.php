@@ -74,5 +74,5 @@
             </li>
         </ul>
 
-    <li><a href="logout.php"><i class="material-icons left">exit_to_app</i>Log Out</a></li>
+    <li><a href="{{ url('/logout') }}"><i class="material-icons left">exit_to_app</i>Log Out</a></li>
 </ul> 

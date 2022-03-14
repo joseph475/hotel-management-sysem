@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -108,7 +109,8 @@ Route::get('dashboard/getForCheckout','ApiController\DashboardController@getForC
 Route::get('dashboard/getAvailableRooms','ApiController\DashboardController@loadAvailableRooms');
 Route::get('dashboard/getReserveAvailableOccupiedCount','ApiController\DashboardController@getReserveAvailableOccupiedCount');
 
-// web
 
 Route::post('WebReservation','ApiController\Web_ReservationController@store');
+
+
 
