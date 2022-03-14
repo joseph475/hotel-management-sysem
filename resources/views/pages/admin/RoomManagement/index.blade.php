@@ -43,5 +43,5 @@
 @endsection
 
 @section('pagejs')
-<script src="{{ asset('/js/pages/roomManagement/index.js') }}"></script>
+<script src="{{ asset('/js/pages/RoomManagement/index.js') }}"></script>
 @stop
