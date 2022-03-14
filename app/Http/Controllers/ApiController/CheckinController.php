@@ -109,7 +109,7 @@ class CheckinController extends Controller
         $foods = DB::select('Select * from addedfoods A inner join foods B on A.foodsId = B.id where A.checkinId = '. $id);
         $extras = DB::select('Select * from addedextras A inner join extras B on A.extrasId = B.id where A.checkinId = '. $id);
         $room = DB::select('Select *, A.created_at as checkin_date from checkin_table_room_billing A inner join roomtype_additional_rates B on A.rate_id = B.id where A.checkin_Id = '. $id);
-        $info = DB::select('Select * from vw_dashboard_room_list A inner join Billing B on A.checkin_id = B.checkInId where A.checkin_id = ' . $id);
+        $info = DB::select('Select * from vw_dashboard_room_list A inner join billing B on A.checkin_id = B.checkInId where A.checkin_id = ' . $id);
         
         // print_r($info);
         // exit;
