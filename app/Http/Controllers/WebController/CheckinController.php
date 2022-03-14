@@ -53,7 +53,7 @@ class CheckinController extends Controller
             (select cost from foods where id = A.foodsId) as cost,
             (select sellingPrice from foods where id = A.foodsId) as sellingPrice,
             (select remaining from foods where id = A.foodsId) as remaining
-            from addedFoods A where A.checkinId = '. $id .' group by A.foodsId');
+            from addedfoods A where A.checkinId = '. $id .' group by A.foodsId');
 
         // $addedExtras = AddedExtrasModel::join('extras', 'addedextras.extrasId', '=', 'extras.id')
         // ->select('extras.id', 'description', 'cost', 'quantity')
