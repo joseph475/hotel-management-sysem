@@ -32,3 +32,5 @@ function displayMessage(title, content) {
         useBootstrap: false,
     });
 }
+
+if ( $('#checkin_date')[0].type != 'date' ) $('#checkin_date').datepicker();
