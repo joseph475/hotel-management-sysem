@@ -3848,6 +3848,10 @@ span.notifbadge {
   background-color: #fd7f6ecc;
 }
 
+html {
+  height: -webkit-fill-available;
+}
+
 body {
   background-color: white;
 }
@@ -3857,7 +3861,6 @@ body .web header {
 body .web header .navbar {
   height: 60px;
   width: 100%;
-  position: fixed;
   top: 0;
   z-index: 9;
   padding: 15px 0px;
@@ -3901,10 +3904,10 @@ body .web main {
 }
 body .web main .web-reservation .first-section {
   position: relative;
-  height: 100vh;
   background-image: url("/images/bg_h1.jpg");
   background-position: bottom;
   background-size: cover;
+  height: calc(var(--vh, 1vh) * 100);
 }
 body .web main .web-reservation .first-section #checkin_date {
   background-color: rgba(255, 255, 255, 0.9);
@@ -3997,4 +4000,18 @@ body .web main .web-reservation #reservation_modal input::placeholder {
 }
 body .web main .web-reservation input[type=date]::-webkit-inner-spin-button {
   display: none;
+}
+
+@media (max-width: 800px) {
+  .second-section, .third-section, .fourth-section {
+    height: auto !important;
+  }
+  .second-section .container, .third-section .container, .fourth-section .container {
+    margin: auto;
+    width: 100%;
+    position: relative;
+    top: 0;
+    transform: none;
+    left: 0;
+  }
 }

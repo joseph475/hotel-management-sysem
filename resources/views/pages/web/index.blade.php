@@ -1,11 +1,12 @@
-@extends('layouts.web') 
+@extends('layouts.web')
 
 @section('content')
     <div class="web-reservation" id="fullpage">
         <div class="section first-section">
             <div class="container px20 first-page center-v-h">
                 <br><br>
-                <h1 class="black-text header center text-lighten-1">{{ isset($variables['hotel'])? $variables['hotel'] : 'Hotel' }}</h1>
+                <h1 class="black-text header center text-lighten-1">
+                    {{ isset($variables['hotel']) ? $variables['hotel'] : 'Hotel' }}</h1>
                 <div class="row center">
                     <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
                 </div>
@@ -16,18 +17,23 @@
                                 <!-- <span class="card-title white-text">Reservation Form</span> -->
                                 <div class="row">
                                     <div class="input-field col m4 s12">
-                                        <label class="white-text" for="checkin_date" style="position: absolute; top:-10px;">Checkin Date </label>
-                                        <input placeholder="Checkin Date" class="browser-default black-text" id="checkin_date" type="date">
+                                        <label class="white-text" for="checkin_date"
+                                            style="position: absolute; top:-10px;">Checkin Date </label>
+                                        <input placeholder="Checkin Date" class="browser-default black-text"
+                                            id="checkin_date" type="date">
                                         {{-- <input placeholder="Checkin Date" class="browser-default black-text" id="checkin_date" type="time"> --}}
                                     </div>
-                                    {{--  <div class="input-field col m2 s12">
+                                    {{-- <div class="input-field col m2 s12">
                                         <input placeholder="Checkout Date" id="checkout_date" type="date">
-                                    </div>  --}}
+                                    </div> --}}
                                     <div class="input-field col m4 s12">
                                         <select id="roomType" class="browser-default">
                                             <option value="" disabled selected>Room Type</option>
-                                            @foreach($roomTypeList as $typelist)
-                                                <option value="{{ $typelist->id }}"  data-maxChildren="{{ $typelist->maxChildren }}" data-maxAdult="{{ $typelist->maxAdult }}" >{{ $typelist->type }}</option>
+                                            @foreach ($roomTypeList as $typelist)
+                                                <option value="{{ $typelist->id }}"
+                                                    data-maxChildren="{{ $typelist->maxChildren }}"
+                                                    data-maxAdult="{{ $typelist->maxAdult }}">{{ $typelist->type }}
+                                                </option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -44,7 +50,8 @@
                                 </div>
                                 <div class="row center mb0">
                                     <!-- <a data-target="reservation_modal" class="btn modal-trigger btn-large waves-effect waves-light blue lighten-1 hoverable btn_bookNow">Book Now</a> -->
-                                    <a class="btn btn-large waves-effect waves-light blue lighten-1 hoverable btn_bookNow">Book Now</a>
+                                    <a class="btn btn-large waves-effect waves-light blue lighten-1 hoverable btn_bookNow">Book
+                                        Now</a>
                                 </div>
                             </div>
                         </div>
@@ -57,16 +64,17 @@
         <div class="section second-section">
             <div class="container px20 second-page center-v-h">
                 <div class="row">
-                    @foreach($roomTypes as $type)
+                    @foreach ($roomTypes as $type)
                         <div class="col m4 s12">
-                            <div class="card room-cards">
+                            <div class="card room-cards ">
                                 <div class="card-image">
-                                    <img src="<?php echo '/images/uploads/' . $type->img ?>" alt="/images/bg1.jpg">
+                                    <img src="<?php echo '/images/uploads/' . $type->img; ?>" alt="/images/bg1.jpg">
                                     <span class="card-title"><?php echo $type->type; ?></span>
-                                    <a class="btn-floating halfway-fab waves-effect waves-light blue hoverable tooltipped" data-tooltip="View Details"><i class="material-icons">forward</i></a>
+                                    <a class="btn-floating halfway-fab waves-effect waves-light blue hoverable tooltipped"
+                                        data-tooltip="View Details"><i class="material-icons">forward</i></a>
                                 </div>
                                 <div class="card-content">
-                                    <p><?php echo (strlen($type->description) > 100)? substr($type->description, 0, 100) . '...' : $type->description ?></p>
+                                    <p><?php echo strlen($type->description) > 100 ? substr($type->description, 0, 100) . '...' : $type->description; ?></p>
                                 </div>
                             </div>
                         </div>
@@ -85,10 +93,11 @@
                                     <h4 class="mt0">Accomodation</h4>
                                 </span>
                                 <p>I am a very simple card. I am good at containing small bits of information.
-                                I am convenient because I require little markup to use effectively.</p>
+                                    I am convenient because I require little markup to use effectively.</p>
                             </div>
                             <div class="card-action">
-                                <a href="{{ url('/ChooseRoom') }}" class="btn waves-effect waves-light btn-1 hoverable">View Rooms
+                                <a href="{{ url('/ChooseRoom') }}"
+                                    class="btn waves-effect waves-light btn-1 hoverable">View Rooms
                                     <i class="material-icons right">forward</i>
                                 </a>
                             </div>
@@ -101,10 +110,11 @@
                                     <h4 class="mt0">Facilities</h4>
                                 </span>
                                 <p>I am a very simple card. I am good at containing small bits of information.
-                                I am convenient because I require little markup to use effectively.</p>
+                                    I am convenient because I require little markup to use effectively.</p>
                             </div>
                             <div class="card-action">
-                                <a href="{{ url('/ChooseRoom') }}" class="btn waves-effect waves-light btn-1 hoverable">View Facilities
+                                <a href="{{ url('/ChooseRoom') }}"
+                                    class="btn waves-effect waves-light btn-1 hoverable">View Facilities
                                     <i class="material-icons right">forward</i>
                                 </a>
                             </div>
@@ -117,12 +127,13 @@
                                     <h4 class="mt0">Location</h4>
                                 </span>
                                 <p>
-                                    {{ isset($variables['hotel'])? $variables['hotel'] : 'Hotel' }} is located at
-                                    {{ isset($variables['address'])? $variables['address'] : 'address' }}
+                                    {{ isset($variables['hotel']) ? $variables['hotel'] : 'Hotel' }} is located at
+                                    {{ isset($variables['address']) ? $variables['address'] : 'address' }}
                                 </p>
                             </div>
                             <div class="card-action">
-                                <a href="{{ url('/ChooseRoom') }}" class="btn waves-effect waves-light btn-1 hoverable">View Location
+                                <a href="{{ url('/ChooseRoom') }}"
+                                    class="btn waves-effect waves-light btn-1 hoverable">View Location
                                     <i class="material-icons right">forward</i>
                                 </a>
                             </div>
@@ -131,7 +142,7 @@
 
                 </div>
             </div>
-        </div>        
+        </div>
         <div class="section fourth-section">
             <div class="container px20 fourth-page center center-v-h">
                 <br><br>
@@ -143,7 +154,7 @@
             </div>
         </div>
 
-    
+
         <div id="reservation_modal" class="modal">
             <div class="modal-content">
                 <h4>Guest Details</h4>
@@ -162,7 +173,7 @@
                 <div class="input-field col s12">
                     <input id="guest_name" type="text" class="validate">
                     <label for="guest_name">Guest Name</label>
-                </div>  
+                </div>
                 <div class="input-field col s12">
                     <input id="guest_id_type" type="text" class="validate">
                     <label for="guest_id_type">Government ID Type</label>
@@ -194,20 +205,20 @@
             </div>
         </div>
     </div>
-    
+
 @endsection
 
 @section('pagejs')
     <script>
         new fullpage('#fullpage', {
-            autoScrolling:true,
+            autoScrolling: true,
             scrollHorizontally: false,
-            anchors:['Reservation', 'Room_Types','Facilities', 'Contact_Us'],
-            sectionsColor : ['#385170', '#385170', '#c0c0c0', '#1e1e1e'],
+            anchors: ['Reservation', 'Room_Types', 'Facilities', 'Contact_Us'],
+            sectionsColor: ['#385170', '#385170', '#c0c0c0', '#1e1e1e'],
             navigation: true,
             controlArrows: false,
             scrollOverflow: true,
-            navigationTooltips: ['Reservation', 'Room Types','Facilities', 'Contact Us'],
+            navigationTooltips: ['Reservation', 'Room Types', 'Facilities', 'Contact Us'],
             scrollingSpeed: 1200,
             verticalCentered: true
         });
