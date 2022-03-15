@@ -10,7 +10,7 @@
                     <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
                 </div>
                 <div class="row center">
-                    <div class="col s12 m12">
+                    <div class="col s8 m12">
                         <div class="card web-tr-card">
                             <div class="card-content white-text">
                                 <!-- <span class="card-title white-text">Reservation Form</span> -->
