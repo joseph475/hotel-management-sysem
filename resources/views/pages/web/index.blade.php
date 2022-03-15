@@ -57,7 +57,7 @@
             <div class="container px20 second-page">
                 <div class="row">
                     @foreach($roomTypes as $type)
-                        <div class="col s12 m4">
+                        <div class="col m4 s12">
                             <div class="card room-cards">
                                 <div class="card-image">
                                     <img src="<?php echo '/images/uploads/' . $type->img ?>" alt="/images/bg1.jpg">
@@ -77,7 +77,7 @@
         <div class="section third-section">
             <div class="container px20 third-page">
                 <div class="row">
-                    <div class="col s12 m4">
+                    <div class="col m4 s12">
                         <div class="card card-2 center">
                             <div class="card-content">
                                 <span class="card-title">
@@ -93,7 +93,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col s12 m4">
+                    <div class="col m4 s12">
                         <div class="card card-2 center">
                             <div class="card-content">
                                 <span class="card-title">
@@ -109,7 +109,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col s12 m4">
+                    <div class="col m4 s12">
                         <div class="card card-2 center">
                             <div class="card-content">
                                 <span class="card-title">

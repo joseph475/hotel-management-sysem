@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url('/css/fullpage.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ url('/css/materialize.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ url('/css/app.css') }}" />
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
