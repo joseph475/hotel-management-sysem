@@ -33,4 +33,6 @@ function displayMessage(title, content) {
     });
 }
 
-if ( $('#checkin_date')[0].type != 'date' ) $('#checkin_date').datepicker();
+if ( $('#checkin_date')[0].type != 'date' ) {
+    $('#checkin_date').datepicker();
+};
