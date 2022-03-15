@@ -10,7 +10,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
 
-<script type="text/javascript" src="{{ url('/js/fullpage.js') }}"></script>
+{{-- <script type="text/javascript" src="{{ url('/js/fullpage.js') }}"></script> --}}
 <script type="text/javascript" src="{{ url('/js/scrolloverflow.min.js') }}"></script>
 <script type="text/javascript" src="{{ url('/js/materialize.js') }}"></script>
 
