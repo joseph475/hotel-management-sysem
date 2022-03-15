@@ -23,7 +23,7 @@
                                         <input placeholder="Checkout Date" id="checkout_date" type="date">
                                     </div>  --}}
                                     <div class="input-field col m4 s12">
-                                        <select id="roomType">
+                                        <select id="roomType" class="browser-default">
                                             <option value="" disabled selected>Room Type</option>
                                             @foreach($roomTypeList as $typelist)
                                                 <option value="{{ $typelist->id }}"  data-maxChildren="{{ $typelist->maxChildren }}" data-maxAdult="{{ $typelist->maxAdult }}" >{{ $typelist->type }}</option>
@@ -31,12 +31,12 @@
                                         </select>
                                     </div>
                                     <div class="input-field col m2 s12">
-                                        <select id="adult_count" class="validate">
+                                        <select id="adult_count" class="validate browser-default">
                                             <option value="" disabled selected>Adult (18+)</option>
                                         </select>
                                     </div>
                                     <div class="input-field col m2 s12">
-                                        <select id="child_count">
+                                        <select id="child_count" class="browser-default">
                                             <option value="" disabled selected>Children (0-17)</option>
                                         </select>
                                     </div>
