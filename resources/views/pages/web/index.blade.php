@@ -17,7 +17,8 @@
                                 <div class="row">
                                     <div class="input-field col m4 s12">
                                         <label class="white-text" for="checkin_date" style="position: absolute; top:-10px;">Checkin Date </label>
-                                        <input placeholder="Checkin Date" class="black-text" id="checkin_date" type="date">
+                                        <input placeholder="Checkin Date" class="datepicker black-text" id="checkin_date">
+                                        {{-- <input placeholder="Checkin Date" class="browser-default black-text" id="checkin_date" type="time"> --}}
                                     </div>
                                     {{--  <div class="input-field col m2 s12">
                                         <input placeholder="Checkout Date" id="checkout_date" type="date">
