@@ -87,7 +87,7 @@
             <div class="container px20 third-page center-v-h">
                 <div class="row">
                     <div class="col m4 s12">
-                        <div class="card card-2 center">
+                        <div class="card card-2">
                             <div class="card-content">
                                 <span class="card-title">
                                     <h4 class="mt0">Accomodation</h4>
@@ -121,7 +121,7 @@
                         </div>
                     </div>
                     <div class="col m4 s12">
-                        <div class="card card-2 center">
+                        <div class="card card-2">
                             <div class="card-content">
                                 <span class="card-title">
                                     <h4 class="mt0">Location</h4>
