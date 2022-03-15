@@ -32,3 +32,7 @@ function displayMessage(title, content){
         useBootstrap: false,
     });
 }
+
+$('li[id^="select-options"]').on('touchend', function (e) {
+    e.stopPropagation();
+ }); 
