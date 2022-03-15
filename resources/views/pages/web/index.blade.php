@@ -5,8 +5,8 @@
         <div class="section first-section">
             <div class="container px20 first-page center-v-h">
                 <br><br>
-                <h3 class="black-text header center text-lighten-1">
-                    {{ isset($variables['hotel']) ? $variables['hotel'] : 'Hotel' }}</h3>
+                <h4 class="black-text header center text-lighten-1">
+                    {{ isset($variables['hotel']) ? $variables['hotel'] : 'Hotel' }}</h4>
                 <div class="row center">
                     <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
                 </div>
