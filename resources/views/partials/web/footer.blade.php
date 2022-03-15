@@ -14,7 +14,7 @@
 <script type="text/javascript" src="{{ url('/js/scrolloverflow.min.js') }}"></script>
 <script type="text/javascript" src="{{ url('/js/materialize.js') }}"></script>
 
-{{-- <script type="text/javascript" src="{{ url('/js/jquery-confirm.js') }}"></script> --}}
+<script type="text/javascript" src="{{ url('/js/jquery-confirm.js') }}"></script>
 <script type="text/javascript" src="{{ url('/js/web_script.js') }}"></script>
 
 
