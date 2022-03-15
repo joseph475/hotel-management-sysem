@@ -50,6 +50,8 @@ body {
             padding: 0px;
             .web-reservation {
                 .first-section {
+                    position: relative;
+                    height: 100vh;
                     background-image: url("/images/bg_h1.jpg");
                     background-position: bottom;
                     background-size: cover;
@@ -63,12 +65,18 @@ body {
                     }
                 }
                 .second-section {
+                    position: relative;
+                    height: 100vh;
                     background-color: #9e9e9e !important;
                 }
                 .third-section {
+                    position: relative;
+                    height: 100vh;
                     background-color: #ae343b !important;
                 }
                 .fourth-section {
+                    position: relative;
+                    height: 100vh;
                     background-color: #c8af95 !important;
                 }
                 .web-tr-card {

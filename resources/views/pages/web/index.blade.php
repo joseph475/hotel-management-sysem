@@ -3,7 +3,7 @@
 @section('content')
     <div class="web-reservation" id="fullpage">
         <div class="section first-section">
-            <div class="container px20 first-page">
+            <div class="container px20 first-page center-v-h">
                 <br><br>
                 <h1 class="black-text header center text-lighten-1">{{ isset($variables['hotel'])? $variables['hotel'] : 'Hotel' }}</h1>
                 <div class="row center">
@@ -55,7 +55,7 @@
         </div>
 
         <div class="section second-section">
-            <div class="container px20 second-page">
+            <div class="container px20 second-page center-v-h">
                 <div class="row">
                     @foreach($roomTypes as $type)
                         <div class="col m4 s12">
@@ -76,7 +76,7 @@
         </div>
 
         <div class="section third-section">
-            <div class="container px20 third-page">
+            <div class="container px20 third-page center-v-h">
                 <div class="row">
                     <div class="col m4 s12">
                         <div class="card card-2 center">
@@ -95,7 +95,7 @@
                         </div>
                     </div>
                     <div class="col m4 s12">
-                        <div class="card card-2 center">
+                        <div class="card card-2">
                             <div class="card-content">
                                 <span class="card-title">
                                     <h4 class="mt0">Facilities</h4>
@@ -133,7 +133,7 @@
             </div>
         </div>        
         <div class="section fourth-section">
-            <div class="container px20 fourth-page">
+            <div class="container px20 fourth-page center center-v-h">
                 <br><br>
                 <h1 class="teal-text header center text-lighten-2">Contact Us</h1>
                 <div class="row center">

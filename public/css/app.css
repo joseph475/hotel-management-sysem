@@ -3379,11 +3379,14 @@ p.headline {
   border: 1px solid #dad2d2;
 }
 
-.tabs .tab a, .tabs .tab a:hover, .tabs .tab a.active {
+.tabs .tab a,
+.tabs .tab a:hover,
+.tabs .tab a.active {
   color: black;
 }
 
-.tabs .tab a:hover, .tabs .tab a.active {
+.tabs .tab a:hover,
+.tabs .tab a.active {
   background-color: #21a4e0 !important;
   color: white;
 }
@@ -3402,7 +3405,8 @@ p.headline {
 }
 
 @media (min-width: 992px) {
-  main, header {
+  main,
+header {
     padding-left: 300px;
   }
 }
@@ -3607,7 +3611,8 @@ input.with-borders:focus {
   margin-bottom: 20px;
   background-color: white;
 }
-.table-container .myTable th, .table-container .myTable td {
+.table-container .myTable th,
+.table-container .myTable td {
   padding-left: 15px;
 }
 .table-container .myTable th {
@@ -3803,6 +3808,14 @@ span.notifbadge {
   color: #acacac;
 }
 
+.center-v-h {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .Vacant {
   background-color: #6babf5;
 }
@@ -3887,6 +3900,8 @@ body .web main {
   padding: 0px;
 }
 body .web main .web-reservation .first-section {
+  position: relative;
+  height: 100vh;
   background-image: url("/images/bg_h1.jpg");
   background-position: bottom;
   background-size: cover;
@@ -3900,12 +3915,18 @@ body .web main .web-reservation .first-section #checkin_date {
   height: 3rem;
 }
 body .web main .web-reservation .second-section {
+  position: relative;
+  height: 100vh;
   background-color: #9e9e9e !important;
 }
 body .web main .web-reservation .third-section {
+  position: relative;
+  height: 100vh;
   background-color: #ae343b !important;
 }
 body .web main .web-reservation .fourth-section {
+  position: relative;
+  height: 100vh;
   background-color: #c8af95 !important;
 }
 body .web main .web-reservation .web-tr-card {
