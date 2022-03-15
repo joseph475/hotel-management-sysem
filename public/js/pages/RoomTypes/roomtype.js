@@ -1,19 +1,47 @@
 $(document).ready(loadRoomRate);
 $(document).ready(ckEditorInit('description'));
-$(document).on('click','.submitRoomType', save);
+$(document).on('click', '.submitRoomType', save);
 $(document).on('click', '.btn_add_rate', addRate);
-$(document).on('click','#submit_penalty_rate', changePenaltyRate);
+$(document).on('click', '#submit_penalty_rate', changePenaltyRate);
 $(document).on('click', '.changeStatus', changeStatus);
+$(document).on('click', '#delete_img', delete_image);
 
 var checkifvalid = ['#add_hour', '#add_rate'];
 var roomtype_id = $('.btn_add_rate').attr('data-id');
 
-function save(){
-    $('#submitForm').submit();
-    M.toast({html: 'Saving Pls. Wait!!!'});
+function delete_image() {
+    var tr = $(this).closest('tr');
+    var id = $(this).attr('data-id');
+
+    $.confirm({
+        title: 'Delete Extra?',
+        buttons: {
+            cancel: function () { },
+            confirm: function () {
+                $.ajax({
+                    url: '../api/Roomtype/' + id,
+                    type: 'DELETE',
+                    data: {
+                        id: id
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.status == 0) { displayMessage('Image cannot be deleted'); }
+                        else { tr.remove(); }
+                    },
+                    error: function (aaa, bbb, ccc) { console.log(aaa); }
+                });
+            }
+        }
+    });
 }
 
-function loadRoomRate(){
+function save() {
+    $('#submitForm').submit();
+    M.toast({ html: 'Saving Pls. Wait!!!' });
+}
+
+function loadRoomRate() {
     $.ajax({
         url: '../api/RoomRate/' + roomtype_id,
         type: 'GET',
@@ -26,7 +54,7 @@ function loadRoomRate(){
         }
     });
 }
-function loopdetails(data){
+function loopdetails(data) {
     $('.add_ul').html("");
     for (var i = 0; i < data.length; i++) {
         var id = data[i].id,
@@ -35,11 +63,11 @@ function loopdetails(data){
         $('.add_ul').append(createlist(id, hours, rate));
     }
 }
-function createlist(id, hours, rate){
-    var myList = '<li data-id="'+ id +'">'+ hours +' hrs <span class="right">&#8369;'+ rate +'</span></li>';
+function createlist(id, hours, rate) {
+    var myList = '<li data-id="' + id + '">' + hours + ' hrs <span class="right">&#8369;' + rate + '</span></li>';
     return myList;
 }
-function changePenaltyRate(){
+function changePenaltyRate() {
     var penalty_rate = $('#penalty_rate_change').val();
     $.ajax({
         url: '../api/ChangePenaltyRate',
@@ -50,7 +78,7 @@ function changePenaltyRate(){
         },
         dataType: 'json',
         success: function (data) {
-            M.toast({html: 'Penalty Rate Updated Succesfully'});
+            M.toast({ html: 'Penalty Rate Updated Succesfully' });
             $('#penalty_rate').html(penalty_rate);
             $('#penalty_rate_change').val('');
             $('#penalty_rate_change').removeClass('valid');
@@ -60,12 +88,12 @@ function changePenaltyRate(){
         }
     });
 }
-function changeStatus(e){
+function changeStatus(e) {
     e.preventDefault();
     let status = $(this).attr('data-status');
-    status = (status == 1)? 0 : 1;
+    status = (status == 1) ? 0 : 1;
     $.confirm({
-        title: `${(status == 1)? 'Publish ':'Unpublish ' }RoomType?`,
+        title: `${(status == 1) ? 'Publish ' : 'Unpublish '}RoomType?`,
         content: '',
         buttons: {
             cancel: function () { },
@@ -75,7 +103,7 @@ function changeStatus(e){
                     type: 'PUT',
                     data: {
                         id: roomtype_id,
-                        ispublished : status
+                        ispublished: status
                     },
                     dataType: 'json',
                     success: function (data) {
@@ -87,11 +115,11 @@ function changeStatus(e){
         }
     });
 }
-function addRate(){
+function addRate() {
     var hours = $('#add_hour').val().trim();
     var rate = $('#add_rate').val().trim();
-    
-    if(checkValid(checkifvalid)){
+
+    if (checkValid(checkifvalid)) {
         $.confirm({
             title: 'Add Rate?',
             content: '',
@@ -103,12 +131,12 @@ function addRate(){
                         type: 'POST',
                         data: {
                             roomtype_id: roomtype_id,
-                            hours : hours,
+                            hours: hours,
                             rate: rate
                         },
                         dataType: 'json',
                         success: function (data) {
-                            M.toast({html: 'Rate Added Succesfully'});
+                            M.toast({ html: 'Rate Added Succesfully' });
                             clearModal(checkifvalid);
                             loadRoomRate();
                         },

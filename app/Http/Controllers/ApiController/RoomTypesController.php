@@ -91,4 +91,14 @@ class RoomTypesController extends Controller
         $status->save();
         return $status;
     }
+
+    public function destroy($id)
+    {
+        if(RoomImagesModel::destroy($id)){
+            return ['status' => 1];
+        }
+        else{
+            return ['status' => 0];
+        }
+    }
 }

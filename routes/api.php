@@ -109,6 +109,7 @@ Route::get('dashboard/getForCheckout','ApiController\DashboardController@getForC
 Route::get('dashboard/getAvailableRooms','ApiController\DashboardController@loadAvailableRooms');
 Route::get('dashboard/getReserveAvailableOccupiedCount','ApiController\DashboardController@getReserveAvailableOccupiedCount');
 
+Route::delete('Roomtype/{id}','ApiController\RoomTypesController@destroy');
 
 Route::post('WebReservation','ApiController\Web_ReservationController@store');
 

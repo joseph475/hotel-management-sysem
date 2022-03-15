@@ -83,7 +83,7 @@
                                                 <td>{{ $images->filename }}</td>
                                                 <td>{{ date('Y-m-d', strtotime($images->date_created)) }}</td>
                                                 <td>
-                                                    <a href="" class="btn btn-flat btn-2 tooltipped" data-tooltip="Delete"><i class="far fa-trash-alt"></i></a>
+                                                    <a href="javascript:void(0)" class="btn btn-flat btn-2 tooltipped" data-id="{{ $images->id }}" id="delete_img" data-tooltip="Delete"><i class="far fa-trash-alt"></i></a>
                                                     <a href="{{url('/images/uploads/' . $images->filename)}}" target="_blank" class="btn btn-flat btn-2 tooltipped" data-tooltip="View"><i class="fas fa-search-plus"></i></i></i></a>
                                                 </td>
                                             </tr>

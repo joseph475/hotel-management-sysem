@@ -51,7 +51,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/PendingReservationList', 'WebController\Admin_ReservationController@reservationList');
     Route::get('/CheckinReservation', 'WebController\Admin_ReservationController@checkinReservation');
     
-    Route::get('/reservation', 'WebController\Web_ReservationController@index');
+    
     
     // Reports
     Route::get('/Collections', 'WebController\CollectionController@index');
@@ -62,3 +62,4 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/login', 'WebController\LoginController@index')->name('login');
 Route::post('login', [LoginController::class, 'login'])->name('member.login');
+Route::get('/reservation', 'WebController\Web_ReservationController@index');
