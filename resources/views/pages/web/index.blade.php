@@ -16,8 +16,8 @@
                                 <!-- <span class="card-title white-text">Reservation Form</span> -->
                                 <div class="row">
                                     <div class="input-field col m4 s12">
-                                        <label class="white-text" for="checkin_date">Checkin Date </label>
-                                        <input placeholder="Checkin Date" id="checkin_date" type="date">
+                                        <label class="white-text" for="checkin_date" style="position: absolute; top:-10px;">Checkin Date </label>
+                                        <input placeholder="Checkin Date" class="browser-default black-text" id="checkin_date" type="date">
                                     </div>
                                     {{--  <div class="input-field col m2 s12">
                                         <input placeholder="Checkout Date" id="checkout_date" type="date">
