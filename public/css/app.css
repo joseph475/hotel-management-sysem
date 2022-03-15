@@ -3891,6 +3891,14 @@ body .web main .web-reservation .first-section {
   background-position: bottom;
   background-size: cover;
 }
+body .web main .web-reservation .first-section #checkin_date {
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #f2f2f2;
+  border-radius: 2px;
+  height: 3rem;
+}
 body .web main .web-reservation .second-section {
   background-color: #9e9e9e !important;
 }
