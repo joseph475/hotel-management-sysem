@@ -3419,6 +3419,17 @@ header {
     margin-right: 0;
     float: none;
   }
+
+  .modal {
+    width: 95% !important;
+    margin: auto;
+    min-width: initial !important;
+  }
+
+  .jconfirm-box {
+    width: 70% !important;
+    margin: auto;
+  }
 }
 @media (max-width: 992px) {
   #dimScreen {
@@ -4013,10 +4024,5 @@ body .web main .web-reservation input[type=date]::-webkit-inner-spin-button {
     top: 0;
     transform: none;
     left: 0;
-  }
-
-  .modal {
-    width: 95% !important;
-    margin: auto;
   }
 }
