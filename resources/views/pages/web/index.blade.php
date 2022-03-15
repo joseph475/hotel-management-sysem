@@ -146,7 +146,7 @@
         <div class="section fourth-section">
             <div class="container px20 fourth-page center center-v-h">
                 <br><br>
-                <h1 class="teal-text header center text-lighten-2">Contact Us</h1>
+                <h1 class="header center text-lighten-2">Contact Us</h1>
                 <div class="row center">
                     <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
                 </div>
