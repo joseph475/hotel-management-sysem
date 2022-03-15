@@ -209,7 +209,7 @@
 @endsection
 
 @section('pagejs')
-    <script>
+    {{-- <script>
         new fullpage('#fullpage', {
             autoScrolling: true,
             scrollHorizontally: false,
@@ -223,6 +223,6 @@
             verticalCentered: true
         });
         fullpage_api.setAllowScrolling(true);
-    </script>
+    </script> --}}
     <script src="{{ asset('/js/pages/WebReservation/index.js') }}"></script>
 @stop

@@ -4014,4 +4014,9 @@ body .web main .web-reservation input[type=date]::-webkit-inner-spin-button {
     transform: none;
     left: 0;
   }
+
+  .modal {
+    width: 95%;
+    margin: auto;
+  }
 }
